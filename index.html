@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sopa™ · Inteligencia artificial local y privada para Windows, en español</title>
+<meta name="description" content="Sopa: inteligencia artificial local para Windows. Ejecuta y personaliza tu propia IA en tu ordenador, en español, sin programar y sin internet. Privada: sin cuentas, sin nube y sin telemetría.">
+<link rel="canonical" href="https://ardu01.github.io/sopa-web/">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Miguel Rodríguez Saiz">
+<meta name="theme-color" content="#F5F6F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1211" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Sopa">
+<meta property="og:url" content="https://ardu01.github.io/sopa-web/">
+<meta property="og:title" content="Sopa™ · Tu inteligencia artificial. Tu ordenador. Tus reglas.">
+<meta property="og:description" content="Tu propia IA en tu ordenador Windows, en español y sin programar. 100 % local y privada.">
+<meta property="og:image" content="https://ardu01.github.io/sopa-web/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logotipo de Sopa con el lema «Tu inteligencia artificial. Tu ordenador. Tus reglas.»">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sopa™ · Tu inteligencia artificial. Tu ordenador. Tus reglas.">
+<meta name="twitter:description" content="Tu propia IA en tu ordenador Windows, en español y sin programar. 100 % local y privada.">
+<meta name="twitter:image" content="https://ardu01.github.io/sopa-web/img/og.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Sopa","applicationCategory":"UtilitiesApplication","operatingSystem":"Windows","softwareVersion":"0.3","inLanguage":"es","url":"https://ardu01.github.io/sopa-web/","image":"https://ardu01.github.io/sopa-web/img/icono.png","description":"La forma más sencilla de tener y personalizar tu propia inteligencia artificial en tu ordenador Windows. En español, sin programar y 100 % local.","author":{"@type":"Person","name":"Miguel Rodríguez Saiz"},"copyrightHolder":{"@type":"Person","name":"Miguel Rodríguez Saiz"}}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es una IA local?", "acceptedAnswer": {"@type": "Answer", "text": "Es una inteligencia artificial que se ejecuta en tu propio ordenador, en lugar de en servidores de terceros. Con Sopa descargas un modelo de lenguaje (LLM) y conversas con él directamente en tu equipo Windows, en español y sin programar."}}, {"@type": "Question", "name": "¿Es privada?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Sopa es 100 % local: tus conversaciones y tus datos no salen de tu equipo. No necesita cuentas, no usa telemetría y no depende de APIs de pago."}}, {"@type": "Question", "name": "¿Qué ordenador necesito?", "acceptedAnswer": {"@type": "Answer", "text": "Un ordenador con Windows. Sopa analiza tu equipo y te indica qué modelos van bien: verificados, estimados o no soportados. Como referencia, en un portátil con una gráfica GTX 1650 de 4 GB conversa a 133 tokens/s con un modelo de 0.5B y personaliza modelos de hasta 3B."}}, {"@type": "Question", "name": "¿Necesita internet?", "acceptedAnswer": {"@type": "Answer", "text": "Para conversar, no: el chat funciona sin conexión. Solo necesitas conexión para descargar los modelos. La nube nunca es obligatoria."}}, {"@type": "Question", "name": "¿Es gratis?", "acceptedAnswer": {"@type": "Answer", "text": "El plan Básico es gratis, con chat ilimitado y personalización limitada. Los planes Plus y Pro amplían las funciones; sus precios se anunciarán próximamente."}}]}
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/favicon-180.png">
+<link rel="preload" href="fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-in">
+    <a href="./" class="marca" aria-label="Sopa, inicio"><img src="img/icono.webp" alt="Logotipo de Sopa" width="28" height="28">Sopa™</a>
+    <nav aria-label="Secciones"><a href="#privacidad">Privacidad</a><a href="#funciones">Funciones</a><a href="#modelos">Modelos</a><a href="#planes">Planes</a><a href="#proximamente">Próximamente</a><a href="#faq">Preguntas</a></nav>
+    <span class="pill-dev">En desarrollo · v0.3</span>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <img class="hero-icono r" src="img/icono.webp" alt="Logotipo de Sopa: un cuenco de sopa verde con circuitos y vapor" width="168" height="168">
+  <p class="eyebrow r">Inteligencia artificial local para Windows</p>
+  <h1 class="r">Tu inteligencia artificial.<br>Tu ordenador.<br><span class="verde">Tus reglas.</span></h1>
+  <p class="lead r">La forma más sencilla de ejecutar IA en tu ordenador y personalizarla. Una IA local para Windows, todo en español y sin saber programar.</p>
+  <div class="ctas r"><a class="btn" href="#estado">Sigue el desarrollo</a><a class="enlace" href="#funciones">Descubre qué hace ›</a></div>
+  <figure class="hero-shot r">
+    <picture><source srcset="img/oscuro-inicio.webp" media="(prefers-color-scheme: dark)"><img fetchpriority="high" src="img/claro-inicio.webp" alt="Pantalla de inicio de Sopa" width="1280" height="800"></picture>
+  </figure>
+</section>
+
+<section id="privacidad" class="banda oscura">
+  <div class="cont">
+    <p class="eyebrow r">Privacidad</p>
+    <h2 class="r">IA privada, sin internet.<br>Lo tuyo no sale de tu equipo.</h2>
+    <p class="lead r">100 % local: tus conversaciones y tus datos se quedan en tu ordenador. Siempre.</p>
+    <ul class="rejilla4">
+      <li class="r"><strong>Sin cuentas</strong><span>Abres la app y empiezas.</span></li>
+      <li class="r"><strong>Sin nube obligatoria</strong><span>Funciona sin conexión.</span></li>
+      <li class="r"><strong>Sin telemetría</strong><span>No recogemos nada de lo que haces.</span></li>
+      <li class="r"><strong>Sin APIs de pago</strong><span>Ningún coste por mensaje.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="funciones" class="cont seccion">
+  <p class="eyebrow r">Ya funciona</p>
+  <h2 class="r">Todo lo que necesitas.<br>Nada que configurar.</h2>
+  <div class="func">
+    <article class="r"><span class="num">01</span><h3>Conoce tu ordenador</h3><p>Sopa detecta tu equipo y te dice qué modelos van bien: <em>verificado</em>, <em>estimado</em> o <em>no soportado</em>.</p></article>
+    <article class="r"><span class="num">02</span><h3>Descarga con un clic</h3><p>Elige entre modelos verificados y Sopa se encarga del resto.</p></article>
+    <article class="r"><span class="num">03</span><h3>Chatea sin conexión</h3><p>Habla con tu IA aunque no tengas internet.</p></article>
+    <article class="r"><span class="num">04</span><h3>Personaliza tu IA</h3><p>Personaliza tu IA con tus propios textos. La configuración técnica (LoRA/QLoRA) se ajusta sola a tu hardware.</p></article>
+    <article class="r"><span class="num">05</span><h3>Llévatela</h3><p>Exporta tu modelo a Ollama/GGUF.</p></article>
+  </div>
+</section>
+
+<section class="cont seccion galeria">
+  <h2 class="r">Tranquila por fuera.<br>Potente por dentro.</h2>
+  <p class="lead r">Un diseño sereno, en tema claro u oscuro.</p>
+  <figure class="r"><picture><source srcset="img/oscuro-modelos.webp" media="(prefers-color-scheme: dark)"><img loading="lazy" decoding="async" src="img/claro-modelos.webp" alt="Pantalla de modelos de Sopa" width="1280" height="800"></picture><figcaption>Modelos recomendados para tu equipo.</figcaption></figure>
+  <figure class="r"><img loading="lazy" decoding="async" src="img/oscuro-chat.webp" alt="Chat de Sopa en tema oscuro" width="1280" height="800"><figcaption>Chat privado, en tema oscuro.</figcaption></figure>
+</section>
+
+<section id="rendimiento" class="banda oscura">
+  <div class="cont">
+    <p class="eyebrow r">Rendimiento real</p>
+    <h2 class="r">Rápida incluso<br>en un portátil modesto.</h2>
+    <p class="lead r">Medido en un portátil con una GTX 1650 de 4 GB.</p>
+    <div class="cifras">
+      <div class="r"><b class="cuenta" data-n="133">133</b><span>tok/s conversando<br>con un modelo de 0.5B</span></div>
+      <div class="r"><b>~<span class="cuenta" data-n="66">66</span></b><span>tok/s con 1.5B</span></div>
+      <div class="r"><b>~<span class="cuenta" data-n="41">41</span></b><span>tok/s con 3B</span></div>
+    </div>
+    <p class="nota r">En esa misma gráfica, Sopa personaliza modelos de hasta 3B. Los resultados varían según el equipo.</p>
+  </div>
+</section>
+
+<section id="modelos" class="cont seccion">
+  <p class="eyebrow r">Catálogo</p>
+  <h2 class="r">LLM locales en español.<br>Elegidos para tu equipo.</h2>
+  <p class="lead r">Modelos de lenguaje abiertos que funcionan en tu ordenador. Licencias abiertas; cada modelo con la suya.</p>
+  <ul class="chips r">
+    <li>Qwen3 4B</li><li>Qwen3.5 4B</li><li>Phi-4-mini</li><li>Gemma 4 E4B</li><li>Qwen2.5 0.5B</li><li>Qwen2.5 1.5B</li><li>Qwen2.5 3B</li><li>Qwen2.5 7B</li><li>Qwen3-8B</li><li>Granite 3.1 8B</li>
+  </ul>
+</section>
+
+<section id="planes" class="cont seccion">
+  <p class="eyebrow r">Planes</p>
+  <h2 class="r">Una sola app.<br>Crece contigo.</h2>
+  <p class="lead r">Sopa se desbloquea con un archivo de licencia. Sin cuentas.</p>
+  <div class="planes">
+    <article class="r"><h3>Básico</h3><p class="precio">Gratis</p><ul><li>Chat ilimitado</li><li>Personalización limitada</li></ul></article>
+    <article class="r destacado"><h3>Plus</h3><p class="precio">Próximamente</p><ul><li>Todo lo de Básico</li><li>Más modelos</li><li>Documentos</li><li>Exportar</li></ul></article>
+    <article class="r"><h3>Pro</h3><p class="precio">Próximamente</p><ul><li>Todo ilimitado</li><li>Opciones avanzadas</li></ul></article>
+  </div>
+</section>
+
+<section id="proximamente" class="cont seccion">
+  <p class="eyebrow r">Próximamente</p>
+  <h2 class="r">Lo que viene.</h2>
+  <p class="lead r">Aún no está disponible. Lo estamos construyendo.</p>
+  <div class="futuro">
+    <article class="r"><span class="pill-dev">Próximamente</span><h3>Pregunta a tus documentos</h3><p>Haz preguntas sobre tus propios archivos, sin que salgan de tu equipo (RAG).</p></article>
+    <article class="r"><span class="pill-dev">Próximamente</span><h3>App móvil acompañante</h3><p>Chatea con tu IA desde el móvil a través de la red de tu casa.</p></article>
+  </div>
+</section>
+
+<section id="faq" class="cont seccion">
+  <p class="eyebrow r">Preguntas frecuentes</p>
+  <h2 class="r">Todo sobre la IA local.</h2>
+  <div class="faq">
+    <details class="r"><summary><h3>¿Qué es una IA local?</h3></summary><p>Es una inteligencia artificial que se ejecuta en tu propio ordenador, en lugar de en servidores de terceros. Con Sopa descargas un modelo de lenguaje (LLM) y conversas con él directamente en tu equipo Windows, en español y sin programar.</p></details>
+    <details class="r"><summary><h3>¿Es privada?</h3></summary><p>Sí. Sopa es 100 % local: tus conversaciones y tus datos no salen de tu equipo. No necesita cuentas, no usa telemetría y no depende de APIs de pago.</p></details>
+    <details class="r"><summary><h3>¿Qué ordenador necesito?</h3></summary><p>Un ordenador con Windows. Sopa analiza tu equipo y te indica qué modelos van bien: verificados, estimados o no soportados. Como referencia, en un portátil con una gráfica GTX 1650 de 4 GB conversa a 133 tokens/s con un modelo de 0.5B y personaliza modelos de hasta 3B.</p></details>
+    <details class="r"><summary><h3>¿Necesita internet?</h3></summary><p>Para conversar, no: el chat funciona sin conexión. Solo necesitas conexión para descargar los modelos. La nube nunca es obligatoria.</p></details>
+    <details class="r"><summary><h3>¿Es gratis?</h3></summary><p>El plan Básico es gratis, con chat ilimitado y personalización limitada. Los planes Plus y Pro amplían las funciones; sus precios se anunciarán próximamente.</p></details>
+  </div>
+</section>
+
+<section id="estado" class="banda oscura final">
+  <div class="cont">
+    <img class="r" src="img/icono.webp" alt="Logotipo de Sopa" width="96" height="96" loading="lazy">
+    <h2 class="r">Sopa está en desarrollo.</h2>
+    <p class="lead r">Versión actual 0.3, rumbo a la beta 0.9 y a la 1.0.</p>
+    <ol class="ruta r"><li class="hecho"><b>0.3</b><span>Ahora</span></li><li><b>0.9</b><span>Beta</span></li><li><b>1.0</b><span>Lanzamiento</span></li></ol>
+  </div>
+</section>
+</main>
+
+<footer class="cont pie">
+  <p>© 2026 Miguel Rodríguez Saiz. Todos los derechos reservados. Sopa y su logotipo son de Miguel Rodríguez Saiz. Qwen, Phi, Gemma y Granite son marcas de sus titulares; sin afiliación.</p>
+  <p>Esta web no usa cookies ni rastreadores.</p>
+</footer>
+<script src="app.js" defer></script>
+</body>
+</html>
