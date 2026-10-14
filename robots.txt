@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ardu01.github.io/sopa-web/sitemap.xml
