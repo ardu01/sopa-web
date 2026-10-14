@@ -29,7 +29,7 @@
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Sopa","applicationCategory":"UtilitiesApplication","operatingSystem":"Windows","softwareVersion":"0.3","inLanguage":"es","url":"https://ardu01.github.io/sopa-web/","image":"https://ardu01.github.io/sopa-web/img/icono.png","description":"La forma más sencilla de tener y personalizar tu propia inteligencia artificial en tu ordenador Windows. En español, sin programar y 100 % local.","author":{"@type":"Person","name":"Miguel Rodríguez Saiz"},"copyrightHolder":{"@type":"Person","name":"Miguel Rodríguez Saiz"}}
 </script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es una IA local?", "acceptedAnswer": {"@type": "Answer", "text": "Es una inteligencia artificial que se ejecuta en tu propio ordenador, en lugar de en servidores de terceros. Con Sopa descargas un modelo de lenguaje (LLM) y conversas con él directamente en tu equipo Windows, en español y sin programar."}}, {"@type": "Question", "name": "¿Es privada?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Sopa es 100 % local: tus conversaciones y tus datos no salen de tu equipo. No necesita cuentas, no usa telemetría y no depende de APIs de pago."}}, {"@type": "Question", "name": "¿Qué ordenador necesito?", "acceptedAnswer": {"@type": "Answer", "text": "Un ordenador con Windows. Sopa analiza tu equipo y te indica qué modelos van bien: verificados, estimados o no soportados. Como referencia, en un portátil con una gráfica GTX 1650 de 4 GB conversa a 133 tokens/s con un modelo de 0.5B y personaliza modelos de hasta 3B."}}, {"@type": "Question", "name": "¿Necesita internet?", "acceptedAnswer": {"@type": "Answer", "text": "Para conversar, no: el chat funciona sin conexión. Solo necesitas conexión para descargar los modelos. La nube nunca es obligatoria."}}, {"@type": "Question", "name": "¿Es gratis?", "acceptedAnswer": {"@type": "Answer", "text": "El plan Básico es gratis, con chat ilimitado y personalización limitada. Los planes Plus y Pro amplían las funciones; sus precios se anunciarán próximamente."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es una IA local?", "acceptedAnswer": {"@type": "Answer", "text": "Es una inteligencia artificial que se ejecuta en tu propio ordenador, en lugar de en servidores de terceros. Con Sopa descargas un modelo de lenguaje (LLM) y conversas con él directamente en tu equipo Windows, en español y sin programar."}}, {"@type": "Question", "name": "¿Es privada?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Sopa es 100 % local: tus conversaciones y tus datos no salen de tu equipo. No necesita cuentas, no usa telemetría y no depende de APIs de pago."}}, {"@type": "Question", "name": "¿Qué ordenador necesito?", "acceptedAnswer": {"@type": "Answer", "text": "Un ordenador con Windows. Sopa analiza tu equipo y te indica qué modelos van bien: verificados, estimados o no soportados. Como referencia, en un portátil con una gráfica GTX 1650 de 4 GB conversa a 133 tokens/s con un modelo de 0.5B. La personalización, aún en desarrollo, se está probando en esa misma gráfica."}}, {"@type": "Question", "name": "¿Necesita internet?", "acceptedAnswer": {"@type": "Answer", "text": "Para conversar, no: el chat funciona sin conexión. Solo necesitas conexión para descargar los modelos. La nube nunca es obligatoria."}}, {"@type": "Question", "name": "¿Es gratis?", "acceptedAnswer": {"@type": "Answer", "text": "El plan Básico es gratis, con chat ilimitado y personalización limitada (en desarrollo). Los planes Plus y Pro amplían las funciones; sus precios se anunciarán próximamente."}}]}
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="img/favicon.png">
@@ -51,11 +51,22 @@
   <img class="hero-icono r" src="img/icono.webp" alt="Logotipo de Sopa: un cuenco de sopa verde con circuitos y vapor" width="168" height="168">
   <p class="eyebrow r">Inteligencia artificial local para Windows</p>
   <h1 class="r">Tu inteligencia artificial.<br>Tu ordenador.<br><span class="verde">Tus reglas.</span></h1>
-  <p class="lead r">La forma más sencilla de ejecutar IA en tu ordenador y personalizarla. Una IA local para Windows, todo en español y sin saber programar.</p>
+  <p class="lead r">Habla con una IA y enséñale lo tuyo, en tu propio ordenador. Sin cuentas, sin nube y sin tecnicismos.</p>
   <div class="ctas r"><a class="btn" href="#estado">Sigue el desarrollo</a><a class="enlace" href="#funciones">Descubre qué hace ›</a></div>
   <figure class="hero-shot r">
     <picture><source srcset="img/oscuro-inicio.webp" media="(prefers-color-scheme: dark)"><img fetchpriority="high" src="img/claro-inicio.webp" alt="Pantalla de inicio de Sopa" width="1280" height="800"></picture>
   </figure>
+</section>
+
+<section id="por-que" class="cont seccion argumentos">
+  <p class="eyebrow r">Por qué Sopa</p>
+  <h2 class="r">Sencilla. Tuya. Tranquila.</h2>
+  <div class="args">
+    <article class="r"><span class="pill-ok">Ya funciona</span><p>Sopa mira tu ordenador y te dice qué IA le va bien. Sin Python, sin terminal, sin configurar nada.</p></article>
+    <article class="r"><span class="pill-ok">Ya funciona</span><p>Tu Sopa es tuya. Sin cuentas, sin activaciones online. Funciona sin internet hoy y dentro de diez años.</p></article>
+    <article class="r"><span class="pill-dev">En desarrollo</span><p>Personaliza tu IA aunque tu ordenador no sea un monstruo. Probado en un portátil con una gráfica de 4 GB.</p></article>
+    <article class="r"><span class="pill-dev">Próximamente</span><p>Tu IA, también en el móvil.</p></article>
+  </div>
 </section>
 
 <section id="privacidad" class="banda oscura">
@@ -79,7 +90,7 @@
     <article class="r"><span class="num">01</span><h3>Conoce tu ordenador</h3><p>Sopa detecta tu equipo y te dice qué modelos van bien: <em>verificado</em>, <em>estimado</em> o <em>no soportado</em>.</p></article>
     <article class="r"><span class="num">02</span><h3>Descarga con un clic</h3><p>Elige entre modelos verificados y Sopa se encarga del resto.</p></article>
     <article class="r"><span class="num">03</span><h3>Chatea sin conexión</h3><p>Habla con tu IA aunque no tengas internet.</p></article>
-    <article class="r"><span class="num">04</span><h3>Personaliza tu IA</h3><p>Personaliza tu IA con tus propios textos. La configuración técnica (LoRA/QLoRA) se ajusta sola a tu hardware.</p></article>
+    <article class="r en-dev"><span class="num">04 <span class="pill-dev">En desarrollo</span></span><h3>Personaliza tu IA</h3><p>Personaliza tu IA con tus propios textos. La configuración técnica (LoRA/QLoRA) se ajusta sola a tu hardware.</p></article>
     <article class="r"><span class="num">05</span><h3>Llévatela</h3><p>Exporta tu modelo a Ollama/GGUF.</p></article>
   </div>
 </section>
@@ -101,7 +112,7 @@
       <div class="r"><b>~<span class="cuenta" data-n="66">66</span></b><span>tok/s con 1.5B</span></div>
       <div class="r"><b>~<span class="cuenta" data-n="41">41</span></b><span>tok/s con 3B</span></div>
     </div>
-    <p class="nota r">En esa misma gráfica, Sopa personaliza modelos de hasta 3B. Los resultados varían según el equipo.</p>
+    <p class="nota r">La personalización, aún en desarrollo, se está probando en esa misma gráfica con modelos de hasta 3B. Los resultados varían según el equipo.</p>
   </div>
 </section>
 
@@ -119,7 +130,7 @@
   <h2 class="r">Una sola app.<br>Crece contigo.</h2>
   <p class="lead r">Sopa se desbloquea con un archivo de licencia. Sin cuentas.</p>
   <div class="planes">
-    <article class="r"><h3>Básico</h3><p class="precio">Gratis</p><ul><li>Chat ilimitado</li><li>Personalización limitada</li></ul></article>
+    <article class="r"><h3>Básico</h3><p class="precio">Gratis</p><ul><li>Chat ilimitado</li><li>Personalización limitada (en desarrollo)</li></ul></article>
     <article class="r destacado"><h3>Plus</h3><p class="precio">Próximamente</p><ul><li>Todo lo de Básico</li><li>Más modelos</li><li>Documentos</li><li>Exportar</li></ul></article>
     <article class="r"><h3>Pro</h3><p class="precio">Próximamente</p><ul><li>Todo ilimitado</li><li>Opciones avanzadas</li></ul></article>
   </div>
@@ -141,9 +152,9 @@
   <div class="faq">
     <details class="r"><summary><h3>¿Qué es una IA local?</h3></summary><p>Es una inteligencia artificial que se ejecuta en tu propio ordenador, en lugar de en servidores de terceros. Con Sopa descargas un modelo de lenguaje (LLM) y conversas con él directamente en tu equipo Windows, en español y sin programar.</p></details>
     <details class="r"><summary><h3>¿Es privada?</h3></summary><p>Sí. Sopa es 100 % local: tus conversaciones y tus datos no salen de tu equipo. No necesita cuentas, no usa telemetría y no depende de APIs de pago.</p></details>
-    <details class="r"><summary><h3>¿Qué ordenador necesito?</h3></summary><p>Un ordenador con Windows. Sopa analiza tu equipo y te indica qué modelos van bien: verificados, estimados o no soportados. Como referencia, en un portátil con una gráfica GTX 1650 de 4 GB conversa a 133 tokens/s con un modelo de 0.5B y personaliza modelos de hasta 3B.</p></details>
+    <details class="r"><summary><h3>¿Qué ordenador necesito?</h3></summary><p>Un ordenador con Windows. Sopa analiza tu equipo y te indica qué modelos van bien: verificados, estimados o no soportados. Como referencia, en un portátil con una gráfica GTX 1650 de 4 GB conversa a 133 tokens/s con un modelo de 0.5B. La personalización, aún en desarrollo, se está probando en esa misma gráfica.</p></details>
     <details class="r"><summary><h3>¿Necesita internet?</h3></summary><p>Para conversar, no: el chat funciona sin conexión. Solo necesitas conexión para descargar los modelos. La nube nunca es obligatoria.</p></details>
-    <details class="r"><summary><h3>¿Es gratis?</h3></summary><p>El plan Básico es gratis, con chat ilimitado y personalización limitada. Los planes Plus y Pro amplían las funciones; sus precios se anunciarán próximamente.</p></details>
+    <details class="r"><summary><h3>¿Es gratis?</h3></summary><p>El plan Básico es gratis, con chat ilimitado y personalización limitada (en desarrollo). Los planes Plus y Pro amplían las funciones; sus precios se anunciarán próximamente.</p></details>
   </div>
 </section>
 

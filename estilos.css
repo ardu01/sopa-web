@@ -98,3 +98,11 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 .faq h3{margin:0;font-size:19px}
 .faq p{color:var(--text-2);font-size:16px;margin-top:12px}
 .pie p{max-width:640px}
+.pill-ok{display:inline-block;background:#1E87521A;color:var(--accent);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600}
+.args{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px;text-align:left}
+.args article{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:32px}
+.args p{font-size:21px;line-height:1.4;letter-spacing:-.01em;margin-top:16px;font-weight:500}
+.args article:has(.pill-dev){border:1.5px dashed #7D6E5080;background:#7D6E500a}
+.func .en-dev{border:1.5px dashed #7D6E5080;background:#7D6E500a}
+.num .pill-dev{margin-left:8px;vertical-align:middle}
+@media (max-width:900px){.args{grid-template-columns:1fr}}
