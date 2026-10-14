@@ -66,3 +66,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:28px}
 .reglas{list-style:disc;padding-left:20px;margin:8px 0;font-size:14px;color:var(--text-2)}
 .reglas li{margin:3px 0}
 .nota-ref{margin-top:10px;background:#B9771A14;color:#7A4E0F !important;border-radius:10px;padding:10px 12px}
+.migas ol{display:flex;justify-content:center;gap:8px;font-size:13px;color:var(--text-2);margin-bottom:20px}
+.migas li+li::before{content:"›";margin-right:8px}
+.migas a{color:var(--accent)}
+.volver-p{text-align:center;padding-bottom:80px;margin-top:-60px}
