@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Simulador · ¿Qué IA va bien en tu ordenador? · Sopa™</title>
+<meta name="description" content="Elige tu gráfica, tu VRAM y tu RAM y mira qué modelos de IA local podrías usar con Sopa para chatear y personalizar. Orientativo.">
+<link rel="canonical" href="https://ardu01.github.io/sopa-web/simulador.html">
+<meta name="theme-color" content="#F5F6F4">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/favicon-180.png">
+<link rel="preload" href="fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="simulador.css">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-in">
+    <a href="./" class="marca" aria-label="Sopa, inicio"><img src="img/icono.webp" alt="Logotipo de Sopa" width="28" height="28">Sopa™</a>
+    <nav aria-label="Secciones"><a href="./#funciones">Funciones</a><a href="./#modelos">Modelos</a><a href="./#planes">Planes</a><a href="./#faq">Preguntas</a><a href="simulador.html" aria-current="page">Simulador</a></nav>
+    <span class="pill-dev">En desarrollo · v0.3</span>
+  </div>
+</header>
+<main class="sim">
+  <section class="sim-hero cont">
+    <p class="eyebrow">Simulador</p>
+    <h1>¿Qué IA va bien<br>en tu ordenador?</h1>
+    <p class="lead">Elige tu gráfica y tu memoria. Verás al momento qué modelos puedes usar para chatear y cuáles podrías personalizar.</p>
+    <p class="aviso" role="note"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M12 8v5M12 16.5v.01" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>Orientativo. Sopa comprueba tu equipo real al instalarla.</p>
+  </section>
+
+  <div class="sim-grid cont">
+    <form class="panel" id="equipo" aria-label="Tu equipo" onsubmit="return false">
+      <fieldset>
+        <legend>Gráfica</legend>
+        <div class="chips-sel" id="gpus" role="radiogroup" aria-label="Gráfica"></div>
+      </fieldset>
+      <fieldset id="f-vram">
+        <legend>Memoria de la gráfica (VRAM) <output id="o-vram" for="vram"></output></legend>
+        <input type="range" id="vram" min="2" max="24" step="1" aria-describedby="o-vram">
+        <div class="escala" aria-hidden="true"><span>2 GB</span><span>24 GB</span></div>
+      </fieldset>
+      <fieldset>
+        <legend>Memoria del ordenador (RAM)</legend>
+        <div class="chips-sel" id="rams" role="radiogroup" aria-label="RAM"></div>
+      </fieldset>
+      <fieldset id="f-driver">
+        <legend>Driver NVIDIA</legend>
+        <div class="segmento" id="driver" role="radiogroup" aria-label="Driver NVIDIA"></div>
+        <p class="ayuda">Sopa necesita la versión 560 o superior para usar la gráfica.</p>
+      </fieldset>
+      <p class="ayuda">El procesador apenas influye: lo que decide es la gráfica, su memoria y la RAM. Sopa acelera con gráficas NVIDIA; con AMD o integrada usa el procesador.</p>
+    </form>
+
+    <section class="resultados" aria-labelledby="t-res">
+      <div class="res-cab">
+        <h2 id="t-res">Tus modelos</h2>
+        <label class="interruptor"><input type="checkbox" id="solo"> <span>Solo los que funcionan</span></label>
+      </div>
+      <p class="resumen" id="resumen" aria-live="polite"></p>
+      <ul class="lista" id="lista"></ul>
+      <div class="como">
+        <h3>Cómo calculamos la velocidad</h3>
+        <p>Partimos de las velocidades <b>medidas</b> en un portátil con GTX 1650 Max-Q y las escalamos por el ancho de banda de memoria de tu gráfica, que es lo que más pesa al conversar:</p>
+        <ul class="reglas">
+          <li>Gráfica entre la mitad y 4 veces la de referencia: rango de ±25 %.</li>
+          <li>Más de 4 veces: «más de N tok/s», calculado de forma prudente.</li>
+          <li>Por encima de 150 tok/s solo decimos «muy rápido».</li>
+          <li>Menos de la mitad, o si el modelo no cabe entero en la gráfica: «lento», sin cifra.</li>
+          <li>Sin medida del modelo, no damos cifra.</li>
+        </ul>
+        <p class="nota-ref">La GTX 1650 Max-Q existe con memoria GDDR5 (112,1 GB/s) y GDDR6 (192 GB/s). Como no hemos verificado cuál tiene el equipo de medida, usamos el caso conservador: 192 GB/s.</p>
+        <details class="fuentes"><summary>Fuentes</summary><div id="fuentes"></div></details>
+      </div>
+      <p class="aviso aviso-pie" role="note">Orientativo. Sopa comprueba tu equipo real al instalarla.</p>
+      <p class="ayuda nota-sim">Las necesidades de memoria salen de medidas reales cuando las hay y, si no, de una estimación conservadora según el tamaño del modelo. «Verificado» solo aparece cuando tu gráfica es igual o mejor que el equipo donde lo medimos (GTX 1650 de 4 GB).</p>
+    </section>
+  </div>
+</main>
+<footer class="cont pie">
+  <p>© 2026 Miguel Rodríguez Saiz. Todos los derechos reservados. Sopa y su logotipo son de Miguel Rodríguez Saiz. Qwen, Phi, Gemma y Granite son marcas de sus titulares; sin afiliación.</p>
+  <p>Esta web no usa cookies ni rastreadores.</p>
+</footer>
+<script src="js/catalogo.js"></script>
+<script src="js/anchos.js"></script>
+<script src="js/compatibilidad.js"></script>
+<script src="js/simulador.js"></script>
+</body>
+</html>
