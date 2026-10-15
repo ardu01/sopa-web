@@ -1,0 +1,54 @@
+.guia{padding:40px 24px 120px}
+.cont-guia{max-width:720px;margin:0 auto}
+.guia .migas ol{display:flex;flex-wrap:wrap;gap:8px;font-size:13px;color:var(--text-2);max-width:720px;margin:0 auto 32px}
+.guia .migas li+li::before{content:"›";margin-right:8px}
+.guia .migas a{color:var(--accent)}
+.guia h1{font-size:clamp(36px,5.5vw,56px);line-height:1.08;letter-spacing:-.03em;font-weight:700}
+.guia .lead{margin:20px 0 40px;text-align:left;max-width:none}
+.guia h2{font-size:clamp(24px,3vw,30px);line-height:1.2;letter-spacing:-.02em;margin:48px 0 14px}
+.guia h3{font-size:18px}
+.guia p,.guia li{font-size:18px;line-height:1.65;color:#2A302C}
+.guia p+p{margin-top:14px}
+.guia ul{list-style:disc;padding-left:22px}.guia li{margin:8px 0}
+.guia a:not(.btn):not(.enlace){color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.lista-check{list-style:none!important;padding:0!important}
+.lista-check li{padding-left:30px;position:relative}
+.lista-check li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+.pasos{list-style:none;counter-reset:p;padding:0}
+.pasos>li{counter-increment:p;position:relative;padding:4px 0 8px 56px;margin:0}
+.pasos>li::before{content:counter(p);position:absolute;left:0;top:44px;width:36px;height:36px;border-radius:50%;background:#1A77481A;color:var(--accent);font-weight:700;display:grid;place-items:center;font-size:16px}
+.estado-doble{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.estado-doble>div{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px 22px}
+.estado-doble>div.dev{border:1.5px dashed #7D6E5080;background:#7D6E500a}
+.estado-doble ul{padding-left:18px}.estado-doble li{font-size:16px}
+.pill-ok{display:inline-block;background:#1A77481A;color:var(--accent);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600}
+.guia h2 .pill-dev{vertical-align:middle;margin-left:8px}
+.tabla-scroll{overflow-x:auto;margin:24px 0 8px;border:1px solid var(--border);border-radius:14px;background:var(--surface)}
+.guia table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+.guia caption{text-align:left;padding:14px 16px 4px;font-weight:600;font-size:14px;color:var(--text-2)}
+.guia th,.guia td{text-align:left;padding:11px 16px;border-top:1px solid var(--border)}
+.guia thead th{font-size:13px;color:var(--text-2);font-weight:600}
+.guia td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.nota-tabla{font-size:14px!important;color:var(--text-2)!important}
+.cta-guia{margin-top:32px}
+.aviso-guia{display:inline-block;margin-top:16px;padding:10px 16px;border-radius:999px;background:#B9771A14;color:#7A4E0F!important;font-weight:550;font-size:15px!important}
+.otras{margin-top:72px;padding-top:32px;border-top:1px solid var(--border)}
+.otras h2{margin-top:0;font-size:20px}
+.tarjetas-guia{list-style:none!important;padding:0!important;display:grid;gap:16px}
+.tarjetas-guia a{display:block;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px;transition:border-color .12s var(--ease)}
+.tarjetas-guia a:hover{border-color:var(--accent)}
+.tarjetas-guia h2{margin:0 0 8px;font-size:22px}
+.tarjetas-guia p{font-size:16px;color:var(--text-2)}
+.tarjetas-guia .enlace{display:inline-block;margin-top:12px}
+.pie-enlaces{display:flex;gap:20px;width:100%}
+.pie-enlaces a{color:var(--accent)}
+@media (max-width:700px){.estado-doble{grid-template-columns:1fr}.guia p,.guia li{font-size:17px}.pasos>li{padding-left:48px}}
+.autor{font-size:15px!important;color:var(--text-2)!important;margin:-20px 0 32px}
+.indice{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px 24px;margin:0 0 8px}
+.indice h2{font-size:15px;margin:0 0 8px;color:var(--text-2);letter-spacing:0}
+.indice ol{padding-left:20px}.indice li{font-size:16px;margin:4px 0}
+.guia h2[id]{scroll-margin-top:72px}
+.fuentes-guia{margin-top:56px;padding-top:24px;border-top:1px solid var(--border)}
+.fuentes-guia h2{font-size:18px;margin:0 0 8px}
+.fuentes-guia li{font-size:15px;color:var(--text-2)}
+.guia code{font-size:.9em;background:#ECEEEB;border-radius:4px;padding:1px 5px}

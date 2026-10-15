@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>¿Cuánta VRAM necesito para una IA local? · Sopa™</title>
+<meta name="description" content="Cuánta memoria de gráfica (VRAM) necesita un LLM local para conversar y para personalizarlo, con las cifras que usa Sopa para cada modelo del catálogo.">
+<link rel="canonical" href="https://ardu01.github.io/sopa-web/guias/cuanta-vram-necesito.html">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Miguel Rodríguez Saiz">
+<meta name="theme-color" content="#F5F6F4">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Sopa">
+<meta property="og:url" content="https://ardu01.github.io/sopa-web/guias/cuanta-vram-necesito.html">
+<meta property="og:title" content="¿Cuánta VRAM necesito para una IA local? · Sopa™">
+<meta property="og:description" content="Cuánta memoria de gráfica (VRAM) necesita un LLM local para conversar y para personalizarlo, con las cifras que usa Sopa para cada modelo del catálogo.">
+<meta property="og:image" content="https://ardu01.github.io/sopa-web/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logotipo de Sopa con el lema «Tu inteligencia artificial. Tu ordenador. Tus reglas.»">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="¿Cuánta VRAM necesito para una IA local? · Sopa™">
+<meta name="twitter:description" content="Cuánta memoria de gráfica (VRAM) necesita un LLM local para conversar y para personalizarlo, con las cifras que usa Sopa para cada modelo del catálogo.">
+<meta name="twitter:image" content="https://ardu01.github.io/sopa-web/img/og.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "¿Cuánta VRAM necesito para una IA local?", "description": "Cuánta memoria de gráfica (VRAM) necesita un LLM local para conversar y para personalizarlo, con las cifras que usa Sopa para cada modelo del catálogo.", "inLanguage": "es", "mainEntityOfPage": "https://ardu01.github.io/sopa-web/guias/cuanta-vram-necesito.html", "url": "https://ardu01.github.io/sopa-web/guias/cuanta-vram-necesito.html", "image": "https://ardu01.github.io/sopa-web/img/og.png", "author": {"@type": "Person", "name": "Miguel Rodríguez Saiz"}, "publisher": {"@type": "Person", "name": "Miguel Rodríguez Saiz"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sopa", "item": "https://ardu01.github.io/sopa-web/"}, {"@type": "ListItem", "position": 2, "name": "Guías", "item": "https://ardu01.github.io/sopa-web/guias/"}, {"@type": "ListItem", "position": 3, "name": "¿Cuánta VRAM necesito para una IA local?", "item": "https://ardu01.github.io/sopa-web/guias/cuanta-vram-necesito.html"}]}</script>
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="apple-touch-icon" href="../img/favicon-180.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="preload" href="../fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../estilos.css">
+<link rel="stylesheet" href="../guias.css">
+</head>
+<body>
+<header class="nav"><div class="nav-in">
+<a href="../" class="marca"><img src="../img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
+<nav aria-label="Secciones"><a href="../#funciones">Funciones</a><a href="../#modelos">Modelos</a><a href="../#planes">Planes</a><a href="../guias/">Guías</a><a href="../simulador.html">Simulador</a></nav>
+<span class="pill-dev">En desarrollo · v0.3</span></div></header>
+<main class="guia">
+<nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="../">Sopa</a></li><li><a href="../guias/">Guías</a></li><li aria-current="page">¿Cuánta VRAM necesito para una IA local?</li></ol></nav>
+<article class="cont-guia"><p class="eyebrow">Guía</p><h1>¿Cuánta VRAM necesito para una IA local?</h1><p class="lead">La memoria de tu gráfica decide qué modelos van bien. Estas son las cifras que usa Sopa.</p><p class="autor">Por <strong>Miguel Rodríguez Saiz</strong>, creador de Sopa</p><nav class="indice" aria-labelledby="indice-t"><h2 id="indice-t">En esta guía</h2><ol><li><a href="#como-calcula-sopa-lo-que-necesita-cada-modelo">Cómo calcula Sopa lo que necesita cada modelo</a></li><li><a href="#y-si-no-cabe-entero">¿Y si no cabe entero?</a></li><li><a href="#una-referencia-real">Una referencia real</a></li></ol></nav>
+<p>La <strong>VRAM</strong> es la memoria de tu tarjeta gráfica. Para una IA local es lo que más pesa: si el modelo cabe entero en ella, irá con fluidez.</p>
+<h2 id="como-calcula-sopa-lo-que-necesita-cada-modelo">Cómo calcula Sopa lo que necesita cada modelo</h2>
+<ul>
+<li><strong>Para conversar:</strong> el tamaño del modelo descargado más unos 0,6 GB para el contexto. Si lo hemos medido, usamos la medida real con un 10 % de margen.</li>
+<li><strong>Para personalizar</strong> <span class="pill-dev">En desarrollo</span>: unos 0,8 GB por cada mil millones de parámetros más 1,6 GB fijos. Si lo hemos medido, la medida real con un 10 % de margen.</li>
+</ul>
+<div class="tabla-scroll"><table><caption>Memoria de gráfica que Sopa considera necesaria por modelo</caption><thead><tr><th scope="col">Modelo</th><th scope="col">Licencia</th><th scope="col">Para conversar</th><th scope="col">Para personalizar</th></tr></thead><tbody><tr><th scope="row">Qwen2.5 0.5B Instruct</th><td>Apache-2.0</td><td class="n">1,06 GB</td><td class="n">1,32 GB</td></tr><tr><th scope="row">Qwen2.5 1.5B Instruct</th><td>Apache-2.0</td><td class="n">1,38 GB</td><td class="n">2,6 GB</td></tr><tr><th scope="row">Phi-4 mini Instruct</th><td>MIT</td><td class="n">2,92 GB</td><td class="n">4,64 GB</td></tr><tr><th scope="row">Qwen3 4B</th><td>Apache-2.0</td><td class="n">3,07 GB</td><td class="n">4,8 GB</td></tr><tr><th scope="row">Qwen3.5 4B</th><td>Apache-2.0</td><td class="n">3,03 GB</td><td class="n">Solo chat</td></tr><tr><th scope="row">Gemma 4 E4B</th><td>Apache-2.0</td><td class="n">3,11 GB</td><td class="n">Solo chat</td></tr><tr><th scope="row">Qwen2.5 7B Instruct</th><td>Apache-2.0</td><td class="n">4,96 GB</td><td class="n">Solo chat</td></tr><tr><th scope="row">Qwen3 8B</th><td>Apache-2.0</td><td class="n">5,28 GB</td><td class="n">Solo chat</td></tr><tr><th scope="row">IBM Granite 3.1 8B Instruct</th><td>Apache-2.0</td><td class="n">5,2 GB</td><td class="n">Solo chat</td></tr></tbody></table></div>
+<p class="nota-tabla">«Solo chat»: ese modelo se ofrece solo para conversar.</p>
+<h2 id="y-si-no-cabe-entero">¿Y si no cabe entero?</h2>
+<ul>
+<li>Con una gráfica NVIDIA de al menos 2 GB y RAM suficiente, el modelo se reparte entre la gráfica y la memoria del ordenador: funciona, algo más lento.</li>
+<li>Sin gráfica NVIDIA, puede funcionar en el procesador si tienes al menos 2 GB de RAM por encima de lo que pide el modelo. Irá más lento.</li>
+<li>Para usar la gráfica, el driver NVIDIA debe ser el 560 o superior.</li>
+</ul>
+<h2 id="una-referencia-real">Una referencia real</h2>
+<p>En un portátil con una GTX 1650 de 4 GB, Sopa conversa a 133 tokens por segundo con un modelo de 0.5B, a unos 66 con 1.5B y a unos 41 con 3B.</p>
+<p class="cta-guia"><a class="btn" href="../simulador.html">Prueba con tu equipo en el simulador</a></p>
+<p class="aviso-guia">Orientativo. Sopa comprueba tu equipo real al instalarla.</p>
+<section class="fuentes-guia" aria-labelledby="fuentes-t"><h2 id="fuentes-t">Fuentes</h2><ul><li>Medidas propias de Sopa en un portátil MSI con GTX 1650 Max-Q de 4 GB (driver 617.42): velocidad de conversación y memoria máxima de la gráfica medida con <code>nvidia-smi</code>.</li><li>Catálogo de modelos y lógica de compatibilidad de Sopa (los mismos que usa la app y el <a href="../simulador.html">simulador</a>).</li><li>Licencias: las indicadas por cada autor en la ficha de su modelo.</li></ul></section><aside class="otras"><h2>Otras guías</h2><ul><li><a href="../guias/que-es-una-ia-local.html">¿Qué es una IA local y por qué usarla?</a></li><li><a href="../guias/ia-local-en-windows-sin-programar.html">Cómo usar inteligencia artificial local en Windows sin saber programar</a></li></ul></aside></article>
+</main>
+<footer class="cont pie">
+  <nav class="pie-enlaces" aria-label="Enlaces del pie"><a href="../">Inicio</a><a href="../guias/">Guías</a><a href="../simulador.html">Simulador</a></nav>
+  <p>© 2026 Miguel Rodríguez Saiz. Todos los derechos reservados. Sopa y su logotipo son de Miguel Rodríguez Saiz. Qwen, Phi, Gemma y Granite son marcas de sus titulares; sin afiliación.</p>
+  <p>Esta web no usa cookies ni rastreadores.</p>
+</footer>
+</body>
+</html>
