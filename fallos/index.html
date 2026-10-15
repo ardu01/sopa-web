@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Informar de un fallo · Sopa™</title>
+<meta name="description" content="¿Algo no va bien en la beta de Sopa? Cuéntanos qué pasó y cómo reproducirlo. Sin cuentas y sin rastreadores.">
+<link rel="canonical" href="https://ardu01.github.io/sopa-web/fallos/">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Miguel Rodríguez Saiz">
+<meta name="theme-color" content="#F5F6F4">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Sopa">
+<meta property="og:url" content="https://ardu01.github.io/sopa-web/fallos/">
+<meta property="og:title" content="Informar de un fallo · Sopa™">
+<meta property="og:description" content="¿Algo no va bien en la beta de Sopa? Cuéntanos qué pasó y cómo reproducirlo. Sin cuentas y sin rastreadores.">
+<meta property="og:image" content="https://ardu01.github.io/sopa-web/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logotipo de Sopa con el lema «Tu inteligencia artificial. Tu ordenador. Tus reglas.»">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Informar de un fallo · Sopa™">
+<meta name="twitter:description" content="¿Algo no va bien en la beta de Sopa? Cuéntanos qué pasó y cómo reproducirlo. Sin cuentas y sin rastreadores.">
+<meta name="twitter:image" content="https://ardu01.github.io/sopa-web/img/og.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sopa", "item": "https://ardu01.github.io/sopa-web/"}, {"@type": "ListItem", "position": 2, "name": "Informar de un fallo", "item": "https://ardu01.github.io/sopa-web/fallos/"}]}</script>
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="apple-touch-icon" href="../img/favicon-180.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="preload" href="../fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../estilos.css">
+<link rel="stylesheet" href="../guias.css">
+<style>
+.form-fallo{margin-top:8px;display:grid;gap:22px}
+.campo label{display:block;font-weight:600;font-size:16px}
+.campo .ayuda{display:block;font-size:14px;color:var(--text-2);margin-top:2px;font-weight:400}
+.campo input,.campo textarea{display:block;width:100%;margin-top:8px;font:inherit;font-size:16px;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 14px;transition:border-color .12s var(--ease),box-shadow .12s var(--ease)}
+.campo textarea{min-height:110px;resize:vertical}
+.campo input:focus,.campo textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px #1E87522A}
+.campo input[aria-invalid=true],.campo textarea[aria-invalid=true]{border-color:#B3261E}
+.opcional{font-weight:400;color:var(--text-2)}
+.trampa{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-fallo .btn{border:0;cursor:pointer;font:inherit;font-weight:550;margin-top:4px;justify-self:start}
+.form-fallo .btn[disabled]{opacity:.6;cursor:wait}
+.aviso{border-radius:14px;padding:16px 18px;font-size:16px}
+.aviso[hidden]{display:none}
+.aviso.ok{background:#1E87521A;color:#14512F}
+.aviso.mal{background:#B3261E14;color:#8C1D18}
+.privacidad{margin-top:40px;border-top:1px solid var(--border);padding-top:24px}
+.guia .privacidad p{font-size:15px;color:var(--text-2)}
+</style>
+</head>
+<body>
+<header class="nav"><div class="nav-in">
+<a href="../" class="marca"><img src="../img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
+<nav aria-label="Secciones"><a href="../#funciones">Funciones</a><a href="../#modelos">Modelos</a><a href="../#planes">Planes</a><a href="../guias/">Guías</a><a href="../simulador.html">Simulador</a></nav>
+<span class="pill-dev">v0.10 · versión preliminar</span></div></header>
+<main class="guia">
+<nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="../">Sopa</a></li><li aria-current="page">Informar de un fallo</li></ol></nav>
+<section class="cont-guia">
+<p class="eyebrow">Beta</p>
+<h1>Informar de un fallo</h1>
+<p class="lead">¿Algo no va bien? Cuéntanoslo. Con unos pocos detalles podemos encontrarlo y arreglarlo.</p>
+
+<form class="form-fallo" id="form-fallo" novalidate>
+  <div class="campo">
+    <label for="codigo">Código de probador <span class="opcional">(opcional, recomendado)</span>
+    <span class="ayuda">Es anónimo y nos ayuda a agrupar tus informes. Son 16 caracteres: números y letras de la a a la f.</span></label>
+    <input id="codigo" name="codigo" maxlength="16" autocomplete="off" spellcheck="false" inputmode="text" placeholder="p. ej. 3fa2b9c01d4e7a56" aria-describedby="error-codigo">
+  </div>
+  <div class="campo">
+    <label for="version">Versión de Sopa</label>
+    <input id="version" name="version" maxlength="32" value="0.12.0" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="campo">
+    <label for="que_paso">¿Qué pasó?</label>
+    <textarea id="que_paso" name="que_paso" maxlength="4000" required placeholder="Describe el fallo con tus palabras."></textarea>
+  </div>
+  <div class="campo">
+    <label for="que_esperabas">¿Qué esperabas que pasara? <span class="opcional">(opcional)</span></label>
+    <textarea id="que_esperabas" name="que_esperabas" maxlength="2000"></textarea>
+  </div>
+  <div class="campo">
+    <label for="pasos">Pasos para reproducirlo <span class="opcional">(opcional)</span>
+    <span class="ayuda">Qué hiciste justo antes, paso a paso.</span></label>
+    <textarea id="pasos" name="pasos" maxlength="4000" placeholder="1. Abrí Sopa&#10;2. …"></textarea>
+  </div>
+  <div class="campo">
+    <label for="correo">Tu correo <span class="opcional">(opcional)</span>
+    <span class="ayuda">Solo si quieres que te respondamos.</span></label>
+    <input id="correo" name="correo" type="email" maxlength="254" autocomplete="email">
+  </div>
+  <div class="trampa" aria-hidden="true">
+    <label for="web">No rellenes este campo</label>
+    <input id="web" name="web" tabindex="-1" autocomplete="off">
+  </div>
+  <div class="aviso" id="aviso" role="status" aria-live="polite" hidden></div>
+  <button class="btn" type="submit" id="enviar">Enviar informe</button>
+</form>
+
+<div class="privacidad">
+  <h2>Qué guardamos</h2>
+  <p>Solo lo que escribes en este formulario y la fecha de envío. Lo usamos para encontrar y arreglar fallos de Sopa, y nada más.</p>
+  <p>El código de probador es anónimo. Tu correo, si lo dejas, solo sirve para responderte. No guardamos tu IP ni usamos cookies ni rastreadores.</p>
+</div>
+</section>
+</main>
+<footer class="cont pie">
+  <nav class="pie-enlaces" aria-label="Enlaces del pie"><a href="../">Inicio</a><a href="../guias/">Guías</a><a href="../simulador.html">Simulador</a></nav>
+  <p>© 2026 Miguel Rodríguez Saiz. Todos los derechos reservados. Sopa y su logotipo son de Miguel Rodríguez Saiz. Qwen, Phi, Gemma, Granite, Llama, DeepSeek, Mistral y gpt-oss son marcas de sus titulares; sin afiliación.</p>
+  <p>Desarrollado por ArduSolutions.</p>
+  <p>Esta web no usa cookies ni rastreadores.</p>
+</footer>
+<script>
+(function () {
+  var DESTINO = "https://sopa-fallos.miguelrsaiz.workers.dev/informes";
+  var f = document.getElementById("form-fallo"), aviso = document.getElementById("aviso"), boton = document.getElementById("enviar");
+  var p = new URLSearchParams(location.search);
+  var cod = (p.get("codigo") || "").trim().toLowerCase(), ver = (p.get("version") || "").trim();
+  if (/^[0-9a-f]{16}$/.test(cod)) f.codigo.value = cod;
+  if (/^[0-9A-Za-z.+\- ]{1,32}$/.test(ver)) f.version.value = ver;
+
+  function mostrar(texto, ok) { aviso.textContent = texto; aviso.className = "aviso " + (ok ? "ok" : "mal"); aviso.hidden = false; }
+  function marcar(campo, mal) { campo.setAttribute("aria-invalid", mal ? "true" : "false"); }
+
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var c = f.codigo.value.trim().toLowerCase(), q = f.que_paso.value.trim(), m = f.correo.value.trim();
+    marcar(f.codigo, false); marcar(f.que_paso, false); marcar(f.correo, false);
+    if (c && !/^[0-9a-f]{16}$/.test(c)) { marcar(f.codigo, true); f.codigo.focus(); return mostrar("El código de probador tiene 16 caracteres: números y letras de la a a la f. Revísalo o déjalo en blanco.", false); }
+    if (q.length < 5) { marcar(f.que_paso, true); f.que_paso.focus(); return mostrar("Cuéntanos qué pasó. Con una frase basta.", false); }
+    if (m && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)) { marcar(f.correo, true); f.correo.focus(); return mostrar("Ese correo no parece válido. Revísalo o déjalo en blanco.", false); }
+    var datos = { codigo: c, version: f.version.value.trim(), que_paso: q, que_esperabas: f.que_esperabas.value.trim(), pasos: f.pasos.value.trim(), correo: m, web: f.web.value };
+    boton.disabled = true; boton.textContent = "Enviando…"; aviso.hidden = true;
+    fetch(DESTINO, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(datos), credentials: "omit", referrerPolicy: "no-referrer" })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { r: r, j: j }; }); })
+      .then(function (x) {
+        if (x.r.ok && x.j.ok) { f.reset(); f.version.value = datos.version || "0.12.0"; if (cod && datos.codigo === cod) f.codigo.value = cod; mostrar("Enviado. Gracias por ayudarnos a mejorar Sopa.", true); return; }
+        if (x.r.status === 429) return mostrar("Has enviado varios informes seguidos. Espera un rato y vuelve a probar.", false);
+        if (x.j.campo) { var cmp = f[x.j.campo]; if (cmp) { marcar(cmp, true); cmp.focus(); } return mostrar("Revisa el campo marcado. Puede que sea demasiado largo o tenga un formato no válido.", false); }
+        mostrar("No se ha podido enviar. Vuelve a probar en un momento.", false);
+      })
+      .catch(function () { mostrar("No se ha podido enviar. Revisa tu conexión y vuelve a probar.", false); })
+      .then(function () { boton.disabled = false; boton.textContent = "Enviar informe"; });
+  });
+})();
+</script>
+</body>
+</html>
