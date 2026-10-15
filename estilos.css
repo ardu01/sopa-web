@@ -117,3 +117,4 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 .pill-dev{color:#665A40;border-color:#665A40}
 @media (max-width:600px){.ruta b{font-size:20px}}
 .ruta b{white-space:nowrap}
+.func p+p{margin-top:12px}
