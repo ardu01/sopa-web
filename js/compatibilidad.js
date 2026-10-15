@@ -1,4 +1,4 @@
-/* Port literal a JS de sopa_app/compatibilidad.py, hardware.py (driver) y sopa_motor/estimacion.py de Sopa v0.7.0.
+/* Port literal a JS de sopa_app/compatibilidad.py, hardware.py (driver) y sopa_motor/estimacion.py de Sopa v0.8.0.
    No añade fórmulas propias. Ver pruebas/ para la comparación con Python. */
 (function (raiz, f) { if (typeof module === "object" && module.exports) module.exports = f(); else raiz.SopaCompat = f(); })(this, function () {
   "use strict";
