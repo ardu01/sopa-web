@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>¿Qué IA local puedo usar en mi ordenador? Simulador de requisitos · Sopa™</title>
-<meta name="description" content="Requisitos para IA local: elige tu gráfica, la VRAM y la RAM y descubre qué LLM puedes usar en tu ordenador para chatear o personalizar, y cuánta VRAM necesita cada uno. Orientativo y en español.">
+<meta name="description" content="Requisitos para IA local: elige tu gráfica, VRAM y RAM y descubre qué LLM puedes usar en tu ordenador y cuánta VRAM necesita cada uno.">
 <link rel="canonical" href="https://ardu01.github.io/sopa-web/simulador.html">
 <meta name="robots" content="index,follow">
 <meta name="author" content="Miguel Rodríguez Saiz">
@@ -41,8 +41,8 @@
 <body>
 <header class="nav">
   <div class="nav-in">
-    <a href="./" class="marca" aria-label="Sopa, inicio"><img src="img/icono.webp" alt="Logotipo de Sopa" width="28" height="28">Sopa™</a>
-    <nav aria-label="Secciones"><a href="./#funciones">Funciones</a><a href="./#modelos">Modelos</a><a href="./#planes">Planes</a><a href="./#faq">Preguntas</a><a href="simulador.html" aria-current="page">Simulador</a></nav>
+    <a href="./" class="marca"><img src="img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
+    <nav aria-label="Secciones"><a href="./#funciones">Funciones</a><a href="./#modelos">Modelos</a><a href="./#planes">Planes</a><a href="./#faq">Preguntas</a><a href="guias/">Guías</a><a href="simulador.html" aria-current="page">Simulador</a></nav>
     <span class="pill-dev">En desarrollo · v0.3</span>
   </div>
 </header>
@@ -59,20 +59,21 @@
     <form class="panel" id="equipo" aria-label="Tu equipo" onsubmit="return false">
       <fieldset>
         <legend>Gráfica</legend>
-        <div class="chips-sel" id="gpus" role="radiogroup" aria-label="Gráfica"></div>
+        <div class="chips-sel" id="gpus" role="radiogroup" aria-label="Gráfica"><button type="button" role="radio" data-v="ninguna" aria-checked="false"><span>Sin gráfica dedicada</span><small>Integrada</small></button><button type="button" role="radio" data-v="gtx1650maxq" aria-checked="false"><span>GTX 1650 Max-Q (portátil)</span><small>4 GB</small></button><button type="button" role="radio" data-v="gtx1060" aria-checked="false"><span>GTX 1060 6 GB (portátil)</span><small>6 GB</small></button><button type="button" role="radio" data-v="gtx1660s" aria-checked="false"><span>GTX 1660 Super</span><small>6 GB</small></button><button type="button" role="radio" data-v="rtx2060" aria-checked="false"><span>RTX 2060 (6 GB)</span><small>6 GB</small></button><button type="button" role="radio" data-v="rtx3050l" aria-checked="false"><span>RTX 3050 4 GB (portátil)</span><small>4 GB</small></button><button type="button" role="radio" data-v="rtx3060" aria-checked="false"><span>RTX 3060 12 GB</span><small>12 GB</small></button><button type="button" role="radio" data-v="rtx4060" aria-checked="false"><span>RTX 4060</span><small>8 GB</small></button><button type="button" role="radio" data-v="rtx4070" aria-checked="false"><span>RTX 4070</span><small>12 GB</small></button><button type="button" role="radio" data-v="rtx4090" aria-checked="false"><span>RTX 4090</span><small>24 GB</small></button><button type="button" role="radio" data-v="rx6600" aria-checked="false"><span>Radeon RX 6600</span><small>8 GB · Sopa usa el procesador</small></button><button type="button" role="radio" data-v="rx7600" aria-checked="false"><span>Radeon RX 7600</span><small>8 GB · Sopa usa el procesador</small></button><button type="button" role="radio" data-v="rx6700xt" aria-checked="false"><span>Radeon RX 6700 XT</span><small>12 GB · Sopa usa el procesador</small></button><button type="button" role="radio" data-v="rx7900xtx" aria-checked="false"><span>Radeon RX 7900 XTX</span><small>24 GB · Sopa usa el procesador</small></button></div>
       </fieldset>
       <fieldset id="f-vram">
         <legend>Memoria de la gráfica (VRAM) <output id="o-vram" for="vram"></output></legend>
+        <label class="sr" for="vram">Memoria de la gráfica (VRAM) en GB</label>
         <input type="range" id="vram" min="2" max="24" step="1" aria-describedby="o-vram">
-        <div class="escala" aria-hidden="true"><span>2 GB</span><span>24 GB</span></div>
+        <div class="escala" aria-hidden="true"><span>2 GB</span><span>24 GB</span></div>
       </fieldset>
       <fieldset>
         <legend>Memoria del ordenador (RAM)</legend>
-        <div class="chips-sel" id="rams" role="radiogroup" aria-label="RAM"></div>
+        <div class="chips-sel" id="rams" role="radiogroup" aria-label="RAM"><button type="button" role="radio" data-v="8" aria-checked="false"><span>8 GB</span></button><button type="button" role="radio" data-v="12" aria-checked="false"><span>12 GB</span></button><button type="button" role="radio" data-v="16" aria-checked="false"><span>16 GB</span></button><button type="button" role="radio" data-v="32" aria-checked="false"><span>32 GB</span></button><button type="button" role="radio" data-v="64" aria-checked="false"><span>64 GB</span></button></div>
       </fieldset>
       <fieldset id="f-driver">
         <legend>Driver NVIDIA</legend>
-        <div class="segmento" id="driver" role="radiogroup" aria-label="Driver NVIDIA"></div>
+        <div class="segmento" id="driver" role="radiogroup" aria-label="Driver NVIDIA"><button type="button" role="radio" data-v="ok" aria-checked="false"><span>560 o superior</span></button><button type="button" role="radio" data-v="viejo" aria-checked="false"><span>Anterior a 560</span></button></div>
         <p class="ayuda">Sopa necesita la versión 560 o superior para usar la gráfica.</p>
       </fieldset>
       <p class="ayuda">El procesador apenas influye: lo que decide es la gráfica, su memoria y la RAM. Sopa acelera con gráficas NVIDIA; con AMD o integrada usa el procesador.</p>
@@ -89,22 +90,23 @@
         <h3>Cómo calculamos la velocidad</h3>
         <p>Partimos de las velocidades <b>medidas</b> en un portátil con GTX 1650 Max-Q y las escalamos por el ancho de banda de memoria de tu gráfica, que es lo que más pesa al conversar:</p>
         <ul class="reglas">
-          <li>Gráfica entre la mitad y 4 veces la de referencia: rango de ±25 %.</li>
+          <li>Gráfica entre la mitad y 4 veces la de referencia: rango de ±25 %.</li>
           <li>Más de 4 veces: «más de N tok/s», calculado de forma prudente.</li>
-          <li>Por encima de 150 tok/s solo decimos «muy rápido».</li>
+          <li>Por encima de 150 tok/s solo decimos «muy rápido».</li>
           <li>Menos de la mitad, o si el modelo no cabe entero en la gráfica: «lento», sin cifra.</li>
           <li>Sin medida del modelo, no damos cifra.</li>
         </ul>
-        <p class="nota-ref">La GTX 1650 Max-Q existe con memoria GDDR5 (112,1 GB/s) y GDDR6 (192 GB/s). Como no hemos verificado cuál tiene el equipo de medida, usamos el caso conservador: 192 GB/s.</p>
+        <p class="nota-ref">La GTX 1650 Max-Q existe con memoria GDDR5 (112,1 GB/s) y GDDR6 (192 GB/s). Como no hemos verificado cuál tiene el equipo de medida, usamos el caso conservador: 192 GB/s.</p>
         <details class="fuentes"><summary>Fuentes</summary><div id="fuentes"></div></details>
       </div>
       <p class="aviso aviso-pie" role="note">Orientativo. Sopa comprueba tu equipo real al instalarla.</p>
-      <p class="ayuda nota-sim">Las necesidades de memoria salen de medidas reales cuando las hay y, si no, de una estimación conservadora según el tamaño del modelo. «Verificado» solo aparece cuando tu gráfica es igual o mejor que el equipo donde lo medimos (GTX 1650 de 4 GB).</p>
+      <p class="ayuda nota-sim">Las necesidades de memoria salen de medidas reales cuando las hay y, si no, de una estimación conservadora según el tamaño del modelo. «Verificado» solo aparece cuando tu gráfica es igual o mejor que el equipo donde lo medimos (GTX 1650 de 4 GB).</p>
     </section>
   </div>
   <p class="cont volver-p"><a class="enlace" href="./">‹ Descubre Sopa, tu IA local para Windows</a></p>
 </main>
 <footer class="cont pie">
+  <nav class="pie-enlaces" aria-label="Enlaces del pie"><a href="./">Inicio</a><a href="guias/">Guías</a><a href="guias/">Guías</a><a href="simulador.html">Simulador</a></nav>
   <p>© 2026 Miguel Rodríguez Saiz. Todos los derechos reservados. Sopa y su logotipo son de Miguel Rodríguez Saiz. Qwen, Phi, Gemma y Granite son marcas de sus titulares; sin afiliación.</p>
   <p>Esta web no usa cookies ni rastreadores.</p>
 </footer>

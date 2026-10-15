@@ -106,3 +106,12 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 .func .en-dev{border:1.5px dashed #7D6E5080;background:#7D6E500a}
 .num .pill-dev{margin-left:8px;vertical-align:middle}
 @media (max-width:900px){.args{grid-template-columns:1fr}}
+:root{--accent:#1A7748;--accent-h:#15663D}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pie-enlaces{display:flex;gap:20px;width:100%}
+.pie-enlaces a{color:var(--accent)}
+.guias-lista{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;text-align:left}
+.guias-lista a{display:flex;flex-direction:column;justify-content:space-between;gap:20px;height:100%;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px;transition:border-color .12s var(--ease)}
+.guias-lista a:hover{border-color:var(--accent)}
+@media (max-width:900px){.guias-lista{grid-template-columns:1fr}}
+.pill-dev{color:#665A40;border-color:#665A40}

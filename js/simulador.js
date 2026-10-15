@@ -4,7 +4,7 @@
   // Gráficas habituales: VRAM y capacidad de cómputo según las especificaciones de NVIDIA.
   var AB = window.SOPA_ANCHOS, REF = AB.gpus.filter(function (g) { return g.id === AB.referencia; })[0];
   var GPUS = [{ id: "ninguna", nombre: "Sin gráfica dedicada", detalle: "Integrada", vram: 0 }].concat(AB.gpus.map(function (g) {
-    return { id: g.id, nombre: g.nombre, vram: g.vram, cap: g.cap, gbs: g.gbs, amd: g.marca === "AMD", detalle: g.marca === "AMD" ? g.vram + " GB · Sopa usa el procesador" : null };
+    return { id: g.id, nombre: g.nombre, vram: g.vram, cap: g.cap, gbs: g.gbs, amd: g.marca === "AMD", detalle: g.marca === "AMD" ? g.vram + "\u00a0GB · Sopa usa el procesador" : null };
   }));
   var RAMS = [8, 12, 16, 32, 64];
   var DRIVERS = [{ id: "ok", nombre: "560 o superior", v: "560.0" }, { id: "viejo", nombre: "Anterior a 560", v: "550.0" }];
@@ -12,13 +12,17 @@
   var $ = function (id) { return document.getElementById(id); };
 
   function radios(cont, items, clave, etiqueta, sub) {
-    cont.innerHTML = "";
+    // Los botones vienen ya en el HTML (evita saltos de diseño); si faltan, se crean.
+    var hechos = {}; [].forEach.call(cont.querySelectorAll("button"), function (b) { hechos[b.dataset.v] = b; });
     items.forEach(function (it) {
-      var b = document.createElement("button");
-      b.type = "button"; b.setAttribute("role", "radio"); b.dataset.v = it.id;
-      b.innerHTML = "<span>" + etiqueta(it) + "</span>" + (sub && sub(it) ? "<small>" + sub(it) + "</small>" : "");
+      var b = hechos[String(it.id)];
+      if (!b) {
+        b = document.createElement("button");
+        b.type = "button"; b.setAttribute("role", "radio"); b.dataset.v = it.id;
+        b.innerHTML = "<span>" + etiqueta(it) + "</span>" + (sub && sub(it) ? "<small>" + sub(it) + "</small>" : "");
+        cont.appendChild(b);
+      }
       b.addEventListener("click", function () { st[clave] = it.id; if (clave === "gpu" && it.vram) st.vram = it.vram; pintar(); });
-      cont.appendChild(b);
     });
     cont.addEventListener("keydown", function (e) {
       var bs = [].slice.call(cont.querySelectorAll("button")), i = bs.indexOf(document.activeElement);
@@ -58,17 +62,17 @@
     if (!med) return '<span class="v-sin">Sin medida aún</span>';
     var et = function (t) { return ' <span class="b ' + (t === "medido" ? "b-ok" : "b-info") + '">' + t + "</span>"; };
     var rapido = function (t) { return '<span class="v-rapido">Muy rápido</span>' + et(t); };
-    if (g.id === REF.id) return med > TOPE ? rapido("medido") : "<b>" + fmt(med) + " tok/s</b>" + et("medido");
+    if (g.id === REF.id) return med > TOPE ? rapido("medido") : "<b>" + fmt(med) + "\u00a0tok/s</b>" + et("medido");
     var k = g.gbs / REF.gbs;
     if (k < 0.5) return '<span class="v-lento">Lento</span>' + et("estimado");
-    if (k > 4) { var n = Math.round(med * 4 * 0.75); return n > TOPE ? rapido("estimado") : "<b>Más de " + n + " tok/s</b>" + et("estimado"); }
+    if (k > 4) { var n = Math.round(med * 4 * 0.75); return n > TOPE ? rapido("estimado") : "<b>Más de " + n + "\u00a0tok/s</b>" + et("estimado"); }
     var c = med * k, lo = Math.round(c * 0.75), hi = Math.round(c * 1.25);
-    return hi > TOPE ? rapido("estimado") : "<b>" + lo + "–" + hi + " tok/s</b>" + et("estimado");
+    return hi > TOPE ? rapido("estimado") : "<b>" + lo + "–" + hi + "\u00a0tok/s</b>" + et("estimado");
   }
   function pintar() {
     var g = GPUS.filter(function (x) { return x.id === st.gpu; })[0], hay = !!g.vram && !g.amd;
     marcar($("gpus"), st.gpu); marcar($("rams"), st.ram); marcar($("driver"), st.driver);
-    $("vram").value = st.vram; $("o-vram").textContent = hay ? st.vram + " GB" : "—";
+    $("vram").value = st.vram; $("o-vram").textContent = hay ? st.vram + "\u00a0GB" : "—";
     $("f-vram").disabled = !hay; $("f-driver").disabled = !hay;
     $("f-vram").classList.toggle("off", !hay); $("f-driver").classList.toggle("off", !hay);
     var res = C.catalogo_para(CAT, hw(), st.solo);
@@ -79,29 +83,30 @@
     var aviso = C.driver_insuficiente(hw());
     $("lista").innerHTML = (aviso ? '<li class="alerta">' + esc(aviso) + "</li>" : "") + res.map(function (r) {
       var md = r.medido || {}, extra = [], vel = velocidad(r, g, hay);
-      if (md.chat_tokens_por_segundo) extra.push("Medido en GTX 1650 Max-Q: " + fmt(md.chat_tokens_por_segundo) + " tok/s");
+      if (md.chat_tokens_por_segundo) extra.push("Medido en GTX 1650 Max-Q: " + fmt(md.chat_tokens_por_segundo) + "\u00a0tok/s");
       if (r.personalizar !== "no" && hay && st.driver === "ok") {
         var s = C.segundos_por_paso(r.parametros_b, 512, 8, "sft", "cuda", md.segundos_por_paso);
         var fi = C.fiabilidad(r.parametros_b, "cuda", md.segundos_por_paso);
-        extra.push((fi === "medido" ? "Entrenamiento medido en GTX 1650: " : "Entrenamiento en GTX 1650, aproximado: ") + fmt(C.pyFixed(s, 1)) + " s por paso");
+        extra.push((fi === "medido" ? "Entrenamiento medido en GTX 1650: " : "Entrenamiento en GTX 1650, aproximado: ") + fmt(C.pyFixed(s, 1)) + "\u00a0s por paso");
       }
-      var pers = r.solo_catalogo || r.solo_chat ? "" : " · personalizar " + fmt(r.necesita_personalizar_gb) + " GB";
+      var pers = r.solo_catalogo || r.solo_chat ? "" : " · personalizar " + fmt(r.necesita_personalizar_gb) + "\u00a0GB";
       return '<li class="modelo v-' + r.verificacion + '">' +
-        '<div class="m-cab"><div><h3>' + esc(r.nombre) + '</h3><p class="m-meta">' + fmt(r.parametros_b) + " mil millones de parámetros · " + esc(r.licencia || "") + "</p></div>" + badge((r.solo_chat ? T_VER_SOLO : T_VER)[r.verificacion]) + "</div>" +
+        '<div class="m-cab"><div><h3>' + esc(r.nombre) + '</h3><p class="m-meta">' + fmt(r.parametros_b) + "\u00a0mil millones de parámetros · " + esc(r.licencia || "") + "</p></div>" + badge((r.solo_chat ? T_VER_SOLO : T_VER)[r.verificacion]) + "</div>" +
         '<dl class="m-dl"><div><dt>Chatear</dt><dd>' + badge(T_CHAT[r.chat]) + "</dd></div><div><dt>Personalizar</dt><dd>" + (r.solo_chat ? '<span class="b b-neu">No disponible</span>' : badge(T_PERS[r.personalizar])) + "</dd></div>" +
-        "<div><dt>Velocidad</dt><dd class=\"vel\">" + vel + "</dd></div><div><dt>Necesita</dt><dd class=\"gb\">chat " + fmt(r.necesita_chat_gb) + " GB" + pers + "</dd></div></dl>" +
+        "<div><dt>Velocidad</dt><dd class=\"vel\">" + vel + "</dd></div><div><dt>Necesita</dt><dd class=\"gb\">chat " + fmt(r.necesita_chat_gb) + "\u00a0GB" + pers + "</dd></div></dl>" +
         '<p class="m-txt">' + esc(r.chat_texto) + " " + esc(r.personalizar_texto) + "</p>" +
         '<p class="m-txt sec">' + esc(r.verificacion_texto) + "</p>" +
         (extra.length ? '<p class="m-ref">' + extra.map(esc).join(" · ") + "</p>" : "") + "</li>";
     }).join("");
   }
 
-  radios($("gpus"), GPUS, "gpu", function (g) { return g.nombre; }, function (g) { return g.detalle || (g.vram + " GB"); });
-  radios($("rams"), RAMS.map(function (r) { return { id: r }; }), "ram", function (r) { return r.id + " GB"; });
+  radios($("gpus"), GPUS, "gpu", function (g) { return g.nombre; }, function (g) { return g.detalle || (g.vram + "\u00a0GB"); });
+  radios($("rams"), RAMS.map(function (r) { return { id: r }; }), "ram", function (r) { return r.id + "\u00a0GB"; });
   radios($("driver"), DRIVERS, "driver", function (d) { return d.nombre; });
   $("vram").addEventListener("input", function (e) { st.vram = Number(e.target.value); pintar(); });
   $("solo").addEventListener("change", function (e) { st.solo = e.target.checked; pintar(); });
   pintar();
+  $("lista").style.minHeight = "";
 })();
 (function () {
   var AB = window.SOPA_ANCHOS, f = document.getElementById("fuentes");
