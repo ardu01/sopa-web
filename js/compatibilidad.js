@@ -1,4 +1,4 @@
-/* Port literal a JS de sopa_app/compatibilidad.py, hardware.py (driver) y estimacion.py.
+/* Port literal a JS de sopa_app/compatibilidad.py, hardware.py (driver) y sopa_motor/estimacion.py de Sopa v0.7.0.
    No añade fórmulas propias. Ver pruebas/ para la comparación con Python. */
 (function (raiz, f) { if (typeof module === "object" && module.exports) module.exports = f(); else raiz.SopaCompat = f(); })(this, function () {
   "use strict";
@@ -113,6 +113,25 @@
     if (dispositivo === "cpu") s *= FACTOR_CPU;
     return s;
   }
+  function pasos_totales(ejemplos, epocas, tam_lote, acumulacion, pasos_max) {
+    tam_lote = tam_lote == null ? 1 : tam_lote; acumulacion = acumulacion == null ? 8 : acumulacion; pasos_max = pasos_max || 0;
+    var pasos = Math.ceil(Math.max(1, Math.ceil(Math.ceil(ejemplos / tam_lote) / acumulacion)) * epocas);
+    return pasos_max > 0 ? Math.min(pasos, pasos_max) : pasos;
+  }
+  function estimar(parametros_b, ejemplos, epocas, longitud, tam_lote, acumulacion, tarea, dispositivo, medido, pasos_max) {
+    longitud = longitud == null ? 512 : longitud; tam_lote = tam_lote == null ? 1 : tam_lote; acumulacion = acumulacion == null ? 8 : acumulacion;
+    tarea = tarea || "sft"; dispositivo = dispositivo || "cuda";
+    var pasos = pasos_totales(ejemplos, epocas, tam_lote, acumulacion, pasos_max);
+    // Cada paso procesa tam_lote × acumulación ejemplos: el tiempo escala con ese producto.
+    var s = segundos_por_paso(parametros_b, longitud, acumulacion * tam_lote, tarea, dispositivo, medido);
+    return { pasos: pasos, segundos_por_paso: pyRound(s, 1), segundos: pyRound(pasos * s, 0), fiabilidad: fiabilidad(parametros_b, dispositivo, medido) };
+  }
+  function texto_duracion(segundos) {
+    var m = Math.max(1, pyRound(segundos / 60, 0));
+    if (m < 60) return "unos " + m + " min";
+    var h = Math.floor(m / 60); m = m % 60;
+    return m ? "unas " + h + " h " + (m < 10 ? "0" : "") + m + " min" : "unas " + h + " h";
+  }
   function fiabilidad(parametros_b, dispositivo, medido) {
     return ((dispositivo || "cuda") === "cuda" && (medido != null || medidoPorTam(parametros_b) !== null)) ? "medido" : "aproximado";
   }
@@ -121,5 +140,5 @@
     MARGEN_MEDIDO: MARGEN_MEDIDO, REFERENCIAS: REFERENCIAS, version_driver: version_driver, driver_insuficiente: driver_insuficiente,
     hardware_efectivo: hardware_efectivo, vram_gb: vram_gb, necesidad_chat_gb: necesidad_chat_gb, necesidad_personalizar_gb: necesidad_personalizar_gb,
     estado_verificacion: estado_verificacion, evaluar: evaluar, catalogo_para: catalogo_para, segundos_por_paso: segundos_por_paso,
-    fiabilidad: fiabilidad, pyRound: pyRound, pyFixed: pyFixed };
+    fiabilidad: fiabilidad, pasos_totales: pasos_totales, estimar: estimar, texto_duracion: texto_duracion, pyRound: pyRound, pyFixed: pyFixed };
 });
