@@ -129,3 +129,8 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 .nota-clara{color:var(--text-2);font-size:15px;margin:40px auto 0;max-width:760px}
 .nota-clara a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 .num .pill-ok{margin-left:8px;vertical-align:middle}
+.descarga{margin:56px auto 0;max-width:640px;border:1px solid var(--d-border);border-radius:18px;padding:32px}
+.descarga h3{font-size:22px}.descarga p{color:var(--d-text-2);font-size:15px;margin-top:8px}
+.descarga .btn{display:inline-block;margin-top:20px}
+.descarga .descarga-dato{font-size:13px;margin-top:12px}
+.descarga .sha{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;word-break:break-all;color:var(--d-text)}
