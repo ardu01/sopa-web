@@ -102,6 +102,7 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 .args article{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:32px}
 .args p{font-size:21px;line-height:1.4;letter-spacing:-.01em;margin-top:16px;font-weight:500}
 .args article:has(.pill-dev){border:1.5px dashed #7D6E5080;background:#7D6E500a}
+.func .destacado-func{grid-column:1/-1}
 .func .en-dev{border:1.5px dashed #7D6E5080;background:#7D6E500a}
 .num .pill-dev{margin-left:8px;vertical-align:middle}
 @media (max-width:900px){.args{grid-template-columns:1fr}}
