@@ -22,7 +22,15 @@ h3{font-size:21px;letter-spacing:-.01em;font-weight:650;margin-bottom:6px}
 .lead{font-size:clamp(19px,2.2vw,24px);color:var(--text-2);max-width:640px;margin:20px auto 0;line-height:1.4}
 .verde{color:var(--accent)}
 .hero{text-align:center;padding:72px 24px 0;overflow:hidden}
-.hero-icono{width:168px;margin:0 auto 24px;filter:drop-shadow(0 20px 40px #1E875230)}
+.hero-icono{width:168px;margin:0 auto 24px}
+/* Logo de la portada: el vapor del propio dibujo, en capas detrás del cuenco; solo transform y opacity, sin JS */
+.logo-humo{position:relative;aspect-ratio:1}
+.logo-humo img{width:100%;height:100%}
+.logo-humo .cuenco{position:relative;z-index:1;filter:drop-shadow(0 20px 40px #1E875230)}
+.logo-humo .humo{position:absolute;inset:0;pointer-events:none;transform-origin:50% 44%;-webkit-mask-image:linear-gradient(#000 37%,transparent 44.5%);mask-image:linear-gradient(#000 37%,transparent 44.5%);animation:humo 3.2s ease-in-out infinite;will-change:transform,opacity}
+.logo-humo .h2{animation-delay:-1.07s}.logo-humo .h3{animation-delay:-2.13s}
+@keyframes humo{0%{opacity:0;transform:translateY(5%)}25%{opacity:1;transform:translateY(2%)}60%{opacity:1}100%{opacity:0;transform:translateY(-6%)}}
+@media (prefers-reduced-motion:reduce){.logo-humo .humo{animation:none;opacity:1;transform:none;-webkit-mask-image:none;mask-image:none}}
 .ctas{display:flex;gap:28px;justify-content:center;align-items:center;margin-top:32px;flex-wrap:wrap}
 .btn{background:var(--accent);color:#fff;padding:12px 24px;border-radius:999px;font-weight:550;transition:background .12s var(--ease)}
 .btn:hover{background:var(--accent-h)}
