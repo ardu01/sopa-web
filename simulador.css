@@ -70,3 +70,6 @@ input[type=range]{width:100%;accent-color:var(--accent);height:28px}
 .migas li+li::before{content:"›";margin-right:8px}
 .migas a{color:var(--accent)}
 .volver-p{text-align:center;padding-bottom:80px;margin-top:-60px}
+.m-esp{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.m-esp li{font-size:12px;font-weight:550;color:#59625C;background:#ECEEEB;border-radius:999px;padding:2px 9px}
+.m-lic{font-size:13px;color:#8A5810;background:#B9771A12;border-radius:10px;padding:8px 12px;margin-top:10px}

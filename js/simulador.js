@@ -44,7 +44,14 @@
       gpus: g.vram && !g.amd ? [{ vram_total_gb: st.vram, driver: drv.v, capacidad: g.cap }] : [] };
   }
   var T_CHAT = { gpu: ["Sí", "ok"], mixto: ["Sí, más lento", "warn"], cpu: ["Sí, en el procesador", "warn"], no: ["No", "err"] };
+  var T_POTENTE = ["Equipo potente", "err"];
   var T_PERS = { si: ["Sí", "ok"], justo: ["Va justo", "warn"], no: ["No", "err"] };
+  var ESP = { chat: "Charlar", razonamiento: "Razonar", codigo: "Programar", rapido: "Ir rápido", documentos: "Documentos", vision: "Ver imágenes" };
+  var LIC = { condiciones: "Licencia con condiciones", no_comercial: "Licencia no comercial" };
+  function especialidad(r) {
+    var es = (r.especialidad || []).map(function (e) { return '<li>' + esc(ESP[e] || e) + (e === "vision" ? " · próximamente" : "") + "</li>"; });
+    return es.length ? '<ul class="m-esp" aria-label="Especialidad">' + es.join("") + "</ul>" : "";
+  }
   var T_VER_SOLO = { verificado: ["Verificado · solo chat", "ok"], estimado: ["Estimado · solo chat", "info"], no_soportado: ["No soportado", "err"] };
   var T_VER = { verificado: ["Verificado", "ok"], estimado: ["Estimado", "info"], no_soportado: ["No soportado", "err"] };
   function fmt(n) { return String(n).replace(".", ","); }
@@ -57,6 +64,7 @@
   function velocidad(r, g, hay) {
     var med = (r.medido || {}).chat_tokens_por_segundo;
     if (r.chat === "no") return '<span class="v-no">No funciona</span>';
+    if (r.equipo_potente) return '<span class="v-lento">Muy lento en este equipo</span>';
     if (r.chat === "cpu") return '<span class="v-lento">Lento, solo en procesador</span>';
     if (r.chat === "mixto") return '<span class="v-lento">Lento (parte en RAM)</span>';
     if (!med) return '<span class="v-sin">Sin medida aún</span>';
@@ -79,7 +87,7 @@
     var todos = C.catalogo_para(CAT, hw(), false);
     var nc = todos.filter(function (r) { return r.chat !== "no"; }).length;
     var np = todos.filter(function (r) { return r.personalizar !== "no"; }).length;
-    $("resumen").innerHTML = "<b>" + nc + "</b> de " + todos.length + " modelos para chatear · <b>" + np + "</b> para personalizar";
+    $("resumen").innerHTML = "<b>" + nc + "</b> de " + todos.length + " modelos para chatear · <b>" + np + "</b> para entrenar";
     var aviso = C.driver_insuficiente(hw());
     $("lista").innerHTML = (aviso ? '<li class="alerta">' + esc(aviso) + "</li>" : "") + res.map(function (r) {
       var md = r.medido || {}, extra = [], vel = velocidad(r, g, hay);
@@ -89,13 +97,14 @@
         var fi = C.fiabilidad(r.parametros_b, "cuda", md.segundos_por_paso);
         extra.push((fi === "medido" ? "Entrenamiento medido en GTX 1650: " : "Entrenamiento en GTX 1650, aproximado: ") + fmt(C.pyFixed(s, 1)) + "\u00a0s por paso");
       }
-      var pers = r.solo_catalogo || r.solo_chat ? "" : " · personalizar " + fmt(r.necesita_personalizar_gb) + "\u00a0GB";
+      var pers = r.solo_catalogo || r.solo_chat ? "" : " · entrenar " + fmt(r.necesita_personalizar_gb) + "\u00a0GB";
+      var lic = LIC[r.licencia_tipo] ? '<p class="m-lic"><b>' + LIC[r.licencia_tipo] + ".</b> " + esc(r.licencia_nota || "") + "</p>" : "";
       return '<li class="modelo v-' + r.verificacion + '">' +
-        '<div class="m-cab"><div><h3>' + esc(r.nombre) + '</h3><p class="m-meta">' + fmt(r.parametros_b) + "\u00a0mil millones de parámetros · " + esc(r.licencia || "") + "</p></div>" + badge((r.solo_chat ? T_VER_SOLO : T_VER)[r.verificacion]) + "</div>" +
-        '<dl class="m-dl"><div><dt>Chatear</dt><dd>' + badge(T_CHAT[r.chat]) + "</dd></div><div><dt>Personalizar</dt><dd>" + (r.solo_chat ? '<span class="b b-neu">No disponible</span>' : badge(T_PERS[r.personalizar])) + "</dd></div>" +
+        '<div class="m-cab"><div><h3>' + esc(r.nombre) + '</h3><p class="m-meta">' + fmt(r.parametros_b) + "\u00a0mil millones de parámetros · " + esc(r.licencia || "") + "</p>" + especialidad(r) + "</div>" + badge((r.solo_chat ? T_VER_SOLO : T_VER)[r.verificacion]) + "</div>" +
+        '<dl class="m-dl"><div><dt>Chatear</dt><dd>' + badge(r.equipo_potente ? T_POTENTE : T_CHAT[r.chat]) + "</dd></div><div><dt>Entrenar</dt><dd>" + (r.solo_chat ? '<span class="b b-neu">No disponible</span>' : badge(T_PERS[r.personalizar])) + "</dd></div>" +
         "<div><dt>Velocidad</dt><dd class=\"vel\">" + vel + "</dd></div><div><dt>Necesita</dt><dd class=\"gb\">chat " + fmt(r.necesita_chat_gb) + "\u00a0GB" + pers + "</dd></div></dl>" +
         '<p class="m-txt">' + esc(r.chat_texto) + " " + esc(r.personalizar_texto) + "</p>" +
-        '<p class="m-txt sec">' + esc(r.verificacion_texto) + "</p>" +
+        '<p class="m-txt sec">' + esc(r.verificacion_texto) + "</p>" + lic +
         (extra.length ? '<p class="m-ref">' + extra.map(esc).join(" · ") + "</p>" : "") + "</li>";
     }).join("");
   }

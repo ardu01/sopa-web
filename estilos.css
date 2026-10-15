@@ -126,3 +126,6 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 @media (max-width:600px){.ruta b{font-size:20px}}
 .ruta b{white-space:nowrap}
 .func p+p{margin-top:12px}
+.nota-clara{color:var(--text-2);font-size:15px;margin:40px auto 0;max-width:760px}
+.nota-clara a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.num .pill-ok{margin-left:8px;vertical-align:middle}

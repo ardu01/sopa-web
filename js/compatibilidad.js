@@ -1,4 +1,4 @@
-/* Port literal a JS de sopa_app/compatibilidad.py, hardware.py (driver) y sopa_motor/estimacion.py de Sopa v0.8.0.
+/* Port literal a JS de sopa_app/compatibilidad.py, hardware.py (driver) y sopa_motor/estimacion.py de Sopa v0.10.0.
    No añade fórmulas propias. Ver pruebas/ para la comparación con Python. */
 (function (raiz, f) { if (typeof module === "object" && module.exports) module.exports = f(); else raiz.SopaCompat = f(); })(this, function () {
   "use strict";
@@ -40,6 +40,13 @@
     if (medido) return pyRound(medido * MARGEN_MEDIDO, 2);
     return pyRound(m.gguf_gb + MARGEN_CHAT_GB, 2);
   }
+  // «Equipo potente» (calibrado en la MSI, GTX 1650 4 GB, ver CHANGELOG 0.10).
+  var FACTOR_POTENTE = 1.2, LENTO_TPS = 5.0;
+  function _muy_lento(m, chat_gb, vram) {
+    var medido = medidoDe(m), tps = medido.chat_tokens_por_segundo, ref = REFERENCIAS[medido.equipo || ""];
+    if (tps && ref && Math.abs(vram - ref) < 0.5) return tps < LENTO_TPS;
+    return chat_gb > Math.max(vram, 1.0) * FACTOR_POTENTE;
+  }
   function necesidad_personalizar_gb(m) {
     var medido = medidoDe(m).personalizar_vram_gb;
     if (medido) return pyRound(medido * MARGEN_MEDIDO, 2);
@@ -71,22 +78,26 @@
     var chat = necesidad_chat_gb(m), pers = necesidad_personalizar_gb(m);
     var disco = m.gguf_gb * 3 + 1;
     var modo_chat, texto_chat, modo_pers, texto_pers;
-    if (vram >= chat) { modo_chat = "gpu"; texto_chat = "Funciona con fluidez en tu GPU."; }
-    else if (hw.gpus.length && vram >= 2 && hw.ram_total_gb >= (chat - vram) + 4) { modo_chat = "mixto"; texto_chat = "Funciona repartido entre tu GPU y la memoria; algo más lento."; }
+    if (vram >= chat) { modo_chat = "gpu"; texto_chat = "Funciona con fluidez en tu gráfica."; }
+    else if (hw.gpus.length && vram >= 2 && hw.ram_total_gb >= (chat - vram) + 4) { modo_chat = "mixto"; texto_chat = "Funciona repartido entre tu gráfica y la memoria; algo más lento."; }
     else if (hw.ram_total_gb >= chat + 2) { modo_chat = "cpu"; texto_chat = "Funciona, pero en el procesador irá más lento."; }
     else { modo_chat = "no"; texto_chat = "No hay memoria suficiente."; }
-    if (m.solo_catalogo) { modo_pers = "no"; texto_pers = "Solo en el catálogo: Sopa aún no lo descarga ni lo personaliza."; }
+    var potente = modo_chat === "no" || ((modo_chat === "mixto" || modo_chat === "cpu") && _muy_lento(m, chat, vram));
+    if (potente)
+      texto_chat = "Pensado para un equipo potente: necesita unos " + pyFixed(chat, 0) + " GB entre gráfica y memoria. " +
+        (modo_chat === "no" ? "Aquí no cabe." : "Aquí cabría repartido, pero iría muy lento.");
+    if (m.solo_catalogo) { modo_pers = "no"; texto_pers = "Solo en el catálogo: Sopa aún no lo descarga ni lo entrena."; }
     else if (m.solo_chat) { modo_pers = "no"; texto_pers = "Este modelo se ofrece solo para chatear."; }
-    else if (vram >= pers) { modo_pers = "si"; texto_pers = "Puedes personalizarlo en tu GPU."; }
-    else if (medido_pers && vram >= medido_pers) { modo_pers = "justo"; texto_pers = "Va justo: cabe en tu GPU con poco margen. Cierra otras aplicaciones antes."; }
-    else if (!medido_pers && vram >= pers * 0.75 && hw.ram_total_gb >= 12) { modo_pers = "justo"; texto_pers = "Va justo: se usará el modo de poca VRAM y tardará más."; }
+    else if (vram >= pers) { modo_pers = "si"; texto_pers = "Puedes entrenarlo en tu gráfica."; }
+    else if (medido_pers && vram >= medido_pers) { modo_pers = "justo"; texto_pers = "Va justo: cabe en tu gráfica con poco margen. Cierra otras aplicaciones antes."; }
+    else if (!medido_pers && vram >= pers * 0.75 && hw.ram_total_gb >= 12) { modo_pers = "justo"; texto_pers = "Va justo de memoria en la gráfica: tardará más."; }
     else {
-      var motivo = !hw.gpus.length ? (aviso_driver ? "actualiza el driver NVIDIA (560 o superior)" : "no tienes GPU NVIDIA")
-        : "necesita unos " + pyFixed(pers, 1) + " GB de VRAM y tienes " + pyFixed(vram, 1) + " GB";
-      modo_pers = "no"; texto_pers = "No se puede personalizar: " + motivo + ".";
+      var motivo = !hw.gpus.length ? (aviso_driver ? "actualiza el driver NVIDIA (560 o superior)" : "no tienes una gráfica NVIDIA")
+        : "necesita unos " + pyFixed(pers, 1) + " GB de memoria en la gráfica y la tuya tiene " + pyFixed(vram, 1) + " GB";
+      modo_pers = "no"; texto_pers = "No se puede entrenar: " + motivo + ".";
     }
     var v = estado_verificacion(m, hw, modo_chat, modo_pers);
-    return Object.assign({}, m, { necesita_chat_gb: chat, necesita_personalizar_gb: pers, chat: modo_chat, chat_texto: texto_chat,
+    return Object.assign({}, m, { necesita_chat_gb: chat, necesita_personalizar_gb: pers, chat: modo_chat, chat_texto: texto_chat, equipo_potente: potente,
       personalizar: modo_pers, personalizar_texto: texto_pers, disco_suficiente: hw.disco_libre_gb >= disco,
       verificacion: v[0], verificacion_texto: v[1] });
   }
@@ -137,7 +148,7 @@
   }
 
   return { DRIVER_MINIMO: DRIVER_MINIMO, MARGEN_CHAT_GB: MARGEN_CHAT_GB, PERSONALIZAR_GB_POR_B: PERSONALIZAR_GB_POR_B, PERSONALIZAR_FIJO_GB: PERSONALIZAR_FIJO_GB,
-    MARGEN_MEDIDO: MARGEN_MEDIDO, REFERENCIAS: REFERENCIAS, version_driver: version_driver, driver_insuficiente: driver_insuficiente,
+    MARGEN_MEDIDO: MARGEN_MEDIDO, REFERENCIAS: REFERENCIAS, FACTOR_POTENTE: FACTOR_POTENTE, LENTO_TPS: LENTO_TPS, version_driver: version_driver, driver_insuficiente: driver_insuficiente,
     hardware_efectivo: hardware_efectivo, vram_gb: vram_gb, necesidad_chat_gb: necesidad_chat_gb, necesidad_personalizar_gb: necesidad_personalizar_gb,
     estado_verificacion: estado_verificacion, evaluar: evaluar, catalogo_para: catalogo_para, segundos_por_paso: segundos_por_paso,
     fiabilidad: fiabilidad, pasos_totales: pasos_totales, estimar: estimar, texto_duracion: texto_duracion, pyRound: pyRound, pyFixed: pyFixed };

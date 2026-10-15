@@ -36,7 +36,7 @@
 <header class="nav"><div class="nav-in">
 <a href="../" class="marca"><img src="../img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
 <nav aria-label="Secciones"><a href="../#funciones">Funciones</a><a href="../#modelos">Modelos</a><a href="../#planes">Planes</a><a href="../guias/">Guías</a><a href="../simulador.html">Simulador</a></nav>
-<span class="pill-dev">v0.9 · versión preliminar</span></div></header>
+<span class="pill-dev">v0.10 · versión preliminar</span></div></header>
 <main class="guia">
 <nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="../">Sopa</a></li><li><a href="../guias/">Guías</a></li><li aria-current="page">¿Qué es una IA local y por qué usarla?</li></ol></nav>
 <article class="cont-guia"><p class="eyebrow">Guía</p><h1>¿Qué es una IA local y por qué usarla?</h1><p class="lead">Una IA local funciona en tu propio ordenador. Te contamos qué significa, qué ganas y qué necesitas.</p><p class="autor">Por <strong>Miguel Rodríguez Saiz</strong>, creador de Sopa</p><nav class="indice" aria-labelledby="indice-t"><h2 id="indice-t">En esta guía</h2><ol><li><a href="#que-ganas-con-una-ia-local">Qué ganas con una IA local</a></li><li><a href="#que-necesitas">Qué necesitas</a></li><li><a href="#modelos-abiertos">Modelos abiertos</a></li><li><a href="#lo-que-ya-hace-sopa-y-lo-que-viene">Lo que ya hace Sopa y lo que viene</a></li></ol></nav>
@@ -51,20 +51,20 @@
 </ul>
 <h2 id="que-necesitas">Qué necesitas</h2>
 <p>Un ordenador con Windows. Lo que más influye es la <strong>gráfica</strong> y su memoria (VRAM); el procesador apenas cuenta. Con una gráfica NVIDIA la IA va mucho más rápida; sin ella, también puede funcionar en el procesador, aunque más despacio.</p>
-<p>Como referencia real: en un portátil con una GTX 1650 de 4 GB, Sopa conversa a 133 tokens por segundo con un modelo de 0.5B, a unos 66 con uno de 1.5B y a unos 41 con uno de 3B.</p>
+<p>Como referencia real: en un portátil con una GTX 1650 de 4 GB, Sopa conversa a 133 tokens por segundo con un modelo de 0.5B, a unos 59 con Qwen3.5 2B y a unos 18 con Phi-4 mini. Los de 7 a 9B van por debajo de 5, y Sopa los marca como «Equipo potente».</p>
 <p><a class="enlace" href="../simulador.html">Comprueba qué modelos van bien en tu equipo con el simulador ›</a></p>
 <h2 id="modelos-abiertos">Modelos abiertos</h2>
-<p>Una IA local usa modelos de lenguaje abiertos que cualquiera puede descargar. Sopa destaca modelos de Alibaba, Microsoft, Google e IBM con licencias Apache 2.0 y MIT. Algunos modelos del catálogo tienen condiciones propias de su autor; Sopa te las muestra antes de descargar.</p>
+<p>Una IA local usa modelos de lenguaje abiertos que cualquiera puede descargar. Sopa destaca modelos con licencias Apache 2.0 y MIT, de Alibaba, Microsoft, Google, IBM, Mistral y DeepSeek. Algunos modelos del catálogo tienen condiciones propias de su autor; Sopa te las muestra antes de descargar.</p>
 <h2 id="lo-que-ya-hace-sopa-y-lo-que-viene">Lo que ya hace Sopa y lo que viene</h2>
 <div class="estado-doble">
-<div><h3><span class="pill-ok">Ya funciona</span></h3><ul><li>Detecta tu ordenador y te dice qué modelos van bien.</li><li>Descarga modelos verificados.</li><li>Chat sin conexión.</li><li>Personaliza tu IA con tus textos.</li><li>Exporta tu modelo personalizado (formato GGUF).</li><li>Gestiona, exporta e importa tus modelos y tus conversaciones.</li><li>Pregunta a carpetas enteras de documentos, también PDF escaneados.</li></ul></div>
-<div class="dev"><h3><span class="pill-dev">Próximamente</span></h3><ul><li>Personalizar, más fácil y sin jerga.</li><li>Elección automática del mejor modelo.</li><li>Sopa Mobile: pide tareas desde tu iPhone.</li></ul></div>
+<div><h3><span class="pill-ok">Ya funciona</span></h3><ul><li>Detecta tu ordenador y te dice qué modelos van bien.</li><li>Descarga modelos verificados.</li><li>Chat sin conexión.</li><li>Memoria: recuerda lo que tú le pidas.</li><li>Elige el modelo por ti según la tarea.</li><li>Entrena tu IA con tus ejemplos, sin jerga.</li><li>Exporta tu modelo (formato GGUF).</li><li>Gestiona, exporta e importa tus modelos y tus conversaciones.</li><li>Pregunta a carpetas enteras de documentos, también PDF escaneados.</li></ul></div>
+<div class="dev"><h3><span class="pill-dev">Próximamente</span></h3><ul><li>Instalador sencillo (0.11).</li><li>Ver imágenes.</li><li>Sopa Mobile: pide tareas desde tu iPhone.</li></ul></div>
 </div>
 <section class="fuentes-guia" aria-labelledby="fuentes-t"><h2 id="fuentes-t">Fuentes</h2><ul><li>Medidas propias de Sopa en un portátil MSI con GTX 1650 Max-Q de 4 GB (driver 617.42): velocidad de conversación y memoria máxima de la gráfica medida con <code>nvidia-smi</code>.</li><li>Catálogo de modelos y lógica de compatibilidad de Sopa (los mismos que usa la app y el <a href="../simulador.html">simulador</a>).</li><li>Licencias: las indicadas por cada autor en la ficha de su modelo.</li></ul></section><aside class="otras"><h2>Otras guías</h2><ul><li><a href="../guias/ia-local-en-windows-sin-programar.html">Cómo usar inteligencia artificial local en Windows sin saber programar</a></li><li><a href="../guias/cuanta-vram-necesito.html">¿Cuánta VRAM necesito para una IA local?</a></li></ul></aside></article>
 </main>
 <footer class="cont pie">
   <nav class="pie-enlaces" aria-label="Enlaces del pie"><a href="../">Inicio</a><a href="../guias/">Guías</a><a href="../simulador.html">Simulador</a></nav>
-  <p>© 2026 Miguel Rodríguez Saiz. Todos los derechos reservados. Sopa y su logotipo son de Miguel Rodríguez Saiz. Qwen, Phi, Gemma y Granite son marcas de sus titulares; sin afiliación.</p>
+  <p>© 2026 Miguel Rodríguez Saiz. Todos los derechos reservados. Sopa y su logotipo son de Miguel Rodríguez Saiz. Qwen, Phi, Gemma, Granite, Llama, DeepSeek, Mistral y gpt-oss son marcas de sus titulares; sin afiliación.</p>
   <p>Desarrollado por ArduSolutions.</p>
   <p>Esta web no usa cookies ni rastreadores.</p>
 </footer>
