@@ -39,7 +39,6 @@ h3{font-size:21px;letter-spacing:-.01em;font-weight:650;margin-bottom:6px}
 .rejilla4 span{color:var(--d-text-2);font-size:15px}
 .func{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:64px;text-align:left}
 .func article{grid-column:span 2;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:32px}
-.func article:nth-child(4),.func article:nth-child(5){grid-column:span 3}
 .func p{color:var(--text-2);font-size:16px}
 .num{display:block;color:var(--accent);font-weight:650;font-size:14px;margin-bottom:28px;font-variant-numeric:tabular-nums}
 .galeria figure{margin-top:64px}
