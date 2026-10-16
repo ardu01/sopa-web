@@ -33,9 +33,14 @@
 
   // compatibilidad.py
   var MARGEN_CHAT_GB = 0.6, PERSONALIZAR_GB_POR_B = 0.8, PERSONALIZAR_FIJO_GB = 1.6, MARGEN_MEDIDO = 1.1;
+  var SISTEMA_FUERA_GB = 2.0; // el tope de 4 GiB es del proceso; el sistema va aparte
+  // Perfil de 4 GiB («perfil_4gib», Sopa 1.3.1): el modelo va en el procesador con el proceso dentro de ese tope.
+  function perfil_4gib(m) { return m.perfil_4gib || null; }
   var REFERENCIAS = { "GTX 1650 Max-Q 4 GB (driver 617.42)": 4.0 };
   function medidoDe(m) { return m.medido || {}; }
   function necesidad_chat_gb(m) {
+    var perfil = perfil_4gib(m);
+    if (perfil) return pyRound(parseFloat(perfil.tope_proceso_gib != null ? perfil.tope_proceso_gib : 4), 2);
     var medido = medidoDe(m).chat_vram_gb;
     if (medido) return pyRound(medido * MARGEN_MEDIDO, 2);
     return pyRound(m.gguf_gb + MARGEN_CHAT_GB, 2);
@@ -62,6 +67,7 @@
     var medido = m.medido || {}, tiene = Object.keys(medido).length > 0;
     var ref = REFERENCIAS[medido.equipo || ""];
     var capacidad = capacidadDe(hw);
+    if (tiene && perfil_4gib(m)) return ["estimado", "Medido en " + medido.equipo + "; en tu equipo es una estimación."];
     if (tiene && ref && vram_gb(hw) >= ref && capacidad >= 7.5) {
       if (medido.alcance === "chat" && personalizar !== "no")
         return ["estimado", "El chat está probado en " + medido.equipo + "; personalizarlo aún es una estimación."];
@@ -78,12 +84,24 @@
     var chat = necesidad_chat_gb(m), pers = necesidad_personalizar_gb(m);
     var disco = m.gguf_gb * 3 + 1;
     var modo_chat, texto_chat, modo_pers, texto_pers;
-    if (vram >= chat) { modo_chat = "gpu"; texto_chat = "Funciona con fluidez en tu gráfica."; }
+    var perfil = perfil_4gib(m);
+    if (perfil) {
+      // Va en el procesador con -ngl 0: la gráfica no cuenta, solo la RAM total.
+      if (hw.ram_total_gb >= chat + SISTEMA_FUERA_GB) { modo_chat = "cpu"; texto_chat = "Funciona en el procesador con el perfil de 4 GiB."; }
+      else { modo_chat = "no"; texto_chat = "No hay memoria suficiente."; }
+    }
+    else if (vram >= chat) { modo_chat = "gpu"; texto_chat = "Funciona con fluidez en tu gráfica."; }
     else if (hw.gpus.length && vram >= 2 && hw.ram_total_gb >= (chat - vram) + 4) { modo_chat = "mixto"; texto_chat = "Funciona repartido entre tu gráfica y la memoria; algo más lento."; }
     else if (hw.ram_total_gb >= chat + 2) { modo_chat = "cpu"; texto_chat = "Funciona, pero en el procesador irá más lento."; }
     else { modo_chat = "no"; texto_chat = "No hay memoria suficiente."; }
     var potente = modo_chat === "no" || ((modo_chat === "mixto" || modo_chat === "cpu") && _muy_lento(m, chat, vram));
-    if (potente)
+    if (perfil) {
+      var tps = medidoDe(m).chat_tokens_por_segundo;
+      potente = modo_chat === "no" || !!(tps && tps < LENTO_TPS);
+      if (modo_chat === "cpu" && potente)
+        texto_chat = "Funciona en el procesador con el perfil de 4 GiB, pero lento" + (tps ? " (medido: " + String(tps).replace(".", ",") + " tokens/s)." : ".");
+    }
+    else if (potente)
       texto_chat = "Pensado para un equipo potente: necesita unos " + pyFixed(chat, 0) + " GB entre gráfica y memoria. " +
         (modo_chat === "no" ? "Aquí no cabe." : "Aquí cabría repartido, pero iría muy lento.");
     if (m.solo_catalogo) { modo_pers = "no"; texto_pers = "Solo en el catálogo: Sopa aún no lo descarga ni lo entrena."; }
@@ -148,7 +166,7 @@
   }
 
   return { DRIVER_MINIMO: DRIVER_MINIMO, MARGEN_CHAT_GB: MARGEN_CHAT_GB, PERSONALIZAR_GB_POR_B: PERSONALIZAR_GB_POR_B, PERSONALIZAR_FIJO_GB: PERSONALIZAR_FIJO_GB,
-    MARGEN_MEDIDO: MARGEN_MEDIDO, REFERENCIAS: REFERENCIAS, FACTOR_POTENTE: FACTOR_POTENTE, LENTO_TPS: LENTO_TPS, version_driver: version_driver, driver_insuficiente: driver_insuficiente,
+    MARGEN_MEDIDO: MARGEN_MEDIDO, SISTEMA_FUERA_GB: SISTEMA_FUERA_GB, perfil_4gib: perfil_4gib, REFERENCIAS: REFERENCIAS, FACTOR_POTENTE: FACTOR_POTENTE, LENTO_TPS: LENTO_TPS, version_driver: version_driver, driver_insuficiente: driver_insuficiente,
     hardware_efectivo: hardware_efectivo, vram_gb: vram_gb, necesidad_chat_gb: necesidad_chat_gb, necesidad_personalizar_gb: necesidad_personalizar_gb,
     estado_verificacion: estado_verificacion, evaluar: evaluar, catalogo_para: catalogo_para, segundos_por_paso: segundos_por_paso,
     fiabilidad: fiabilidad, pasos_totales: pasos_totales, estimar: estimar, texto_duracion: texto_duracion, pyRound: pyRound, pyFixed: pyFixed };

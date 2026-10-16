@@ -45,6 +45,7 @@
   }
   var T_CHAT = { gpu: ["Sí", "ok"], mixto: ["Sí, más lento", "warn"], cpu: ["Sí, en el procesador", "warn"], no: ["No", "err"] };
   var T_POTENTE = ["Equipo potente", "err"];
+  var T_LENTO_4GIB = ["Sí, lento, en el procesador", "warn"];
   var T_PERS = { si: ["Sí", "ok"], justo: ["Va justo", "warn"], no: ["No", "err"] };
   var ESP = { chat: "Charlar", razonamiento: "Razonar", codigo: "Programar", rapido: "Ir rápido", documentos: "Documentos", vision: "Ver imágenes" };
   var LIC = { condiciones: "Licencia con condiciones", no_comercial: "Licencia no comercial" };
@@ -64,6 +65,7 @@
   function velocidad(r, g, hay) {
     var med = (r.medido || {}).chat_tokens_por_segundo;
     if (r.chat === "no") return '<span class="v-no">No funciona</span>';
+    if (r.perfil_4gib) return '<span class="v-lento">Lento, solo en procesador</span>';
     if (r.equipo_potente) return '<span class="v-lento">Muy lento en este equipo</span>';
     if (r.chat === "cpu") return '<span class="v-lento">Lento, solo en procesador</span>';
     if (r.chat === "mixto") return '<span class="v-lento">Lento (parte en RAM)</span>';
@@ -91,7 +93,8 @@
     var aviso = C.driver_insuficiente(hw());
     $("lista").innerHTML = (aviso ? '<li class="alerta">' + esc(aviso) + "</li>" : "") + res.map(function (r) {
       var md = r.medido || {}, extra = [], vel = velocidad(r, g, hay);
-      if (md.chat_tokens_por_segundo) extra.push("Medido en GTX 1650 Max-Q: " + fmt(md.chat_tokens_por_segundo) + "\u00a0tok/s");
+      if (r.perfil_4gib && md.chat_tokens_por_segundo) extra.push("Medido en un portátil de 16\u00a0GB, solo con el procesador y el proceso limitado a 4\u00a0GiB: " + fmt(md.chat_tokens_por_segundo) + "\u00a0tok/s y un máximo de " + fmt(md.chat_ram_pico_sin_mmap_gib) + "\u00a0GiB");
+      else if (md.chat_tokens_por_segundo) extra.push("Medido en GTX 1650 Max-Q: " + fmt(md.chat_tokens_por_segundo) + "\u00a0tok/s");
       if (r.personalizar !== "no" && hay && st.driver === "ok") {
         var s = C.segundos_por_paso(r.parametros_b, 512, 8, "sft", "cuda", md.segundos_por_paso);
         var fi = C.fiabilidad(r.parametros_b, "cuda", md.segundos_por_paso);
@@ -101,8 +104,8 @@
       var lic = LIC[r.licencia_tipo] ? '<p class="m-lic"><b>' + LIC[r.licencia_tipo] + ".</b> " + esc(r.licencia_nota || "") + "</p>" : "";
       return '<li class="modelo v-' + r.verificacion + '">' +
         '<div class="m-cab"><div><h3>' + esc(r.nombre) + '</h3><p class="m-meta">' + fmt(r.parametros_b) + "\u00a0mil millones de parámetros · " + esc(r.licencia || "") + "</p>" + especialidad(r) + "</div>" + badge((r.solo_chat ? T_VER_SOLO : T_VER)[r.verificacion]) + "</div>" +
-        '<dl class="m-dl"><div><dt>Chatear</dt><dd>' + badge(r.equipo_potente ? T_POTENTE : T_CHAT[r.chat]) + "</dd></div><div><dt>Entrenar</dt><dd>" + (r.solo_chat ? '<span class="b b-neu">No disponible</span>' : badge(T_PERS[r.personalizar])) + "</dd></div>" +
-        "<div><dt>Velocidad</dt><dd class=\"vel\">" + vel + "</dd></div><div><dt>Necesita</dt><dd class=\"gb\">chat " + fmt(r.necesita_chat_gb) + "\u00a0GB" + pers + "</dd></div></dl>" +
+        '<dl class="m-dl"><div><dt>Chatear</dt><dd>' + badge(r.perfil_4gib && r.chat === "cpu" ? T_LENTO_4GIB : r.equipo_potente ? T_POTENTE : T_CHAT[r.chat]) + "</dd></div><div><dt>Entrenar</dt><dd>" + (r.solo_chat ? '<span class="b b-neu">No disponible</span>' : badge(T_PERS[r.personalizar])) + "</dd></div>" +
+        "<div><dt>Velocidad</dt><dd class=\"vel\">" + vel + "</dd></div><div><dt>Necesita</dt><dd class=\"gb\">chat " + fmt(r.necesita_chat_gb) + (r.perfil_4gib ? "\u00a0GiB de RAM" : "\u00a0GB") + pers + "</dd></div></dl>" +
         '<p class="m-txt">' + esc(r.chat_texto) + " " + esc(r.personalizar_texto) + "</p>" +
         '<p class="m-txt sec">' + esc(r.verificacion_texto) + "</p>" + lic +
         (extra.length ? '<p class="m-ref">' + extra.map(esc).join(" · ") + "</p>" : "") + "</li>";
