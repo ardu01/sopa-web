@@ -153,3 +153,6 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 .fuera li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--accent)}.fuera li b{color:var(--text);font-weight:600}
 .futuro.una{grid-template-columns:minmax(0,520px);justify-content:center}
 @media (max-width:600px){.fuera{padding:28px 22px}}
+.aviso-conocido{margin:14px 0 16px;padding:14px 16px;border-radius:12px;background:#B5812B14;border:1px solid #B5812B40;color:#6B4A12!important;font-size:15px!important}
+.aviso-conocido b{color:#5A3D0E;font-weight:650}
+.ruta li.aviso::before{background:var(--d-bg);border-color:#E0B25A;border-style:dashed}
