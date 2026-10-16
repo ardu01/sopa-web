@@ -54,7 +54,7 @@
 <header class="nav"><div class="nav-in">
 <a href="../" class="marca"><img src="../img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
 <nav aria-label="Secciones"><a href="../#funciones">Funciones</a><a href="../#modelos">Modelos</a><a href="../#planes">Planes</a><a href="../guias/">Guías</a><a href="../simulador.html">Simulador</a></nav>
-<span class="pill-dev">Beta 1.3.2</span></div></header>
+<span class="pill-dev">Beta 1.4.0</span></div></header>
 <main class="guia">
 <nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="../">Sopa</a></li><li aria-current="page">Informar de un fallo</li></ol></nav>
 <section class="cont-guia">
@@ -70,7 +70,7 @@
   </div>
   <div class="campo">
     <label for="version">Versión de Sopa</label>
-    <input id="version" name="version" maxlength="32" value="1.3.2" autocomplete="off" spellcheck="false">
+    <input id="version" name="version" maxlength="32" value="1.4.0" autocomplete="off" spellcheck="false">
   </div>
   <div class="campo">
     <label for="que_paso">¿Qué pasó?</label>
@@ -135,7 +135,7 @@
     fetch(DESTINO, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(datos), credentials: "omit", referrerPolicy: "no-referrer" })
       .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { r: r, j: j }; }); })
       .then(function (x) {
-        if (x.r.ok && x.j.ok) { f.reset(); f.version.value = datos.version || "1.3.2"; if (cod && datos.codigo === cod) f.codigo.value = cod; mostrar("Enviado. Gracias por ayudarnos a mejorar Sopa.", true); return; }
+        if (x.r.ok && x.j.ok) { f.reset(); f.version.value = datos.version || "1.4.0"; if (cod && datos.codigo === cod) f.codigo.value = cod; mostrar("Enviado. Gracias por ayudarnos a mejorar Sopa.", true); return; }
         if (x.r.status === 429) return mostrar("Has enviado varios informes seguidos. Espera un rato y vuelve a probar.", false);
         if (x.j.campo) { var cmp = f[x.j.campo]; if (cmp) { marcar(cmp, true); cmp.focus(); } return mostrar("Revisa el campo marcado. Puede que sea demasiado largo o tenga un formato no válido.", false); }
         mostrar("No se ha podido enviar. Vuelve a probar en un momento.", false);
