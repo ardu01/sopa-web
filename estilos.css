@@ -65,7 +65,7 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 .precio{font-size:28px;font-weight:700;letter-spacing:-.02em;margin:4px 0 24px}
 .planes li{padding:10px 0;border-top:1px solid var(--border);color:var(--text-2);font-size:16px}
 .planes li::before{content:"✓";color:var(--accent);margin-right:10px;font-weight:700}
-.futuro{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:64px;text-align:left}
+.futuro{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:64px;text-align:left}
 .futuro article{border:1.5px dashed #7D6E5080;border-radius:18px;padding:36px 32px;background:#7D6E500a}
 .futuro h3{margin-top:20px}.futuro p{color:var(--text-2);font-size:16px}
 .final img{width:96px;margin:0 auto 28px}
