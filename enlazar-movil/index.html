@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cómo enlazar Sopa Mobile · Sopa™</title>
-<meta name="description" content="Enlaza tu iPhone o tu Android con Sopa en la Wi-Fi de casa: actívalo en Ajustes › Sopa Mobile, escanea el código y sigue el asistente.">
+<meta name="description" content="Enlaza tu iPhone o tu Android con Sopa en la Wi-Fi de casa y, en beta, úsalo también fuera. Actívalo en Ajustes › Sopa Mobile y sigue el asistente.">
 <link rel="canonical" href="https://ardu01.github.io/sopa-web/enlazar-movil/">
 <meta name="robots" content="index,follow">
 <meta name="author" content="Miguel Rodríguez Saiz">
@@ -14,14 +14,14 @@
 <meta property="og:site_name" content="Sopa">
 <meta property="og:url" content="https://ardu01.github.io/sopa-web/enlazar-movil/">
 <meta property="og:title" content="Cómo enlazar Sopa Mobile · Sopa™">
-<meta property="og:description" content="Enlaza tu iPhone o tu Android con Sopa en la Wi-Fi de casa: actívalo en Ajustes › Sopa Mobile, escanea el código y sigue el asistente.">
+<meta property="og:description" content="Enlaza tu iPhone o tu Android con Sopa en la Wi-Fi de casa y, en beta, úsalo también fuera. Actívalo en Ajustes › Sopa Mobile y sigue el asistente.">
 <meta property="og:image" content="https://ardu01.github.io/sopa-web/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Logotipo de Sopa con el lema «Tu inteligencia artificial. Tu ordenador. Tus reglas.»">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cómo enlazar Sopa Mobile · Sopa™">
-<meta name="twitter:description" content="Enlaza tu iPhone o tu Android con Sopa en la Wi-Fi de casa: actívalo en Ajustes › Sopa Mobile, escanea el código y sigue el asistente.">
+<meta name="twitter:description" content="Enlaza tu iPhone o tu Android con Sopa en la Wi-Fi de casa y, en beta, úsalo también fuera. Actívalo en Ajustes › Sopa Mobile y sigue el asistente.">
 <meta name="twitter:image" content="https://ardu01.github.io/sopa-web/img/og.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sopa", "item": "https://ardu01.github.io/sopa-web/"}, {"@type": "ListItem", "position": 2, "name": "Cómo enlazar Sopa Mobile", "item": "https://ardu01.github.io/sopa-web/enlazar-movil/"}]}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
@@ -35,6 +35,7 @@
 .paso-movil .telefono{width:230px;border-radius:42px}
 .paso-movil .telefono .pantalla{border-radius:34px}
 .guia ol.lista-num{list-style:decimal;padding-left:22px}
+.movil-guia h3{margin:28px 0 8px}
 .guia .nota-beta{font-size:15px;color:var(--text-2);margin-top:16px}
 .movil-guia .movil-ajustes{margin:24px auto 0}
 @media (max-width:700px){.paso-movil{grid-template-columns:1fr}.paso-movil figure{order:2}}
@@ -44,7 +45,7 @@
 <header class="nav"><div class="nav-in">
 <a href="../" class="marca"><img src="../img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
 <nav aria-label="Secciones"><a href="../#funciones">Funciones</a><a href="../#modelos">Modelos</a><a href="../#planes">Planes</a><a href="../guias/">Guías</a><a href="../simulador.html">Simulador</a></nav>
-<span class="pill-dev">Beta 1.2.0</span></div></header>
+<span class="pill-dev">Beta 1.3.0</span></div></header>
 <main class="guia movil-guia">
 <nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="../">Sopa</a></li><li aria-current="page">Cómo enlazar Sopa Mobile</li></ol></nav>
 <section class="cont-guia">
@@ -78,7 +79,7 @@
 </ol>
 <figure><div class="telefono"><div class="pantalla"><img src="../img/movil-enlazar-iphone-520.webp" width="520" height="1210" loading="lazy" decoding="async" alt="Asistente «Enlaza tu móvil» en un iPhone, con los pasos Perfil descargado, Confianza y Añadir a pantalla de inicio"></div></div><figcaption>El asistente en el iPhone.</figcaption></figure>
 </div>
-<p class="nota-beta">Probado con un iPhone real.</p>
+<p class="nota-beta">Probado con un iPhone real, en la red de casa.</p>
 
 <h2 id="android">3. Si tienes un Android</h2>
 <div class="paso-movil">
@@ -109,8 +110,34 @@
 <li>¿Sigue sin ir? <a href="../fallos/">Informa de un fallo</a>.</li>
 </ul>
 
-<h2>¿Y fuera de casa?</h2>
-<p>Llega en la 1.3. Por ahora, Sopa Mobile funciona en la Wi-Fi de casa.</p>
+<h2 id="fuera-de-casa">Fuera de casa <span class="pill-dev">Beta · 1.3</span></h2>
+<p>Primero enlaza el móvil en casa, con los pasos de arriba. Fuera de casa, tu móvil llega a tu PC por un túnel privado de WireGuard. Sin cuenta, sin nube de Sopa y sin servicios de terceros.</p>
+<h3>En el ordenador</h3>
+<ol class="lista-num">
+<li>En Ajustes › Sopa Mobile, activa «Usar fuera de casa». Viene apagado.</li>
+<li>Descarga WireGuard para Windows desde su página oficial. Sopa te deja el enlace.</li>
+<li>Instálalo. Windows te pedirá permiso de administrador.</li>
+<li>Guarda el archivo del túnel e impórtalo en WireGuard.</li>
+<li>Activa el túnel «Sopa». Windows volverá a pedirte permiso.</li>
+</ol>
+<p>Sopa no descarga ni instala nada por ti. Tampoco toca el cortafuegos.</p>
+<h3>En el router</h3>
+<p>El router tiene que dejar pasar el túnel hasta tu PC. Es abrir una sola puerta, no la casa entera. Sopa te explica cómo en pantalla, pero no cambia nada en el router.</p>
+<p>Para saber la dirección de tu casa en internet, pulsa Comprobar: Sopa se lo pregunta a tu router, sin salir de casa. Si no contesta, puedes escribirla tú o pulsar Preguntar en internet, que te avisa antes. Si esa dirección cambia, la cambias en la app WireGuard del móvil.</p>
+<h3>En el móvil</h3>
+<ol class="lista-num">
+<li>En Sopa, añade el móvil. Sale un código para la app oficial de WireGuard, en iPhone o Android.</li>
+<li>Pásalo a la app. Solo se enseña una vez. Si cierras la pantalla antes, revoca ese móvil y añádelo de nuevo.</li>
+<li>Fuera de la Wi-Fi, enciende el túnel en el móvil y abre Sopa como siempre. Te pedirá la cara o la huella.</li>
+</ol>
+<h3>Bueno saberlo</h3>
+<ul>
+<li>Por el túnel, el móvil solo llega a Sopa. No ve el resto de tu casa.</li>
+<li>Sopa crea las claves del túnel en tu PC y no las envía a ningún sitio.</li>
+<li>Con el túnel encendido en el móvil, otras páginas pueden no abrir. Apágalo al terminar.</li>
+<li>Puedes revocar un móvil cuando quieras. Después, vuelve a importar el archivo en WireGuard para Windows.</li>
+</ul>
+<p class="nota-beta">Beta: el acceso fuera de casa aún no se ha probado en un móvil real.</p>
 </section>
 </main>
 <footer class="cont pie">
