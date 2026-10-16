@@ -36,7 +36,7 @@
 <header class="nav"><div class="nav-in">
 <a href="../" class="marca"><img src="../img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
 <nav aria-label="Secciones"><a href="../#funciones">Funciones</a><a href="../#modelos">Modelos</a><a href="../#planes">Planes</a><a href="../guias/">Guías</a><a href="../simulador.html">Simulador</a></nav>
-<span class="pill-dev">Beta 1.3.0</span></div></header>
+<span class="pill-dev">Beta 1.3.1</span></div></header>
 <main class="guia">
 <nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="../">Sopa</a></li><li><a href="../guias/">Guías</a></li><li aria-current="page">¿Cuánta VRAM necesito para una IA local?</li></ol></nav>
 <article class="cont-guia"><p class="eyebrow">Guía</p><h1>¿Cuánta VRAM necesito para una IA local?</h1><p class="lead">La memoria de tu gráfica decide qué modelos van bien. Estas son las cifras que usa Sopa.</p><p class="autor">Por <strong>Miguel Rodríguez Saiz</strong>, creador de Sopa</p><nav class="indice" aria-labelledby="indice-t"><h2 id="indice-t">En esta guía</h2><ol><li><a href="#como-calcula-sopa-lo-que-necesita-cada-modelo">Cómo calcula Sopa lo que necesita cada modelo</a></li><li><a href="#y-si-no-cabe-entero">¿Y si no cabe entero?</a></li><li><a href="#una-referencia-real">Una referencia real</a></li></ol></nav>
@@ -55,6 +55,7 @@
 <li>Si no cabe, o si repartido iría muy lento, Sopa lo marca como «Equipo potente». Muy lento quiere decir por debajo de 5 tokens por segundo cuando lo hemos medido. Sin medida, cuando necesita más de 1,2 veces la memoria de tu gráfica.</li>
 <li>Para usar la gráfica, el driver NVIDIA debe ser el 560 o superior.</li>
 </ul>
+<p>Qwen2.5 7B (IQ3_XS) es aparte: va solo en el procesador, con el proceso dentro de 4 GiB de memoria, y no usa la gráfica. Es lento y solo sirve para chatear. Medido en un portátil de 16 GB con el proceso limitado a 4 GiB: 2,5 tokens por segundo y un máximo de 3,41 GiB. No vale para un equipo con 4 GB de RAM en total.</p>
 <h2 id="una-referencia-real">Una referencia real</h2>
 <p>En un portátil con una GTX 1650 de 4 GB, Sopa conversa a 133 tokens por segundo con un modelo de 0.5B, a unos 59 con Qwen3.5 2B y a unos 18 con Phi-4 mini. Los de 7 a 9B van por debajo de 5 (entre 2,3 y 4,4).</p>
 <p class="cta-guia"><a class="btn" href="../simulador.html">Prueba con tu equipo en el simulador</a></p>
