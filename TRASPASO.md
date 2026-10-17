@@ -20,8 +20,8 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 
 ## PRs abiertos
 
-- Este, contra `main`, sin fusionar. La URL se anota aquí en cuanto el PR queda abierto.
-- Al preparar este traspaso no había otros PRs abiertos en el repositorio.
+- Este: https://github.com/ardu01/sopa-web/pull/1 contra `main`, sin fusionar.
+- Al abrirlo no había otros PRs abiertos en el repositorio.
 
 ## Bloqueos
 
