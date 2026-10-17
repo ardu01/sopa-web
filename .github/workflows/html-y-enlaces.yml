@@ -36,9 +36,14 @@ jobs:
       - name: Validar el HTML
         run: |
           set -eu
+          # Node 22.23 trae npm 10.9.9. Con ese npm, «npx html-validate»
+          # revienta: Cannot read properties of null (reading 'edgesOut').
+          # npm 11.21.1 instala el validador sin ese fallo.
+          npm install --prefix "$RUNNER_TEMP/herramientas" npm@11.21.1
           n=$(find . -name '*.html' -not -path './descargas/*' -not -name 'google*.html' | wc -l)
           test "$n" -gt 0
-          find . -name '*.html' -not -path './descargas/*' -not -name 'google*.html' -print0 | xargs -0 npx --yes html-validate@10.5.0
+          find . -name '*.html' -not -path './descargas/*' -not -name 'google*.html' -print0 \
+            | xargs -0 "$RUNNER_TEMP/herramientas/bin/npx" --yes html-validate@10.5.0
 
       - name: Comprobar enlaces internos
         run: python3 scripts/enlaces-internos.py
