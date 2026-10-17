@@ -1,4 +1,12 @@
-Sopa — Copyright (c) 2026 Miguel Rodríguez Saiz
+Sopa
+Copyright (C) 2026 Miguel Rodríguez Saiz
+
+Sopa es software libre y se distribuye bajo la GNU General Public License,
+versión 3. El texto íntegro de la licencia, sin cambios, está en el archivo
+LICENSE.
+
+El nombre «Sopa» y su logotipo no se licencian con este repositorio.
+
 Incluye la fuente Inter (SIL Open Font License 1.1, © The Inter Project Authors).
 Qwen, Phi, Gemma, Granite, Llama, Mistral, DeepSeek y gpt-oss son marcas de sus
 respectivos titulares (Alibaba Cloud, Microsoft, Google, IBM, Meta, Mistral AI,
