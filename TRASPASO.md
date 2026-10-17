@@ -13,6 +13,7 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 - Se han matizado las frases del tipo «100 % local… Siempre» y «sin internet» como promesa absoluta. La web dice que la IA funciona en el equipo y que las conversaciones, los documentos y los recuerdos se quedan ahí; y que Sopa se conecta para buscar actualizaciones y descargar modelos y, si se activa, para la búsqueda web. El chat, con el modelo ya descargado, sigue sin conexión.
 - El menú apunta a `#licencia`. El ancla antiguo `#planes` se conserva vacío para no romper enlaces ya publicados. No había ancla `#precios`.
 - Hay un CI propio: `.github/workflows/html-y-enlaces.yml` (check «HTML válido y enlaces internos»). En cada pull request, y también al hacer push a `main`, valida el HTML con html-validate (preajuste de la especificación) y revisa en local los `href` y `src` relativos y sus anclas. No usa secretos ni servicios de pago. No entra en `descargas/` ni trata como HTML los archivos de verificación de Search Console. html-validate 10.5.0 está fijado en `package.json` y `package-lock.json`. El workflow instala npm 11.21.1 (el binario queda en `node_modules/.bin`, no en `bin/`) y con él hace `npm ci`: el npm 10.9.9 que trae Node 22.23 falla al instalar el validador. GitHub Pages sigue publicando `main` con `pages-build-deployment`, aparte de este check.
+- Esta publicación (17 de octubre de 2026) se probó con una revisión en el navegador hecha por el Supervisor, en lugar de la prueba en el portátil MSI. Es una excepción aprobada por el dueño solo para la web, porque el MSI no funciona por un fallo de la app.
 
 ## Pendiente de decisión del dueño
 
@@ -21,14 +22,12 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 
 ## PRs abiertos
 
-- Este: https://github.com/ardu01/sopa-web/pull/1 contra `main`, sin fusionar.
+- Este: https://github.com/ardu01/sopa-web/pull/1 contra `main`, fusionado. El Supervisor ha dado el OK.
 - Al abrirlo no había otros PRs abiertos en el repositorio.
 
 ## Bloqueos
 
-- Falta una prueba real en el portátil MSI del dueño antes de publicar.
-- La fusión solo con el OK del Supervisor.
-- No se ha fusionado este PR.
+- Ninguno para publicar esta web. La prueba en el portátil MSI no bloquea esta publicación: la sustituye la revisión en el navegador del Supervisor, por la excepción del dueño descrita arriba.
 
 ## Notas
 
