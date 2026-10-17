@@ -12,6 +12,7 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 - El pie ya no dice «Todos los derechos reservados». Dice que Sopa es software libre (GNU GPLv3), enlaza el texto oficial y el `LICENSE`, y mantiene que el nombre y el logotipo de Sopa no se licencian.
 - Se han matizado las frases del tipo «100 % local… Siempre» y «sin internet» como promesa absoluta. La web dice que la IA funciona en el equipo y que las conversaciones, los documentos y los recuerdos se quedan ahí; y que Sopa se conecta para buscar actualizaciones y descargar modelos y, si se activa, para la búsqueda web. El chat, con el modelo ya descargado, sigue sin conexión.
 - El menú apunta a `#licencia`. El ancla antiguo `#planes` se conserva vacío para no romper enlaces ya publicados. No había ancla `#precios`.
+- Hay un CI propio: `.github/workflows/html-y-enlaces.yml` (check «HTML válido y enlaces internos»). En cada pull request, y también al hacer push a `main`, valida el HTML con html-validate (preajuste de la especificación) y revisa en local los `href` y `src` relativos y sus anclas. No usa secretos ni servicios de pago. No entra en `descargas/` ni trata como HTML los archivos de verificación de Search Console. GitHub Pages sigue publicando `main` con `pages-build-deployment`, aparte de este check.
 
 ## Pendiente de decisión del dueño
 
@@ -33,5 +34,5 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 
 - La base es `main` actual, incluidos los commits de hoy `2dddde4` y `bece093`, dados por buenos.
 - No se ha gastado dinero ni se han creado secretos. No se han publicado datos personales nuevos.
-- En el repositorio no hay workflows de CI propios. GitHub Pages tiene el flujo `pages-build-deployment`, que publica la rama por defecto; no es una comprobación de este PR.
+- El check de este PR es «HTML válido y enlaces internos», del workflow «HTML y enlaces».
 - El formulario de fallos sigue usando el destino que ya tenía, para que pueda enviar. No se ha cambiado y no se copia aquí.
