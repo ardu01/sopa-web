@@ -66,11 +66,11 @@
   <div class="campo">
     <label for="codigo">Código de probador <span class="opcional">(opcional, recomendado)</span>
     <span class="ayuda">Tu código de probador está en Sopa → Ajustes. Es anónimo y nos ayuda a agrupar tus informes. Son 16 caracteres: números y letras de la a a la f.</span></label>
-    <input id="codigo" name="codigo" maxlength="16" autocomplete="off" spellcheck="false" inputmode="text" placeholder="p. ej. 3fa2b9c01d4e7a56" aria-describedby="error-codigo">
+    <input id="codigo" name="codigo" type="text" maxlength="16" autocomplete="off" spellcheck="false" inputmode="text" placeholder="p. ej. 3fa2b9c01d4e7a56">
   </div>
   <div class="campo">
     <label for="version">Versión de Sopa</label>
-    <input id="version" name="version" maxlength="32" value="1.9.4" autocomplete="off" spellcheck="false">
+    <input id="version" name="version" type="text" maxlength="32" value="1.9.4" autocomplete="off" spellcheck="false">
   </div>
   <div class="campo">
     <label for="que_paso">¿Qué pasó?</label>
@@ -92,7 +92,7 @@
   </div>
   <div class="trampa" aria-hidden="true">
     <label for="web">No rellenes este campo</label>
-    <input id="web" name="web" tabindex="-1" autocomplete="off">
+    <input id="web" name="web" type="text" tabindex="-1" autocomplete="off">
   </div>
   <div class="aviso" id="aviso" role="status" aria-live="polite" hidden></div>
   <button class="btn" type="submit" id="enviar">Enviar informe</button>
