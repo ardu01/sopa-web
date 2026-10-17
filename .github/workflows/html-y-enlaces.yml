@@ -1,0 +1,52 @@
+# Copyright (C) 2026 Miguel Rodríguez Saiz
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# Comprueba el HTML y los enlaces internos. Sin secretos y sin servicios de pago.
+# html-validate:standard mira el HTML frente a la especificación. No se usa el
+# preajuste «recommended»: marca como error el doctype en minúsculas, los títulos
+# largos, el CSS en línea y los botones que hacen de selector. Eso es válido y
+# forma parte del diseño de la web.
+# Los google*.html son la verificación de Search Console, no documentos HTML.
+# descargas/ son los binarios de la beta: no se validan como páginas.
+
+name: HTML y enlaces
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  comprobar:
+    name: HTML válido y enlaces internos
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener el código
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validar el HTML
+        run: |
+          set -eu
+          # Node 22.23 trae npm 10.9.9. Con ese npm, instalar html-validate
+          # revienta: Cannot read properties of null (reading 'edgesOut').
+          # npm 11.21.1 ya no tiene ese fallo. «npm install --prefix» no crea
+          # PREFIX/bin: el ejecutable queda en node_modules/.bin.
+          # html-validate está fijado en package.json y package-lock.json.
+          npm install --prefix "$RUNNER_TEMP/herramientas" npm@11.21.1
+          "$RUNNER_TEMP/herramientas/node_modules/.bin/npm" ci
+          n=$(find . -name '*.html' -not -path './descargas/*' -not -path './node_modules/*' -not -name 'google*.html' | wc -l)
+          test "$n" -gt 0
+          find . -name '*.html' -not -path './descargas/*' -not -path './node_modules/*' -not -name 'google*.html' -print0 \
+            | xargs -0 ./node_modules/.bin/html-validate
+
+      - name: Comprobar enlaces internos
+        run: python3 scripts/enlaces-internos.py
