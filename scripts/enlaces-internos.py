@@ -20,7 +20,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 RAIZ = Path(__file__).resolve().parent.parent
-EXCLUIR = {"descargas"}
+EXCLUIR = {"descargas", "node_modules"}
 ESQUEMAS = ("http:", "https:", "mailto:", "data:", "javascript:", "tel:")
 
 
