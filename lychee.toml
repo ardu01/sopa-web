@@ -1,0 +1,21 @@
+# Copyright (C) 2026 Miguel Rodríguez Saiz
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# Enlaces externos. Los reintentos cubren cortes y límites puntuales.
+# No se aceptan todos los 403: un 403 también puede ser un enlace roto.
+
+max_retries = 3
+retry_wait_time = 5
+timeout = 30
+max_concurrency = 4
+
+exclude_path = ["descargas", "node_modules", "package-lock\\.json"]
+
+exclude = [
+  # Reto de Cloudflare al comprobador. La página existe.
+  "https://www\\.eatyourbytes\\.com/",
+  # Responde 403 a clientes automáticos. La ficha de la gráfica existe.
+  "https://www\\.techpowerup\\.com/",
+  # Destino de un formulario (POST), no una página.
+  "workers\\.dev",
+]

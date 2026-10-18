@@ -59,6 +59,11 @@ try {
   });
   try {
     const page = await browser.newPage();
+    // El texto que aún no ha entrado en pantalla sigue a opacidad 0. Con movimiento
+    // reducido la web lo muestra ya, y el contraste es el del estado final.
+    await page.emulateMediaFeatures([
+      { name: "prefers-reduced-motion", value: "reduce" },
+    ]);
     const vistas = [
       { nombre: "escritorio", width: 1280, height: 800 },
       { nombre: "móvil", width: 390, height: 844 },
