@@ -1,131 +1,253 @@
+/* Simulación de la interfaz. No instala, no descarga y no calcula velocidades. */
 (function () {
   "use strict";
-  var C = window.SopaCompat, CAT = window.SOPA_CATALOGO;
-  // Gráficas habituales: VRAM y capacidad de cómputo según las especificaciones de NVIDIA.
-  var AB = window.SOPA_ANCHOS, REF = AB.gpus.filter(function (g) { return g.id === AB.referencia; })[0];
-  var GPUS = [{ id: "ninguna", nombre: "Sin gráfica dedicada", detalle: "Integrada", vram: 0 }].concat(AB.gpus.map(function (g) {
-    return { id: g.id, nombre: g.nombre, vram: g.vram, cap: g.cap, gbs: g.gbs, amd: g.marca === "AMD", detalle: g.marca === "AMD" ? g.vram + "\u00a0GB · Sopa usa el procesador" : null };
-  }));
-  var RAMS = [8, 12, 16, 32, 64];
-  var DRIVERS = [{ id: "ok", nombre: "560 o superior", v: "560.0" }, { id: "viejo", nombre: "Anterior a 560", v: "550.0" }];
-  var st = { gpu: "gtx1650maxq", vram: 4, ram: 16, driver: "ok", solo: false };
-  var $ = function (id) { return document.getElementById(id); };
+  var marco = document.getElementById("marco");
+  var toastT;
+  var VISTAS = ["inicio", "chat", "agentes", "documentos", "memoria", "modelos", "entrenamiento", "ajustes", "registro"];
 
-  function radios(cont, items, clave, etiqueta, sub) {
-    // Los botones vienen ya en el HTML (evita saltos de diseño); si faltan, se crean.
-    var hechos = {}; [].forEach.call(cont.querySelectorAll("button"), function (b) { hechos[b.dataset.v] = b; });
-    items.forEach(function (it) {
-      var b = hechos[String(it.id)];
-      if (!b) {
-        b = document.createElement("button");
-        b.type = "button"; b.setAttribute("role", "radio"); b.dataset.v = it.id;
-        b.innerHTML = "<span>" + etiqueta(it) + "</span>" + (sub && sub(it) ? "<small>" + sub(it) + "</small>" : "");
-        cont.appendChild(b);
-      }
-      b.addEventListener("click", function () { st[clave] = it.id; if (clave === "gpu" && it.vram) st.vram = it.vram; pintar(); });
-    });
-    cont.addEventListener("keydown", function (e) {
-      var bs = [].slice.call(cont.querySelectorAll("button")), i = bs.indexOf(document.activeElement);
-      if (i < 0) return;
-      var d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
-      if (!d) return; e.preventDefault();
-      var n = bs[(i + d + bs.length) % bs.length]; n.click(); n.focus();
+  function $(id) { return document.getElementById(id); }
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
     });
   }
-  function marcar(cont, v) {
-    cont.querySelectorAll("button").forEach(function (b) {
-      var on = b.dataset.v === String(v); b.setAttribute("aria-checked", on); b.tabIndex = on ? 0 : -1;
+  function toast(texto) {
+    var t = $("toast");
+    t.hidden = false;
+    t.textContent = texto;
+    clearTimeout(toastT);
+    toastT = setTimeout(function () { t.hidden = true; }, 5000);
+  }
+  function ir(id) {
+    if (VISTAS.indexOf(id) < 0) id = "inicio";
+    VISTAS.forEach(function (v) { $("v-" + v).hidden = v !== id; });
+    marco.querySelectorAll("[data-vista]").forEach(function (b) {
+      if (b.getAttribute("data-vista") === id) b.setAttribute("aria-current", "page");
+      else b.removeAttribute("aria-current");
     });
   }
-  function hw() {
-    var g = GPUS.filter(function (x) { return x.id === st.gpu; })[0];
-    var drv = DRIVERS.filter(function (x) { return x.id === st.driver; })[0];
-    return { ram_total_gb: st.ram, disco_libre_gb: 1e9,
-      gpus: g.vram && !g.amd ? [{ vram_total_gb: st.vram, driver: drv.v, capacidad: g.cap }] : [] };
-  }
-  var T_CHAT = { gpu: ["Sí", "ok"], mixto: ["Sí, más lento", "warn"], cpu: ["Sí, en el procesador", "warn"], no: ["No", "err"] };
-  var T_POTENTE = ["Equipo potente", "err"];
-  var T_LENTO_4GIB = ["Sí, lento, en el procesador", "warn"];
-  var T_PERS = { si: ["Sí", "ok"], justo: ["Va justo", "warn"], no: ["No", "err"] };
-  var ESP = { chat: "Charlar", razonamiento: "Razonar", codigo: "Programar", rapido: "Ir rápido", documentos: "Documentos", vision: "Ver imágenes" };
-  var LIC = { condiciones: "Licencia con condiciones", no_comercial: "Licencia no comercial" };
-  function especialidad(r) {
-    var es = (r.especialidad || []).map(function (e) { return '<li>' + esc(ESP[e] || e) + (e === "vision" ? " · próximamente" : "") + "</li>"; });
-    return es.length ? '<ul class="m-esp" aria-label="Especialidad">' + es.join("") + "</ul>" : "";
-  }
-  var T_VER_SOLO = { verificado: ["Verificado · solo chat", "ok"], estimado: ["Estimado · solo chat", "info"], no_soportado: ["No soportado", "err"] };
-  var T_VER = { verificado: ["Verificado", "ok"], estimado: ["Estimado", "info"], no_soportado: ["No soportado", "err"] };
-  function fmt(n) { return String(n).replace(".", ","); }
-  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
-  function badge(t) { return '<span class="b b-' + t[1] + '">' + t[0] + "</span>"; }
-
-  // tok/s: solo se escala lo medido, por ancho de banda de memoria (rango ±25 %).
-  // tok/s: solo se escala lo medido, por ancho de banda (decisiones de Sopa Motor).
-  var TOPE = 150;
-  function velocidad(r, g, hay) {
-    var med = (r.medido || {}).chat_tokens_por_segundo;
-    if (r.chat === "no") return '<span class="v-no">No funciona</span>';
-    if (r.perfil_4gib) return '<span class="v-lento">Lento, solo en procesador</span>';
-    if (r.equipo_potente) return '<span class="v-lento">Muy lento en este equipo</span>';
-    if (r.chat === "cpu") return '<span class="v-lento">Lento, solo en procesador</span>';
-    if (r.chat === "mixto") return '<span class="v-lento">Lento (parte en RAM)</span>';
-    if (!med) return '<span class="v-sin">Sin medida aún</span>';
-    var et = function (t) { return ' <span class="b ' + (t === "medido" ? "b-ok" : "b-info") + '">' + t + "</span>"; };
-    var rapido = function (t) { return '<span class="v-rapido">Muy rápido</span>' + et(t); };
-    if (g.id === REF.id) return med > TOPE ? rapido("medido") : "<b>" + fmt(med) + "\u00a0tok/s</b>" + et("medido");
-    var k = g.gbs / REF.gbs;
-    if (k < 0.5) return '<span class="v-lento">Lento</span>' + et("estimado");
-    if (k > 4) { var n = Math.round(med * 4 * 0.75); return n > TOPE ? rapido("estimado") : "<b>Más de " + n + "\u00a0tok/s</b>" + et("estimado"); }
-    var c = med * k, lo = Math.round(c * 0.75), hi = Math.round(c * 1.25);
-    return hi > TOPE ? rapido("estimado") : "<b>" + lo + "–" + hi + "\u00a0tok/s</b>" + et("estimado");
-  }
-  function pintar() {
-    var g = GPUS.filter(function (x) { return x.id === st.gpu; })[0], hay = !!g.vram && !g.amd;
-    marcar($("gpus"), st.gpu); marcar($("rams"), st.ram); marcar($("driver"), st.driver);
-    $("vram").value = st.vram; $("o-vram").textContent = hay ? st.vram + "\u00a0GB" : "—";
-    $("f-vram").disabled = !hay; $("f-driver").disabled = !hay;
-    $("f-vram").classList.toggle("off", !hay); $("f-driver").classList.toggle("off", !hay);
-    var res = C.catalogo_para(CAT, hw(), st.solo);
-    var todos = C.catalogo_para(CAT, hw(), false);
-    var nc = todos.filter(function (r) { return r.chat !== "no"; }).length;
-    var np = todos.filter(function (r) { return r.personalizar !== "no"; }).length;
-    $("resumen").innerHTML = "<b>" + nc + "</b> de " + todos.length + " modelos para chatear · <b>" + np + "</b> para entrenar";
-    var aviso = C.driver_insuficiente(hw());
-    $("lista").innerHTML = (aviso ? '<li class="alerta">' + esc(aviso) + "</li>" : "") + res.map(function (r) {
-      var md = r.medido || {}, extra = [], vel = velocidad(r, g, hay);
-      if (r.perfil_4gib && md.chat_tokens_por_segundo) extra.push("Medido en un portátil de 16\u00a0GB, solo con el procesador y el proceso limitado a 4\u00a0GiB: " + fmt(md.chat_tokens_por_segundo) + "\u00a0tok/s y un máximo de " + fmt(md.chat_ram_pico_sin_mmap_gib) + "\u00a0GiB");
-      else if (md.chat_tokens_por_segundo) extra.push("Medido en GTX 1650 Max-Q: " + fmt(md.chat_tokens_por_segundo) + "\u00a0tok/s");
-      if (r.personalizar !== "no" && hay && st.driver === "ok") {
-        var s = C.segundos_por_paso(r.parametros_b, 512, 8, "sft", "cuda", md.segundos_por_paso);
-        var fi = C.fiabilidad(r.parametros_b, "cuda", md.segundos_por_paso);
-        extra.push((fi === "medido" ? "Entrenamiento medido en GTX 1650: " : "Entrenamiento en GTX 1650, aproximado: ") + fmt(C.pyFixed(s, 1)) + "\u00a0s por paso");
-      }
-      var pers = r.solo_catalogo || r.solo_chat ? "" : " · entrenar " + fmt(r.necesita_personalizar_gb) + "\u00a0GB";
-      var lic = LIC[r.licencia_tipo] ? '<p class="m-lic"><b>' + LIC[r.licencia_tipo] + ".</b> " + esc(r.licencia_nota || "") + "</p>" : "";
-      return '<li class="modelo v-' + r.verificacion + '">' +
-        '<div class="m-cab"><div><h3>' + esc(r.nombre) + '</h3><p class="m-meta">' + fmt(r.parametros_b) + "\u00a0mil millones de parámetros · " + esc(r.licencia || "") + "</p>" + especialidad(r) + "</div>" + badge((r.solo_chat ? T_VER_SOLO : T_VER)[r.verificacion]) + "</div>" +
-        '<dl class="m-dl"><div><dt>Chatear</dt><dd>' + badge(r.perfil_4gib && r.chat === "cpu" ? T_LENTO_4GIB : r.equipo_potente ? T_POTENTE : T_CHAT[r.chat]) + "</dd></div><div><dt>Entrenar</dt><dd>" + (r.solo_chat ? '<span class="b b-neu">No disponible</span>' : badge(T_PERS[r.personalizar])) + "</dd></div>" +
-        "<div><dt>Velocidad</dt><dd class=\"vel\">" + vel + "</dd></div><div><dt>Necesita</dt><dd class=\"gb\">chat " + fmt(r.necesita_chat_gb) + (r.perfil_4gib ? "\u00a0GiB de RAM" : "\u00a0GB") + pers + "</dd></div></dl>" +
-        '<p class="m-txt">' + esc(r.chat_texto) + " " + esc(r.personalizar_texto) + "</p>" +
-        '<p class="m-txt sec">' + esc(r.verificacion_texto) + "</p>" + lic +
-        (extra.length ? '<p class="m-ref">' + extra.map(esc).join(" · ") + "</p>" : "") + "</li>";
-    }).join("");
+  function dialogar(titulo, texto, acciones) {
+    $("dlg-t").textContent = titulo;
+    $("dlg-p").textContent = texto;
+    var act = $("dlg-act");
+    act.replaceChildren();
+    acciones.forEach(function (a) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = a.primario ? "btn-p" : "btn";
+      b.textContent = a.nombre;
+      b.addEventListener("click", function () {
+        $("dlg").close();
+        if (a.fn) a.fn();
+      });
+      act.appendChild(b);
+    });
+    $("dlg").showModal();
   }
 
-  radios($("gpus"), GPUS, "gpu", function (g) { return g.nombre; }, function (g) { return g.detalle || (g.vram + "\u00a0GB"); });
-  radios($("rams"), RAMS.map(function (r) { return { id: r }; }), "ram", function (r) { return r.id + "\u00a0GB"; });
-  radios($("driver"), DRIVERS, "driver", function (d) { return d.nombre; });
-  $("vram").addEventListener("input", function (e) { st.vram = Number(e.target.value); pintar(); });
-  $("solo").addEventListener("change", function (e) { st.solo = e.target.checked; pintar(); });
-  pintar();
-  $("lista").style.minHeight = "";
-})();
-(function () {
-  var AB = window.SOPA_ANCHOS, f = document.getElementById("fuentes");
-  var host = function (u) { try { return new URL(u).hostname.replace("www.", ""); } catch (e) { return u; } };
-  f.innerHTML = '<table><thead><tr><th scope="col">Gráfica</th><th scope="col">GB/s</th><th scope="col">Fuente</th></tr></thead><tbody>' +
-    AB.gpus.map(function (g) {
-      return "<tr><td>" + g.nombre + (g.id === AB.referencia ? " <em>(referencia)</em>" : "") + "</td><td class=\"n\">" + String(g.gbs).replace(".", ",") + "</td><td>" +
-        g.fuentes.map(function (u) { return '<a href="' + u + '" rel="noopener noreferrer nofollow" target="_blank">' + host(u) + "</a>"; }).join(", ") + "</td></tr>";
-    }).join("") + "</tbody></table><p class=\"ayuda\">" + AB.nota + "</p>";
+  marco.querySelectorAll("[data-vista]").forEach(function (b) {
+    b.addEventListener("click", function () { ir(b.getAttribute("data-vista")); });
+  });
+  window.addEventListener("hashchange", function () { ir(location.hash.slice(1)); });
+
+  function temaElegido() {
+    var v = $("tema").value;
+    if (v === "sistema") {
+      marco.dataset.tema = window.matchMedia("(prefers-color-scheme: dark)").matches ? "oscuro" : "claro";
+    } else marco.dataset.tema = v;
+  }
+  $("tema").addEventListener("change", temaElegido);
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
+    if ($("tema").value === "sistema") temaElegido();
+  });
+
+  function webEncendida() { return $("web").getAttribute("aria-pressed") === "true"; }
+  function pintarWeb(on) {
+    $("web").setAttribute("aria-pressed", on ? "true" : "false");
+    $("web").classList.toggle("web-on", on);
+    $("web").title = on ? "Buscar en la web está encendido" : "Buscar en la web está apagado";
+    $("web-extra").textContent = on ? " · encendida" : "";
+    $("web-ajustes").checked = on;
+    $("pie-estado").textContent = on ? "Buscar en la web está encendido" : "Todo ocurre en este equipo";
+    var vacio = $("vacio-txt");
+    if (vacio) vacio.textContent = on
+      ? "Web está encendido: si lo pides, busco en la web y leo una página."
+      : "Escribe y Sopa cargará el modelo adecuado. Nada sale de tu ordenador.";
+  }
+  $("web").addEventListener("click", function () { pintarWeb(!webEncendida()); });
+  $("web-ajustes").addEventListener("change", function () { pintarWeb($("web-ajustes").checked); });
+
+  function agenteNombre() {
+    var s = $("agente");
+    return s.options[s.selectedIndex].textContent;
+  }
+  function pintarAgente() {
+    var nombre = agenteNombre();
+    var linea = $("agente-linea");
+    linea.textContent = "Agente activo: " + nombre;
+    linea.classList.toggle("esp", nombre !== "Chat");
+    $("invest-nota").hidden = nombre !== "Investigación" || webEncendida();
+  }
+  $("agente").addEventListener("change", pintarAgente);
+
+  $("creatividad").addEventListener("input", function () {
+    $("o-crea").textContent = String($("creatividad").value).replace(".", ",");
+  });
+
+  document.querySelectorAll(".ideas button").forEach(function (b) {
+    b.addEventListener("click", function () { $("mensaje").value = b.textContent; $("mensaje").focus(); });
+  });
+
+  function ejemploRespuesta(pregunta) {
+    var trozos = ["Ejemplo de respuesta. En tu ordenador la escribe el modelo. Esta página no calcula ninguna velocidad."];
+    if ($("agente").value === "investigacion" && !webEncendida()) {
+      trozos.unshift("Buscar en la web está apagado. Uso solo los documentos de este equipo.");
+    }
+    if (webEncendida()) trozos.push("He buscado «" + pregunta.slice(0, 80) + "» en la web.");
+    return trozos.join(" ");
+  }
+  $("enviar").addEventListener("click", function () {
+    var texto = $("mensaje").value.trim();
+    if (!texto) return;
+    $("vacio").hidden = true;
+    var lista = $("mensajes");
+    var yo = document.createElement("div");
+    yo.className = "burbuja usuario";
+    yo.innerHTML = '<p class="quien">Tú</p><p></p>';
+    yo.lastChild.textContent = texto;
+    var ia = document.createElement("div");
+    ia.className = "burbuja";
+    ia.innerHTML = '<p class="quien">Ejemplo · Sopa</p><p></p>';
+    ia.lastChild.textContent = ejemploRespuesta(texto);
+    lista.append(yo, ia);
+    $("mensaje").value = "";
+    var item = document.createElement("li");
+    item.innerHTML = '<button type="button" class="abrir">Ejemplo</button>';
+    $("historial-lista").appendChild(item);
+    $("historial-vacio").hidden = true;
+  });
+  $("mensaje").addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); $("enviar").click(); }
+  });
+  $("cargar").addEventListener("click", function () {
+    toast("Ejemplo: aquí no se carga ningún modelo.");
+  });
+  $("nueva").addEventListener("click", function () {
+    $("mensajes").replaceChildren();
+    $("vacio").hidden = false;
+    $("mensaje").value = "";
+  });
+
+  $("memoria-add").addEventListener("click", function () {
+    var texto = $("memoria-txt").value.trim();
+    if (!texto) return;
+    var li = document.createElement("li");
+    li.className = "tarjeta";
+    li.innerHTML = "<p></p><p class=\"fila\"><button type=\"button\" class=\"btn\">Cambiar</button><button type=\"button\" class=\"btn-peligro\">Borrar</button></p>";
+    li.firstChild.textContent = texto;
+    li.querySelector(".btn-peligro").addEventListener("click", function () {
+      li.remove();
+      var n = $("memoria-lista").children.length;
+      $("memoria-vacio").hidden = n > 0;
+      $("memoria-n").textContent = n ? (n === 1 ? "1 recuerdo" : n + " recuerdos") : "";
+      toast("Borrado.");
+    });
+    $("memoria-lista").appendChild(li);
+    $("memoria-txt").value = "";
+    $("memoria-vacio").hidden = true;
+    var n = $("memoria-lista").children.length;
+    $("memoria-n").textContent = n === 1 ? "1 recuerdo" : n + " recuerdos";
+    toast("Guardado.");
+  });
+  $("memoria-usar").addEventListener("change", function () {
+    $("memoria-off").hidden = $("memoria-usar").checked;
+  });
+
+  $("add-carpeta").addEventListener("click", function () {
+    if ($("carpetas").children.length) return;
+    var li = document.createElement("li");
+    li.className = "tarjeta";
+    li.innerHTML = '<p><b>Apuntes</b></p><p class="ayuda">Ejemplo de carpeta. La app muestra aquí la ruta; esta simulación no pone ninguna.</p>' +
+      '<label class="casilla"><input type="checkbox" checked> <span>Leer</span></label>' +
+      '<label class="casilla"><input type="checkbox" checked> <span>Buscar</span></label>' +
+      '<label class="casilla"><input type="checkbox" checked> <span>Resumir</span></label>' +
+      '<label class="casilla"><input type="checkbox" checked> <span>Cambiar archivos</span></label>' +
+      '<label class="casilla"><input type="checkbox"> <span>Permitir desde el móvil</span></label>' +
+      '<button type="button" class="btn-peligro">Quitar</button>';
+    li.querySelector(".btn-peligro").addEventListener("click", function () {
+      li.remove();
+      $("carpeta-vacio").hidden = false;
+      toast("Carpeta quitada. Sopa ya no propondrá acciones ahí.");
+    });
+    $("carpetas").appendChild(li);
+    $("carpeta-vacio").hidden = true;
+    toast("Carpeta añadida. Sopa puede proponer acciones aquí, siempre con tu confirmación.");
+  });
+
+  function revisarAuto() {
+    $("auto-guardar").disabled = !$("auto-ok").checked || !$("auto-nombre").value.trim();
+  }
+  $("auto-ok").addEventListener("change", revisarAuto);
+  $("auto-nombre").addEventListener("input", revisarAuto);
+  $("auto-hace").addEventListener("change", function () {
+    $("auto-archivo").hidden = $("auto-hace").value !== "leer";
+    $("auto-modo").hidden = $("auto-hace").value !== "organizar";
+  });
+  $("auto-cuando").addEventListener("change", function () {
+    var v = $("auto-cuando").value;
+    $("auto-hora").hidden = v !== "dia" && v !== "semana";
+    $("auto-dia").hidden = v !== "semana";
+    $("auto-momento").hidden = v !== "una";
+  });
+  $("auto-guardar").addEventListener("click", function () {
+    var li = document.createElement("li");
+    li.textContent = $("auto-nombre").value.trim();
+    $("auto-lista").appendChild(li);
+    $("auto-vacio").hidden = true;
+    $("auto-nombre").value = "";
+    $("auto-ok").checked = false;
+    revisarAuto();
+    toast("Guardada.");
+  });
+
+  $("buscar-docs").addEventListener("click", function () {
+    $("docs-res").hidden = false;
+    $("docs-res").textContent = "No he encontrado nada parecido.";
+  });
+  $("instalar-motor").addEventListener("click", function () {
+    $("motor-txt").textContent = "El motor de entrenamiento está instalado.";
+    $("instalar-motor").hidden = true;
+    toast("Ejemplo: aquí no se instala nada. El registro sigue vacío.");
+    ir("registro");
+  });
+  $("ver-modelos").addEventListener("click", function () { ir("modelos"); });
+  $("empezar-chat").addEventListener("click", function () { ir("chat"); });
+
+  document.querySelectorAll("[data-descarga]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      dialogar(b.getAttribute("data-nombre"), b.getAttribute("data-nota"), [
+        { nombre: "Descargar", primario: true, fn: function () { toast("Esta simulación no descarga el modelo."); } },
+        { nombre: "Cancelar" }
+      ]);
+    });
+  });
+  $("importar").addEventListener("click", function () { toast("Esta simulación no importa archivos."); });
+  $("ver-licencia").addEventListener("click", function () { $("panel-licencia").hidden = !$("panel-licencia").hidden; });
+  $("avisos-terceros").addEventListener("click", function () { $("panel-avisos").hidden = !$("panel-avisos").hidden; });
+  $("acceso-movil").addEventListener("change", function () { $("panel-movil").hidden = !$("acceso-movil").checked; });
+  $("fuera-casa").addEventListener("change", function () { $("panel-tunel").hidden = !$("fuera-casa").checked; });
+  $("comprobar").addEventListener("click", function () { toast("Ejemplo: no se le pregunta al router y no se muestra ninguna IP."); });
+  $("ipify").addEventListener("click", function () { toast("Ejemplo: no se pregunta en internet y no se muestra ninguna IP."); });
+  $("informar").addEventListener("click", function () { location.href = "fallos/"; });
+  $("guardar-agente").addEventListener("click", function () { toast("Agente guardado."); });
+  $("limpiar-agente").addEventListener("click", function () { toast("Ejemplo: el formulario no se envía a ningún sitio."); });
+  $("entrenar").addEventListener("click", function () { toast("Ejemplo: no se entrena nada y no se muestra cuánto tardaría."); });
+  $("detener").addEventListener("click", function () { toast("Ejemplo: no hay un entrenamiento en curso."); });
+  $("lanzar").addEventListener("click", function () { toast("Elige un agente y escribe la tarea."); });
+
+  temaElegido();
+  pintarWeb(false);
+  pintarAgente();
+  revisarAuto();
+  ir(location.hash.slice(1) || "inicio");
 })();
