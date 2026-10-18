@@ -25,6 +25,13 @@ jobs:
       - name: Obtener el código
         uses: actions/checkout@v4
 
+      - name: Preparar la raíz de Pages
+        run: |
+          # El sitio de proyecto vive en /sopa-web/. La 404 usa esas rutas
+          # absolutas, y su canonical aún no está publicado.
+          mkdir -p "$RUNNER_TEMP/raiz"
+          ln -s "$GITHUB_WORKSPACE" "$RUNNER_TEMP/raiz/sopa-web"
+
       - name: Comprobar enlaces externos
         uses: lycheeverse/lychee-action@v2
         with:
@@ -32,5 +39,7 @@ jobs:
           args: >-
             --no-progress
             --config lychee.toml
+            --root-dir ${{ runner.temp }}/raiz
+            --remap "https://ardu01.github.io/sopa-web/ file://${{ github.workspace }}/"
             --extensions html,htm,md,txt,js,css,xml
             .
