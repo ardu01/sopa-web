@@ -50,3 +50,16 @@ jobs:
 
       - name: Comprobar enlaces internos
         run: python3 scripts/enlaces-internos.py
+
+      - name: Comprobar accesibilidad
+        run: |
+          set -eu
+          if command -v google-chrome >/dev/null 2>&1; then
+            export CHROME_PATH="$(command -v google-chrome)"
+          else
+            # El runner no trae Chrome. Se descarga una versión fija, sin secretos.
+            linea="$(./node_modules/.bin/browsers install --path "$RUNNER_TEMP/chrome" chrome-headless-shell@131.0.6778.204)"
+            export CHROME_PATH="${linea##* }"
+          fi
+          test -x "$CHROME_PATH"
+          node scripts/accesibilidad.mjs

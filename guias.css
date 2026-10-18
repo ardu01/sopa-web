@@ -2,7 +2,8 @@
 .cont-guia{max-width:720px;margin:0 auto}
 .guia .migas ol{display:flex;flex-wrap:wrap;gap:8px;font-size:13px;color:var(--text-2);max-width:720px;margin:0 auto 32px}
 .guia .migas li+li::before{content:"›";margin-right:8px}
-.guia .migas a{color:var(--accent)}
+.guia .migas a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.tarjetas-guia a{transition:border-color .12s var(--ease)}
 .guia h1{font-size:clamp(36px,5.5vw,56px);line-height:1.08;letter-spacing:-.03em;font-weight:700}
 .guia .lead{margin:20px 0 40px;text-align:left;max-width:none}
 .guia h2{font-size:clamp(24px,3vw,30px);line-height:1.2;letter-spacing:-.02em;margin:48px 0 14px}
@@ -35,7 +36,7 @@
 .otras{margin-top:72px;padding-top:32px;border-top:1px solid var(--border)}
 .otras h2{margin-top:0;font-size:20px}
 .tarjetas-guia{list-style:none!important;padding:0!important;display:grid;gap:16px}
-.tarjetas-guia a{display:block;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px;transition:border-color .12s var(--ease)}
+.tarjetas-guia a{display:block;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px}
 .tarjetas-guia a:hover{border-color:var(--accent)}
 .tarjetas-guia h2{margin:0 0 8px;font-size:22px}
 .tarjetas-guia p{font-size:16px;color:var(--text-2)}

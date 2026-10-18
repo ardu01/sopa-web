@@ -14,6 +14,10 @@ ul,ol{list-style:none}
 .marca{display:flex;align-items:center;gap:8px;font-weight:650;font-size:16px}
 .nav nav{display:flex;gap:22px;margin-left:auto;color:var(--text-2)}
 .nav nav a:hover{color:var(--text)}
+.saltar{position:absolute;left:12px;top:8px;z-index:30;transform:translateY(-160%);background:var(--accent);color:#fff;padding:10px 16px;border-radius:999px;font-weight:600;font-size:15px}
+.saltar:focus{transform:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.oscura :focus-visible{outline-color:#8EE0B5}
 .pill-dev{display:inline-block;border:1px dashed var(--dev);color:var(--dev);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:550;white-space:nowrap}
 .eyebrow{color:var(--accent);font-weight:600;font-size:17px;margin-bottom:10px}
 h1{font-size:clamp(44px,7.5vw,88px);line-height:1.04;letter-spacing:-.035em;font-weight:700}
@@ -30,7 +34,11 @@ h3{font-size:21px;letter-spacing:-.01em;font-weight:650;margin-bottom:6px}
 .logo-humo .humo{position:absolute;inset:0;pointer-events:none;transform-origin:50% 44%;-webkit-mask-image:linear-gradient(#000 37%,transparent 44.5%);mask-image:linear-gradient(#000 37%,transparent 44.5%);animation:humo 3.2s ease-in-out infinite;will-change:transform,opacity}
 .logo-humo .h2{animation-delay:-1.07s}.logo-humo .h3{animation-delay:-2.13s}
 @keyframes humo{0%{opacity:0;transform:translateY(5%)}25%{opacity:1;transform:translateY(2%)}60%{opacity:1}100%{opacity:0;transform:translateY(-6%)}}
-@media (prefers-reduced-motion:reduce){.logo-humo .humo{animation:none;opacity:1;transform:none;-webkit-mask-image:none;mask-image:none}}
+@media (prefers-reduced-motion:reduce){
+ .logo-humo .humo{animation:none;opacity:1;transform:none;-webkit-mask-image:none;mask-image:none}
+ .js .r,.faq summary::after,.btn,.guias-lista a{transition:none}
+ html{scroll-behavior:auto}
+}
 .ctas{display:flex;gap:28px;justify-content:center;align-items:center;margin-top:32px;flex-wrap:wrap}
 .btn{background:var(--accent);color:#fff;padding:12px 24px;border-radius:999px;font-weight:550;transition:background .12s var(--ease)}
 .btn:hover{background:var(--accent-h)}
@@ -80,9 +88,12 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 .js .r.v{opacity:1;transform:none}
 .js .hero-shot.r{transform:translateY(60px) scale(.96)}
 .js .hero-shot.r.v{transform:none}
-@media (prefers-reduced-motion:reduce){.js .r{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.js .r{opacity:1;transform:none;transition:none}.tarjetas-guia a{transition:none}}
 @media (max-width:900px){
- .nav nav{display:none}.pill-dev{margin-left:auto}
+ .nav-in{height:auto;min-height:52px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+ .nav nav{order:3;width:100%;margin-left:0;flex-wrap:wrap;gap:4px 18px;padding:4px 0}
+ .nav nav a{padding:8px 0;font-size:15px}
+ .pill-dev{margin-left:auto}
  .rejilla4{grid-template-columns:1fr 1fr}
  .func{grid-template-columns:1fr}.func article,.func article:nth-child(n){grid-column:auto}
  .futuro{grid-template-columns:1fr}
