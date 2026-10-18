@@ -1,0 +1,20 @@
+.ayuda .pasos>li::before{top:2px}
+.buscar{margin:0 0 28px}
+.buscar label{display:block;font-weight:650;font-size:15px;margin-bottom:8px}
+.buscar input{width:100%;max-width:440px;font:inherit;font-size:17px;color:#141816;background:#fff;border:1px solid #5C665F;border-radius:12px;padding:10px 14px}
+.temas{list-style:none!important;padding:0!important;display:grid;gap:16px}
+.temas a,.temas article{display:block;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px}
+.temas a:hover{border-color:var(--accent)}
+.temas h2{margin:0 0 8px;font-size:22px}
+.temas p{font-size:16px;color:var(--text-2)}
+.ayuda .indice ol{list-style:decimal}
+.ayuda h2[id],.ayuda h3[id]{scroll-margin-top:72px}
+.si-sale{margin:28px 0;padding:20px 22px 8px;background:#fff;border:1px solid var(--border);border-left:4px solid #8A5A10;border-radius:16px}
+.si-sale h2{margin:0 0 12px}
+.mini{list-style:none!important;counter-reset:m;padding:0!important;margin:12px 0 4px}
+.mini>li{counter-increment:m;position:relative;padding:2px 0 10px 40px;margin:0}
+.mini>li::before{content:counter(m);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:#1A77481A;color:#1A7748;font-weight:700;display:grid;place-items:center;font-size:14px}
+.cita{margin:8px 0 12px;padding-left:16px}
+.cita li{font-size:16px!important}
+#busqueda-estado{font-size:14px;color:var(--text-2);min-height:1.2em;margin:-12px 0 16px}
+@media (max-width:700px){.temas a,.temas article{padding:22px}}
