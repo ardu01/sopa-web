@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>¿Qué IA local puedo usar en mi ordenador? Simulador de requisitos · Sopa™</title>
-<meta name="description" content="Requisitos para IA local: elige tu gráfica, VRAM y RAM y descubre qué LLM puedes usar en tu ordenador y cuánta VRAM necesita cada uno.">
+<title>Simulador de la interfaz de Sopa Desktop · Sopa™</title>
+<meta name="description" content="Recorre la interfaz de Sopa Desktop, beta 1.12.1: Inicio, Chat, documentos, memoria, modelos y ajustes. Es una simulación y no calcula velocidades.">
 <link rel="canonical" href="https://ardu01.github.io/sopa-web/simulador.html">
 <meta name="robots" content="index,follow">
 <meta name="author" content="Miguel Rodríguez Saiz">
@@ -15,18 +15,18 @@
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Sopa">
 <meta property="og:url" content="https://ardu01.github.io/sopa-web/simulador.html">
-<meta property="og:title" content="¿Qué IA local puedo usar en mi ordenador? · Sopa™">
-<meta property="og:description" content="Elige tu gráfica, la VRAM y la RAM y mira qué modelos de IA local van bien en tu equipo. Orientativo.">
+<meta property="og:title" content="Simulador de la interfaz de Sopa Desktop · Sopa™">
+<meta property="og:description" content="Así se ve Sopa Desktop en la beta 1.12.1. Simulación de la interfaz: no calcula velocidades ni descarga nada.">
 <meta property="og:image" content="https://ardu01.github.io/sopa-web/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Logotipo de Sopa con el lema «Tu inteligencia artificial. Tu ordenador. Tus reglas.»">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="¿Qué IA local puedo usar en mi ordenador? · Sopa™">
-<meta name="twitter:description" content="Elige tu gráfica, la VRAM y la RAM y mira qué modelos de IA local van bien en tu equipo. Orientativo.">
+<meta name="twitter:title" content="Simulador de la interfaz de Sopa Desktop · Sopa™">
+<meta name="twitter:description" content="Así se ve Sopa Desktop en la beta 1.12.1. Simulación de la interfaz: no calcula velocidades ni descarga nada.">
 <meta name="twitter:image" content="https://ardu01.github.io/sopa-web/img/og.png">
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "WebApplication", "name": "Simulador de compatibilidad de Sopa", "url": "https://ardu01.github.io/sopa-web/simulador.html", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Cualquiera (navegador web)", "inLanguage": "es", "isAccessibleForFree": true, "description": "Comprueba qué IA local puedes usar en tu ordenador: elige tu gráfica, su VRAM y tu RAM y mira qué modelos de lenguaje (LLM) podrías usar con Sopa para chatear y personalizar. Orientativo.", "author": {"@type": "Person", "name": "Miguel Rodríguez Saiz"}, "isPartOf": {"@type": "WebSite", "name": "Sopa", "url": "https://ardu01.github.io/sopa-web/"}}
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Simulador de la interfaz de Sopa", "url": "https://ardu01.github.io/sopa-web/simulador.html", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Cualquiera (navegador web)", "inLanguage": "es", "isAccessibleForFree": true, "description": "Simulación de la interfaz de Sopa Desktop, beta 1.12.1. No calcula velocidades ni descarga modelos.", "author": {"@type": "Person", "name": "Miguel Rodríguez Saiz"}, "isPartOf": {"@type": "WebSite", "name": "Sopa", "url": "https://ardu01.github.io/sopa-web/"}}
 </script>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sopa", "item": "https://ardu01.github.io/sopa-web/"}, {"@type": "ListItem", "position": 2, "name": "Simulador", "item": "https://ardu01.github.io/sopa-web/simulador.html"}]}
@@ -48,64 +48,413 @@
   </div>
 </header>
 <main id="contenido" tabindex="-1" class="sim">
-  <section class="sim-hero cont">
+  <section class="sim-intro">
     <nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="./">Sopa</a></li><li aria-current="page">Simulador</li></ol></nav>
-    <p class="eyebrow">Requisitos para IA local</p>
-    <h1>¿Qué IA va bien<br>en tu ordenador?</h1>
-    <p class="lead">Elige tu gráfica, su VRAM y tu memoria. Verás al momento qué modelos de IA local (LLM) puedes usar en tu ordenador para chatear y cuáles podrías entrenar.</p>
-    <p class="aviso" role="note"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M12 8v5M12 16.5v.01" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>Orientativo. Sopa comprueba tu equipo real al instalarla.</p>
+    <p class="eyebrow">Interfaz</p>
+    <h1>Así se ve Sopa en el ordenador</h1>
+    <p class="intro-txt">La descarga publicada sigue siendo la beta 1.9.4. Esta ventana enseña la interfaz de la beta 1.12.1, con sus textos. Los botones no instalan, no descargan y no se conectan. Las respuestas son de ejemplo y no incluyen velocidades.</p>
+    <p class="intro-txt">Lo que aún no está en la 1.9.4 lleva la etiqueta «En la próxima versión pública».</p>
   </section>
+  <div class="marco-wrap">
+    <div class="marco" id="marco" data-tema="claro">
+      <aside class="barra" aria-label="Barra lateral">
+        <p class="marca-app"><img src="img/icono-64.webp" alt="" width="28" height="28">Sopa</p>
+        <nav class="nav-app" aria-label="Secciones de Sopa">
+          <button type="button" data-vista="inicio" aria-current="page">Inicio</button>
+          <button type="button" data-vista="chat">Chat</button>
+          <button type="button" data-vista="agentes">Agentes</button>
+          <p class="grupo-etiq" id="g-ia">Tu IA</p>
+          <div class="grupo" role="group" aria-labelledby="g-ia">
+            <button type="button" data-vista="documentos">Tus documentos</button>
+            <button type="button" data-vista="memoria">Memoria</button>
+            <button type="button" data-vista="modelos">Modelos</button>
+            <button type="button" data-vista="entrenamiento">Entrenamiento</button>
+          </div>
+          <p class="grupo-etiq" id="g-sis">Sistema</p>
+          <div class="grupo" role="group" aria-labelledby="g-sis">
+            <button type="button" data-vista="ajustes">Ajustes</button>
+            <button type="button" data-vista="registro">Registro</button>
+          </div>
+        </nav>
+        <div class="pie-app">
+          <p class="candado"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.75"/></svg><span id="pie-estado">Todo ocurre en este equipo</span></p>
+          <p>Versión 1.12.1 beta</p>
+        </div>
+      </aside>
+      <div class="lienzo">
+        <section class="vista" id="v-inicio" aria-labelledby="t-inicio">
+          <div class="logo-inicio logo-humo"><img class="humo h1" src="img/logo-vapor1-256.webp" alt="" width="96" height="96"><img class="humo h2" src="img/logo-vapor2-256.webp" alt="" width="96" height="96"><img class="humo h3" src="img/logo-vapor3-256.webp" alt="" width="96" height="96"><img class="cuenco" src="img/logo-cuenco-256.webp" alt="Logotipo de Sopa" width="96" height="96"></div>
+          <div class="centro">
+            <h2 id="t-inicio">Tu IA, en tu ordenador</h2>
+            <p class="sub">Sopa comprueba tu equipo y solo te ofrece lo que de verdad funciona en él.</p>
+          </div>
+          <div class="hw">
+            <article><p class="etiq">Procesador</p><p class="valor">—</p><p class="det">Lo devuelve la app</p></article>
+            <article><p class="etiq">Memoria RAM</p><p class="valor">—</p><p class="det">GB libres</p></article>
+            <article><p class="etiq">Tarjeta gráfica</p><p class="valor">—</p><p class="det">Driver y capacidad, o «Sin GPU NVIDIA»</p></article>
+            <article><p class="etiq">Memoria de vídeo</p><p class="valor">—</p><p class="det">GB libres, o vacío</p></article>
+            <article><p class="etiq">CUDA</p><p class="valor">—</p><p class="det">Lista para entrenar, o no disponible</p></article>
+            <article><p class="etiq">Disco libre</p><p class="valor">—</p><p class="det">Sin ruta de usuario</p></article>
+          </div>
+          <p class="nota-ej">En la app, estos seis datos salen de tu equipo. Esta simulación no los rellena y no inventa núcleos, gigabytes ni el nombre de la gráfica.</p>
+          <div class="banner" id="motor-banner"><p id="motor-txt">Para entrenar modelos con tus ejemplos hace falta instalar el motor (unos 3 GB, una sola vez).</p><p class="fila"><button type="button" class="btn-p" id="instalar-motor">Instalar motor</button></p></div>
+          <h3>Qué está probado</h3>
+          <p class="ayuda">Qué está probado de verdad. «verificado»: comprobado en la máquina de referencia (MSI GTX 1650 Max-Q 4 GB, Windows 11). «ci»: comprobado solo en la integración continua (Windows/Linux sin GPU). «pendiente»: aún sin probar en un equipo real.</p>
+          <table class="probado">
+            <thead><tr><th scope="col">Función</th><th scope="col">Estado</th></tr></thead>
+            <tbody>
+              <tr><td>Detección de hardware (CPU, RAM, GPU, VRAM, driver, CUDA, disco)</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Aviso de driver NVIDIA antiguo y uso del procesador</td><td><span class="ins ins-ci">Probado en pruebas automáticas</span></td></tr>
+              <tr><td>Comprobación de WebView2</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Instalación del motor (torch cu126) desde la app</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Entrenar con tus ejemplos en la gráfica (QLoRA; Qwen2.5 0.5B, 1.5B y 3B)</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Exportar a GGUF q4_k_m</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Chat local en GPU con llama-server</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Descarga de modelos del catálogo (comprobada por hash, cancelable y reanudable)</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Chat con modelos 7-8B repartidos entre GPU y RAM</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Pensar antes de responder (apagado por defecto, visible a petición)</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Conversaciones guardadas en el equipo</td><td><span class="ins ins-ci">Probado en pruebas automáticas</span></td></tr>
+              <tr><td>Ventana de la app (pywebview): navegación, temas y pantallas</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Personalización guiada desde la ventana</td><td><span class="ins ins-pend">Pendiente de probar</span></td></tr>
+              <tr><td>DPO (preferencias)</td><td><span class="ins ins-ci">Probado en pruebas automáticas</span></td></tr>
+              <tr><td>Carga por capas sin cuantizar</td><td><span class="ins ins-pend">Pendiente de probar</span></td></tr>
+              <tr><td>Actualizaciones firmadas (buscar, descargar, verificar, instalar y volver atrás) — 0.5.0 → 0.5.1 en la MSI</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Catálogo de modelos firmado actualizable sin cambiar de versión</td><td><span class="ins ins-ci">Probado en pruebas automáticas</span></td></tr>
+              <tr><td>Tus documentos: el chat responde con tus PDF/Word citando fuentes (12/12 en la MSI con Qwen3 4B, Gemma 4 E4B y Qwen3 8B)</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Personalización automática LoRA/QLoRA según el hardware (verificada en la MSI con Qwen2.5 0.5B)</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Gestionar tus modelos: renombrar, borrar, exportar e importar .sopamodelo con SHA-256 (MSI: Qwen3 4B 2,4 GB exporta en 11 s e importa en 10 s)</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Exportar e importar conversaciones (.sopachats) y guardar una como texto (.md)</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Documentos a fondo: indexar una carpeta entera en segundo plano, reanudable (MSI: 209 documentos, 832 páginas, en 8 min; texto en 33 s)</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Búsqueda por significado (multilingual-e5-small, local, en el procesador) combinada con palabras clave (MSI: 26/26 en los 4 primeros frente a 25/26 solo con palabras)</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>OCR de PDF escaneados con el OCR de Windows (MSI: 15 páginas, acentos correctos)</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Resumir uno o varios documentos y compararlos, con citas [n] verificables y archivo y páginas leídas (MSI con Qwen3 4B: 50-60 s)</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Barra de progreso al exportar modelos (MSI: Qwen3 4B, 2,3 GB, en 6,5 s)</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Memoria: lo que Sopa recuerda de ti, editable y borrable, con «Recuerda que…» confirmado (MSI con Qwen3 4B)</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Elección automática del modelo según la tarea y el equipo, con carga automática (MSI: Qwen3 4B para chat y documentos, Qwen2.5 1.5B para entrenar)</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Entrenamiento sin jerga, con el detalle técnico en «Ver detalles»</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Catálogo ampliado (17 modelos nuevos con especialidad; visión «próximamente») y aviso «Equipo potente» calibrado en la MSI <span class="pill-dev pill-proxima">En la próxima versión pública</span></td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Acciones en carpetas autorizadas, con vista previa, confirmación y papelera (nunca borrar para siempre)</td><td><span class="ins ins-ci">Probado en pruebas automáticas</span></td></tr>
+              <tr><td>Sopa Mobile fuera de casa, con un túnel propio (claves locales, sin instalar WireGuard)</td><td><span class="ins ins-ci">Probado en pruebas automáticas</span></td></tr>
+              <tr><td>Base del asistente: leer, buscar y resumir en carpetas autorizadas, con permiso por herramienta</td><td><span class="ins ins-ci">Probado en pruebas automáticas</span></td></tr>
+            </tbody>
+          </table>
+        </section>
 
-  <div class="sim-grid cont">
-    <form class="panel" id="equipo" aria-label="Tu equipo" onsubmit="return false">
-      <fieldset>
-        <legend>Gráfica</legend>
-        <div class="chips-sel" id="gpus" role="radiogroup" aria-label="Gráfica"><button type="button" role="radio" data-v="ninguna" aria-checked="false"><span>Sin gráfica dedicada</span><small>Integrada</small></button><button type="button" role="radio" data-v="gtx1650maxq" aria-checked="false"><span>GTX 1650 Max-Q (portátil)</span><small>4 GB</small></button><button type="button" role="radio" data-v="gtx1060" aria-checked="false"><span>GTX 1060 6 GB (portátil)</span><small>6 GB</small></button><button type="button" role="radio" data-v="gtx1660s" aria-checked="false"><span>GTX 1660 Super</span><small>6 GB</small></button><button type="button" role="radio" data-v="rtx2060" aria-checked="false"><span>RTX 2060 (6 GB)</span><small>6 GB</small></button><button type="button" role="radio" data-v="rtx3050l" aria-checked="false"><span>RTX 3050 4 GB (portátil)</span><small>4 GB</small></button><button type="button" role="radio" data-v="rtx3060" aria-checked="false"><span>RTX 3060 12 GB</span><small>12 GB</small></button><button type="button" role="radio" data-v="rtx4060" aria-checked="false"><span>RTX 4060</span><small>8 GB</small></button><button type="button" role="radio" data-v="rtx4070" aria-checked="false"><span>RTX 4070</span><small>12 GB</small></button><button type="button" role="radio" data-v="rtx4090" aria-checked="false"><span>RTX 4090</span><small>24 GB</small></button><button type="button" role="radio" data-v="rx6600" aria-checked="false"><span>Radeon RX 6600</span><small>8 GB · Sopa usa el procesador</small></button><button type="button" role="radio" data-v="rx7600" aria-checked="false"><span>Radeon RX 7600</span><small>8 GB · Sopa usa el procesador</small></button><button type="button" role="radio" data-v="rx6700xt" aria-checked="false"><span>Radeon RX 6700 XT</span><small>12 GB · Sopa usa el procesador</small></button><button type="button" role="radio" data-v="rx7900xtx" aria-checked="false"><span>Radeon RX 7900 XTX</span><small>24 GB · Sopa usa el procesador</small></button></div>
-      </fieldset>
-      <fieldset id="f-vram">
-        <legend>Memoria de la gráfica (VRAM) <output id="o-vram" for="vram"></output></legend>
-        <label class="sr" for="vram">Memoria de la gráfica (VRAM) en GB</label>
-        <input type="range" id="vram" min="2" max="24" step="1" aria-describedby="o-vram">
-        <div class="escala" aria-hidden="true"><span>2 GB</span><span>24 GB</span></div>
-      </fieldset>
-      <fieldset>
-        <legend>Memoria del ordenador (RAM)</legend>
-        <div class="chips-sel" id="rams" role="radiogroup" aria-label="RAM"><button type="button" role="radio" data-v="8" aria-checked="false"><span>8 GB</span></button><button type="button" role="radio" data-v="12" aria-checked="false"><span>12 GB</span></button><button type="button" role="radio" data-v="16" aria-checked="false"><span>16 GB</span></button><button type="button" role="radio" data-v="32" aria-checked="false"><span>32 GB</span></button><button type="button" role="radio" data-v="64" aria-checked="false"><span>64 GB</span></button></div>
-      </fieldset>
-      <fieldset id="f-driver">
-        <legend>Driver NVIDIA</legend>
-        <div class="segmento" id="driver" role="radiogroup" aria-label="Driver NVIDIA"><button type="button" role="radio" data-v="ok" aria-checked="false"><span>560 o superior</span></button><button type="button" role="radio" data-v="viejo" aria-checked="false"><span>Anterior a 560</span></button></div>
-        <p class="ayuda">Sopa necesita la versión 560 o superior para usar la gráfica.</p>
-      </fieldset>
-      <p class="ayuda">El procesador apenas influye: lo que decide es la gráfica, su memoria y la RAM. Sopa acelera con gráficas NVIDIA; con AMD o integrada usa el procesador.</p>
-    </form>
+        <section class="vista" id="v-chat" hidden aria-labelledby="t-chat">
+          <h2 id="t-chat">Chat</h2>
+          <div class="comp">
+            <label class="campo">Para qué
+              <select id="para" title="Sopa elige el modelo según lo que vayas a hacer">
+                <option>Para charlar</option>
+                <option>Para razonar</option>
+                <option>Para programar</option>
+                <option>Respuestas rápidas</option>
+                <option>Imágenes (próximamente)</option>
+              </select>
+            </label>
+            <p><span class="pill-dev pill-proxima">En la próxima versión pública</span> <span class="ayuda">Imágenes y ver imágenes.</span></p>
+            <label class="campo">Modelo
+              <select id="modelo" aria-label="Modelo">
+                <option>qwen3-4b · 2,33 GB</option>
+                <option>qwen2.5-0.5b · 0,46 GB</option>
+              </select>
+            </label>
+            <button type="button" class="btn-p" id="cargar">Cargar</button>
+            <button type="button" class="btn">Otro archivo .gguf…</button>
+            <label class="campo" for="creatividad">Creatividad
+              <input type="range" id="creatividad" min="0" max="1.5" step="0.1" value="0.7" aria-describedby="o-crea">
+            </label>
+            <output id="o-crea" for="creatividad">0,7</output>
+            <label class="casilla"><input type="checkbox" id="pensar" title="Algunos modelos pueden pensar antes de responder: tardan más, pero razonan mejor."> <span>Pensar antes de responder</span></label>
+            <button type="button" class="btn" id="nueva">Nueva conversación</button>
+          </div>
+          <p class="ayuda">Ejemplo de lista. Estos nombres salen del catálogo publicado; aquí no hay ninguno descargado y no se dice por qué se elegiría uno.</p>
+          <p class="ayuda">Puedes escribir ya: se cargará al enviar. Para usar otro, elígelo arriba y pulsa «Cargar».</p>
+          <div class="chat-cuerpo">
+            <aside class="historial" aria-label="Historial">
+              <p id="historial-vacio">Tus conversaciones se guardan aquí, en este equipo.</p>
+              <ul id="historial-lista"></ul>
+              <button type="button" class="btn">Importar…</button>
+            </aside>
+            <div class="zona">
+              <div id="mensajes" class="mensajes" aria-live="polite"></div>
+              <div class="vacio" id="vacio">
+                <h3>¿De qué quieres hablar?</h3>
+                <p id="vacio-txt">Escribe y Sopa cargará el modelo adecuado. Nada sale de tu ordenador.</p>
+                <div class="ideas">
+                  <button type="button">Resume este texto en tres puntos</button>
+                  <button type="button">Escribe un correo amable para pedir un cambio de turno</button>
+                  <button type="button">Explícame qué es la inflación con un ejemplo</button>
+                  <button type="button">Dame ideas para una cena con lo que tengo en la nevera</button>
+                </div>
+              </div>
+              <p class="agente-linea" id="agente-linea">Agente activo: Chat</p>
+              <p id="invest-nota" class="ayuda" hidden>Buscar en la web está apagado. Uso solo los documentos de este equipo.</p>
+              <div class="compositor">
+                <label class="campo">Agente
+                  <select id="agente" aria-label="Agente del chat" title="Elige el agente de este mensaje">
+                    <option value="chat">Chat</option>
+                    <option value="documentos">Documentos</option>
+                    <option value="archivos">Archivos</option>
+                    <option value="investigacion">Investigación</option>
+                    <option value="automatizaciones">Automatizaciones</option>
+                  </select>
+                </label>
+                <p><span class="pill-dev pill-proxima">En la próxima versión pública</span> <span class="ayuda">Investigación.</span></p>
+                <button type="button" class="btn" title="Que responda con tus documentos (PDF, Word, texto)" aria-label="Responder con tus documentos">Clip</button>
+                <button type="button" class="btn" id="web" aria-pressed="false" title="Buscar en la web está apagado">Web<span id="web-extra"></span></button>
+                <span class="pill-dev pill-proxima">En la próxima versión pública</span>
+                <label class="sr" for="mensaje">Mensaje</label>
+                <textarea id="mensaje" placeholder="Escribe tu mensaje… (Intro envía, Mayús+Intro salta de línea)"></textarea>
+                <button type="button" class="btn-p" id="enviar">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </section>
 
-    <section class="resultados" aria-labelledby="t-res">
-      <div class="res-cab">
-        <h2 id="t-res">Tus modelos</h2>
-        <label class="interruptor"><input type="checkbox" id="solo"> <span>Solo los que funcionan</span></label>
+        <section class="vista" id="v-agentes" hidden aria-labelledby="t-agentes">
+          <h2 id="t-agentes">Agentes</h2>
+          <p class="sub">Un agente trabaja en tus carpetas, con un límite de pasos. Lo que lee es contenido, no órdenes. Nada se escribe sin confirmar.</p>
+          <article class="tarjeta"><h3>Motor ligero</h3><p>No está en este equipo. Los agentes usan el modelo del chat.</p></article>
+          <article class="tarjeta">
+            <h3>Tus agentes</h3>
+            <p>Todavía no hay ninguno. Crea el primero aquí abajo.</p>
+          </article>
+          <article class="tarjeta">
+            <h3>Nuevo agente</h3>
+            <label class="campo">Nombre <input type="text" maxlength="80"></label>
+            <label class="campo">Descripción <input type="text" maxlength="400"></label>
+            <label class="campo">Instrucciones <textarea maxlength="4000"></textarea></label>
+            <label class="casilla"><input type="checkbox" checked> <span>Leer</span></label>
+            <label class="casilla"><input type="checkbox" checked> <span>Buscar</span></label>
+            <label class="casilla"><input type="checkbox" checked> <span>Resumir</span></label>
+            <label class="casilla"><input type="checkbox"> <span>Cambiar archivos, con confirmación</span></label>
+            <h3>Carpetas autorizadas de este agente</h3>
+            <p class="ayuda">Aún no hay carpetas autorizadas. Se añaden en Ajustes.</p>
+            <label class="campo">Motor
+              <select><option>El modelo del chat</option><option>Motor ligero, si está en este equipo</option></select>
+            </label>
+            <label class="campo">Preferencia
+              <select><option>Sin preferencia</option><option>Breve</option><option>Equilibrada</option><option>Con detalle</option></select>
+            </label>
+            <label class="campo">Modelo preferido <input type="text" placeholder="Opcional. No descarga nada."></label>
+            <label class="campo">Pasos <input type="number" min="1" max="12" value="8"></label>
+            <label class="campo">Tokens <input type="number" min="32" max="4096" value="1024"></label>
+            <p class="fila"><button type="button" class="btn-p" id="guardar-agente">Guardar agente</button><button type="button" class="btn" id="limpiar-agente">Limpiar</button></p>
+          </article>
+          <article class="tarjeta">
+            <h3>Tarea</h3>
+            <label class="campo">Agente <select><option>Aún no hay agentes creados aquí</option></select></label>
+            <label class="campo">Qué debe hacer <input type="text" placeholder="Por ejemplo: resume las notas de esta semana"></label>
+            <button type="button" class="btn-p" id="lanzar">Lanzar</button>
+            <p class="ayuda">Elige un agente y escribe la tarea. Esta simulación no lanza nada.</p>
+          </article>
+        </section>
+
+        <section class="vista" id="v-documentos" hidden aria-labelledby="t-docs">
+          <h2 id="t-docs">Tus documentos</h2>
+          <p class="sub">Sopa los lee y los busca aquí, en tu equipo. Nada sale de él.</p>
+          <article class="tarjeta">
+            <h3>Añadir</h3>
+            <p class="fila"><button type="button" class="btn-p">Añadir carpeta…</button><button type="button" class="btn">Añadir archivos…</button></p>
+            <p class="ayuda">La primera vez que añadas una carpeta se descargará el buscador por significado. En la app se indica el tamaño y la licencia; aquí no se inventan.</p>
+            <p class="ayuda">Los PDF escaneados se leen con el OCR de Windows.</p>
+          </article>
+          <article class="tarjeta">
+            <label class="campo">Buscar en tus documentos
+              <input type="text" id="q-docs" placeholder="Busca por palabras o por lo que significan… (p. ej. «cuántos días de vacaciones»)">
+            </label>
+            <button type="button" class="btn" id="buscar-docs">Buscar</button>
+            <p id="docs-res" class="ayuda" hidden></p>
+          </article>
+          <article class="tarjeta">
+            <h3>Documentos</h3>
+            <h3>Aún no hay documentos</h3>
+            <p>Añade una carpeta (apuntes, contratos, manuales…) y Sopa la indexará en segundo plano.</p>
+            <p class="ayuda">«Permitir desde el móvil» no está en esta pantalla. Está en Ajustes, en cada carpeta, y viene apagado.</p>
+          </article>
+        </section>
+
+        <section class="vista" id="v-memoria" hidden aria-labelledby="t-mem">
+          <h2 id="t-mem">Memoria</h2>
+          <p class="sub">Lo que Sopa recuerda de ti en todas las conversaciones. Lo ves, lo cambias y lo borras cuando quieras. Se queda en tu equipo.</p>
+          <p class="fila"><label class="casilla"><input type="checkbox" id="memoria-usar" checked> <span>Usar la memoria en el chat</span></label><span id="memoria-n"></span></p>
+          <p id="memoria-off" class="ayuda" hidden>La memoria está apagada: Sopa no la usa en el chat, pero se conserva.</p>
+          <label class="campo">Qué debe recordar Sopa
+            <input type="text" id="memoria-txt" maxlength="500" placeholder="Algo que deba recordar (p. ej. «trátame de tú» o «trabajo en una gestoría»)">
+          </label>
+          <button type="button" class="btn-p" id="memoria-add">Añadir</button>
+          <p class="ayuda">También puedes decírselo en el chat: «Recuerda que…». Sopa te preguntará antes de guardarlo.</p>
+          <div id="memoria-vacio"><h3>Aún no recuerda nada</h3><p>Añade aquí lo que quieras que Sopa tenga en cuenta siempre, o díselo en el chat con «Recuerda que…».</p></div>
+          <ul id="memoria-lista"></ul>
+        </section>
+
+        <section class="vista" id="v-modelos" hidden aria-labelledby="t-mod">
+          <h2 id="t-mod">Modelos</h2>
+          <p class="sub">Calculado para tu equipo. «Estimado» significa que aún no lo hemos medido en un equipo real.</p>
+          <article class="tarjeta">
+            <h3>En este equipo</h3>
+            <button type="button" class="btn" id="importar">Importar modelo…</button>
+            <p>Aún no tienes modelos. Descarga uno del catálogo o importa uno exportado.</p>
+          </article>
+          <article class="tarjeta">
+            <h3>Catálogo</h3>
+            <label class="casilla"><input type="checkbox" id="solo-aqui" checked> <span>Mostrar solo los que funcionan aquí</span></label>
+            <p class="nota-ej">Ejemplo de filas, con el nombre y el tamaño publicados. Chat y Entrenar los calcula la app en tu equipo: aquí van en blanco, sin tok/s y sin un «porque».</p>
+            <table class="cat">
+              <thead><tr><th scope="col">Modelo</th><th scope="col">Para</th><th scope="col">Tamaño</th><th scope="col">Chat</th><th scope="col">Entrenar</th><th scope="col">Fiabilidad</th><th scope="col">Licencia</th><th scope="col">Acción</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>Qwen2.5 0.5B Instruct</td><td>Rápido</td><td>0,46 GB</td><td>—</td><td>—</td><td>Verificado</td><td>Apache-2.0</td>
+                  <td><button type="button" class="btn" data-descarga data-nombre="Qwen2.5 0.5B Instruct" data-nota="Licencia abierta Apache-2.0: permite uso comercial.">Descargar</button></td>
+                </tr>
+                <tr>
+                  <td>Gemma 2 2B Instruct</td><td>Charlar</td><td>1,59 GB</td><td>—</td><td>—</td><td>Estimado</td><td>Gemma</td>
+                  <td><button type="button" class="btn" data-descarga data-nombre="Gemma 2 2B Instruct" data-nota="Términos de Gemma de Google: uso comercial permitido, pero con su política de usos prohibidos.">Descargar</button></td>
+                </tr>
+                <tr>
+                  <td>Qwen2.5 VL 7B</td><td>Imágenes <span class="pill-dev pill-proxima">En la próxima versión pública</span></td><td>4,36 GB</td><td>—</td><td>—</td><td>—</td><td>Apache-2.0</td>
+                  <td><span class="ins ins-pend">Solo catálogo</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="fila"><button type="button" class="btn-p" id="empezar-chat">Empezar a chatear</button></p>
+          </article>
+        </section>
+
+        <section class="vista" id="v-entrenamiento" hidden aria-labelledby="t-ent">
+          <h2 id="t-ent">Entrenamiento</h2>
+          <p class="sub">Enséñale a un modelo con tus ejemplos para que responda a tu manera. Todo se queda en tu equipo.</p>
+          <ol class="tarjeta">
+            <li><h3>Elige el modelo</h3><label class="campo"><span class="sr">Modelo para entrenar</span><select><option>Qwen2.5 0.5B Instruct — ejemplo</option></select></label></li>
+            <li><h3>Elige tus ejemplos</h3><p class="ayuda">Un archivo con preguntas y la respuesta que te gustaría (CSV o JSONL); cuantos más, mejor</p><button type="button" class="btn">Elegir archivo…</button></li>
+            <li><h3>¿Cuánto quieres que aprenda?</h3><label class="casilla"><input type="radio" name="ritmo" value="rapido"> <span>Rápido</span></label><label class="casilla"><input type="radio" name="ritmo" value="normal" checked> <span>Normal</span></label><label class="casilla"><input type="radio" name="ritmo" value="intenso"> <span>Intenso</span></label></li>
+            <li><h3>Ponle nombre</h3><label class="campo"><span class="sr">Nombre del modelo</span><input type="text" placeholder="mi-asistente"></label></li>
+          </ol>
+          <article class="tarjeta">
+            <p>Elige modelo y ejemplos para ver cuánto tardará.</p>
+            <p class="nota-ej">En la app, aquí aparece el tiempo medido o aproximado. Esta simulación no lo calcula.</p>
+            <p class="fila"><button type="button" class="btn-p" id="entrenar">Empezar a entrenar</button><button type="button" class="btn" id="detener">Detener</button></p>
+          </article>
+        </section>
+
+        <section class="vista" id="v-ajustes" hidden aria-labelledby="t-aju">
+          <h2 id="t-aju">Ajustes</h2>
+          <p class="sub">Preferencias de Sopa en este equipo.</p>
+          <article class="tarjeta">
+            <h3>Carpetas autorizadas</h3>
+            <p>Sopa solo trabaja dentro de estas carpetas. Puede leer, buscar y resumir texto, Markdown, Word, PDF y Excel, y puede proponer crear una carpeta, crear un archivo de texto o Markdown, cambiar el nombre, mover, copiar, tirar a la papelera u organizar los archivos por tipo, por fecha, por un fragmento del nombre o por duplicados. Se apartan a la carpeta Duplicados; no se borra nada. Si pides varios pasos, primero ves el plan entero, hasta 8, y cada cambio se confirma. Por defecto no hay ninguna. Cada carpeta tiene sus herramientas y puedes apagarlas. «Permitir desde el móvil» viene apagado y solo se enciende en esta pantalla. Los cambios se ven antes y nada se escribe sin tu confirmación.</p>
+            <p class="nota-ej"><span class="pill-dev pill-proxima">En la próxima versión pública</span> Con el interruptor apagado, el asistente, Archivos, Automatizaciones, Documentos e Investigación, desde el móvil, no usan esa carpeta. En el ordenador la carpeta sigue disponible. El interruptor en sí ya está en la beta publicada; lo nuevo es ese límite.</p>
+            <p id="carpeta-vacio">No hay carpetas autorizadas. Las acciones están apagadas.</p>
+            <button type="button" class="btn-p" id="add-carpeta">Añadir carpeta…</button>
+            <ul id="carpetas"></ul>
+            <h3>Registro de acciones</h3>
+            <p>Aún no hay acciones.</p>
+            <p class="ayuda">El registro se queda en este equipo. Sopa no lo envía a ningún sitio.</p>
+          </article>
+          <article class="tarjeta" id="v-auto">
+            <h3>Automatizaciones</h3>
+            <p>Puedes guardar un plan o una sola acción para lanzarla a una hora, cada día, cada semana, cuando aparezca un archivo en una carpeta autorizada, o con el botón. Solo funcionan con Sopa abierta. No hay Programador de tareas, ni un servicio, ni se piden permisos de administrador. Una lectura puede ir sola. Un cambio de archivos se confirma al guardarla, con el plan exacto y las carpetas ya fijadas, y solo desde este ordenador. Cada ejecución queda aquí y se puede deshacer. Como mucho, una vez cada 5 minutos y 500 cambios. Si falla 3 veces seguidas, se pausa.</p>
+            <label class="campo">Nombre <input type="text" id="auto-nombre" maxlength="80"></label>
+            <label class="campo">Qué hace
+              <select id="auto-hace"><option value="leer">Leer un archivo</option><option value="organizar">Organizar la carpeta</option></select>
+            </label>
+            <label class="campo">Carpeta <select><option>Apuntes</option></select></label>
+            <label class="campo" id="auto-archivo">Archivo <input type="text" placeholder="nota.txt"></label>
+            <label class="campo" id="auto-modo" hidden>Modo
+              <select><option>Por tipo</option><option>Por fecha</option><option>Por duplicados</option></select>
+            </label>
+            <label class="campo">Cuándo
+              <select id="auto-cuando"><option value="boton">Con el botón</option><option value="dia">Cada día</option><option value="semana">Cada semana</option><option value="una">Una vez</option><option value="archivo">Cuando aparezca un archivo</option></select>
+            </label>
+            <label class="campo" id="auto-hora" hidden>Hora <input type="time" value="08:30"></label>
+            <label class="campo" id="auto-dia" hidden>Día
+              <select><option>Lunes</option><option>Martes</option><option>Miércoles</option><option>Jueves</option><option>Viernes</option><option>Sábado</option><option>Domingo</option></select>
+            </label>
+            <label class="campo" id="auto-momento" hidden>Momento <input type="text" placeholder="2026-10-16T08:30"></label>
+            <label class="casilla"><input type="checkbox" id="auto-ok"> <span>Confirmo este plan exacto y estas carpetas</span></label>
+            <button type="button" class="btn-p" id="auto-guardar" disabled>Guardar automatización</button>
+            <p id="auto-vacio">Aún no hay automatizaciones. Solo funcionan con Sopa abierta.</p>
+            <ul id="auto-lista"></ul>
+            <h3>Registro de automatizaciones</h3>
+            <p>Aún no se ha ejecutado ninguna.</p>
+            <p class="ayuda">El registro se queda en este equipo. Sopa no lo envía a ningún sitio.</p>
+          </article>
+          <article class="tarjeta">
+            <h3>Buscar en la web <span class="pill-dev pill-proxima">En la próxima versión pública</span></h3>
+            <p>Apagado, el chat no sale de este equipo: no hay ninguna búsqueda en la red. Encendido, puedo buscar en la web y leer una página, sin cuenta ni clave. El texto de esas páginas es un dato, no una orden.</p>
+            <label class="casilla"><input type="checkbox" id="web-ajustes"> <span>Buscar en la web</span></label>
+          </article>
+          <article class="tarjeta">
+            <h3>Apariencia</h3>
+            <label class="campo">Tema
+              <select id="tema">
+                <option value="sistema" selected>Como el sistema</option>
+                <option value="claro">Claro</option>
+                <option value="oscuro">Oscuro</option>
+              </select>
+            </label>
+          </article>
+          <article class="tarjeta">
+            <h3>Gráfica</h3>
+            <p>Si el modelo se cierra al responder, Sopa puede dejar menos capas en la gráfica y recordarlo para ese modelo, esa gráfica y ese archivo. No baja de 8 capas. Tras varias cargas estables, o al día siguiente, vuelve a probar con más.</p>
+            <button type="button" class="btn">Restablecer ajuste de la gráfica</button>
+          </article>
+          <article class="tarjeta">
+            <h3>Actualizaciones</h3>
+            <p>Versión instalada: —</p>
+            <p>Última búsqueda: Nunca</p>
+            <p>Catálogo de modelos: —</p>
+            <p class="fila"><button type="button" class="btn">Buscar actualizaciones</button><button type="button" class="btn">Actualizar desde un archivo…</button></p>
+            <label class="casilla"><input type="checkbox" checked> <span>Buscar al abrir Sopa (nunca instala sin preguntarte)</span></label>
+            <label class="campo">Historial de versiones <select><option>Aún no hay historial.</option></select></label>
+            <p class="ayuda">Se consulta GitHub sin cuenta ni identificadores. Sin conexión, Sopa funciona igual.</p>
+          </article>
+          <article class="tarjeta">
+            <h3>Acerca de</h3>
+            <p>Sopa © 2026 Miguel Rodríguez Saiz. Software libre: GPL-3.0-or-later, sin ninguna garantía.</p>
+            <p class="fila"><button type="button" class="btn" id="ver-licencia">Ver licencia</button><button type="button" class="btn" id="avisos-terceros">Avisos de terceros</button></p>
+            <p id="panel-licencia" hidden>El texto de la licencia es la <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a> (<a href="LICENSE">LICENSE</a>).</p>
+            <p id="panel-avisos" hidden>En la app, este botón muestra los avisos de terceros. Esta simulación no los copia aquí.</p>
+            <p>El código fuente correspondiente se ofrece con el programa, según la GPL.</p>
+          </article>
+          <article class="tarjeta">
+            <h3>Sopa Mobile</h3>
+            <p>Controla la IA de este ordenador desde el móvil, en la misma red Wi-Fi. Fuera de casa se puede usar un túnel propio; viene apagado.</p>
+            <label class="casilla"><input type="checkbox" id="acceso-movil"> <span>Acceso desde el móvil</span></label>
+            <label class="casilla"><input type="checkbox" id="fuera-casa"> <span>Usar fuera de casa</span></label>
+            <div id="panel-movil" hidden>
+              <p class="nota-ej">En la app, aquí aparecen el código QR y la dirección. Esta simulación no inventa ni una IP ni un nombre de equipo.</p>
+              <button type="button" class="btn" id="comprobar">Comprobar</button>
+            </div>
+            <div id="panel-tunel" hidden>
+              <p class="ayuda">No se consulta sola. Pulsa Comprobar para preguntarle a tu router, sin salir de casa.</p>
+              <button type="button" class="btn" id="ipify">Preguntar en internet</button>
+            </div>
+          </article>
+          <article class="tarjeta">
+            <h3>Fallos</h3>
+            <p>Si algo falla, puedes contarlo. El código es anónimo: se crea en este equipo y no lleva tu nombre ni datos del ordenador.</p>
+            <p><b>—</b></p>
+            <p class="fila"><button type="button" class="btn" id="informar">Informar de un fallo</button></p>
+          </article>
+        </section>
+
+        <section class="vista" id="v-registro" hidden aria-labelledby="t-reg">
+          <h2 id="t-reg">Registro</h2>
+          <p class="sub">Lo que hace el motor por dentro, por si algo falla.</p>
+          <pre class="tarjeta" id="log"></pre>
+        </section>
       </div>
-      <p class="resumen" id="resumen" aria-live="polite"></p>
-      <ul class="lista" id="lista"></ul>
-      <div class="como">
-        <h3>Cómo calculamos la velocidad</h3>
-        <p>Partimos de las velocidades <b>medidas</b> en un portátil con GTX 1650 Max-Q y las escalamos por el ancho de banda de memoria de tu gráfica, que es lo que más pesa al conversar:</p>
-        <ul class="reglas">
-          <li>Gráfica entre la mitad y 4 veces la de referencia: rango de ±25 %.</li>
-          <li>Más de 4 veces: «más de N tok/s», calculado de forma prudente.</li>
-          <li>Por encima de 150 tok/s solo decimos «muy rápido».</li>
-          <li>Menos de la mitad, o si el modelo no cabe entero en la gráfica: «lento», sin cifra.</li>
-          <li>Sin medida del modelo, no damos cifra.</li>
-          <li>«Equipo potente»: el modelo no cabe o, repartido, iría muy lento. Muy lento quiere decir por debajo de 5 tok/s cuando lo hemos medido en la gráfica de referencia. Si no lo hemos medido, cuando necesita más de 1,2 veces la memoria de tu gráfica.</li>
-        </ul>
-        <p class="nota-ref">La GTX 1650 Max-Q existe con memoria GDDR5 (112,1 GB/s) y GDDR6 (192 GB/s). Como no hemos verificado cuál tiene el equipo de medida, usamos el caso conservador: 192 GB/s.</p>
-        <details class="fuentes"><summary>Fuentes</summary><div id="fuentes"></div></details>
-      </div>
-      <p class="aviso aviso-pie" role="note">Orientativo. Sopa comprueba tu equipo real al instalarla.</p>
-      <p class="ayuda nota-sim">Las necesidades de memoria salen de medidas reales cuando las hay y, si no, de una estimación conservadora según el tamaño del modelo. «Verificado» solo aparece cuando tu gráfica es igual o mejor que el equipo donde lo medimos (GTX 1650 de 4 GB).</p>
-    </section>
+      <p id="toast" class="toast" role="status" hidden></p>
+      <dialog class="dialogo" id="dlg" aria-labelledby="dlg-t">
+        <h3 id="dlg-t"></h3>
+        <p id="dlg-p"></p>
+        <p class="fila" id="dlg-act"></p>
+      </dialog>
+    </div>
   </div>
-  <p class="cont volver-p"><a class="enlace" href="./">‹ Descubre Sopa, tu IA local para Windows</a></p>
+  <p class="volver-p"><a class="enlace" href="./">‹ Descubre Sopa, tu IA local para Windows</a></p>
 </main>
 <footer class="cont pie">
   <nav class="pie-enlaces" aria-label="Enlaces del pie"><a href="./">Inicio</a><a href="./#licencia">Licencia</a><a href="guias/">Guías</a><a href="simulador.html">Simulador</a></nav>
@@ -113,9 +462,6 @@
   <p>Desarrollado por ArduSolutions.</p>
   <p>Esta web no usa cookies ni rastreadores.</p>
 </footer>
-<script src="js/catalogo.js" defer></script>
-<script src="js/anchos.js" defer></script>
-<script src="js/compatibilidad.js" defer></script>
 <script src="js/simulador.js" defer></script>
 </body>
 </html>
