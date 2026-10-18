@@ -14,7 +14,8 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 - El menú apunta a `#licencia`. El ancla antiguo `#planes` se conserva vacío para no romper enlaces ya publicados. No había ancla `#precios`.
 - Hay un CI propio: `.github/workflows/html-y-enlaces.yml` (check «HTML válido y enlaces internos»). En cada pull request, y también al hacer push a `main`, valida el HTML con html-validate (preajuste de la especificación), revisa en local los `href` y `src` relativos y sus anclas, y pasa axe-core (WCAG 2 A y AA) en escritorio y en móvil. No usa secretos ni servicios de pago. No entra en `descargas/` ni trata como HTML los archivos de verificación de Search Console. html-validate 10.5.0 y axe-core 4.10.3 están fijados en `package.json` y `package-lock.json`. El workflow instala npm 11.21.1 (el binario queda en `node_modules/.bin`, no en `bin/`) y con él hace `npm ci`: el npm 10.9.9 que trae Node 22.23 falla al instalar el validador. Si el runner no trae Chrome, descarga Chrome headless 131 solo para axe. GitHub Pages sigue publicando `main` con `pages-build-deployment`, aparte de este check.
 - Esta publicación (17 de octubre de 2026) se probó con una revisión en el navegador hecha por el Supervisor, en lugar de la prueba en el portátil MSI. Es una excepción aprobada por el dueño solo para la web, porque el MSI no funciona por un fallo de la app.
-- El 18 de octubre de 2026, en un PR aparte y sin fusionar, se ha mejorado la accesibilidad y el rendimiento sin cambiar el texto comercial ni el diseño de escritorio. Hay un enlace «Saltar al contenido», el foco de teclado se ve, y en pantallas estrechas los enlaces del menú siguen en la página (antes desaparecían). Se respeta `prefers-reduced-motion`. La portada ya no esconde el primer pantallazo hasta que corre la animación. Los scripts del simulador van con `defer`. La fuente ya tenía `font-display: swap` y precarga. Las fotos ya eran WebP, con ancho, alto y `loading="lazy"` fuera del primer pantallazo. No se han tocado `descargas/` ni sus enlaces.
+- El 18 de octubre de 2026 se fusionó la mejora de accesibilidad y rendimiento (enlace «Saltar al contenido», foco visible, menú en pantallas estrechas, `prefers-reduced-motion` y el primer pantallazo de la portada sin esperar a la animación).
+- En este PR, también del 18 de octubre, hay un segundo CI: «Enlaces externos» (`.github/workflows/enlaces-externos.yml`, configuración en `lychee.toml`). En cada pull request, y cada lunes, la acción oficial lycheeverse/lychee-action comprueba los enlaces http y https de las páginas, los JS, el CSS, los txt y el sitemap. Reintenta los fallos de red. No usa secretos nuevos ni servicios de pago. No entra en `descargas/`, `node_modules/` ni `package-lock.json`. No comprueba el destino del formulario de fallos, que es un envío y no una página. EatYourBytes y TechPowerUp responden 403 o un reto de Cloudflare al comprobador; esas páginas siguen existiendo y se excluyen para que el check no sea frágil. El resto de enlaces externos respondió bien y no se ha cambiado ninguno.
 
 ## Pendiente de decisión del dueño
 
@@ -25,17 +26,19 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 ## PRs abiertos
 
 - https://github.com/ardu01/sopa-web/pull/1 contra `main`, fusionado. El Supervisor dio el OK el 17 de octubre de 2026.
-- Este: https://github.com/ardu01/sopa-web/pull/2 contra `main`, sin fusionar. El Supervisor lo revisa en el navegador antes de publicar.
+- https://github.com/ardu01/sopa-web/pull/2 contra `main`, fusionado. El Supervisor dio el OK el 18 de octubre de 2026.
+- Este: contra `main`, sin fusionar. Comprueba enlaces externos; no cambia la web visible.
 
 ## Bloqueos
 
-- Este PR de accesibilidad no se fusiona hasta que el Supervisor lo revise en el navegador.
+- El contenido de Sopa Desktop 1.12.1 y de Sopa Deck queda aparcado: esta integración de GitHub no tiene acceso a Sopa-IA/sopa-motor ni a Sopa-IA/sopa-deck (la API responde 404). Sin esas fuentes no se escribe ese contenido.
 - Enlaces a las releases nuevas (Sopa Desktop 1.12.1, Sopa Deck v0.4.0 y motor-ligero v0.1.0-exe.1), pendiente de decisión del dueño. Los repos Sopa-IA/sopa-motor, Sopa-IA/sopa-deck y Sopa-IA/motor-ligero no son públicos. Publicarlos o sustituir las descargas de la 1.9.4 cambia cómo se publica el código bajo la GPL. No hay enlaces a esas releases en esta web.
 
 ## Notas
 
 - La base es `main` actual, incluidos los commits de hoy `2dddde4` y `bece093`, dados por buenos.
 - No se ha gastado dinero ni se han creado secretos. No se han publicado datos personales nuevos.
-- El check es «HTML válido y enlaces internos», del workflow «HTML y enlaces». Ahora también corre axe-core.
+- El check es «HTML válido y enlaces internos», del workflow «HTML y enlaces». Ahora también corre axe-core. Axe se ejecuta con `prefers-reduced-motion`: el contraste se mide con el texto ya visible. Si no, el que todavía no ha entrado en pantalla sigue a opacidad 0 y el check falla en falso.
+- El check nuevo es «Enlaces externos», del workflow del mismo nombre. Corre en cada pull request y, una vez en `main`, cada lunes.
 - Lighthouse local (Chrome, una pasada, throttling por defecto), rendimiento y accesibilidad. Portada: móvil 97/100 antes y 98/100 después; escritorio 100/100 en los dos. Guía `guias/que-es-una-ia-local.html`: móvil 100/100 antes y 99/100 después; escritorio 100/100 en los dos. La accesibilidad se quedó en 100. En la portada móvil el primer pintado pasó de 1,1 s a 0,9 s.
 - El formulario de fallos sigue usando el destino que ya tenía, para que pueda enviar. No se ha cambiado y no se copia aquí.
