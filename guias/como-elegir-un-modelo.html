@@ -62,13 +62,13 @@
 <li>«Equipo potente» quiere decir, si hay una medida, por debajo de 5&nbsp;tokens por segundo. Sin medida, cuando necesita más de 1,2 veces la memoria de tu gráfica.</li>
 <li>Para usar la gráfica, el driver NVIDIA debe ser el 560 o superior.</li>
 </ul>
-<p>La tabla modelo por modelo está en la guía <a href="cuanta-vram-necesito.html">¿Cuánta VRAM necesito?</a>. El <a href="../simulador.html">simulador</a> usa la misma lógica que la app.</p>
+<p>La tabla modelo por modelo está en la guía <a href="cuanta-vram-necesito.html">¿Cuánta VRAM necesito?</a>. El <a href="../simulador.html">simulador</a> es un recorrido por la interfaz, con respuestas de ejemplo: no calcula velocidades ni qué modelo cabe en tu equipo.</p>
 <h2 id="una-referencia">Una referencia medida</h2>
 <p>En un portátil con una GTX 1650 de 4&nbsp;GB, Sopa conversa a 133&nbsp;tokens por segundo con un modelo de 0.5B, a unos 59 con Qwen3.5 2B y a unos 18 con Phi-4 mini. Los de 7 a 9B, en esa gráfica, van por debajo de 5 (entre 2,3 y 4,4): quedan como «Equipo potente».</p>
 <p>Qwen2.5 7B (IQ3_XS) es un caso aparte. Va solo en el procesador, con el proceso dentro de 4&nbsp;GiB de memoria, y no usa la gráfica. Medido en un portátil de 16&nbsp;GB con el proceso limitado a 4&nbsp;GiB: 2,5&nbsp;tokens por segundo y un máximo de 3,41&nbsp;GiB. No vale para un equipo con 4&nbsp;GB de RAM en total. Qué significa IQ3_XS está en <a href="que-es-la-cuantizacion.html">qué es la cuantización</a>.</p>
 <h2 id="tu-le-dices-para-que">Tú le dices para qué</h2>
 <p>No hace falta que elijas el modelo a mano. Sopa te dice cuál usará y por qué, y lo carga sola al enviar. Si quieres, dile para qué lo quieres: charlar, razonar, programar o ir rápido.</p>
-<p class="cta-guia"><a class="btn" href="../simulador.html">Prueba con tu equipo en el simulador</a></p>
+<p class="cta-guia"><a class="btn" href="../simulador.html">Recorre la interfaz en el simulador</a></p>
 <p class="aviso-guia">Orientativo. Sopa comprueba tu equipo real al instalarla.</p>
 <section class="fuentes-guia" aria-labelledby="fuentes-t"><h2 id="fuentes-t">Fuentes</h2><ul>
 <li><a href="https://ardu01.github.io/sopa-web/#funciones">Portada de Sopa</a>: detección del equipo, las tres marcas, el reparto con la memoria, «Equipo potente», las 32 especialidades y las velocidades en la GTX 1650 de 4&nbsp;GB.</li>
