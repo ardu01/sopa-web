@@ -35,10 +35,12 @@
 <link rel="icon" type="image/png" sizes="64x64" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/favicon-180.png">
 <link rel="preload" href="fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/logo-cuenco-336.webp" imagesrcset="img/logo-cuenco-256.webp 256w, img/logo-cuenco-336.webp 336w" imagesizes="(max-width: 600px) 120px, 168px" fetchpriority="high">
 <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 <header class="nav">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
   <div class="nav-in">
     <a href="./" class="marca"><img src="img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
     <nav aria-label="Secciones"><a href="#privacidad">Privacidad</a><a href="#funciones">Funciones</a><a href="#modelos">Modelos</a><a href="#licencia">Licencia</a><a href="#proximamente">Próximamente</a><a href="#faq">Preguntas</a><a href="guias/">Guías</a><a href="simulador.html">Simulador</a></nav>
@@ -46,14 +48,14 @@
   </div>
 </header>
 
-<main>
+<main id="contenido" tabindex="-1">
 <section class="hero">
-  <div class="hero-icono logo-humo r"><img class="humo h1" src="img/logo-vapor1-336.webp" srcset="img/logo-vapor1-256.webp 256w, img/logo-vapor1-336.webp 336w" sizes="(max-width: 600px) 120px, 168px" alt="" width="168" height="168"><img class="humo h2" src="img/logo-vapor2-336.webp" srcset="img/logo-vapor2-256.webp 256w, img/logo-vapor2-336.webp 336w" sizes="(max-width: 600px) 120px, 168px" alt="" width="168" height="168"><img class="humo h3" src="img/logo-vapor3-336.webp" srcset="img/logo-vapor3-256.webp 256w, img/logo-vapor3-336.webp 336w" sizes="(max-width: 600px) 120px, 168px" alt="" width="168" height="168"><img class="cuenco" fetchpriority="high" src="img/logo-cuenco-336.webp" srcset="img/logo-cuenco-256.webp 256w, img/logo-cuenco-336.webp 336w" sizes="(max-width: 600px) 120px, 168px" alt="Logotipo de Sopa: un cuenco de sopa verde con circuitos y vapor" width="168" height="168"></div>
-  <p class="eyebrow r">Sopa Desktop · Tu inteligencia artificial local para Windows</p>
-  <h1 class="r">Tu inteligencia artificial.<br>Tu ordenador.<br><span class="verde">Tus reglas.</span></h1>
-  <p class="lead r">Habla con una IA y enséñale lo tuyo, en tu propio ordenador. Sin cuentas y sin tecnicismos.</p>
-  <div class="ctas r"><a class="btn" href="#estado">Sigue el desarrollo</a><a class="enlace" href="#funciones">Descubre qué hace ›</a></div>
-  <figure class="hero-shot r">
+  <div class="hero-icono logo-humo"><img class="humo h1" src="img/logo-vapor1-336.webp" srcset="img/logo-vapor1-256.webp 256w, img/logo-vapor1-336.webp 336w" sizes="(max-width: 600px) 120px, 168px" alt="" width="168" height="168" fetchpriority="low"><img class="humo h2" src="img/logo-vapor2-336.webp" srcset="img/logo-vapor2-256.webp 256w, img/logo-vapor2-336.webp 336w" sizes="(max-width: 600px) 120px, 168px" alt="" width="168" height="168" fetchpriority="low"><img class="humo h3" src="img/logo-vapor3-336.webp" srcset="img/logo-vapor3-256.webp 256w, img/logo-vapor3-336.webp 336w" sizes="(max-width: 600px) 120px, 168px" alt="" width="168" height="168" fetchpriority="low"><img class="cuenco" fetchpriority="high" src="img/logo-cuenco-336.webp" srcset="img/logo-cuenco-256.webp 256w, img/logo-cuenco-336.webp 336w" sizes="(max-width: 600px) 120px, 168px" alt="Logotipo de Sopa: un cuenco de sopa verde con circuitos y vapor" width="168" height="168"></div>
+  <p class="eyebrow">Sopa Desktop · Tu inteligencia artificial local para Windows</p>
+  <h1>Tu inteligencia artificial.<br>Tu ordenador.<br><span class="verde">Tus reglas.</span></h1>
+  <p class="lead">Habla con una IA y enséñale lo tuyo, en tu propio ordenador. Sin cuentas y sin tecnicismos.</p>
+  <div class="ctas"><a class="btn" href="#estado">Sigue el desarrollo</a><a class="enlace" href="#funciones">Descubre qué hace ›</a></div>
+  <figure class="hero-shot">
     <img src="img/oscuro-eleccion-010.webp" srcset="img/oscuro-eleccion-010-640.webp 640w, img/oscuro-eleccion-010.webp 1149w" sizes="(max-width: 1100px) 100vw, 1080px" alt="Sopa Desktop en tema oscuro, vista Chat: «Para charlar» elegido y el aviso «Sopa usará Qwen3 4B porque de tus modelos, es el más capaz que cabe entero en tu gráfica y va con fluidez», con sugerencias para empezar a escribir" width="1149" height="761">
   </figure>
 </section>

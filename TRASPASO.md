@@ -4,7 +4,7 @@ Fecha: 17 de octubre de 2026.
 
 El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte este repositorio.
 
-## Qué se ha hecho en este PR
+## Qué se ha hecho
 
 - Se han quitado de la web los planes de pago Plus y Pro: tarjetas de precios, menú «Planes» y menciones del tipo «incluido en Plus y Pro». El asistente, organizar, los varios pasos y las automatizaciones quedan como disponibles para todos. No se han inventado funciones ni precios.
 - También se ha quitado la compra única y lo del archivo de licencia (activación o clave de licencia de pago). La pregunta «¿Es gratis?» dice que Sopa es software libre y gratuito, sin planes, sin pagos y sin clave de licencia.
@@ -12,26 +12,30 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 - El pie ya no dice «Todos los derechos reservados». Dice que Sopa es software libre (GNU GPLv3), enlaza el texto oficial y el `LICENSE`, y mantiene que el nombre y el logotipo de Sopa no se licencian.
 - Se han matizado las frases del tipo «100 % local… Siempre» y «sin internet» como promesa absoluta. La web dice que la IA funciona en el equipo y que las conversaciones, los documentos y los recuerdos se quedan ahí; y que Sopa se conecta para buscar actualizaciones y descargar modelos y, si se activa, para la búsqueda web. El chat, con el modelo ya descargado, sigue sin conexión.
 - El menú apunta a `#licencia`. El ancla antiguo `#planes` se conserva vacío para no romper enlaces ya publicados. No había ancla `#precios`.
-- Hay un CI propio: `.github/workflows/html-y-enlaces.yml` (check «HTML válido y enlaces internos»). En cada pull request, y también al hacer push a `main`, valida el HTML con html-validate (preajuste de la especificación) y revisa en local los `href` y `src` relativos y sus anclas. No usa secretos ni servicios de pago. No entra en `descargas/` ni trata como HTML los archivos de verificación de Search Console. html-validate 10.5.0 está fijado en `package.json` y `package-lock.json`. El workflow instala npm 11.21.1 (el binario queda en `node_modules/.bin`, no en `bin/`) y con él hace `npm ci`: el npm 10.9.9 que trae Node 22.23 falla al instalar el validador. GitHub Pages sigue publicando `main` con `pages-build-deployment`, aparte de este check.
+- Hay un CI propio: `.github/workflows/html-y-enlaces.yml` (check «HTML válido y enlaces internos»). En cada pull request, y también al hacer push a `main`, valida el HTML con html-validate (preajuste de la especificación), revisa en local los `href` y `src` relativos y sus anclas, y pasa axe-core (WCAG 2 A y AA) en escritorio y en móvil. No usa secretos ni servicios de pago. No entra en `descargas/` ni trata como HTML los archivos de verificación de Search Console. html-validate 10.5.0 y axe-core 4.10.3 están fijados en `package.json` y `package-lock.json`. El workflow instala npm 11.21.1 (el binario queda en `node_modules/.bin`, no en `bin/`) y con él hace `npm ci`: el npm 10.9.9 que trae Node 22.23 falla al instalar el validador. Si el runner no trae Chrome, descarga Chrome headless 131 solo para axe. GitHub Pages sigue publicando `main` con `pages-build-deployment`, aparte de este check.
 - Esta publicación (17 de octubre de 2026) se probó con una revisión en el navegador hecha por el Supervisor, en lugar de la prueba en el portátil MSI. Es una excepción aprobada por el dueño solo para la web, porque el MSI no funciona por un fallo de la app.
+- El 18 de octubre de 2026, en un PR aparte y sin fusionar, se ha mejorado la accesibilidad y el rendimiento sin cambiar el texto comercial ni el diseño de escritorio. Hay un enlace «Saltar al contenido», el foco de teclado se ve, y en pantallas estrechas los enlaces del menú siguen en la página (antes desaparecían). Se respeta `prefers-reduced-motion`. La portada ya no esconde el primer pantallazo hasta que corre la animación. Los scripts del simulador van con `defer`. La fuente ya tenía `font-display: swap` y precarga. Las fotos ya eran WebP, con ancho, alto y `loading="lazy"` fuera del primer pantallazo. No se han tocado `descargas/` ni sus enlaces.
 
 ## Pendiente de decisión del dueño
 
-- Política de privacidad y aviso legal. No se han creado ni enlazado, como se pidió en este PR.
-- Descargas de la 1.9.4 (`descargas/` y los enlaces de la portada). No se han tocado. Siguen publicadas tal cual. Falta decidir si se retiran o se mantienen con la licencia con la que salieron. Este PR no añade oferta de código fuente ni cambia los SHA-256.
+- Política de privacidad y aviso legal. No se han creado ni enlazado.
+- Descargas de la 1.9.4 (`descargas/` y los enlaces de la portada). No se han tocado. Siguen publicadas tal cual. Falta decidir si se retiran o se mantienen con la licencia con la que salieron. No se añade oferta de código fuente ni se cambian los SHA-256.
+- Enlaces a las releases nuevas: Sopa Desktop 1.12.1, Sopa Deck v0.4.0 y motor-ligero v0.1.0-exe.1. Los repositorios Sopa-IA/sopa-motor, Sopa-IA/sopa-deck y Sopa-IA/motor-ligero no son públicos. Hacerlos públicos, o sustituir las descargas de la 1.9.4, lo decide el dueño porque afecta a cómo se publica el código bajo la GPL. No se añaden enlaces a esas releases. Las descargas se dejan como están.
 
 ## PRs abiertos
 
-- Este: https://github.com/ardu01/sopa-web/pull/1 contra `main`, fusionado. El Supervisor ha dado el OK.
-- Al abrirlo no había otros PRs abiertos en el repositorio.
+- https://github.com/ardu01/sopa-web/pull/1 contra `main`, fusionado. El Supervisor dio el OK el 17 de octubre de 2026.
+- El de accesibilidad y rendimiento, contra `main`, sin fusionar. El Supervisor lo revisa en el navegador antes de publicar. La URL se anota al abrirlo.
 
 ## Bloqueos
 
-- Ninguno para publicar esta web. La prueba en el portátil MSI no bloquea esta publicación: la sustituye la revisión en el navegador del Supervisor, por la excepción del dueño descrita arriba.
+- Este PR de accesibilidad no se fusiona hasta que el Supervisor lo revise en el navegador.
+- Enlaces a las releases nuevas (Sopa Desktop 1.12.1, Sopa Deck v0.4.0 y motor-ligero v0.1.0-exe.1), pendiente de decisión del dueño. Los repos Sopa-IA/sopa-motor, Sopa-IA/sopa-deck y Sopa-IA/motor-ligero no son públicos. Publicarlos o sustituir las descargas de la 1.9.4 cambia cómo se publica el código bajo la GPL. No hay enlaces a esas releases en esta web.
 
 ## Notas
 
 - La base es `main` actual, incluidos los commits de hoy `2dddde4` y `bece093`, dados por buenos.
 - No se ha gastado dinero ni se han creado secretos. No se han publicado datos personales nuevos.
-- El check de este PR es «HTML válido y enlaces internos», del workflow «HTML y enlaces».
+- El check es «HTML válido y enlaces internos», del workflow «HTML y enlaces». Ahora también corre axe-core.
+- Lighthouse local (Chrome, una pasada, throttling por defecto), rendimiento y accesibilidad. Portada: móvil 97/100 antes y 98/100 después; escritorio 100/100 en los dos. Guía `guias/que-es-una-ia-local.html`: móvil 100/100 antes y 99/100 después; escritorio 100/100 en los dos. La accesibilidad se quedó en 100. En la portada móvil el primer pintado pasó de 1,1 s a 0,9 s.
 - El formulario de fallos sigue usando el destino que ya tenía, para que pueda enviar. No se ha cambiado y no se copia aquí.
