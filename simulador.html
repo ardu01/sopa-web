@@ -57,6 +57,7 @@
   </section>
   <div class="marco-wrap">
     <div class="marco" id="marco" data-tema="claro">
+      <a class="saltar-app" href="#lienzo">Saltar al contenido</a>
       <aside class="barra" aria-label="Barra lateral">
         <p class="marca-app"><img src="img/icono-64.webp" alt="" width="28" height="28">Sopa</p>
         <nav class="nav-app" aria-label="Secciones de Sopa">
@@ -81,7 +82,7 @@
           <p>Versión 1.12.1 beta</p>
         </div>
       </aside>
-      <div class="lienzo">
+      <div class="lienzo" id="lienzo" tabindex="-1">
         <section class="vista" id="v-inicio" aria-labelledby="t-inicio">
           <div class="logo-inicio logo-humo"><img class="humo h1" src="img/logo-vapor1-256.webp" alt="" width="96" height="96"><img class="humo h2" src="img/logo-vapor2-256.webp" alt="" width="96" height="96"><img class="humo h3" src="img/logo-vapor3-256.webp" alt="" width="96" height="96"><img class="cuenco" src="img/logo-cuenco-256.webp" alt="Logotipo de Sopa" width="96" height="96"></div>
           <div class="centro">
@@ -160,6 +161,7 @@
               </select>
             </label>
             <button type="button" class="btn-p" id="cargar">Cargar</button>
+            <p class="nota-ej" id="aviso-carga"><span class="pill-dev pill-proxima">En la próxima versión pública</span> Si el motor se cierra por falta de memoria, la app dice: «No hay memoria suficiente para cargar este modelo. Cierra otros programas o elige uno más pequeño.» Esta simulación no calcula si cabe.</p>
             <button type="button" class="btn">Otro archivo .gguf…</button>
             <label class="campo" for="creatividad">Creatividad
               <input type="range" id="creatividad" min="0" max="1.5" step="0.1" value="0.7" aria-describedby="o-crea">
@@ -174,6 +176,7 @@
             <aside class="historial" aria-label="Historial">
               <p id="historial-vacio">Tus conversaciones se guardan aquí, en este equipo.</p>
               <ul id="historial-lista"></ul>
+              <p class="ayuda"><span class="pill-dev pill-proxima">En la próxima versión pública</span> Cada conversación se puede guardar como texto o borrar desde el teclado. Aquí es un ejemplo y no se escribe ningún archivo.</p>
               <button type="button" class="btn">Importar…</button>
             </aside>
             <div class="zona">
@@ -301,6 +304,24 @@
             <h3>Catálogo</h3>
             <label class="casilla"><input type="checkbox" id="solo-aqui" checked> <span>Mostrar solo los que funcionan aquí</span></label>
             <p class="nota-ej">Ejemplo de filas, con el nombre y el tamaño publicados. Chat y Entrenar los calcula la app en tu equipo: aquí van en blanco, sin tok/s y sin un «porque».</p>
+            <div class="nota-ej">
+              <p><span class="pill-dev pill-proxima">En la próxima versión pública</span> Si falla una descarga, la app lo dice en español y añade «Pulsa «Continuar» para reintentar.» Estos textos son de ejemplo. No se descarga nada.</p>
+              <ul>
+                <li>No he podido descargar el modelo: no hay conexión. Comprueba la red y vuelve a intentarlo. Lo ya descargado se conserva.</li>
+                <li>No he podido descargar el modelo: la conexión ha tardado demasiado. Comprueba la red y vuelve a intentarlo. Lo ya descargado se conserva.</li>
+                <li>No he podido descargar el modelo: el archivo ya no está publicado. Prueba más tarde.</li>
+                <li>No he podido descargar el modelo: el servidor no responde ahora. Vuelve a intentarlo dentro de un rato. Lo ya descargado se conserva.</li>
+                <li>No hay sitio en el disco para este modelo. Libera espacio y vuelve a intentarlo.</li>
+                <li>No he podido descargar el modelo. Vuelve a intentarlo. Lo ya descargado se conserva.</li>
+              </ul>
+              <p>Si un modelo no cabe, la app también lo dice. Los gigabytes los calcula ella; aquí van en blanco.</p>
+              <ul>
+                <li>No hay memoria suficiente: hacen falta unos … GB de RAM y este equipo tiene …. Cierra otros programas o elige un modelo más pequeño.</li>
+                <li>No hay memoria suficiente: necesita unos … GB entre gráfica y memoria y aquí no cabe. Está pensado para un equipo potente. Cierra otros programas o elige un modelo más pequeño.</li>
+                <li>Pensado para un equipo potente: necesita unos … GB entre gráfica y memoria. Aquí cabría repartido, pero iría muy lento.</li>
+                <li>No hay memoria suficiente.</li>
+              </ul>
+            </div>
             <table class="cat">
               <thead><tr><th scope="col">Modelo</th><th scope="col">Para</th><th scope="col">Tamaño</th><th scope="col">Chat</th><th scope="col">Entrenar</th><th scope="col">Fiabilidad</th><th scope="col">Licencia</th><th scope="col">Acción</th></tr></thead>
               <tbody>
