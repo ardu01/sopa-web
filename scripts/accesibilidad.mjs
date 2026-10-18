@@ -29,6 +29,8 @@ const paginas = [
   "/enlazar-movil/",
   "/fallos/",
   "/404.html",
+  "/ayuda/",
+  "/ayuda/instalar-sopa-en-windows.html",
 ];
 
 function esperarPuerto() {
