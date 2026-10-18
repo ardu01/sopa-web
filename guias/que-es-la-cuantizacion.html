@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Qué es la cuantización, explicado fácil · Sopa™</title>
+<meta name="description" content="La cuantización guarda los números de un modelo con menos bits para que ocupe menos. Qué dicen llama.cpp y el formato GGUF, y el ejemplo IQ3_XS de Sopa.">
+<link rel="canonical" href="https://ardu01.github.io/sopa-web/guias/que-es-la-cuantizacion.html">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Miguel Rodríguez Saiz">
+<meta name="theme-color" content="#F5F6F4">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Sopa">
+<meta property="og:url" content="https://ardu01.github.io/sopa-web/guias/que-es-la-cuantizacion.html">
+<meta property="og:title" content="Qué es la cuantización, explicado fácil · Sopa™">
+<meta property="og:description" content="La cuantización guarda los números de un modelo con menos bits para que ocupe menos. Qué dicen llama.cpp y el formato GGUF, y el ejemplo IQ3_XS de Sopa.">
+<meta property="og:image" content="https://ardu01.github.io/sopa-web/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logotipo de Sopa con el lema «Tu inteligencia artificial. Tu ordenador. Tus reglas.»">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Qué es la cuantización, explicado fácil · Sopa™">
+<meta name="twitter:description" content="La cuantización guarda los números de un modelo con menos bits para que ocupe menos. Qué dicen llama.cpp y el formato GGUF, y el ejemplo IQ3_XS de Sopa.">
+<meta name="twitter:image" content="https://ardu01.github.io/sopa-web/img/og.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Qué es la cuantización, explicado fácil", "description": "La cuantización guarda los números de un modelo con menos bits para que ocupe menos. Qué dicen llama.cpp y el formato GGUF, y el ejemplo IQ3_XS de Sopa.", "inLanguage": "es", "mainEntityOfPage": "https://ardu01.github.io/sopa-web/guias/que-es-la-cuantizacion.html", "url": "https://ardu01.github.io/sopa-web/guias/que-es-la-cuantizacion.html", "image": "https://ardu01.github.io/sopa-web/img/og.png", "author": {"@type": "Person", "name": "Miguel Rodríguez Saiz"}, "publisher": {"@type": "Organization", "name": "ArduSolutions"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sopa", "item": "https://ardu01.github.io/sopa-web/"}, {"@type": "ListItem", "position": 2, "name": "Guías", "item": "https://ardu01.github.io/sopa-web/guias/"}, {"@type": "ListItem", "position": 3, "name": "Qué es la cuantización, explicado fácil", "item": "https://ardu01.github.io/sopa-web/guias/que-es-la-cuantizacion.html"}]}</script>
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="apple-touch-icon" href="../img/favicon-180.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="preload" href="../fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../estilos.css">
+<link rel="stylesheet" href="../guias.css">
+</head>
+<body>
+<header class="nav">
+<a class="saltar" href="#contenido">Saltar al contenido</a><div class="nav-in">
+<a href="../" class="marca"><img src="../img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
+<nav aria-label="Secciones"><a href="../#funciones">Funciones</a><a href="../#modelos">Modelos</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../simulador.html">Simulador</a></nav>
+<span class="pill-dev">Beta 1.9.4</span></div></header>
+<main id="contenido" tabindex="-1" class="guia">
+<nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="../">Sopa</a></li><li><a href="../guias/">Guías</a></li><li aria-current="page">Qué es la cuantización</li></ol></nav>
+<article class="cont-guia">
+<p class="eyebrow">Guía</p>
+<h1>Qué es la cuantización, explicado fácil</h1>
+<p class="lead">Un modelo es un archivo de números. Cuantizar es guardar esos números con menos precisión para que el archivo pese menos.</p>
+<p class="autor">Por <strong>Miguel Rodríguez Saiz</strong>, creador de Sopa</p>
+<nav class="indice" aria-labelledby="indice-t"><h2 id="indice-t">En esta guía</h2><ol>
+<li><a href="#menos-bits">Menos bits, archivo más pequeño</a></li>
+<li><a href="#gguf">El formato GGUF</a></li>
+<li><a href="#dos-nombres">Dos nombres que verás: Q4_K e IQ3_XS</a></li>
+<li><a href="#en-sopa">Qué hace Sopa con eso</a></li>
+</ol></nav>
+<h2 id="menos-bits">Menos bits, archivo más pequeño</h2>
+<p>La herramienta de cuantización de <a href="https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/README.md">llama.cpp</a> parte de un archivo GGUF en alta precisión, como F32 o BF16, y lo pasa a un formato cuantizado. Bajar la precisión de los pesos —el ejemplo que pone esa página es pasar de números de 32&nbsp;bits a enteros de 4&nbsp;bits— encoge el modelo y puede acelerar la respuesta. También puede perder algo de exactitud.</p>
+<p>Esta guía no copia las cifras de perplejidad de llama.cpp: están medidas en otros modelos, no en el catálogo de Sopa.</p>
+<h2 id="gguf">El formato GGUF</h2>
+<p><a href="https://huggingface.co/docs/hub/gguf">Hugging Face</a> describe GGUF como un formato binario pensado para cargar y guardar modelos deprisa. Guarda los tensores y también metadatos. Lo desarrolló ggerganov, el mismo autor de llama.cpp, y sirve para ese motor y para otros que usan GGML. Un modelo hecho en otro entorno se puede convertir a GGUF para usarlo así.</p>
+<h2 id="dos-nombres">Dos nombres que verás: Q4_K e IQ3_XS</h2>
+<p>El nombre del archivo suele decir cuántos bits usa. En la tabla de tipos de Hugging Face, Q4_K es una cuantización de 4&nbsp;bits que queda en 4,5&nbsp;bits por peso. En el código de <a href="https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/quantize.cpp">llama-quantize</a>, IQ3_XS figura como una cuantización de 3,3&nbsp;bits por peso. Menos bits, archivo más pequeño. La página de llama.cpp avisa de que ese ahorro puede costar exactitud.</p>
+<h2 id="en-sopa">Qué hace Sopa con eso</h2>
+<p>Cuando entrenas un modelo en Sopa, al terminar lo exporta en formato GGUF. El catálogo no publica, en esta web, el tipo de cuantización de cada uno de los 32 modelos. El caso que sí nombra es Qwen2.5 7B (IQ3_XS): va solo en el procesador, con el proceso dentro de 4&nbsp;GiB, y no usa la gráfica. Medido en un portátil de 16&nbsp;GB con el proceso limitado a 4&nbsp;GiB: 2,5&nbsp;tokens por segundo y un máximo de 3,41&nbsp;GiB. No vale para un equipo con 4&nbsp;GB de RAM en total.</p>
+<p>Si quieres ver qué cabe en tu gráfica, la cuenta está en <a href="cuanta-vram-necesito.html">cuánta VRAM necesito</a> y en el <a href="../simulador.html">simulador</a>.</p>
+<section class="fuentes-guia" aria-labelledby="fuentes-t"><h2 id="fuentes-t">Fuentes</h2><ul>
+<li><a href="https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/README.md">llama.cpp, herramienta quantize</a>: de F32 o BF16 a un formato cuantizado, menos tamaño y posible pérdida de exactitud.</li>
+<li><a href="https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/quantize.cpp">llama.cpp, lista de tipos</a>: IQ3_XS, «3.3 bpw quantization».</li>
+<li><a href="https://huggingface.co/docs/hub/gguf">Hugging Face, GGUF</a>: qué es el formato y Q4_K a 4,5&nbsp;bits por peso.</li>
+<li><a href="https://ardu01.github.io/sopa-web/#funciones">Portada de Sopa</a>: la exportación a GGUF después de entrenar.</li>
+<li><a href="https://ardu01.github.io/sopa-web/guias/cuanta-vram-necesito.html">Guía de VRAM</a>: la medida de Qwen2.5 7B (IQ3_XS).</li>
+</ul></section>
+<aside class="otras"><h2>Otras guías</h2><ul>
+<li><a href="como-elegir-un-modelo.html">Cómo elegir un modelo según tu ordenador</a></li>
+<li><a href="cuanta-vram-necesito.html">¿Cuánta VRAM necesito para una IA local?</a></li>
+<li><a href="que-es-una-ia-local.html">¿Qué es una IA local y por qué usarla?</a></li>
+</ul></aside>
+</article>
+</main>
+<footer class="cont pie">
+  <nav class="pie-enlaces" aria-label="Enlaces del pie"><a href="../">Inicio</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../simulador.html">Simulador</a></nav>
+  <p>© 2026 Miguel Rodríguez Saiz. Sopa es software libre, con licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a> (<a href="../LICENSE">LICENSE</a>). El nombre y el logotipo de Sopa no se licencian. Qwen, Phi, Gemma, Granite, Llama, DeepSeek, Mistral y gpt-oss son marcas de sus titulares; sin afiliación.</p>
+  <p>Desarrollado por ArduSolutions.</p>
+  <p>Esta web no usa cookies ni rastreadores.</p>
+</footer>
+</body>
+</html>
