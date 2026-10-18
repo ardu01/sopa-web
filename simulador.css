@@ -24,8 +24,10 @@
   display:grid;grid-template-columns:232px 1fr;min-height:640px;
   background:var(--fondo);color:var(--texto);border:1px solid var(--borde);border-radius:16px;overflow:hidden;
   font-family:"Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.45;
-  color-scheme:light
+  color-scheme:light;position:relative
 }
+.saltar-app{position:absolute;left:12px;top:8px;z-index:5;transform:translateY(-160%);background:var(--acento);color:var(--sobre);padding:8px 12px;border-radius:999px;font-weight:650;text-decoration:none}
+.saltar-app:focus{transform:none}
 .marco[data-tema="oscuro"]{
   --fondo:#0F1211;--cromo:#0C0F0E;--superficie:#161A18;--superficie-2:#1C211F;--superficie-3:#232926;
   --borde:#262C29;--borde-fuerte:#343B37;--texto:#E9EDEA;--texto-2:#A3ACA6;--texto-3:#8B958F;
@@ -69,6 +71,8 @@ body:has(#marco) .nav{background:#F5F6F4}
 .hw .valor{font-weight:700;font-size:16px;margin-top:4px}
 .hw .det{color:var(--texto-3);font-size:12px;margin-top:4px}
 .nota-ej{background:var(--superficie);border:1px dashed var(--borde-fuerte);border-radius:12px;padding:10px 12px;color:var(--texto-2);font-size:13px;margin:12px 0}
+.nota-ej ul{list-style:disc;padding-left:1.2em}
+.nota-ej li{margin:6px 0}
 .banner{background:var(--superficie);border:1px solid var(--borde);border-radius:12px;padding:12px 14px;margin:12px 0}
 .banner.aviso{border-color:#B9771A55;background:#B9771A14;color:var(--aviso)}
 .marco[data-tema="oscuro"] .banner.aviso{background:#E5A84B14}
@@ -111,8 +115,9 @@ body:has(#marco) .nav{background:#F5F6F4}
 .chat-cuerpo{display:grid;grid-template-columns:200px 1fr;gap:12px;margin-top:12px;min-height:280px}
 .historial{background:var(--superficie);border:1px solid var(--borde);border-radius:12px;padding:10px}
 .historial ul{display:flex;flex-direction:column;gap:4px}
-.historial li{display:flex;gap:4px;align-items:center}
-.historial li button.abrir{flex:1;text-align:left;border:0;background:transparent;border-radius:6px;padding:6px}
+.historial li{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.historial li button.abrir{flex:1 1 100%;text-align:left;border:0;background:transparent;border-radius:6px;padding:6px}
+.marco .compositor textarea:focus-visible{border-color:var(--acento);outline:2px solid var(--acento);outline-offset:2px}
 .zona{display:flex;flex-direction:column;gap:8px}
 .vacio{margin:auto;text-align:center;padding:24px 8px}
 .ideas{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
