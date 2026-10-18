@@ -35,7 +35,7 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 - https://github.com/ardu01/sopa-web/pull/3 contra `main`, fusionado el 18 de octubre de 2026. El Supervisor dio el OK.
 - https://github.com/ardu01/sopa-web/pull/5 contra `main`, fusionado el 18 de octubre de 2026 (commit `296d34dd42a43c314a3f3f96eb24793283a58759`).
 - https://github.com/ardu01/sopa-web/pull/6 contra `main`, fusionado el 18 de octubre de 2026 (commit `e0e0f4f8221eee967c1916f121c0ea714824166a`). Pages: https://github.com/ardu01/sopa-web/actions/runs/39114768199
-- Este: imágenes AVIF, contra `main`. Se fusiona cuando su CI esté en success.
+- Este: https://github.com/ardu01/sopa-web/pull/7 contra `main`. Capturas en AVIF. Se fusiona cuando su CI esté en success.
 
 ## Bloqueos
 
