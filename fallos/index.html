@@ -36,7 +36,7 @@
 .campo .ayuda{display:block;font-size:14px;color:var(--text-2);margin-top:2px;font-weight:400}
 .campo input,.campo textarea{display:block;width:100%;margin-top:8px;font:inherit;font-size:16px;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 14px;transition:border-color .12s var(--ease),box-shadow .12s var(--ease)}
 .campo textarea{min-height:110px;resize:vertical}
-.campo input:focus,.campo textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px #1E87522A}
+.campo input:focus-visible,.campo textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-color:var(--accent)}
 .campo input[aria-invalid=true],.campo textarea[aria-invalid=true]{border-color:#B3261E}
 .opcional{font-weight:400;color:var(--text-2)}
 .trampa{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
@@ -51,11 +51,12 @@
 </style>
 </head>
 <body>
-<header class="nav"><div class="nav-in">
+<header class="nav">
+<a class="saltar" href="#contenido">Saltar al contenido</a><div class="nav-in">
 <a href="../" class="marca"><img src="../img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
 <nav aria-label="Secciones"><a href="../#funciones">Funciones</a><a href="../#modelos">Modelos</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../simulador.html">Simulador</a></nav>
 <span class="pill-dev">Beta 1.9.4</span></div></header>
-<main class="guia">
+<main id="contenido" tabindex="-1" class="guia">
 <nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="../">Sopa</a></li><li aria-current="page">Informar de un fallo</li></ol></nav>
 <section class="cont-guia">
 <p class="eyebrow">Beta</p>
