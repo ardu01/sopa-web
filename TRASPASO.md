@@ -39,6 +39,6 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 
 - La base es `main` actual, incluidos los commits de hoy `2dddde4` y `bece093`, dados por buenos.
 - No se ha gastado dinero ni se han creado secretos. No se han publicado datos personales nuevos.
-- El check es «HTML válido y enlaces internos», del workflow «HTML y enlaces». Ahora también corre axe-core.
+- El check es «HTML válido y enlaces internos», del workflow «HTML y enlaces». Ahora también corre axe-core. Axe se ejecuta con `prefers-reduced-motion`: el contraste se mide con el texto ya visible. Si no, el que todavía no ha entrado en pantalla sigue a opacidad 0 y el check falla en falso.
 - Lighthouse local (Chrome, una pasada, throttling por defecto), rendimiento y accesibilidad. Portada: móvil 97/100 antes y 98/100 después; escritorio 100/100 en los dos. Guía `guias/que-es-una-ia-local.html`: móvil 100/100 antes y 99/100 después; escritorio 100/100 en los dos. La accesibilidad se quedó en 100. En la portada móvil el primer pintado pasó de 1,1 s a 0,9 s.
 - El formulario de fallos sigue usando el destino que ya tenía, para que pueda enviar. No se ha cambiado y no se copia aquí.
