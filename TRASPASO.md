@@ -45,7 +45,7 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 - https://github.com/ardu01/sopa-web/pull/9 contra `main`, fusionado el 18 de octubre de 2026 (commit `4fd534c2a9e7f806da807fcd692deccdacd9d103`). Pages: https://github.com/ardu01/sopa-web/actions/runs/39117309235
 - https://github.com/ardu01/sopa-web/pull/10 contra `main`, fusionado el 18 de octubre de 2026 (commit `7eb8d34`).
 - https://github.com/ardu01/sopa-web/pull/12 contra `main`, fusionado el 18 de octubre de 2026 (commit `e2d3209`). El Supervisor dio el OK al formato.
-- Este: el resto del centro de ayuda, contra `main`. No se fusiona.
+- Este: https://github.com/ardu01/sopa-web/pull/13 contra `main`. El resto del centro de ayuda. No se fusiona.
 
 ## Bloqueos
 
