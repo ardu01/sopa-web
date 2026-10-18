@@ -65,10 +65,20 @@ def externo(url: str) -> bool:
     return bajo.startswith(ESQUEMAS)
 
 
+SITIO = "/sopa-web"
+
+
 def destino(desde: Path, ruta: str) -> Path | None:
-    if ruta == "":
-        return desde
-    candidato = (desde.parent / unquote(ruta)).resolve()
+    ruta = unquote(ruta)
+    if ruta.startswith("/"):
+        if ruta != SITIO and not ruta.startswith(SITIO + "/"):
+            return None
+        resto = ruta[len(SITIO):].lstrip("/")
+        candidato = RAIZ if resto == "" else (RAIZ / resto).resolve()
+    else:
+        if ruta == "":
+            return desde
+        candidato = (desde.parent / ruta).resolve()
     try:
         candidato.relative_to(RAIZ)
     except ValueError:
