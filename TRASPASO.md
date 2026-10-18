@@ -43,7 +43,7 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 - https://github.com/ardu01/sopa-web/pull/8 contra `main`, fusionado el 18 de octubre de 2026 (commit `03a2fbfdec8106f1cd0bfe1a2d1194b6d10d226d`). Pages: https://github.com/ardu01/sopa-web/actions/runs/39117092609
 - https://github.com/ardu01/sopa-web/pull/9 contra `main`, fusionado el 18 de octubre de 2026 (commit `4fd534c2a9e7f806da807fcd692deccdacd9d103`). Pages: https://github.com/ardu01/sopa-web/actions/runs/39117309235
 - https://github.com/ardu01/sopa-web/pull/10 contra `main`, fusionado el 18 de octubre de 2026 (commit `7eb8d34`).
-- Este: centro de ayuda, primera página «Instalar Sopa en Windows», contra `main`. No se fusiona hasta que el Supervisor revise el formato.
+- Este: https://github.com/ardu01/sopa-web/pull/12 contra `main`. Centro de ayuda, primera página «Instalar Sopa en Windows». No se fusiona hasta que el Supervisor revise el formato.
 
 ## Bloqueos
 
