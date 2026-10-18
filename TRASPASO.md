@@ -2,7 +2,7 @@
 
 Fecha: 18 de octubre de 2026. Cierre de turno por orden del dueño.
 
-El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado queda en `b916136` (PR #13). Este archivo no cambia la web visible.
+El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado queda en `b916136` (PR #13). Este cierre es https://github.com/ardu01/sopa-web/pull/14 y no está fusionado. Este archivo no cambia la web visible.
 
 ## Hecho (fusionado y publicado)
 
