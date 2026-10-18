@@ -24,6 +24,7 @@ const paginas = [
   "/guias/cuanta-vram-necesito.html",
   "/enlazar-movil/",
   "/fallos/",
+  "/404.html",
 ];
 
 function esperarPuerto() {
