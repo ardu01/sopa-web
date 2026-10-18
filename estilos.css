@@ -73,7 +73,9 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 #planes,#licencia{scroll-margin-top:68px}
 .futuro{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:64px;text-align:left}
 .futuro article{border:1.5px dashed #7D6E5080;border-radius:18px;padding:36px 32px;background:#7D6E500a}
-.futuro h3{margin-top:20px}.futuro p{color:var(--text-2);font-size:16px}
+.futuro h3{margin-top:20px}.futuro p{color:var(--text-2);font-size:16px}.futuro p+p{margin-top:12px}
+.pill-proxima{white-space:normal;line-height:1.35;margin:0 8px 4px 0;vertical-align:middle}
+.oscura .pill-proxima{color:#E4D3AE;border-color:#E4D3AE}
 .final img{width:96px;margin:0 auto 28px}
 .ruta{display:flex;justify-content:center;gap:0;margin:64px auto 0;max-width:560px}
 .ruta li{flex:1;position:relative;padding-top:28px}
@@ -167,3 +169,5 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 .aviso-conocido{margin:14px 0 16px;padding:14px 16px;border-radius:12px;background:#B5812B14;border:1px solid #B5812B40;color:#6B4A12!important;font-size:15px!important}
 .aviso-conocido b{color:#5A3D0E;font-weight:650}
 .ruta li.aviso::before{background:var(--d-bg);border-color:#E0B25A;border-style:dashed}
+.pill-proxima{white-space:normal;line-height:1.35;margin:0 8px 4px 0;vertical-align:middle}
+.oscura .pill-proxima{color:#E4D3AE;border-color:#E4D3AE}
