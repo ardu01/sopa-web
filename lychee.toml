@@ -4,10 +4,10 @@
 # Enlaces externos. Los reintentos cubren cortes y límites puntuales.
 # No se aceptan todos los 403: un 403 también puede ser un enlace roto.
 
-max_retries = 3
-retry_wait_time = 5
-timeout = 30
-max_concurrency = 4
+max_retries = 5
+retry_wait_time = 8
+timeout = 40
+max_concurrency = 2
 
 exclude_path = ["descargas", "node_modules", "package-lock\\.json"]
 
