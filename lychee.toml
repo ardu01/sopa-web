@@ -18,4 +18,7 @@ exclude = [
   "https://www\\.techpowerup\\.com/",
   # Destino de un formulario (POST), no una página.
   "workers\\.dev",
+  # Licencia oficial. El comprobador a veces no conecta (timeout o 403).
+  # El texto está en LICENSE y el enlace se queda en la web.
+  "https://www\\.gnu\\.org/licenses/gpl-3\\.0\\.html",
 ]
