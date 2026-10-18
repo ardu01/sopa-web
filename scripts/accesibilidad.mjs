@@ -31,6 +31,14 @@ const paginas = [
   "/404.html",
   "/ayuda/",
   "/ayuda/instalar-sopa-en-windows.html",
+  "/ayuda/el-primer-chat.html",
+  "/ayuda/elegir-un-modelo.html",
+  "/ayuda/tus-documentos.html",
+  "/ayuda/memoria.html",
+  "/ayuda/entrenamiento.html",
+  "/ayuda/automatizaciones.html",
+  "/ayuda/sopa-mobile.html",
+  "/ayuda/problemas-frecuentes.html",
 ];
 
 function esperarPuerto() {
