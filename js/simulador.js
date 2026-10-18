@@ -122,7 +122,30 @@
     lista.append(yo, ia);
     $("mensaje").value = "";
     var item = document.createElement("li");
-    item.innerHTML = '<button type="button" class="abrir">Ejemplo</button>';
+    var abrir = document.createElement("button");
+    abrir.type = "button";
+    abrir.className = "abrir";
+    abrir.textContent = "Ejemplo";
+    abrir.addEventListener("click", function () {
+      toast("Ejemplo de conversación. No se carga ningún modelo.");
+    });
+    var guardar = document.createElement("button");
+    guardar.type = "button";
+    guardar.className = "btn";
+    guardar.textContent = "Guardar como texto: Ejemplo";
+    guardar.addEventListener("click", function () {
+      toast("Ejemplo: no se guarda ningún archivo.");
+    });
+    var borrar = document.createElement("button");
+    borrar.type = "button";
+    borrar.className = "btn-peligro";
+    borrar.textContent = "Borrar conversación: Ejemplo";
+    borrar.addEventListener("click", function () {
+      item.remove();
+      if (!$("historial-lista").children.length) $("historial-vacio").hidden = false;
+      toast("Ejemplo: la conversación no se borra de ningún equipo.");
+    });
+    item.append(abrir, guardar, borrar);
     $("historial-lista").appendChild(item);
     $("historial-vacio").hidden = true;
   });
