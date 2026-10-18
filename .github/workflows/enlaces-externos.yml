@@ -1,0 +1,36 @@
+# Copyright (C) 2026 Miguel Rodríguez Saiz
+# SPDX-License-Identifier: GPL-3.0-only
+#
+# Comprueba los enlaces externos. Sin secretos nuevos y sin servicios de pago.
+# La acción usa el token automático del workflow para los enlaces de GitHub.
+# Los reintentos y las exclusiones están en lychee.toml: solo dominios que
+# rechazan al comprobador, no todos los errores.
+
+name: Enlaces externos
+
+on:
+  pull_request:
+  schedule:
+    # Cada lunes. El horario programado solo corre cuando esto está en main.
+    - cron: "17 6 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  comprobar:
+    name: Enlaces externos
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener el código
+        uses: actions/checkout@v4
+
+      - name: Comprobar enlaces externos
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: true
+          args: >-
+            --no-progress
+            --config lychee.toml
+            --extensions html,htm,md,txt,js,css,xml
+            .

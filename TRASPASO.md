@@ -16,6 +16,7 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 - Esta publicación (17 de octubre de 2026) se probó con una revisión en el navegador hecha por el Supervisor, en lugar de la prueba en el portátil MSI. Es una excepción aprobada por el dueño solo para la web, porque el MSI no funciona por un fallo de la app.
 - El 18 de octubre de 2026 se fusionó la mejora de accesibilidad y rendimiento (enlace «Saltar al contenido», foco visible, menú en pantallas estrechas, `prefers-reduced-motion` y el primer pantallazo de la portada sin esperar a la animación).
 - En este PR, también del 18 de octubre, cada página tiene title, descripción, canonical, Open Graph y Twitter Card propios. La imagen de vista previa es la que ya estaba en `img/og.png`. `sitemap.xml` lista las páginas públicas con `lastmod` 2026-10-18 y `robots.txt` apunta a ese sitemap. Hay una `404.html` con el diseño de la web y enlaces absolutos `/sopa-web/` a la portada y a las guías. El JSON-LD `SoftwareApplication` se queda en nombre, Windows, gratis y licencia GPLv3, sin valoraciones. No se han tocado `descargas/`.
+- El 18 de octubre de 2026 se fusionó el CI «Enlaces externos» (`.github/workflows/enlaces-externos.yml`, configuración en `lychee.toml`). En cada pull request, y cada lunes, la acción oficial lycheeverse/lychee-action comprueba los enlaces http y https de las páginas, los JS, el CSS, los txt y el sitemap. Reintenta los fallos de red. No usa secretos nuevos ni servicios de pago. No entra en `descargas/`, `node_modules/` ni `package-lock.json`. No comprueba el destino del formulario de fallos, que es un envío y no una página. EatYourBytes y TechPowerUp responden 403 o un reto de Cloudflare al comprobador; esas páginas siguen existiendo y se excluyen para que el check no sea frágil. El resto de enlaces externos respondió bien y no se ha cambiado ninguno.
 
 ## Pendiente de decisión del dueño
 
@@ -27,6 +28,7 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 
 - https://github.com/ardu01/sopa-web/pull/1 contra `main`, fusionado. El Supervisor dio el OK el 17 de octubre de 2026.
 - https://github.com/ardu01/sopa-web/pull/2 contra `main`, fusionado. El Supervisor dio el OK el 18 de octubre de 2026.
+- https://github.com/ardu01/sopa-web/pull/4 contra `main`, fusionado el 18 de octubre de 2026. Comprueba enlaces externos; no cambia la web visible.
 - Este: https://github.com/ardu01/sopa-web/pull/3 contra `main`, sin fusionar. El Supervisor lo revisa en el navegador antes de publicar.
 
 ## Bloqueos
@@ -40,5 +42,6 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 - La base es `main` actual, incluidos los commits de hoy `2dddde4` y `bece093`, dados por buenos.
 - No se ha gastado dinero ni se han creado secretos. No se han publicado datos personales nuevos.
 - El check es «HTML válido y enlaces internos», del workflow «HTML y enlaces». Ahora también corre axe-core. Axe se ejecuta con `prefers-reduced-motion`: el contraste se mide con el texto ya visible. Si no, el que todavía no ha entrado en pantalla sigue a opacidad 0 y el check falla en falso.
+- El check nuevo es «Enlaces externos», del workflow del mismo nombre. Corre en cada pull request y, una vez en `main`, cada lunes.
 - Lighthouse local (Chrome, una pasada, throttling por defecto), rendimiento y accesibilidad. Portada: móvil 97/100 antes y 98/100 después; escritorio 100/100 en los dos. Guía `guias/que-es-una-ia-local.html`: móvil 100/100 antes y 99/100 después; escritorio 100/100 en los dos. La accesibilidad se quedó en 100. En la portada móvil el primer pintado pasó de 1,1 s a 0,9 s.
 - El formulario de fallos sigue usando el destino que ya tenía, para que pueda enviar. No se ha cambiado y no se copia aquí.
