@@ -73,7 +73,7 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 #planes,#licencia{scroll-margin-top:68px}
 .futuro{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:64px;text-align:left}
 .futuro article{border:1.5px dashed #7D6E5080;border-radius:18px;padding:36px 32px;background:#7D6E500a}
-.futuro h3{margin-top:20px}.futuro p{color:var(--text-2);font-size:16px}
+.futuro h3{margin-top:20px}.futuro p{color:var(--text-2);font-size:16px}.futuro p+p{margin-top:12px}
 .final img{width:96px;margin:0 auto 28px}
 .ruta{display:flex;justify-content:center;gap:0;margin:64px auto 0;max-width:560px}
 .ruta li{flex:1;position:relative;padding-top:28px}
