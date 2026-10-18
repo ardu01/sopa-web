@@ -16,6 +16,7 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 - Esta publicación (17 de octubre de 2026) se probó con una revisión en el navegador hecha por el Supervisor, en lugar de la prueba en el portátil MSI. Es una excepción aprobada por el dueño solo para la web, porque el MSI no funciona por un fallo de la app.
 - El 18 de octubre de 2026 se fusionó la mejora de accesibilidad y rendimiento (enlace «Saltar al contenido», foco visible, menú en pantallas estrechas, `prefers-reduced-motion` y el primer pantallazo de la portada sin esperar a la animación).
 - En este PR, también del 18 de octubre, la web explica «Buscar en la web», el agente Investigación y el interruptor «Permitir desde el móvil» según las fuentes entregadas (comportamiento del código de Sopa Desktop v1.12.1, commit `ffd9225`, y el CHANGELOG 1.10–1.12.1). Se han ignorado las menciones históricas a Plus y Pro del CHANGELOG de la 1.12.0. Sopa Deck v0.4.0 está en «Próximamente», en fase de prueba, sin enlaces, sin precio y sin lo que esa nota pide no prometer. Los textos de privacidad que ya tenía la web se han alineado con los hechos de la v1.4: qué se queda en el equipo, qué conexiones hace la app y a quién. No se ha publicado la política: sigue siendo un borrador sin revisar y no está en vigor. No se han copiado bases legales, calificaciones jurídicas ni puntos pendientes. No se han tocado `descargas/` ni se han añadido enlaces de descarga ni a repos privados.
+- El 18 de octubre de 2026 se fusionó el CI «Enlaces externos» (`.github/workflows/enlaces-externos.yml`, configuración en `lychee.toml`). En cada pull request, y cada lunes, la acción oficial lycheeverse/lychee-action comprueba los enlaces http y https de las páginas, los JS, el CSS, los txt y el sitemap. Reintenta los fallos de red. No usa secretos nuevos ni servicios de pago. No entra en `descargas/`, `node_modules/` ni `package-lock.json`. No comprueba el destino del formulario de fallos, que es un envío y no una página. EatYourBytes y TechPowerUp responden 403 o un reto de Cloudflare al comprobador; esas páginas siguen existiendo y se excluyen para que el check no sea frágil. El resto de enlaces externos respondió bien y no se ha cambiado ninguno.
 
 ## Pendiente de decisión del dueño
 
@@ -27,11 +28,13 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 
 - https://github.com/ardu01/sopa-web/pull/1 contra `main`, fusionado. El Supervisor dio el OK el 17 de octubre de 2026.
 - https://github.com/ardu01/sopa-web/pull/2 contra `main`, fusionado. El Supervisor dio el OK el 18 de octubre de 2026.
+- https://github.com/ardu01/sopa-web/pull/4 contra `main`, fusionado el 18 de octubre de 2026. Comprueba enlaces externos; no cambia la web visible.
 - Este: https://github.com/ardu01/sopa-web/pull/5 contra `main`, sin fusionar. El Supervisor lo revisa en el navegador antes de publicar.
 
 ## Bloqueos
 
 - Este PR de contenido no se fusiona hasta que el Supervisor lo revise en el navegador.
+- Esta integración de GitHub no tiene acceso a Sopa-IA/sopa-motor ni a Sopa-IA/sopa-deck (la API responde 404). El texto de este PR sale de las fuentes que se entregaron después, no de una lectura de esos repos. Sin esas fuentes no se habría escrito ese contenido.
 - Enlaces a las releases nuevas (Sopa Desktop 1.12.1, Sopa Deck v0.4.0 y motor-ligero v0.1.0-exe.1), pendiente de decisión del dueño. Los repos Sopa-IA/sopa-motor, Sopa-IA/sopa-deck y Sopa-IA/motor-ligero no son públicos. Publicarlos o sustituir las descargas de la 1.9.4 cambia cómo se publica el código bajo la GPL. No hay enlaces a esas releases en esta web.
 
 ## Notas
@@ -39,5 +42,6 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 - La base es `main` actual, incluidos los commits de hoy `2dddde4` y `bece093`, dados por buenos.
 - No se ha gastado dinero ni se han creado secretos. No se han publicado datos personales nuevos.
 - El check es «HTML válido y enlaces internos», del workflow «HTML y enlaces». Ahora también corre axe-core. Axe se ejecuta con `prefers-reduced-motion`: el contraste se mide con el texto ya visible. Si no, el que todavía no ha entrado en pantalla sigue a opacidad 0 y el check falla en falso.
+- El check nuevo es «Enlaces externos», del workflow del mismo nombre. Corre en cada pull request y, una vez en `main`, cada lunes.
 - Lighthouse local (Chrome, una pasada, throttling por defecto), rendimiento y accesibilidad. Portada: móvil 97/100 antes y 98/100 después; escritorio 100/100 en los dos. Guía `guias/que-es-una-ia-local.html`: móvil 100/100 antes y 99/100 después; escritorio 100/100 en los dos. La accesibilidad se quedó en 100. En la portada móvil el primer pintado pasó de 1,1 s a 0,9 s.
 - El formulario de fallos sigue usando el destino que ya tenía, para que pueda enviar. No se ha cambiado y no se copia aquí.
