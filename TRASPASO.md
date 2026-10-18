@@ -27,7 +27,7 @@ El turno de este grupo es del 17 al 21 de octubre de 2026. Otro grupo comparte e
 
 - https://github.com/ardu01/sopa-web/pull/1 contra `main`, fusionado. El Supervisor dio el OK el 17 de octubre de 2026.
 - https://github.com/ardu01/sopa-web/pull/2 contra `main`, fusionado. El Supervisor dio el OK el 18 de octubre de 2026.
-- Este: contra `main`, sin fusionar. El Supervisor lo revisa en el navegador antes de publicar.
+- Este: https://github.com/ardu01/sopa-web/pull/5 contra `main`, sin fusionar. El Supervisor lo revisa en el navegador antes de publicar.
 
 ## Bloqueos
 
