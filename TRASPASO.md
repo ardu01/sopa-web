@@ -2,7 +2,7 @@
 
 Fecha: 19 de octubre de 2026. Se reabre el turno por orden del dueño.
 
-El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `5810a01` (PR #14, fusionado por el dueño el 18 de octubre de 2026). Este archivo acompaña la actualización del simulador y del centro de ayuda a la 1.14.0–1.16.0. El PR de este turno no se fusiona hasta que lo ordene el dueño.
+El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `5810a01` (PR #14, fusionado por el dueño el 18 de octubre de 2026). Este archivo acompaña la actualización del simulador y del centro de ayuda a la 1.14.0–1.16.0. Ese cambio es https://github.com/ardu01/sopa-web/pull/15 y no está fusionado.
 
 ## Hecho (fusionado y publicado)
 
