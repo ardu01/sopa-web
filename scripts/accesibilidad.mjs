@@ -36,6 +36,7 @@ const paginas = [
   "/ayuda/tus-documentos.html",
   "/ayuda/memoria.html",
   "/ayuda/entrenamiento.html",
+  "/ayuda/comparar.html",
   "/ayuda/automatizaciones.html",
   "/ayuda/sopa-mobile.html",
   "/ayuda/problemas-frecuentes.html",
