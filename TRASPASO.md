@@ -2,7 +2,7 @@
 
 Fecha: 19 de octubre de 2026.
 
-El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `b0ff1f6` (PR #18, fusionado). Este archivo acompaña la página Novedades, en borrador. El PR de este cambio se anota aquí cuando exista. No está fusionado y no se saca de borrador.
+El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `b0ff1f6` (PR #18, fusionado). Este archivo acompaña la página Novedades: https://github.com/ardu01/sopa-web/pull/19 contra `main`, rama `cursor/novedades-c470`, en borrador. No está fusionado y no se saca de borrador.
 
 ## Hecho (fusionado y publicado)
 
@@ -34,6 +34,7 @@ La descarga pública sigue siendo la beta 1.9.4. Lo posterior lleva «En la pró
 ## En borrador
 
 - https://github.com/ardu01/sopa-web/pull/11 contra `main`, borrador, rama `cursor/descarga-siguiente-c470`. Ficha de descarga de la 1.13.x, apagada. Para activarla se edita `datos/descarga.js` (`version`, `urlInstalador`, `sha256`, `nombreArchivo`, `urlCodigoFuente` y `activa: true`) solo cuando el dueño haga públicas las releases. Hasta entonces no se fusiona y no se ofrecen esas descargas.
+- https://github.com/ardu01/sopa-web/pull/19 contra `main`, borrador, rama `cursor/novedades-c470`. Página `novedades.html`, sin enlace en el menú ni en el sitemap. La 1.16.1 y Sopa Deck 0.5.0 esperan las notas reales tras la prueba en la torre. No se fusiona y no se saca de borrador hasta entonces.
 
 ## En este turno (borrador, no fusionado)
 
@@ -49,7 +50,7 @@ Página `novedades.html`, con el CSS ya optimizado del sitio (`bloque-ayuda.css`
 
 ## Pendiente
 
-Este turno lo deja en borrador, sin fusionar y sin sacar de borrador. Al activar Novedades: enlace en la navegación y en el pie, y entrada en `sitemap.xml`. Rellenar la 1.16.1 y Deck 0.5.0 cuando existan las notas de la prueba en la torre. No se publica ninguna descarga de Sopa Deck.
+Este turno lo deja en https://github.com/ardu01/sopa-web/pull/19, en borrador, sin fusionar y sin sacar de borrador. Al activar Novedades: enlace en la navegación y en el pie, y entrada en `sitemap.xml`. Rellenar la 1.16.1 y Deck 0.5.0 cuando existan las notas de la prueba en la torre. No se publica ninguna descarga de Sopa Deck.
 
 ## Bloqueado, a decisión del dueño
 
