@@ -1,3 +1,14 @@
+/* El logotipo de Inicio usa las mismas capas que la portada. */
+.logo-humo{position:relative;aspect-ratio:1}
+.logo-humo img{width:100%;height:100%}
+.logo-humo .cuenco{position:relative;z-index:1;filter:drop-shadow(0 20px 40px #1E875230)}
+.logo-humo .humo{position:absolute;inset:0;pointer-events:none;transform-origin:50% 44%;-webkit-mask-image:linear-gradient(#000 37%,transparent 44.5%);mask-image:linear-gradient(#000 37%,transparent 44.5%);animation:humo 3.2s ease-in-out infinite;will-change:transform,opacity}
+.logo-humo .h2{animation-delay:-1.07s}.logo-humo .h3{animation-delay:-2.13s}
+@keyframes humo{0%{opacity:0;transform:translateY(5%)}25%{opacity:1;transform:translateY(2%)}60%{opacity:1}100%{opacity:0;transform:translateY(-6%)}}
+@media (prefers-reduced-motion:reduce){
+ .logo-humo .humo{animation:none;opacity:1;transform:none;-webkit-mask-image:none;mask-image:none}
+}
+
 /* Simulación de la ventana de Sopa Desktop. Tema Calma.
    El acento es #1E8052 en claro y #45C486 en oscuro.
    El gris de grupo y el ámbar de aviso de la 1.12.1 no llegan a WCAG AA

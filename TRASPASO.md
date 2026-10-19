@@ -2,7 +2,7 @@
 
 Fecha: 19 de octubre de 2026.
 
-El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `37cfb19` (PR #16, fusionado por el dueño el 19 de octubre de 2026). Este archivo acompaña la ayuda de Sopa Deck. Ese cambio es https://github.com/ardu01/sopa-web/pull/17 y no está fusionado.
+El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil: https://github.com/ardu01/sopa-web/pull/18 contra `main`, rama `cursor/rendimiento-lighthouse-c470`. No está fusionado.
 
 ## Hecho (fusionado y publicado)
 
@@ -27,21 +27,28 @@ La descarga pública sigue siendo la beta 1.9.4. Lo posterior lleva «En la pró
   - 1.16.0: tarjeta «Preparar ejemplos» encima del paso 1, también en la ayuda de Entrenamiento. Botones «Elegir origen...» y «Crear ejemplos». El resultado va en letra normal. No llama al modelo. Un archivo con macros no se lee. El pie del simulador dice «Versión 1.16.0 beta».
   - Dato medido, no una promesa: en un PC con RTX 5070, Qwen3 4B corre en la gráfica a unos 61 tok/s. Está en la ayuda de elegir un modelo y en una nota del simulador. No es la velocidad de otro equipo.
 
+- https://github.com/ardu01/sopa-web/pull/16 contra `main`, fusionado el 19 de octubre de 2026 por el dueño (commit `37cfb19`). Página `ayuda/esta-usando-mi-grafica.html` y el matiz «En pruebas; se está puliendo para la próxima versión.» en el streaming de respuestas largas, la búsqueda web y los agentes. El Markdown de las respuestas no se presentaba como función que ya va bien. La CI estaba en verde.
+- https://github.com/ardu01/sopa-web/pull/17 contra `main`, fusionado (commit `34c8855`). Ayuda de Sopa Deck. Toda la página lleva «En la próxima versión pública». Sigue diciendo que todavía no se ha probado en un ordenador de verdad. Sin enlace de descarga. La CI estaba en verde.
+
 ## En borrador
 
 - https://github.com/ardu01/sopa-web/pull/11 contra `main`, borrador, rama `cursor/descarga-siguiente-c470`. Ficha de descarga de la 1.13.x, apagada. Para activarla se edita `datos/descarga.js` (`version`, `urlInstalador`, `sha256`, `nombreArchivo`, `urlCodigoFuente` y `activa: true`) solo cuando el dueño haga públicas las releases. Hasta entonces no se fusiona y no se ofrecen esas descargas.
 
-- https://github.com/ardu01/sopa-web/pull/16 contra `main`, fusionado el 19 de octubre de 2026 por el dueño (commit `37cfb19`). Página `ayuda/esta-usando-mi-grafica.html` y el matiz «En pruebas; se está puliendo para la próxima versión.» en el streaming de respuestas largas, la búsqueda web y los agentes. El Markdown de las respuestas no se presentaba como función que ya va bien. La CI estaba en verde.
-
 ## En este turno (abierto, no fusionado)
 
-Página nueva `ayuda/sopa-deck.html`. El iPad controla el PC con Windows. Toda la página lleva «En la próxima versión pública». Pasos en llano: el aviso azul «Windows protegió su PC» («Más información» y «Ejecutar de todas formas»), la ventana de permiso («Sí»), la misma Wi-Fi y el código QR del PC, no abrir a la vez la versión portátil antigua, y el cortafuegos solo en red privada. Entra en el índice de la ayuda, en la ficha de la portada, en dos guías que ya nombraban Sopa Deck y en `sitemap.xml`. Sin enlace de descarga y sin enlaces a repos ni releases de Sopa-IA.
+Pasada de rendimiento con Lighthouse 12.8.2, preset móvil por defecto (412×823, DPR 1,75, red lenta simulada y CPU ×4), tres pasadas y mediana. Servido en local bajo `/sopa-web/`. Páginas: portada, simulador, índice de la ayuda y `ayuda/instalar-sopa-en-windows.html`. Los JSON no se publican: quedan fuera del repositorio.
 
-Lo que no se promete, y la página lo dice: versión de prueba, sin fecha, todavía no probada en un ordenador de verdad, instalador sin firmar, sin Mac ni Linux, sin app de tienda, no funciona fuera de casa ni por internet, no es un escritorio remoto ni una pantalla extendida, y la app de la pantalla de inicio que funciona sin conexión todavía se está haciendo.
+No cambia el texto ni el aspecto. `ayuda/sopa-deck.html` sigue diciendo que no se ha probado en un ordenador de verdad. No se ha tocado `descargas/` ni `datos/descarga.js`.
+
+- Portada: el `sizes` de las capturas de la app usa el ancho real (`100vw - 48px`), así el móvil pide el AVIF de 640 px y no el de 832. `app.js` se sirve minificado (`app.min.js`).
+- Simulador: deja de bajar el CSS de la portada que no usa (`comun.css` en su lugar). El logotipo de Inicio tiene copia a 192 px. `js/simulador.js` se sirve minificado.
+- Ayuda: una sola hoja `bloque-ayuda.css` (lo compartido, las guías y la ayuda), sin el CSS de la portada. El buscador va con `defer` y minificado.
+- `terser` 5.44.0 está fijado en `package.json`. `node scripts/empaquetar.mjs` regenera la hoja de la ayuda. Pages no ejecuta nada: los archivos resultantes van en el repositorio.
+- La caché y la compresión de texto las pone GitHub Pages. El servidor local de la medida no las envía, y no se pueden fijar en los archivos estáticos. Siguen saliendo en Lighthouse.
 
 ## Pendiente
 
-Nada de esta página queda sin empezar. Este turno lo deja en el PR, sin fusionar. No se empieza el arreglo de la 1.16.1. No se publica ninguna descarga de Sopa Deck.
+Nada de esta pasada queda sin medir. Este turno lo deja en https://github.com/ardu01/sopa-web/pull/18, sin fusionar. No se empieza el arreglo de la 1.16.1. No se publica ninguna descarga de Sopa Deck.
 
 ## Bloqueado, a decisión del dueño
 
