@@ -2,7 +2,7 @@
 
 Fecha: 19 de octubre de 2026.
 
-El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil: https://github.com/ardu01/sopa-web/pull/18 contra `main`, rama `cursor/rendimiento-lighthouse-c470`. No está fusionado.
+El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cierre, es `b0ff1f6` (PR #18, fusionado). Este archivo es el cierre de turno: solo se actualiza este documento. El PR de este cierre se anota aquí cuando exista. No está fusionado.
 
 ## Hecho (fusionado y publicado)
 
@@ -28,27 +28,21 @@ La descarga pública sigue siendo la beta 1.9.4. Lo posterior lleva «En la pró
   - Dato medido, no una promesa: en un PC con RTX 5070, Qwen3 4B corre en la gráfica a unos 61 tok/s. Está en la ayuda de elegir un modelo y en una nota del simulador. No es la velocidad de otro equipo.
 
 - https://github.com/ardu01/sopa-web/pull/16 contra `main`, fusionado el 19 de octubre de 2026 por el dueño (commit `37cfb19`). Página `ayuda/esta-usando-mi-grafica.html` y el matiz «En pruebas; se está puliendo para la próxima versión.» en el streaming de respuestas largas, la búsqueda web y los agentes. El Markdown de las respuestas no se presentaba como función que ya va bien. La CI estaba en verde.
-- https://github.com/ardu01/sopa-web/pull/17 contra `main`, fusionado (commit `34c8855`). Ayuda de Sopa Deck. Toda la página lleva «En la próxima versión pública». Sigue diciendo que todavía no se ha probado en un ordenador de verdad. Sin enlace de descarga. La CI estaba en verde.
+- https://github.com/ardu01/sopa-web/pull/17 contra `main`, fusionado (commit `34c8855`). Ayuda de Sopa Deck. Toda la página lleva «En la próxima versión pública». Se mantiene «Todavía no se ha probado en un ordenador de verdad.» Sin enlace de descarga. La CI estaba en verde.
+- https://github.com/ardu01/sopa-web/pull/18 contra `main`, fusionado (commit `b0ff1f6`). Rendimiento en móvil con Lighthouse: menos CSS en el simulador y en la ayuda, imágenes al ancho de la pantalla y JS minificado. La CI estaba en verde.
 
 ## En borrador
 
 - https://github.com/ardu01/sopa-web/pull/11 contra `main`, borrador, rama `cursor/descarga-siguiente-c470`. Ficha de descarga de la 1.13.x, apagada. Para activarla se edita `datos/descarga.js` (`version`, `urlInstalador`, `sha256`, `nombreArchivo`, `urlCodigoFuente` y `activa: true`) solo cuando el dueño haga públicas las releases. Hasta entonces no se fusiona y no se ofrecen esas descargas.
+- https://github.com/ardu01/sopa-web/pull/19 contra `main`, borrador, rama `cursor/novedades-c470`. Página Novedades. No está enlazada en el menú ni en el sitemap. No se fusiona y no se saca de borrador en este cierre.
 
-## En este turno (abierto, no fusionado)
+## En este turno
 
-Pasada de rendimiento con Lighthouse 12.8.2, preset móvil por defecto (412×823, DPR 1,75, red lenta simulada y CPU ×4), tres pasadas y mediana. Servido en local bajo `/sopa-web/`. Páginas: portada, simulador, índice de la ayuda y `ayuda/instalar-sopa-en-windows.html`. Los JSON no se publican: quedan fuera del repositorio.
-
-No cambia el texto ni el aspecto. `ayuda/sopa-deck.html` sigue diciendo que no se ha probado en un ordenador de verdad. No se ha tocado `descargas/` ni `datos/descarga.js`.
-
-- Portada: el `sizes` de las capturas de la app usa el ancho real (`100vw - 48px`), así el móvil pide el AVIF de 640 px y no el de 832. `app.js` se sirve minificado (`app.min.js`).
-- Simulador: deja de bajar el CSS de la portada que no usa (`comun.css` en su lugar). El logotipo de Inicio tiene copia a 192 px. `js/simulador.js` se sirve minificado.
-- Ayuda: una sola hoja `bloque-ayuda.css` (lo compartido, las guías y la ayuda), sin el CSS de la portada. El buscador va con `defer` y minificado.
-- `terser` 5.44.0 está fijado en `package.json`. `node scripts/empaquetar.mjs` regenera la hoja de la ayuda. Pages no ejecuta nada: los archivos resultantes van en el repositorio.
-- La caché y la compresión de texto las pone GitHub Pages. El servidor local de la medida no las envía, y no se pueden fijar en los archivos estáticos. Siguen saliendo en Lighthouse.
+Cierre de turno por orden del dueño. Solo se actualiza este archivo. No se toca el código, ni `descargas/`, ni `datos/descarga.js`. No se tocan los PR #11 ni #19.
 
 ## Pendiente
 
-Nada de esta pasada queda sin medir. Este turno lo deja en https://github.com/ardu01/sopa-web/pull/18, sin fusionar. No se empieza el arreglo de la 1.16.1. No se publica ninguna descarga de Sopa Deck.
+Para el próximo turno: ni Sopa Desktop 1.16.1 ni Sopa Deck 0.5.1 han pasado todavía la prueba en la torre. Cuando el Supervisor pase sus notas reales, rellenar https://github.com/ardu01/sopa-web/pull/19. La página dice 0.5.0: corregir a la versión que indique el Supervisor. Entonces enlazarla en el menú y en el pie, y añadirla al sitemap. Hasta ese momento #19 sigue en borrador y sin enlazar. #11 sigue en borrador. No se publica ninguna descarga de Sopa Deck.
 
 ## Bloqueado, a decisión del dueño
 
