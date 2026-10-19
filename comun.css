@@ -1,0 +1,56 @@
+/* Estilos compartidos (menú, tipo, pie). La portada sigue en estilos.css. */
+@font-face{font-family:"Inter";src:url("fonts/Inter-latin.woff2") format("woff2");font-weight:100 900;font-display:swap}
+:root{--bg:#F5F6F4;--surface:#fff;--border:#E3E6E2;--text:#141816;--text-2:#59625C;--accent:#1E8752;--accent-h:#1A7748;--dev:#7D6E50;
+--d-bg:#0F1211;--d-surface:#161A18;--d-border:#262C29;--d-text:#E9EDEA;--d-text-2:#A3ACA6;--d-accent:#45C486;
+--ease:cubic-bezier(.2,.8,.2,1);font-family:"Inter","Segoe UI Variable","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;font-size:17px;line-height:1.5}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+.cont{max-width:1080px;margin:0 auto;padding:0 24px}
+.nav{position:sticky;top:0;z-index:10;background:#F5F6F4cc;backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border)}
+.nav-in{max-width:1080px;margin:0 auto;padding:0 24px;height:52px;display:flex;align-items:center;gap:24px;font-size:13px}
+.marca{display:flex;align-items:center;gap:8px;font-weight:650;font-size:16px}
+.nav nav{display:flex;gap:22px;margin-left:auto;color:var(--text-2)}
+.nav nav a:hover{color:var(--text)}
+.saltar{position:absolute;left:12px;top:8px;z-index:30;transform:translateY(-160%);background:var(--accent);color:#fff;padding:10px 16px;border-radius:999px;font-weight:600;font-size:15px}
+.saltar:focus{transform:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.oscura :focus-visible{outline-color:#8EE0B5}
+.pill-dev{display:inline-block;border:1px dashed var(--dev);color:var(--dev);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:550;white-space:nowrap}
+.eyebrow{color:var(--accent);font-weight:600;font-size:17px;margin-bottom:10px}
+h1{font-size:clamp(44px,7.5vw,88px);line-height:1.04;letter-spacing:-.035em;font-weight:700}
+h2{font-size:clamp(34px,5.5vw,64px);line-height:1.06;letter-spacing:-.03em;font-weight:700}
+h3{font-size:21px;letter-spacing:-.01em;font-weight:650;margin-bottom:6px}
+.lead{font-size:clamp(19px,2.2vw,24px);color:var(--text-2);max-width:640px;margin:20px auto 0;line-height:1.4}
+.verde{color:var(--accent)}
+.btn{background:var(--accent);color:#fff;padding:12px 24px;border-radius:999px;font-weight:550;transition:background .12s var(--ease)}
+.btn:hover{background:var(--accent-h)}
+.enlace{color:var(--accent);font-weight:550}
+@media (prefers-reduced-motion:reduce){
+ .js .r,.faq summary::after,.btn,.guias-lista a{transition:none}
+ html{scroll-behavior:auto}
+}
+@media (max-width:900px){
+ .nav-in{height:auto;min-height:52px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+ .nav nav{order:3;width:100%;margin-left:0;flex-wrap:wrap;gap:4px 18px;padding:4px 0}
+ .nav nav a{padding:8px 0;font-size:15px}
+ .pill-dev{margin-left:auto}
+}
+@media (max-width:600px){
+ body{font-size:16px}
+ .pie{flex-direction:column}
+}
+.pie{padding:40px 24px 56px;color:var(--text-2);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--border)}
+.faq a,.pie p a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.pie p{max-width:640px}
+.pill-ok{display:inline-block;background:#1E87521A;color:var(--accent);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600}
+:root{--accent:#1A7748;--accent-h:#15663D}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pie-enlaces{display:flex;gap:20px;width:100%}
+.pie-enlaces a{color:var(--accent)}
+.pill-dev{color:#665A40;border-color:#665A40}
+.pill-proxima{white-space:normal;line-height:1.35;margin:0 8px 4px 0;vertical-align:middle}
+.oscura .pill-proxima{color:#E4D3AE;border-color:#E4D3AE}

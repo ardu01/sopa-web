@@ -35,7 +35,7 @@
 <link rel="icon" type="image/png" sizes="64x64" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/favicon-180.png">
 <link rel="preload" href="fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="comun.css">
 <link rel="stylesheet" href="simulador.css">
 </head>
 <body>
@@ -85,7 +85,7 @@
       </aside>
       <div class="lienzo" id="lienzo" tabindex="-1">
         <section class="vista" id="v-inicio" aria-labelledby="t-inicio">
-          <div class="logo-inicio logo-humo"><img class="humo h1" src="img/logo-vapor1-256.webp" alt="" width="96" height="96"><img class="humo h2" src="img/logo-vapor2-256.webp" alt="" width="96" height="96"><img class="humo h3" src="img/logo-vapor3-256.webp" alt="" width="96" height="96"><img class="cuenco" src="img/logo-cuenco-256.webp" alt="Logotipo de Sopa" width="96" height="96"></div>
+          <div class="logo-inicio logo-humo"><img class="humo h1" src="img/logo-vapor1-192.webp" srcset="img/logo-vapor1-192.webp 192w, img/logo-vapor1-256.webp 256w" sizes="96px" alt="" width="96" height="96"><img class="humo h2" src="img/logo-vapor2-192.webp" srcset="img/logo-vapor2-192.webp 192w, img/logo-vapor2-256.webp 256w" sizes="96px" alt="" width="96" height="96"><img class="humo h3" src="img/logo-vapor3-192.webp" srcset="img/logo-vapor3-192.webp 192w, img/logo-vapor3-256.webp 256w" sizes="96px" alt="" width="96" height="96"><img class="cuenco" src="img/logo-cuenco-192.webp" srcset="img/logo-cuenco-192.webp 192w, img/logo-cuenco-256.webp 256w" sizes="96px" alt="Logotipo de Sopa" width="96" height="96"></div>
           <div class="centro">
             <h2 id="t-inicio">Tu IA, en tu ordenador</h2>
             <p class="sub">Sopa comprueba tu equipo y solo te ofrece lo que de verdad funciona en él.</p>
@@ -526,6 +526,6 @@
   <p>Desarrollado por ArduSolutions.</p>
   <p>Esta web no usa cookies ni rastreadores.</p>
 </footer>
-<script src="js/simulador.js" defer></script>
+<script src="js/simulador.min.js" defer></script>
 </body>
 </html>
