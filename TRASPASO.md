@@ -2,7 +2,7 @@
 
 Fecha: 19 de octubre de 2026.
 
-El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cierre, es `b0ff1f6` (PR #18, fusionado). Este archivo es el cierre de turno: solo se actualiza este documento. El PR de este cierre se anota aquí cuando exista. No está fusionado.
+El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cierre, es `b0ff1f6` (PR #18, fusionado). Este archivo es el cierre de turno: solo se actualiza este documento. https://github.com/ardu01/sopa-web/pull/20 contra `main`, rama `cursor/cierre-turno-c470`. No está fusionado.
 
 ## Hecho (fusionado y publicado)
 
