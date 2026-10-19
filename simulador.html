@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Simulador de la interfaz de Sopa Desktop · Sopa™</title>
-<meta name="description" content="Recorre la interfaz de Sopa Desktop, beta 1.12.1: Inicio, Chat, documentos, memoria, modelos y ajustes. Es una simulación y no calcula velocidades.">
+<meta name="description" content="Recorre la interfaz de Sopa Desktop, beta 1.16.0: Inicio, Chat, documentos, memoria, modelos, entrenamiento y comparar. Es una simulación y no calcula velocidades.">
 <link rel="canonical" href="https://ardu01.github.io/sopa-web/simulador.html">
 <meta name="robots" content="index,follow">
 <meta name="author" content="Miguel Rodríguez Saiz">
@@ -16,17 +16,17 @@
 <meta property="og:site_name" content="Sopa">
 <meta property="og:url" content="https://ardu01.github.io/sopa-web/simulador.html">
 <meta property="og:title" content="Simulador de la interfaz de Sopa Desktop · Sopa™">
-<meta property="og:description" content="Así se ve Sopa Desktop en la beta 1.12.1. Simulación de la interfaz: no calcula velocidades ni descarga nada.">
+<meta property="og:description" content="Así se ve Sopa Desktop en la beta 1.16.0. Simulación de la interfaz: no calcula velocidades ni descarga nada.">
 <meta property="og:image" content="https://ardu01.github.io/sopa-web/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Logotipo de Sopa con el lema «Tu inteligencia artificial. Tu ordenador. Tus reglas.»">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Simulador de la interfaz de Sopa Desktop · Sopa™">
-<meta name="twitter:description" content="Así se ve Sopa Desktop en la beta 1.12.1. Simulación de la interfaz: no calcula velocidades ni descarga nada.">
+<meta name="twitter:description" content="Así se ve Sopa Desktop en la beta 1.16.0. Simulación de la interfaz: no calcula velocidades ni descarga nada.">
 <meta name="twitter:image" content="https://ardu01.github.io/sopa-web/img/og.png">
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "WebApplication", "name": "Simulador de la interfaz de Sopa", "url": "https://ardu01.github.io/sopa-web/simulador.html", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Cualquiera (navegador web)", "inLanguage": "es", "isAccessibleForFree": true, "description": "Simulación de la interfaz de Sopa Desktop, beta 1.12.1. No calcula velocidades ni descarga modelos.", "author": {"@type": "Person", "name": "Miguel Rodríguez Saiz"}, "isPartOf": {"@type": "WebSite", "name": "Sopa", "url": "https://ardu01.github.io/sopa-web/"}}
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Simulador de la interfaz de Sopa", "url": "https://ardu01.github.io/sopa-web/simulador.html", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Cualquiera (navegador web)", "inLanguage": "es", "isAccessibleForFree": true, "description": "Simulación de la interfaz de Sopa Desktop, beta 1.16.0. No calcula velocidades ni descarga modelos.", "author": {"@type": "Person", "name": "Miguel Rodríguez Saiz"}, "isPartOf": {"@type": "WebSite", "name": "Sopa", "url": "https://ardu01.github.io/sopa-web/"}}
 </script>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sopa", "item": "https://ardu01.github.io/sopa-web/"}, {"@type": "ListItem", "position": 2, "name": "Simulador", "item": "https://ardu01.github.io/sopa-web/simulador.html"}]}
@@ -52,7 +52,7 @@
     <nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="./">Sopa</a></li><li aria-current="page">Simulador</li></ol></nav>
     <p class="eyebrow">Interfaz</p>
     <h1>Así se ve Sopa en el ordenador</h1>
-    <p class="intro-txt">La descarga publicada sigue siendo la beta 1.9.4. Esta ventana enseña la interfaz de la beta 1.12.1, con sus textos. Los botones no instalan, no descargan y no se conectan. Las respuestas son de ejemplo y no incluyen velocidades.</p>
+    <p class="intro-txt">La descarga publicada sigue siendo la beta 1.9.4. Esta ventana enseña la interfaz de la beta 1.16.0, con sus textos. Los botones no instalan, no descargan y no se conectan. Las respuestas son de ejemplo. Esta simulación no calcula velocidades.</p>
     <p class="intro-txt">Lo que aún no está en la 1.9.4 lleva la etiqueta «En la próxima versión pública».</p>
   </section>
   <div class="marco-wrap">
@@ -70,6 +70,7 @@
             <button type="button" data-vista="memoria">Memoria</button>
             <button type="button" data-vista="modelos">Modelos</button>
             <button type="button" data-vista="entrenamiento">Entrenamiento</button>
+            <button type="button" data-vista="comparar">Comparar</button>
           </div>
           <p class="grupo-etiq" id="g-sis">Sistema</p>
           <div class="grupo" role="group" aria-labelledby="g-sis">
@@ -79,7 +80,7 @@
         </nav>
         <div class="pie-app">
           <p class="candado"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.75"/></svg><span id="pie-estado">Todo ocurre en este equipo</span></p>
-          <p>Versión 1.12.1 beta</p>
+          <p>Versión 1.16.0 beta</p>
         </div>
       </aside>
       <div class="lienzo" id="lienzo" tabindex="-1">
@@ -171,7 +172,8 @@
             <button type="button" class="btn" id="nueva">Nueva conversación</button>
           </div>
           <p class="ayuda">Ejemplo de lista. Estos nombres salen del catálogo publicado; aquí no hay ninguno descargado y no se dice por qué se elegiría uno.</p>
-          <p class="ayuda">Puedes escribir ya: se cargará al enviar. Para usar otro, elígelo arriba y pulsa «Cargar».</p>
+            <p class="ayuda">Puedes escribir ya: se cargará al enviar. Para usar otro, elígelo arriba y pulsa «Cargar».</p>
+            <p class="ayuda"><span class="pill-dev pill-proxima">En la próxima versión pública</span> La respuesta aparece mientras se escribe, con un cursor verde al final. El razonamiento y los bloques de herramienta van aparte y no se mezclan con ese texto. Los menús y los botones no cambian.</p>
           <div class="chat-cuerpo">
             <aside class="historial" aria-label="Historial">
               <p id="historial-vacio">Tus conversaciones se guardan aquí, en este equipo.</p>
@@ -269,6 +271,7 @@
             </label>
             <button type="button" class="btn" id="buscar-docs">Buscar</button>
             <p id="docs-res" class="ayuda" hidden></p>
+            <p class="nota-ej"><span class="pill-dev pill-proxima">En la próxima versión pública</span> En esta pantalla no cambia nada. Solo cambia el orden de los resultados: Sopa busca a la vez por las palabras y por el significado, junta las dos listas y pone delante lo que queda bien en las dos. Si un fragmento contiene más palabras de la pregunta, pasa delante.</p>
           </article>
           <article class="tarjeta">
             <h3>Documentos</h3>
@@ -303,7 +306,7 @@
           <article class="tarjeta">
             <h3>Catálogo</h3>
             <label class="casilla"><input type="checkbox" id="solo-aqui" checked> <span>Mostrar solo los que funcionan aquí</span></label>
-            <p class="nota-ej">Ejemplo de filas, con el nombre y el tamaño publicados. Chat y Entrenar los calcula la app en tu equipo: aquí van en blanco, sin tok/s y sin un «porque».</p>
+            <p class="nota-ej">Ejemplo de filas, con el nombre y el tamaño publicados. Chat y Entrenar los calcula la app en tu equipo: aquí van en blanco, sin tok/s y sin un «porque». Hay una medida de un equipo, no una promesa: en un PC con RTX 5070, Qwen3 4B corre en la gráfica a unos 61 tok/s. No es la velocidad de tu ordenador.</p>
             <div class="nota-ej">
               <p><span class="pill-dev pill-proxima">En la próxima versión pública</span> Si falla una descarga, la app lo dice en español y añade «Pulsa «Continuar» para reintentar.» Estos textos son de ejemplo. No se descarga nada.</p>
               <ul>
@@ -346,9 +349,22 @@
         <section class="vista" id="v-entrenamiento" hidden aria-labelledby="t-ent">
           <h2 id="t-ent">Entrenamiento</h2>
           <p class="sub">Enséñale a un modelo con tus ejemplos para que responda a tu manera. Todo se queda en tu equipo.</p>
+          <article class="tarjeta" aria-labelledby="t-preparar">
+            <h3 id="t-preparar">Preparar ejemplos <span class="pill-dev pill-proxima">En la próxima versión pública</span></h3>
+            <p class="sub">De un documento, de conversaciones exportadas o de un Excel. El archivo que sale ya vale para el paso 2.</p>
+            <p class="fila">
+              <label class="btn" for="origen">Elegir origen...</label>
+              <input id="origen" class="sr" type="file" accept=".txt,.md,.html,.pdf,.docx,.sopachats,.xlsx,.xls,.xlsm,.csv">
+              <span id="origen-nombre"></span>
+            </p>
+            <p><button type="button" class="btn-p" id="crear-ejemplos" disabled>Crear ejemplos</button></p>
+            <p class="ayuda">Un documento (.txt, .md, .html, .pdf o .docx) se parte en textos. Unas conversaciones (.sopachats) pasan a un chat por conversación, y hace falta una respuesta al final. En un Excel, la primera fila son los nombres: pregunta y respuesta, o instrucción y respuesta, se respetan; si no, la primera columna es la pregunta y las demás la respuesta. Una sola columna se guarda como texto.</p>
+            <p id="preparar-res" class="resultado-normal" hidden></p>
+            <p class="nota-ej">Esta simulación no llama al modelo. En un texto cuenta los párrafos separados por una línea en blanco: ese número es el de esta página, no el de la app. Un archivo con macros no se lee. PDF, Word, Excel y .sopachats no se abren aquí.</p>
+          </article>
           <ol class="tarjeta">
             <li><h3>Elige el modelo</h3><label class="campo"><span class="sr">Modelo para entrenar</span><select><option>Qwen2.5 0.5B Instruct — ejemplo</option></select></label></li>
-            <li><h3>Elige tus ejemplos</h3><p class="ayuda">Un archivo con preguntas y la respuesta que te gustaría (CSV o JSONL); cuantos más, mejor</p><button type="button" class="btn">Elegir archivo…</button></li>
+            <li><h3>Elige tus ejemplos</h3><p class="ayuda">Un archivo con preguntas y la respuesta que te gustaría (CSV o JSONL); cuantos más, mejor</p><p class="fila"><button type="button" class="btn">Elegir archivo…</button><span id="paso2-nombre"></span></p><p id="paso2-res" class="resultado-normal" hidden></p></li>
             <li><h3>¿Cuánto quieres que aprenda?</h3><label class="casilla"><input type="radio" name="ritmo" value="rapido"> <span>Rápido</span></label><label class="casilla"><input type="radio" name="ritmo" value="normal" checked> <span>Normal</span></label><label class="casilla"><input type="radio" name="ritmo" value="intenso"> <span>Intenso</span></label></li>
             <li><h3>Ponle nombre</h3><label class="campo"><span class="sr">Nombre del modelo</span><input type="text" placeholder="mi-asistente"></label></li>
           </ol>
@@ -357,6 +373,33 @@
             <p class="nota-ej">En la app, aquí aparece el tiempo medido o aproximado. Esta simulación no lo calcula.</p>
             <p class="fila"><button type="button" class="btn-p" id="entrenar">Empezar a entrenar</button><button type="button" class="btn" id="detener">Detener</button></p>
           </article>
+        </section>
+
+        <section class="vista" id="v-comparar" hidden aria-labelledby="t-cmp">
+          <h2 id="t-cmp">Comparar <span class="pill-dev pill-proxima">En la próxima versión pública</span></h2>
+          <p class="sub">La misma pregunta, primero con el modelo base y después con el personalizado. Solo cabe uno en memoria, así que van uno detrás de otro.</p>
+          <p id="cmp-aviso" class="aviso-app info" role="status"></p>
+          <label class="campo" for="cmp-modelo">Modelo personalizado
+            <select id="cmp-modelo">
+              <option value=""></option>
+              <option value="mi-asistente" selected>mi-asistente</option>
+            </select>
+          </label>
+          <label class="campo" for="cmp-pregunta">Pregunta
+            <textarea id="cmp-pregunta" placeholder="Escribe la pregunta que verán los dos modelos..."></textarea>
+          </label>
+          <p><button type="button" class="btn-p" id="cmp-btn">Comparar</button></p>
+          <div class="dos-col">
+            <article>
+              <h3 id="cmp-base-t">Base · Qwen3.5 0.8B</h3>
+              <p id="cmp-base" class="resultado-normal"></p>
+            </article>
+            <article>
+              <h3 id="cmp-per-t">Personalizado · mi-asistente</h3>
+              <p id="cmp-per" class="resultado-normal"></p>
+            </article>
+          </div>
+          <p class="nota-ej">Esta simulación no descarga «Qwen3.5 0.8B». Si falta, el botón queda desactivado y no descarga nada solo. <button type="button" class="btn" id="cmp-ejemplo">Ver el ejemplo con el modelo base</button> Las dos respuestas usan la misma temperatura, sin herramientas, sin web y sin agentes. El texto es de ejemplo: no lo ha escrito un modelo.</p>
         </section>
 
         <section class="vista" id="v-ajustes" hidden aria-labelledby="t-aju">
