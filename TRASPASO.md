@@ -2,7 +2,7 @@
 
 Fecha: 19 de octubre de 2026.
 
-El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `be82eeb` (PR #15, fusionado). Este archivo acompaña la página de ayuda «¿Está usando mi gráfica?» y el matiz de cuatro funciones que aún no van bien. Ese cambio es https://github.com/ardu01/sopa-web/pull/16 y no está fusionado.
+El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `37cfb19` (PR #16, fusionado por el dueño el 19 de octubre de 2026). Este archivo acompaña la ayuda de Sopa Deck. El PR de este cambio se anota aquí cuando exista. No está fusionado.
 
 ## Hecho (fusionado y publicado)
 
@@ -31,22 +31,17 @@ La descarga pública sigue siendo la beta 1.9.4. Lo posterior lleva «En la pró
 
 - https://github.com/ardu01/sopa-web/pull/11 contra `main`, borrador, rama `cursor/descarga-siguiente-c470`. Ficha de descarga de la 1.13.x, apagada. Para activarla se edita `datos/descarga.js` (`version`, `urlInstalador`, `sha256`, `nombreArchivo`, `urlCodigoFuente` y `activa: true`) solo cuando el dueño haga públicas las releases. Hasta entonces no se fusiona y no se ofrecen esas descargas.
 
+- https://github.com/ardu01/sopa-web/pull/16 contra `main`, fusionado el 19 de octubre de 2026 por el dueño (commit `37cfb19`). Página `ayuda/esta-usando-mi-grafica.html` y el matiz «En pruebas; se está puliendo para la próxima versión.» en el streaming de respuestas largas, la búsqueda web y los agentes. El Markdown de las respuestas no se presentaba como función que ya va bien. La CI estaba en verde.
+
 ## En este turno (abierto, no fusionado)
 
-Página nueva `ayuda/esta-usando-mi-grafica.html`, «¿Está usando mi gráfica?». Explica, en llano, el Administrador de tareas (Ctrl+Mayús+Esc), la pestaña Rendimiento y GPU: la memoria dedicada sube al cargar el modelo y se queda ocupada; el porcentaje solo sube mientras Sopa responde; en reposo un 0 % es normal. Entra en el índice de la ayuda, en Elegir un modelo, en Problemas frecuentes y en `sitemap.xml`. Sin enlaces privados.
+Página nueva `ayuda/sopa-deck.html`. El iPad controla el PC con Windows. Toda la página lleva «En la próxima versión pública». Pasos en llano: el aviso azul «Windows protegió su PC» («Más información» y «Ejecutar de todas formas»), la ventana de permiso («Sí»), la misma Wi-Fi y el código QR del PC, no abrir a la vez la versión portátil antigua, y el cortafuegos solo en red privada. Entra en el índice de la ayuda, en la ficha de la portada, en dos guías que ya nombraban Sopa Deck y en `sitemap.xml`. Sin enlace de descarga y sin enlaces a repos ni releases de Sopa-IA.
 
-En el equipo real del dueño fallan el streaming de respuestas largas, la búsqueda web, el Markdown en las respuestas y los agentes. Se pulen para la 1.16.1. En la web no se cuentan esos fallos ni se pone fecha. Donde esas funciones salían como si ya fueran bien, el texto dice «En pruebas; se está puliendo para la próxima versión.» Se mantiene la etiqueta «En la próxima versión pública».
-
-- Streaming de respuestas largas: nota del chat en el simulador y «Mientras se escribe» en El primer chat, más su fuente.
-- Búsqueda web: portada (sección, privacidad y las dos preguntas frecuentes, también el JSON-LD), Ajustes del simulador, El primer chat, y las guías «Qué es una IA local», «IA local en Windows sin programar» e «IA local frente a la nube».
-- Agentes del chat (Documentos, Archivos, Investigación, Automatizaciones y la pantalla Agentes): portada, simulador (selector, pantalla Agentes y el límite desde el móvil), El primer chat, Tus documentos, Automatizaciones (solo el agente del chat; la tarjeta de Ajustes de la 1.9 se queda), Sopa Mobile y la guía «Cómo resumir tus documentos».
-- Markdown en las respuestas: no había ninguna página que lo presentara como función que ya va bien. Los `.md` que quedan son el tipo de archivo (leer, crear o guardar una conversación como texto). No se ha añadido una sección nueva.
-
-La base del asistente de la 1.4 (leer, buscar y resumir archivos) y las automatizaciones de Ajustes de la 1.9 no se han bajado de «ya funciona».
+Lo que no se promete, y la página lo dice: versión de prueba, sin fecha, todavía no probada en un ordenador de verdad, instalador sin firmar, sin Mac ni Linux, sin app de tienda, no funciona fuera de casa ni por internet, no es un escritorio remoto ni una pantalla extendida, y la app de la pantalla de inicio que funciona sin conexión todavía se está haciendo.
 
 ## Pendiente
 
-Nada de esta página ni de estos matices queda sin empezar. Este turno lo deja en el PR, sin fusionar. No se empieza el arreglo de la 1.16.1.
+Nada de esta página queda sin empezar. Este turno lo deja en el PR, sin fusionar. No se empieza el arreglo de la 1.16.1. No se publica ninguna descarga de Sopa Deck.
 
 ## Bloqueado, a decisión del dueño
 
@@ -70,4 +65,4 @@ Nada de esta página ni de estos matices queda sin empezar. Este turno lo deja e
 - «HTML válido y enlaces internos» corre en cada pull request y al hacer push a `main`. html-validate 10.5.0 y axe-core 4.10.3 están fijados. El workflow instala npm 11.21.1 y con él hace `npm ci`: el npm 10.9.9 de Node 22.23 falla al instalar el validador. Axe usa `prefers-reduced-motion` para no medir texto todavía invisible. Si el runner no trae Chrome, descarga Chrome headless 131. GitHub Pages publica `main` aparte, con `pages-build-deployment`.
 - «Enlaces externos» corre en cada pull request y, en `main`, cada lunes. No comprueba el envío del formulario de fallos. El formulario sigue con el destino que ya tenía.
 - El simulador no calcula velocidades. Las respuestas son de ejemplo y no copian el texto preparado de las pruebas de Windows. El pie de esa ventana dice «Versión 1.16.0 beta». Las automatizaciones están en Ajustes, no en la barra.
-- El centro de ayuda está en `ayuda/`. Hay página de Comparar, Preparar ejemplos está dentro de Entrenamiento, y «¿Está usando mi gráfica?» explica el Administrador de tareas. La instalación que se puede hacer hoy es la beta 1.9.4, a mano: el actualizador no ofrece la 1.12.1 ni ninguna posterior.
+- El centro de ayuda está en `ayuda/`. Hay página de Comparar, Preparar ejemplos está dentro de Entrenamiento, «¿Está usando mi gráfica?» explica el Administrador de tareas, y Sopa Deck explica instalar, vincular el iPad y los avisos de Windows. La instalación que se puede hacer hoy es la beta 1.9.4, a mano: el actualizador no ofrece la 1.12.1 ni ninguna posterior. Sopa Deck no tiene descarga en esta web.
