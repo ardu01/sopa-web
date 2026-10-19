@@ -42,6 +42,7 @@ const paginas = [
   "/ayuda/sopa-mobile.html",
   "/ayuda/sopa-deck.html",
   "/ayuda/problemas-frecuentes.html",
+  "/novedades.html",
 ];
 
 function esperarPuerto() {

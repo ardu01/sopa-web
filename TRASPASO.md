@@ -2,7 +2,7 @@
 
 Fecha: 19 de octubre de 2026.
 
-El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil: https://github.com/ardu01/sopa-web/pull/18 contra `main`, rama `cursor/rendimiento-lighthouse-c470`. No está fusionado.
+El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `b0ff1f6` (PR #18, fusionado). Este archivo acompaña la página Novedades, en borrador. El PR de este cambio se anota aquí cuando exista. No está fusionado y no se saca de borrador.
 
 ## Hecho (fusionado y publicado)
 
@@ -29,26 +29,27 @@ La descarga pública sigue siendo la beta 1.9.4. Lo posterior lleva «En la pró
 
 - https://github.com/ardu01/sopa-web/pull/16 contra `main`, fusionado el 19 de octubre de 2026 por el dueño (commit `37cfb19`). Página `ayuda/esta-usando-mi-grafica.html` y el matiz «En pruebas; se está puliendo para la próxima versión.» en el streaming de respuestas largas, la búsqueda web y los agentes. El Markdown de las respuestas no se presentaba como función que ya va bien. La CI estaba en verde.
 - https://github.com/ardu01/sopa-web/pull/17 contra `main`, fusionado (commit `34c8855`). Ayuda de Sopa Deck. Toda la página lleva «En la próxima versión pública». Sigue diciendo que todavía no se ha probado en un ordenador de verdad. Sin enlace de descarga. La CI estaba en verde.
+- https://github.com/ardu01/sopa-web/pull/18 contra `main`, fusionado (commit `b0ff1f6`). Pasada de rendimiento con Lighthouse en móvil. Menos CSS en el simulador y en la ayuda, imágenes al ancho de la pantalla y JS minificado. La CI estaba en verde. El dueño lo fusionó.
 
 ## En borrador
 
 - https://github.com/ardu01/sopa-web/pull/11 contra `main`, borrador, rama `cursor/descarga-siguiente-c470`. Ficha de descarga de la 1.13.x, apagada. Para activarla se edita `datos/descarga.js` (`version`, `urlInstalador`, `sha256`, `nombreArchivo`, `urlCodigoFuente` y `activa: true`) solo cuando el dueño haga públicas las releases. Hasta entonces no se fusiona y no se ofrecen esas descargas.
 
-## En este turno (abierto, no fusionado)
+## En este turno (borrador, no fusionado)
 
-Pasada de rendimiento con Lighthouse 12.8.2, preset móvil por defecto (412×823, DPR 1,75, red lenta simulada y CPU ×4), tres pasadas y mediana. Servido en local bajo `/sopa-web/`. Páginas: portada, simulador, índice de la ayuda y `ayuda/instalar-sopa-en-windows.html`. Los JSON no se publican: quedan fuera del repositorio.
+Página `novedades.html`, con el CSS ya optimizado del sitio (`bloque-ayuda.css`). Toda la página lleva «En la próxima versión pública». Lenguaje llano. No se ha tocado `descargas/` ni `datos/descarga.js`. No hay enlaces de descarga ni enlaces privados. No hay precios ni datos personales.
 
-No cambia el texto ni el aspecto. `ayuda/sopa-deck.html` sigue diciendo que no se ha probado en un ordenador de verdad. No se ha tocado `descargas/` ni `datos/descarga.js`.
-
-- Portada: el `sizes` de las capturas de la app usa el ancho real (`100vw - 48px`), así el móvil pide el AVIF de 640 px y no el de 832. `app.js` se sirve minificado (`app.min.js`).
-- Simulador: deja de bajar el CSS de la portada que no usa (`comun.css` en su lugar). El logotipo de Inicio tiene copia a 192 px. `js/simulador.js` se sirve minificado.
-- Ayuda: una sola hoja `bloque-ayuda.css` (lo compartido, las guías y la ayuda), sin el CSS de la portada. El buscador va con `defer` y minificado.
-- `terser` 5.44.0 está fijado en `package.json`. `node scripts/empaquetar.mjs` regenera la hoja de la ayuda. Pages no ejecuta nada: los archivos resultantes van en el repositorio.
-- La caché y la compresión de texto las pone GitHub Pages. El servidor local de la medida no las envía, y no se pueden fijar en los archivos estáticos. Siguen saliendo en Lighthouse.
+- Sopa Desktop 1.14.0: la respuesta del chat aparece mientras se escribe, con un cursor verde. El razonamiento y las herramientas van aparte. El streaming de respuestas largas va como «En pruebas; se está puliendo para la próxima versión.» El instalador pesa 55,6 MB (antes 66,4).
+- Sopa Desktop 1.15.0: pantalla «Comparar» (la misma pregunta al modelo base y al personalizado, uno detrás de otro) y mejor orden en Tus documentos al juntar la búsqueda por palabras y por significado.
+- Sopa Desktop 1.16.0: tarjeta «Preparar ejemplos» en Entrenamiento, desde un documento, conversaciones exportadas o un Excel.
+- Sopa Desktop 1.16.1 y Sopa Deck 0.5.0: solo el hueco visible «Notas pendientes de publicar». Un comentario HTML indica dónde rellenar. No se ha inventado el contenido.
+- La búsqueda web y los agentes llevan el mismo matiz de «en pruebas». El Markdown de las respuestas no se presenta como función terminada.
+- No está en la navegación ni en el pie ni en `sitemap.xml`. Al activarla hay que añadirla al menú, al pie y al sitemap. Hasta entonces el PR se queda en borrador.
+- Espera las notas reales de la 1.16.1 y de Sopa Deck 0.5.0 tras la prueba en la torre.
 
 ## Pendiente
 
-Nada de esta pasada queda sin medir. Este turno lo deja en https://github.com/ardu01/sopa-web/pull/18, sin fusionar. No se empieza el arreglo de la 1.16.1. No se publica ninguna descarga de Sopa Deck.
+Este turno lo deja en borrador, sin fusionar y sin sacar de borrador. Al activar Novedades: enlace en la navegación y en el pie, y entrada en `sitemap.xml`. Rellenar la 1.16.1 y Deck 0.5.0 cuando existan las notas de la prueba en la torre. No se publica ninguna descarga de Sopa Deck.
 
 ## Bloqueado, a decisión del dueño
 
@@ -73,3 +74,4 @@ Nada de esta pasada queda sin medir. Este turno lo deja en https://github.com/ar
 - «Enlaces externos» corre en cada pull request y, en `main`, cada lunes. No comprueba el envío del formulario de fallos. El formulario sigue con el destino que ya tenía.
 - El simulador no calcula velocidades. Las respuestas son de ejemplo y no copian el texto preparado de las pruebas de Windows. El pie de esa ventana dice «Versión 1.16.0 beta». Las automatizaciones están en Ajustes, no en la barra.
 - El centro de ayuda está en `ayuda/`. Hay página de Comparar, Preparar ejemplos está dentro de Entrenamiento, «¿Está usando mi gráfica?» explica el Administrador de tareas, y Sopa Deck explica instalar, vincular el iPad y los avisos de Windows. La instalación que se puede hacer hoy es la beta 1.9.4, a mano: el actualizador no ofrece la 1.12.1 ni ninguna posterior. Sopa Deck no tiene descarga en esta web.
+- `novedades.html` existe y no está enlazada. Al activarla hay que ponerla en el menú, en el pie y en `sitemap.xml`. La 1.16.1 y Sopa Deck 0.5.0 siguen en «Notas pendientes de publicar».
