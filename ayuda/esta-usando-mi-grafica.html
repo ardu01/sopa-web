@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>¿Está usando mi gráfica? · Ayuda · Sopa™</title>
+<meta name="description" content="Cómo mirar en el Administrador de tareas de Windows si Sopa está usando la gráfica: la memoria dedicada y el uso mientras responde.">
+<link rel="canonical" href="https://ardu01.github.io/sopa-web/ayuda/esta-usando-mi-grafica.html">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Miguel Rodríguez Saiz">
+<meta name="theme-color" content="#F5F6F4">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Sopa">
+<meta property="og:url" content="https://ardu01.github.io/sopa-web/ayuda/esta-usando-mi-grafica.html">
+<meta property="og:title" content="¿Está usando mi gráfica? · Ayuda · Sopa™">
+<meta property="og:description" content="Cómo mirar en el Administrador de tareas de Windows si Sopa está usando la gráfica: la memoria dedicada y el uso mientras responde.">
+<meta property="og:image" content="https://ardu01.github.io/sopa-web/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logotipo de Sopa con el lema «Tu inteligencia artificial. Tu ordenador. Tus reglas.»">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="¿Está usando mi gráfica? · Ayuda · Sopa™">
+<meta name="twitter:description" content="Cómo mirar en el Administrador de tareas de Windows si Sopa está usando la gráfica: la memoria dedicada y el uso mientras responde.">
+<meta name="twitter:image" content="https://ardu01.github.io/sopa-web/img/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"¿Está usando mi gráfica?","description":"Cómo mirar en el Administrador de tareas si Sopa está usando la gráfica.","inLanguage":"es","step":[{"@type":"HowToStep","name":"Abre el Administrador de tareas","text":"Pulsa Ctrl+Mayús+Esc.","url":"https://ardu01.github.io/sopa-web/ayuda/esta-usando-mi-grafica.html#abre-el-administrador"},{"@type":"HowToStep","name":"Abre Rendimiento y luego GPU","text":"En la pestaña Rendimiento, elige GPU.","url":"https://ardu01.github.io/sopa-web/ayuda/esta-usando-mi-grafica.html#rendimiento-gpu"},{"@type":"HowToStep","name":"Mira la memoria y el uso","text":"La memoria dedicada sube al cargar el modelo y se queda. El uso solo sube mientras Sopa responde. En reposo, un 0 % es normal.","url":"https://ardu01.github.io/sopa-web/ayuda/esta-usando-mi-grafica.html#que-mirar"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Sopa","item":"https://ardu01.github.io/sopa-web/"},{"@type":"ListItem","position":2,"name":"Ayuda","item":"https://ardu01.github.io/sopa-web/ayuda/"},{"@type":"ListItem","position":3,"name":"¿Está usando mi gráfica?","item":"https://ardu01.github.io/sopa-web/ayuda/esta-usando-mi-grafica.html"}]}</script>
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="apple-touch-icon" href="../img/favicon-180.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="preload" href="../fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../estilos.css">
+<link rel="stylesheet" href="../guias.css">
+<link rel="stylesheet" href="../ayuda.css">
+</head>
+<body>
+<header class="nav">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="nav-in">
+<a href="../" class="marca"><img src="../img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
+<nav aria-label="Secciones"><a href="../#funciones">Funciones</a><a href="../#modelos">Modelos</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../ayuda/" aria-current="page">Ayuda</a><a href="../simulador.html">Simulador</a></nav>
+<span class="pill-dev">Beta 1.9.4</span>
+</div>
+</header>
+<main id="contenido" tabindex="-1" class="guia ayuda">
+<nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="../">Sopa</a></li><li><a href="./">Ayuda</a></li><li aria-current="page">¿Está usando mi gráfica?</li></ol></nav>
+<article class="cont-guia">
+<p class="eyebrow">Ayuda</p>
+<h1>¿Está usando mi gráfica?</h1>
+<p class="lead">Windows te lo enseña en el Administrador de tareas. No hace falta instalar nada ni saber de ordenadores.</p>
+<p class="autor">Por <strong>Miguel Rodríguez Saiz</strong>, creador de Sopa</p>
+<nav class="indice" aria-labelledby="indice-t"><h2 id="indice-t">En esta página</h2><ol><li><a href="#abre-el-administrador">Abre el Administrador de tareas</a></li><li><a href="#rendimiento-gpu">Rendimiento y GPU</a></li><li><a href="#que-mirar">Qué es normal ver</a></li></ol></nav>
+
+<h2 id="abre-el-administrador">Abre el Administrador de tareas</h2>
+<ol class="pasos">
+<li><h3 id="el-atajo">Pulsa Ctrl+Mayús+Esc</h3><p>Las tres teclas a la vez. Se abre una ventana de Windows que se llama Administrador de tareas.</p></li>
+</ol>
+
+<h2 id="rendimiento-gpu">Rendimiento y GPU</h2>
+<ol class="pasos">
+<li><h3 id="pestana">Pulsa la pestaña «Rendimiento»</h3><p>Está arriba de esa ventana.</p></li>
+<li><h3 id="elige-gpu">Pulsa «GPU»</h3><p>Está en la lista de la izquierda. Si hay más de una, elige la tarjeta del equipo. El nombre lo pone Windows; esta página no lo copia.</p></li>
+</ol>
+<p>Deja esa ventana a la vista y vuelve a Sopa.</p>
+
+<h2 id="que-mirar">Qué es normal ver</h2>
+<ol class="pasos">
+<li><h3 id="al-cargar">Carga un modelo en Sopa</h3><p>La memoria dedicada de la GPU sube en ese momento. Se queda ocupada mientras el modelo sigue cargado. No baja al terminar una frase.</p></li>
+<li><h3 id="al-responder">Pídele algo en el chat</h3><p>El uso de la GPU, el porcentaje, solo sube mientras Sopa está respondiendo.</p></li>
+<li><h3 id="en-reposo">Cuando ya ha terminado</h3><p>En reposo es normal ver un 0 %. La memoria dedicada puede seguir ocupada: el modelo sigue ahí, listo para la siguiente pregunta.</p></li>
+</ol>
+<p>Si no aparece ninguna GPU, Windows no está mostrando una gráfica. Sopa puede responder igual con el procesador. En el chat lo dice: «en el procesador (irá más lento)». Cómo elegir un modelo que quepa está en <a href="elegir-un-modelo.html">Elegir un modelo</a>.</p>
+<section class="fuentes-guia" aria-labelledby="fuentes-t"><h2 id="fuentes-t">Fuentes</h2><ul><li>El Administrador de tareas de Windows: pestaña Rendimiento y GPU. No hay enlace externo.</li><li>La memoria dedicada sube al cargar el modelo y se queda ocupada. El porcentaje de uso solo sube mientras Sopa responde. En reposo, un 0 % es normal.</li><li>Si el modelo queda en el procesador, el chat lo dice. Ya está en la beta publicada.</li></ul></section><aside class="otras"><h2>Otras páginas de la ayuda</h2><ul><li><a href="el-primer-chat.html">El primer chat</a></li><li><a href="elegir-un-modelo.html">Elegir un modelo</a></li><li><a href="esta-usando-mi-grafica.html">¿Está usando mi gráfica?</a></li><li><a href="tus-documentos.html">Tus documentos</a></li><li><a href="memoria.html">Memoria</a></li><li><a href="entrenamiento.html">Entrenamiento</a></li><li><a href="comparar.html">Comparar</a></li><li><a href="automatizaciones.html">Automatizaciones</a></li><li><a href="sopa-mobile.html">Sopa Mobile</a></li><li><a href="problemas-frecuentes.html">Problemas frecuentes</a></li></ul></aside>
+<p><a class="enlace" href="./">Volver a la ayuda ›</a></p>
+</article>
+</main>
+<footer class="cont pie">
+<nav class="pie-enlaces" aria-label="Enlaces del pie"><a href="../">Inicio</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../ayuda/">Ayuda</a><a href="../simulador.html">Simulador</a></nav>
+<p>© 2026 Miguel Rodríguez Saiz. Sopa es software libre, con licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a> (<a href="../LICENSE">LICENSE</a>). El nombre y el logotipo de Sopa no se licencian. Qwen, Phi, Gemma, Granite, Llama, DeepSeek, Mistral y gpt-oss son marcas de sus titulares; sin afiliación.</p>
+<p>Desarrollado por ArduSolutions.</p>
+<p>Esta web no usa cookies ni rastreadores.</p>
+</footer>
+</body>
+</html>

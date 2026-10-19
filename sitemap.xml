@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ardu01.github.io/sopa-web/</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ardu01.github.io/sopa-web/</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://ardu01.github.io/sopa-web/simulador.html</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://ardu01.github.io/sopa-web/guias/</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://ardu01.github.io/sopa-web/guias/que-es-una-ia-local.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://ardu01.github.io/sopa-web/guias/ia-local-en-windows-sin-programar.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ardu01.github.io/sopa-web/guias/que-es-una-ia-local.html</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://ardu01.github.io/sopa-web/guias/ia-local-en-windows-sin-programar.html</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://ardu01.github.io/sopa-web/guias/cuanta-vram-necesito.html</loc><lastmod>2026-10-18</lastmod></url>
   <url><loc>https://ardu01.github.io/sopa-web/guias/como-elegir-un-modelo.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://ardu01.github.io/sopa-web/guias/ia-local-frente-a-la-nube.html</loc><lastmod>2026-10-18</lastmod></url>
-  <url><loc>https://ardu01.github.io/sopa-web/guias/como-resumir-tus-documentos.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://ardu01.github.io/sopa-web/guias/ia-local-frente-a-la-nube.html</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://ardu01.github.io/sopa-web/guias/como-resumir-tus-documentos.html</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://ardu01.github.io/sopa-web/guias/que-es-la-cuantizacion.html</loc><lastmod>2026-10-18</lastmod></url>
   <url><loc>https://ardu01.github.io/sopa-web/enlazar-movil/</loc><lastmod>2026-10-18</lastmod></url>
   <url><loc>https://ardu01.github.io/sopa-web/fallos/</loc><lastmod>2026-10-18</lastmod></url>
@@ -16,6 +16,7 @@
   <url><loc>https://ardu01.github.io/sopa-web/ayuda/instalar-sopa-en-windows.html</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://ardu01.github.io/sopa-web/ayuda/el-primer-chat.html</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://ardu01.github.io/sopa-web/ayuda/elegir-un-modelo.html</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://ardu01.github.io/sopa-web/ayuda/esta-usando-mi-grafica.html</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://ardu01.github.io/sopa-web/ayuda/tus-documentos.html</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://ardu01.github.io/sopa-web/ayuda/memoria.html</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://ardu01.github.io/sopa-web/ayuda/entrenamiento.html</loc><lastmod>2026-10-19</lastmod></url>
