@@ -3,7 +3,10 @@
   "use strict";
   var marco = document.getElementById("marco");
   var toastT;
-  var VISTAS = ["inicio", "chat", "agentes", "documentos", "memoria", "modelos", "entrenamiento", "ajustes", "registro"];
+  var VISTAS = ["inicio", "chat", "agentes", "documentos", "memoria", "modelos", "entrenamiento", "comparar", "ajustes", "registro"];
+  var escritura = 0;
+  var baseEjemplo = false;
+  var cmpGen = 0;
 
   function $(id) { return document.getElementById(id); }
   function esc(s) {
@@ -98,13 +101,36 @@
     b.addEventListener("click", function () { $("mensaje").value = b.textContent; $("mensaje").focus(); });
   });
 
-  function ejemploRespuesta(pregunta) {
-    var trozos = ["Ejemplo de respuesta. En tu ordenador la escribe el modelo. Esta página no calcula ninguna velocidad."];
-    if ($("agente").value === "investigacion" && !webEncendida()) {
-      trozos.unshift("Buscar en la web está apagado. Uso solo los documentos de este equipo.");
+  function escribir(destino, texto, alFinal) {
+    escritura += 1;
+    var marca = escritura;
+    var reducido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducido) {
+      destino.textContent = texto;
+      if (alFinal) alFinal();
+      return;
     }
-    if (webEncendida()) trozos.push("He buscado «" + pregunta.slice(0, 80) + "» en la web.");
-    return trozos.join(" ");
+    var i = 0;
+    var cursor = document.createElement("span");
+    cursor.className = "cursor-verde";
+    cursor.setAttribute("aria-hidden", "true");
+    destino.replaceChildren(cursor);
+    var id = setInterval(function () {
+      if (marca !== escritura) { clearInterval(id); return; }
+      i += 1;
+      destino.replaceChildren(document.createTextNode(texto.slice(0, i)), cursor);
+      if (i >= texto.length) {
+        clearInterval(id);
+        cursor.remove();
+        if (alFinal) alFinal();
+      }
+    }, 16);
+  }
+  function bloque(texto) {
+    var p = document.createElement("p");
+    p.className = "bloque";
+    p.textContent = texto;
+    return p;
   }
   $("enviar").addEventListener("click", function () {
     var texto = $("mensaje").value.trim();
@@ -117,9 +143,26 @@
     yo.lastChild.textContent = texto;
     var ia = document.createElement("div");
     ia.className = "burbuja";
-    ia.innerHTML = '<p class="quien">Ejemplo · Sopa</p><p></p>';
-    ia.lastChild.textContent = ejemploRespuesta(texto);
+    var quien = document.createElement("p");
+    quien.className = "quien";
+    quien.textContent = "Ejemplo · Sopa";
+    ia.appendChild(quien);
+    if ($("pensar").checked) {
+      ia.appendChild(bloque("Ejemplo de razonamiento, aparte de la respuesta. No se escribe dentro del texto."));
+    }
+    if ($("agente").value !== "chat") {
+      ia.appendChild(bloque("Ejemplo de bloque de herramienta, aparte de la respuesta."));
+    }
+    if ($("agente").value === "investigacion" && !webEncendida()) {
+      ia.appendChild(bloque("Buscar en la web está apagado. Uso solo los documentos de este equipo."));
+    }
+    if (webEncendida()) {
+      ia.appendChild(bloque("He buscado «" + texto.slice(0, 80) + "» en la web."));
+    }
+    var resp = document.createElement("p");
+    ia.appendChild(resp);
     lista.append(yo, ia);
+    escribir(resp, "Ejemplo de respuesta. En tu ordenador la escribe el modelo. Esta página no calcula ninguna velocidad.");
     $("mensaje").value = "";
     var item = document.createElement("li");
     var abrir = document.createElement("button");
@@ -243,7 +286,8 @@
     toast("Ejemplo: aquí no se instala nada. El registro sigue vacío.");
     ir("registro");
   });
-  $("ver-modelos").addEventListener("click", function () { ir("modelos"); });
+  var verModelos = $("ver-modelos");
+  if (verModelos) verModelos.addEventListener("click", function () { ir("modelos"); });
   $("empezar-chat").addEventListener("click", function () { ir("chat"); });
 
   document.querySelectorAll("[data-descarga]").forEach(function (b) {
@@ -268,9 +312,134 @@
   $("detener").addEventListener("click", function () { toast("Ejemplo: no hay un entrenamiento en curso."); });
   $("lanzar").addEventListener("click", function () { toast("Elige un agente y escribe la tarea."); });
 
+  var AVISO_SIN_MODELO = "Todavía no tienes un modelo personalizado. Entrénalo en Entrenamiento y vuelve aquí.";
+  var AVISO_SIN_BASE = "Falta el modelo base «Qwen3.5 0.8B». Descárgalo en Modelos y vuelve a comparar.";
+  var AVISO_LISTO = "Misma pregunta, dos respuestas. El personalizado queda cargado en el chat.";
+  function iconoAviso(tipo) {
+    if (tipo === "ok") {
+      return '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M8 12.5l2.5 2.5L16 9.5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg>';
+    }
+    if (tipo === "warn") {
+      return '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 4l8 14H4z" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M12 10v4" stroke="currentColor" stroke-width="1.75"/><circle cx="12" cy="16.5" r="0.8" fill="currentColor"/></svg>';
+    }
+    return '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M12 11v5" stroke="currentColor" stroke-width="1.75"/><circle cx="12" cy="8" r="0.8" fill="currentColor"/></svg>';
+  }
+  function pintarComparar() {
+    escritura += 1;
+    cmpGen += 1;
+    var nombre = $("cmp-modelo").value;
+    var aviso = $("cmp-aviso");
+    $("cmp-base").textContent = "";
+    $("cmp-per").textContent = "";
+    if (!nombre) {
+      aviso.hidden = false;
+      aviso.className = "aviso-app info";
+      aviso.innerHTML = iconoAviso("info") + "<span></span>";
+      aviso.lastChild.textContent = AVISO_SIN_MODELO;
+      $("cmp-base-t").textContent = "Base";
+      $("cmp-per-t").textContent = "Personalizado";
+      $("cmp-btn").disabled = true;
+      return;
+    }
+    $("cmp-base-t").textContent = "Base · Qwen3.5 0.8B";
+    $("cmp-per-t").textContent = "Personalizado · " + nombre;
+    if (!baseEjemplo) {
+      aviso.hidden = false;
+      aviso.className = "aviso-app warn";
+      aviso.innerHTML = iconoAviso("warn") + "<span></span>";
+      aviso.lastChild.textContent = AVISO_SIN_BASE;
+      $("cmp-btn").disabled = true;
+      return;
+    }
+    aviso.hidden = true;
+    aviso.className = "aviso-app";
+    aviso.textContent = "";
+    $("cmp-btn").disabled = false;
+  }
+  $("cmp-modelo").addEventListener("change", pintarComparar);
+  $("cmp-ejemplo").addEventListener("click", function () {
+    baseEjemplo = true;
+    if (!$("cmp-modelo").value) $("cmp-modelo").value = "mi-asistente";
+    pintarComparar();
+    toast("Ejemplo: no se descarga ningún modelo.");
+  });
+  $("cmp-btn").addEventListener("click", function () {
+    var pregunta = $("cmp-pregunta").value.trim();
+    if (!$("cmp-modelo").value || !baseEjemplo) return;
+    if (!pregunta) return;
+    var aviso = $("cmp-aviso");
+    var gen = cmpGen;
+    aviso.hidden = true;
+    $("cmp-btn").disabled = true;
+    escribir($("cmp-base"), "Ejemplo de respuesta del modelo base. Esta página no llama a ningún modelo.", function () {
+      if (gen !== cmpGen) return;
+      escribir($("cmp-per"), "Ejemplo de respuesta del modelo personalizado. Esta página no llama a ningún modelo.", function () {
+        if (gen !== cmpGen) return;
+        aviso.hidden = false;
+        aviso.className = "aviso-app ok";
+        aviso.innerHTML = iconoAviso("ok") + "<span></span>";
+        aviso.lastChild.textContent = AVISO_LISTO;
+        $("cmp-btn").disabled = false;
+      });
+    });
+  });
+
+  function contarTextos(texto) {
+    return texto.split(/\n\s*\n/).map(function (t) { return t.trim(); }).filter(Boolean).length;
+  }
+  function esDocumento(nombre) {
+    return /\.(txt|md|html|pdf|docx)$/i.test(nombre);
+  }
+  $("origen").addEventListener("change", function () {
+    var archivo = $("origen").files && $("origen").files[0];
+    $("origen-nombre").textContent = archivo ? archivo.name : "";
+    $("crear-ejemplos").disabled = !archivo;
+    $("preparar-res").hidden = true;
+  });
+  $("crear-ejemplos").addEventListener("click", function () {
+    var archivo = $("origen").files && $("origen").files[0];
+    if (!archivo) return;
+    var salida = $("preparar-res");
+    var paso = $("paso2-res");
+    function mostrar(texto, rellenar) {
+      salida.hidden = false;
+      salida.textContent = texto;
+      if (rellenar) {
+        $("paso2-nombre").textContent = archivo.name;
+        paso.hidden = false;
+        paso.textContent = texto;
+      } else {
+        paso.hidden = true;
+        paso.textContent = "";
+      }
+    }
+    if (/\.xlsm$/i.test(archivo.name)) {
+      mostrar("Un archivo con macros no se lee.", false);
+      return;
+    }
+    if (!esDocumento(archivo.name) || !/\.(txt|md|html)$/i.test(archivo.name)) {
+      mostrar("Ejemplo: esta simulación no abre ese archivo y no llama al modelo.", false);
+      return;
+    }
+    var lector = new FileReader();
+    lector.onload = function () {
+      var n = contarTextos(String(lector.result || ""));
+      if (!n) {
+        mostrar("No hay texto suficiente para un ejemplo.", false);
+        return;
+      }
+      var frase = n + " ejemplos, formato «texto». Ya están elegidos en el paso 2.";
+      if (n === 1) frase = "1 ejemplo, formato «texto». Ya están elegidos en el paso 2.";
+      if (n < 50) frase += " Con menos de 50 ejemplos el resultado suele notarse poco.";
+      mostrar(frase, true);
+    };
+    lector.readAsText(archivo);
+  });
+
   temaElegido();
   pintarWeb(false);
   pintarAgente();
   revisarAuto();
+  pintarComparar();
   ir(location.hash.slice(1) || "inicio");
 })();
