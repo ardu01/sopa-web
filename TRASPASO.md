@@ -2,7 +2,7 @@
 
 Fecha: 19 de octubre de 2026.
 
-El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `37cfb19` (PR #16, fusionado por el dueño el 19 de octubre de 2026). Este archivo acompaña la ayuda de Sopa Deck. El PR de este cambio se anota aquí cuando exista. No está fusionado.
+El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `37cfb19` (PR #16, fusionado por el dueño el 19 de octubre de 2026). Este archivo acompaña la ayuda de Sopa Deck. Ese cambio es https://github.com/ardu01/sopa-web/pull/17 y no está fusionado.
 
 ## Hecho (fusionado y publicado)
 
