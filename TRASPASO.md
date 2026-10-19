@@ -1,8 +1,8 @@
 # Traspaso
 
-Fecha: 19 de octubre de 2026. Se reabre el turno por orden del dueño.
+Fecha: 19 de octubre de 2026.
 
-El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `5810a01` (PR #14, fusionado por el dueño el 18 de octubre de 2026). Este archivo acompaña la actualización del simulador y del centro de ayuda a la 1.14.0–1.16.0. Ese cambio es https://github.com/ardu01/sopa-web/pull/15 y no está fusionado.
+El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `be82eeb` (PR #15, fusionado). Este archivo acompaña la página de ayuda «¿Está usando mi gráfica?» y el matiz de cuatro funciones que aún no van bien. El PR de este cambio se anota aquí cuando exista. No está fusionado.
 
 ## Hecho (fusionado y publicado)
 
@@ -21,6 +21,11 @@ La descarga pública sigue siendo la beta 1.9.4. Lo posterior lleva «En la pró
 - https://github.com/ardu01/sopa-web/pull/12 contra `main`, fusionado el 18 de octubre de 2026 (commit `e2d3209`). Portada de la ayuda e «Instalar Sopa en Windows». El Supervisor dio el OK al formato.
 - https://github.com/ardu01/sopa-web/pull/13 contra `main`, fusionado el 18 de octubre de 2026 (commit `b916136`). Resto del centro de ayuda: ocho temas (el primer chat, elegir un modelo, Tus documentos, Memoria, Entrenamiento, automatizaciones, Sopa Mobile y problemas frecuentes). El índice ya no dice «Próximamente».
 - https://github.com/ardu01/sopa-web/pull/14 contra `main`, fusionado el 18 de octubre de 2026 por el dueño (commit `5810a01`). Cierre de turno: solo actualizaba este archivo. La CI estaba en verde.
+- https://github.com/ardu01/sopa-web/pull/15 contra `main`, fusionado (commit `be82eeb`). Simulador y centro de ayuda al día con la 1.14.0, la 1.15.0 y la 1.16.0. Lo posterior a la 1.9.4 lleva «En la próxima versión pública». No se tocó `descargas/` ni `datos/descarga.js`.
+  - 1.14.0: en el chat la respuesta aparece mientras se escribe, con un cursor verde al final. El razonamiento y los bloques de herramienta van aparte. Menús y botones del chat no cambian. El instalador pesa 55,6 MB (antes 66,4), sigue sin firmar (SmartScreen) y se instala a mano porque el actualizador no la ofrece. Está contado en la ayuda de instalación; la descarga de la web sigue siendo la 1.9.4.
+  - 1.15.0: pantalla «Comparar» en «Tu IA», debajo de «Entrenamiento», y página de ayuda `ayuda/comparar.html`. Modelo base Qwen3.5 0.8B y el personalizado, uno detrás de otro, misma temperatura, sin herramientas, sin web y sin agentes. Si no hay personalizado, o si falta el base, salen los avisos de la app; sin el base el botón queda desactivado y no descarga nada. En Tus documentos la pantalla no cambia: la ayuda explica el orden en lenguaje llano (las dos búsquedas se juntan y, si un fragmento tiene más palabras de la pregunta, pasa delante).
+  - 1.16.0: tarjeta «Preparar ejemplos» encima del paso 1, también en la ayuda de Entrenamiento. Botones «Elegir origen...» y «Crear ejemplos». El resultado va en letra normal. No llama al modelo. Un archivo con macros no se lee. El pie del simulador dice «Versión 1.16.0 beta».
+  - Dato medido, no una promesa: en un PC con RTX 5070, Qwen3 4B corre en la gráfica a unos 61 tok/s. Está en la ayuda de elegir un modelo y en una nota del simulador. No es la velocidad de otro equipo.
 
 ## En borrador
 
@@ -28,16 +33,20 @@ La descarga pública sigue siendo la beta 1.9.4. Lo posterior lleva «En la pró
 
 ## En este turno (abierto, no fusionado)
 
-Simulador y centro de ayuda al día con la 1.14.0, la 1.15.0 y la 1.16.0. Lo posterior a la 1.9.4 lleva «En la próxima versión pública». No se ha tocado `descargas/` ni `datos/descarga.js`. No se enlazan repos ni releases privadas. Las capturas de Sopa Motor se usaron solo como referencia y no se publican.
+Página nueva `ayuda/esta-usando-mi-grafica.html`, «¿Está usando mi gráfica?». Explica, en llano, el Administrador de tareas (Ctrl+Mayús+Esc), la pestaña Rendimiento y GPU: la memoria dedicada sube al cargar el modelo y se queda ocupada; el porcentaje solo sube mientras Sopa responde; en reposo un 0 % es normal. Entra en el índice de la ayuda, en Elegir un modelo, en Problemas frecuentes y en `sitemap.xml`. Sin enlaces privados.
 
-- 1.14.0: en el chat la respuesta aparece mientras se escribe, con un cursor verde al final. El razonamiento y los bloques de herramienta van aparte. Menús y botones del chat no cambian. El instalador pesa 55,6 MB (antes 66,4), sigue sin firmar (SmartScreen) y se instala a mano porque el actualizador no la ofrece. Está contado en la ayuda de instalación; la descarga de la web sigue siendo la 1.9.4.
-- 1.15.0: pantalla «Comparar» en «Tu IA», debajo de «Entrenamiento», y página de ayuda `ayuda/comparar.html`. Modelo base Qwen3.5 0.8B y el personalizado, uno detrás de otro, misma temperatura, sin herramientas, sin web y sin agentes. Si no hay personalizado, o si falta el base, salen los avisos de la app; sin el base el botón queda desactivado y no descarga nada. En Tus documentos la pantalla no cambia: la ayuda explica el orden en lenguaje llano (las dos búsquedas se juntan y, si un fragmento tiene más palabras de la pregunta, pasa delante).
-- 1.16.0: tarjeta «Preparar ejemplos» encima del paso 1, también en la ayuda de Entrenamiento. Botones «Elegir origen...» y «Crear ejemplos». El resultado va en letra normal. No llama al modelo. Un archivo con macros no se lee. El pie del simulador dice «Versión 1.16.0 beta» (en unas capturas de prueba el pie decía 1.14.0 o 1.15.0 por la API; no se copia esa cifra).
-- Dato medido, no una promesa: en un PC con RTX 5070, Qwen3 4B corre en la gráfica a unos 61 tok/s. Está en la ayuda de elegir un modelo y en una nota del simulador. No es la velocidad de otro equipo.
+En el equipo real del dueño fallan el streaming de respuestas largas, la búsqueda web, el Markdown en las respuestas y los agentes. Se pulen para la 1.16.1. En la web no se cuentan esos fallos ni se pone fecha. Donde esas funciones salían como si ya fueran bien, el texto dice «En pruebas; se está puliendo para la próxima versión.» Se mantiene la etiqueta «En la próxima versión pública».
+
+- Streaming de respuestas largas: nota del chat en el simulador y «Mientras se escribe» en El primer chat, más su fuente.
+- Búsqueda web: portada (sección, privacidad y las dos preguntas frecuentes, también el JSON-LD), Ajustes del simulador, El primer chat, y las guías «Qué es una IA local», «IA local en Windows sin programar» e «IA local frente a la nube».
+- Agentes del chat (Documentos, Archivos, Investigación, Automatizaciones y la pantalla Agentes): portada, simulador (selector, pantalla Agentes y el límite desde el móvil), El primer chat, Tus documentos, Automatizaciones (solo el agente del chat; la tarjeta de Ajustes de la 1.9 se queda), Sopa Mobile y la guía «Cómo resumir tus documentos».
+- Markdown en las respuestas: no había ninguna página que lo presentara como función que ya va bien. Los `.md` que quedan son el tipo de archivo (leer, crear o guardar una conversación como texto). No se ha añadido una sección nueva.
+
+La base del asistente de la 1.4 (leer, buscar y resumir archivos) y las automatizaciones de Ajustes de la 1.9 no se han bajado de «ya funciona».
 
 ## Pendiente
 
-Nada de la 1.14.0–1.16.0 queda sin empezar. Este turno lo deja en el PR, sin fusionar. Al revisar, el Supervisor puede pedir capturas nuevas de Comparar si la interfaz cambia: las de esta vez no van en la web.
+Nada de esta página ni de estos matices queda sin empezar. Este turno lo deja en el PR, sin fusionar. No se empieza el arreglo de la 1.16.1.
 
 ## Bloqueado, a decisión del dueño
 
@@ -61,4 +70,4 @@ Nada de la 1.14.0–1.16.0 queda sin empezar. Este turno lo deja en el PR, sin f
 - «HTML válido y enlaces internos» corre en cada pull request y al hacer push a `main`. html-validate 10.5.0 y axe-core 4.10.3 están fijados. El workflow instala npm 11.21.1 y con él hace `npm ci`: el npm 10.9.9 de Node 22.23 falla al instalar el validador. Axe usa `prefers-reduced-motion` para no medir texto todavía invisible. Si el runner no trae Chrome, descarga Chrome headless 131. GitHub Pages publica `main` aparte, con `pages-build-deployment`.
 - «Enlaces externos» corre en cada pull request y, en `main`, cada lunes. No comprueba el envío del formulario de fallos. El formulario sigue con el destino que ya tenía.
 - El simulador no calcula velocidades. Las respuestas son de ejemplo y no copian el texto preparado de las pruebas de Windows. El pie de esa ventana dice «Versión 1.16.0 beta». Las automatizaciones están en Ajustes, no en la barra.
-- El centro de ayuda está en `ayuda/`. Hay página de Comparar, y Preparar ejemplos está dentro de Entrenamiento. La instalación que se puede hacer hoy es la beta 1.9.4, a mano: el actualizador no ofrece la 1.12.1 ni ninguna posterior.
+- El centro de ayuda está en `ayuda/`. Hay página de Comparar, Preparar ejemplos está dentro de Entrenamiento, y «¿Está usando mi gráfica?» explica el Administrador de tareas. La instalación que se puede hacer hoy es la beta 1.9.4, a mano: el actualizador no ofrece la 1.12.1 ni ninguna posterior.
