@@ -2,7 +2,7 @@
 
 Fecha: 19 de octubre de 2026.
 
-El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil. El PR de este cambio se anota aquí cuando exista. No está fusionado.
+El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil: https://github.com/ardu01/sopa-web/pull/18 contra `main`, rama `cursor/rendimiento-lighthouse-c470`. No está fusionado.
 
 ## Hecho (fusionado y publicado)
 
@@ -48,7 +48,7 @@ No cambia el texto ni el aspecto. `ayuda/sopa-deck.html` sigue diciendo que no s
 
 ## Pendiente
 
-Nada de esta pasada queda sin medir. Este turno lo deja en el PR, sin fusionar. No se empieza el arreglo de la 1.16.1. No se publica ninguna descarga de Sopa Deck.
+Nada de esta pasada queda sin medir. Este turno lo deja en https://github.com/ardu01/sopa-web/pull/18, sin fusionar. No se empieza el arreglo de la 1.16.1. No se publica ninguna descarga de Sopa Deck.
 
 ## Bloqueado, a decisión del dueño
 
