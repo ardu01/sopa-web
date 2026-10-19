@@ -2,7 +2,7 @@
 
 Fecha: 19 de octubre de 2026.
 
-El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `be82eeb` (PR #15, fusionado). Este archivo acompaña la página de ayuda «¿Está usando mi gráfica?» y el matiz de cuatro funciones que aún no van bien. El PR de este cambio se anota aquí cuando exista. No está fusionado.
+El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `be82eeb` (PR #15, fusionado). Este archivo acompaña la página de ayuda «¿Está usando mi gráfica?» y el matiz de cuatro funciones que aún no van bien. Ese cambio es https://github.com/ardu01/sopa-web/pull/16 y no está fusionado.
 
 ## Hecho (fusionado y publicado)
 
