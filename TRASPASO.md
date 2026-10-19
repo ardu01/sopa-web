@@ -1,8 +1,8 @@
 # Traspaso
 
-Fecha: 18 de octubre de 2026. Cierre de turno por orden del dueño.
+Fecha: 19 de octubre de 2026. Se reabre el turno por orden del dueño.
 
-El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado queda en `b916136` (PR #13). Este cierre es https://github.com/ardu01/sopa-web/pull/14 y no está fusionado. Este archivo no cambia la web visible.
+El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `5810a01` (PR #14, fusionado por el dueño el 18 de octubre de 2026). Este archivo acompaña la actualización del simulador y del centro de ayuda a la 1.14.0–1.16.0. Ese cambio es https://github.com/ardu01/sopa-web/pull/15 y no está fusionado.
 
 ## Hecho (fusionado y publicado)
 
@@ -20,18 +20,24 @@ La descarga pública sigue siendo la beta 1.9.4. Lo posterior lleva «En la pró
 - https://github.com/ardu01/sopa-web/pull/10 contra `main`, fusionado el 18 de octubre de 2026 (commit `7eb8d34`). Avisos de descarga y de poca memoria de la 1.13.0 en el simulador, con «En la próxima versión pública» y los gigabytes en blanco.
 - https://github.com/ardu01/sopa-web/pull/12 contra `main`, fusionado el 18 de octubre de 2026 (commit `e2d3209`). Portada de la ayuda e «Instalar Sopa en Windows». El Supervisor dio el OK al formato.
 - https://github.com/ardu01/sopa-web/pull/13 contra `main`, fusionado el 18 de octubre de 2026 (commit `b916136`). Resto del centro de ayuda: ocho temas (el primer chat, elegir un modelo, Tus documentos, Memoria, Entrenamiento, automatizaciones, Sopa Mobile y problemas frecuentes). El índice ya no dice «Próximamente».
+- https://github.com/ardu01/sopa-web/pull/14 contra `main`, fusionado el 18 de octubre de 2026 por el dueño (commit `5810a01`). Cierre de turno: solo actualizaba este archivo. La CI estaba en verde.
 
 ## En borrador
 
 - https://github.com/ardu01/sopa-web/pull/11 contra `main`, borrador, rama `cursor/descarga-siguiente-c470`. Ficha de descarga de la 1.13.x, apagada. Para activarla se edita `datos/descarga.js` (`version`, `urlInstalador`, `sha256`, `nombreArchivo`, `urlCodigoFuente` y `activa: true`) solo cuando el dueño haga públicas las releases. Hasta entonces no se fusiona y no se ofrecen esas descargas.
 
+## En este turno (abierto, no fusionado)
+
+Simulador y centro de ayuda al día con la 1.14.0, la 1.15.0 y la 1.16.0. Lo posterior a la 1.9.4 lleva «En la próxima versión pública». No se ha tocado `descargas/` ni `datos/descarga.js`. No se enlazan repos ni releases privadas. Las capturas de Sopa Motor se usaron solo como referencia y no se publican.
+
+- 1.14.0: en el chat la respuesta aparece mientras se escribe, con un cursor verde al final. El razonamiento y los bloques de herramienta van aparte. Menús y botones del chat no cambian. El instalador pesa 55,6 MB (antes 66,4), sigue sin firmar (SmartScreen) y se instala a mano porque el actualizador no la ofrece. Está contado en la ayuda de instalación; la descarga de la web sigue siendo la 1.9.4.
+- 1.15.0: pantalla «Comparar» en «Tu IA», debajo de «Entrenamiento», y página de ayuda `ayuda/comparar.html`. Modelo base Qwen3.5 0.8B y el personalizado, uno detrás de otro, misma temperatura, sin herramientas, sin web y sin agentes. Si no hay personalizado, o si falta el base, salen los avisos de la app; sin el base el botón queda desactivado y no descarga nada. En Tus documentos la pantalla no cambia: la ayuda explica el orden en lenguaje llano (las dos búsquedas se juntan y, si un fragmento tiene más palabras de la pregunta, pasa delante).
+- 1.16.0: tarjeta «Preparar ejemplos» encima del paso 1, también en la ayuda de Entrenamiento. Botones «Elegir origen...» y «Crear ejemplos». El resultado va en letra normal. No llama al modelo. Un archivo con macros no se lee. El pie del simulador dice «Versión 1.16.0 beta» (en unas capturas de prueba el pie decía 1.14.0 o 1.15.0 por la API; no se copia esa cifra).
+- Dato medido, no una promesa: en un PC con RTX 5070, Qwen3 4B corre en la gráfica a unos 61 tok/s. Está en la ayuda de elegir un modelo y en una nota del simulador. No es la velocidad de otro equipo.
+
 ## Pendiente
 
-No empezado, por orden del Supervisor. Al retomar, actualizar el simulador y el centro de ayuda. El repositorio de la app sigue privado: no enlazar descargas. Lo posterior a la 1.9.4 se marca «En la próxima versión pública».
-
-- 1.14.0: en el chat la respuesta aparece mientras se escribe, con un cursor verde al final. El razonamiento y los bloques de herramienta no se mezclan con ese texto. El instalador pesa 55,6 MB (antes 66,4), sigue sin firmar (SmartScreen) y se instala a mano.
-- 1.15.0: nueva pantalla «Comparar» en «Tu IA», debajo de «Entrenamiento» (modelo base Qwen3.5 0.8B frente al personalizado, uno detrás de otro, con la misma temperatura, sin herramientas, sin web y sin agentes). En Tus documentos solo cambia el orden de los resultados. Sopa Motor ofrece capturas.
-- 1.16.0: en Entrenamiento, la tarjeta «Preparar ejemplos» encima del paso 1 (botones «Elegir origen...» y «Crear ejemplos»; admite documentos, .sopachats y Excel; no llama al modelo).
+Nada de la 1.14.0–1.16.0 queda sin empezar. Este turno lo deja en el PR, sin fusionar. Al revisar, el Supervisor puede pedir capturas nuevas de Comparar si la interfaz cambia: las de esta vez no van en la web.
 
 ## Bloqueado, a decisión del dueño
 
@@ -54,5 +60,5 @@ No empezado, por orden del Supervisor. Al retomar, actualizar el simulador y el 
 - No se ha gastado dinero ni se han creado secretos.
 - «HTML válido y enlaces internos» corre en cada pull request y al hacer push a `main`. html-validate 10.5.0 y axe-core 4.10.3 están fijados. El workflow instala npm 11.21.1 y con él hace `npm ci`: el npm 10.9.9 de Node 22.23 falla al instalar el validador. Axe usa `prefers-reduced-motion` para no medir texto todavía invisible. Si el runner no trae Chrome, descarga Chrome headless 131. GitHub Pages publica `main` aparte, con `pages-build-deployment`.
 - «Enlaces externos» corre en cada pull request y, en `main`, cada lunes. No comprueba el envío del formulario de fallos. El formulario sigue con el destino que ya tenía.
-- El simulador no calcula velocidades. Las respuestas son de ejemplo. El pie de esa ventana dice «Versión 1.12.1 beta». Las automatizaciones están en Ajustes, no en la barra.
-- El centro de ayuda está en `ayuda/`. La instalación que se puede hacer hoy es la beta 1.9.4, a mano: el actualizador no ofrece la 1.12.1 ni la 1.13.0.
+- El simulador no calcula velocidades. Las respuestas son de ejemplo y no copian el texto preparado de las pruebas de Windows. El pie de esa ventana dice «Versión 1.16.0 beta». Las automatizaciones están en Ajustes, no en la barra.
+- El centro de ayuda está en `ayuda/`. Hay página de Comparar, y Preparar ejemplos está dentro de Entrenamiento. La instalación que se puede hacer hoy es la beta 1.9.4, a mano: el actualizador no ofrece la 1.12.1 ni ninguna posterior.
