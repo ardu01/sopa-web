@@ -40,7 +40,6 @@ const paginas = [
   "/ayuda/comparar.html",
   "/ayuda/automatizaciones.html",
   "/ayuda/sopa-mobile.html",
-  "/ayuda/sopa-deck.html",
   "/ayuda/problemas-frecuentes.html",
 ];
 

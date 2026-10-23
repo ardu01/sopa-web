@@ -28,7 +28,11 @@ La descarga pública sigue siendo la beta 1.9.4. Lo posterior lleva «En la pró
   - Dato medido, no una promesa: en un PC con RTX 5070, Qwen3 4B corre en la gráfica a unos 61 tok/s. Está en la ayuda de elegir un modelo y en una nota del simulador. No es la velocidad de otro equipo.
 
 - https://github.com/ardu01/sopa-web/pull/16 contra `main`, fusionado el 19 de octubre de 2026 por el dueño (commit `37cfb19`). Página `ayuda/esta-usando-mi-grafica.html` y el matiz «En pruebas; se está puliendo para la próxima versión.» en el streaming de respuestas largas, la búsqueda web y los agentes. El Markdown de las respuestas no se presentaba como función que ya va bien. La CI estaba en verde.
-- https://github.com/ardu01/sopa-web/pull/17 contra `main`, fusionado (commit `34c8855`). Ayuda de Sopa Deck. Toda la página lleva «En la próxima versión pública». Sigue diciendo que todavía no se ha probado en un ordenador de verdad. Sin enlace de descarga. La CI estaba en verde.
+- https://github.com/ardu01/sopa-web/pull/17 contra `main`, fusionado (commit `34c8855`). Su contenido se retiró de la web el 23 de octubre de 2026 por decisión de Miguel (ver «Retirado»).
+
+## Retirado
+
+- La app aparte de mando táctil (iPad o móvil para el PC), que tenía página de ayuda y menciones en la web, se retiró por decisión de Miguel el 23 de octubre de 2026: Miguel la abandonó el 22 y no debe volver a la web. Se borró su página de ayuda y todas sus menciones, enlaces y la entrada del sitemap. No se vuelve a añadir.
 
 ## En borrador
 
@@ -38,7 +42,7 @@ La descarga pública sigue siendo la beta 1.9.4. Lo posterior lleva «En la pró
 
 Pasada de rendimiento con Lighthouse 12.8.2, preset móvil por defecto (412×823, DPR 1,75, red lenta simulada y CPU ×4), tres pasadas y mediana. Servido en local bajo `/sopa-web/`. Páginas: portada, simulador, índice de la ayuda y `ayuda/instalar-sopa-en-windows.html`. Los JSON no se publican: quedan fuera del repositorio.
 
-No cambia el texto ni el aspecto. `ayuda/sopa-deck.html` sigue diciendo que no se ha probado en un ordenador de verdad. No se ha tocado `descargas/` ni `datos/descarga.js`.
+No cambia el texto ni el aspecto. No se ha tocado `descargas/` ni `datos/descarga.js`.
 
 - Portada: el `sizes` de las capturas de la app usa el ancho real (`100vw - 48px`), así el móvil pide el AVIF de 640 px y no el de 832. `app.js` se sirve minificado (`app.min.js`).
 - Simulador: deja de bajar el CSS de la portada que no usa (`comun.css` en su lugar). El logotipo de Inicio tiene copia a 192 px. `js/simulador.js` se sirve minificado.
@@ -48,11 +52,11 @@ No cambia el texto ni el aspecto. `ayuda/sopa-deck.html` sigue diciendo que no s
 
 ## Pendiente
 
-Nada de esta pasada queda sin medir. Este turno lo deja en https://github.com/ardu01/sopa-web/pull/18, sin fusionar. No se empieza el arreglo de la 1.16.1. No se publica ninguna descarga de Sopa Deck.
+Nada de esta pasada queda sin medir. Este turno lo deja en https://github.com/ardu01/sopa-web/pull/18, sin fusionar. No se empieza el arreglo de la 1.16.1.
 
 ## Bloqueado, a decisión del dueño
 
-- Enlaces a releases privadas de Sopa-IA (Sopa Desktop 1.12.1, Sopa Deck v0.4.0 y motor-ligero v0.1.0-exe.1). Los repos Sopa-IA/sopa-motor, Sopa-IA/sopa-deck y Sopa-IA/motor-ligero no son públicos. Esta integración recibe 404 si los consulta.
+- Enlaces a releases privadas de Sopa-IA (Sopa Desktop 1.12.1 y motor-ligero v0.1.0-exe.1). Los repos Sopa-IA/sopa-motor y Sopa-IA/motor-ligero no son públicos. Esta integración recibe 404 si los consulta.
 - Sustituir las descargas de la 1.9.4 por las de la 1.12.1 o posteriores. No tocar `descargas/`. Siguen publicadas tal cual, con sus SHA-256. No se añade oferta de código fuente.
 - Política de privacidad v1.4. Es un borrador, no está en vigor y no se ha publicado. Tampoco hay aviso legal.
 - El dato de contacto lo decide el titular. No se han copiado NIF, correo, domicilio ni teléfono.
@@ -72,4 +76,4 @@ Nada de esta pasada queda sin medir. Este turno lo deja en https://github.com/ar
 - «HTML válido y enlaces internos» corre en cada pull request y al hacer push a `main`. html-validate 10.5.0 y axe-core 4.10.3 están fijados. El workflow instala npm 11.21.1 y con él hace `npm ci`: el npm 10.9.9 de Node 22.23 falla al instalar el validador. Axe usa `prefers-reduced-motion` para no medir texto todavía invisible. Si el runner no trae Chrome, descarga Chrome headless 131. GitHub Pages publica `main` aparte, con `pages-build-deployment`.
 - «Enlaces externos» corre en cada pull request y, en `main`, cada lunes. No comprueba el envío del formulario de fallos. El formulario sigue con el destino que ya tenía.
 - El simulador no calcula velocidades. Las respuestas son de ejemplo y no copian el texto preparado de las pruebas de Windows. El pie de esa ventana dice «Versión 1.16.0 beta». Las automatizaciones están en Ajustes, no en la barra.
-- El centro de ayuda está en `ayuda/`. Hay página de Comparar, Preparar ejemplos está dentro de Entrenamiento, «¿Está usando mi gráfica?» explica el Administrador de tareas, y Sopa Deck explica instalar, vincular el iPad y los avisos de Windows. La instalación que se puede hacer hoy es la beta 1.9.4, a mano: el actualizador no ofrece la 1.12.1 ni ninguna posterior. Sopa Deck no tiene descarga en esta web.
+- El centro de ayuda está en `ayuda/`. Hay página de Comparar, Preparar ejemplos está dentro de Entrenamiento y «¿Está usando mi gráfica?» explica el Administrador de tareas. La instalación que se puede hacer hoy es la beta 1.9.4, a mano: el actualizador no ofrece la 1.12.1 ni ninguna posterior.
