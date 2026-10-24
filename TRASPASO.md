@@ -1,16 +1,22 @@
 # Traspaso
 
-Fecha: 19 de octubre de 2026.
+Fecha: 24 de octubre de 2026 (actualizado; el resto del texto es del 19 de octubre).
 
 El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil: https://github.com/ardu01/sopa-web/pull/18 contra `main`, rama `cursor/rendimiento-lighthouse-c470`. No está fusionado.
 
-## En revisión (24 de octubre de 2026)
+## Último cambio (24 de octubre de 2026)
 
-- Rama `cursor/sopa-1167-movil`, PR contra `main` sin fusionar. Pasa la web a la beta 1.16.7: descargas en `descargas/` (instalador y zip de la 1.16.7, con SHA-256), fuera la 1.9.4. Oferta del código fuente (GPLv3) por issue en este repositorio, en `#codigo-fuente`. Lo posterior a la 1.9.4 lleva «En pruebas»; las cifras de la torre son de la 1.16.6 de prueba. Problemas conocidos en la caja de descarga. Menú móvil (≤700 px) con botón accesible en `js/menu.js`, sin JS de terceros. `js/catalogo.js` y `js/compatibilidad.js` al día con la revisión 7 del catálogo (41 modelos). Capturas en `capturas-revision/1.16.7/`.
+- https://github.com/ardu01/sopa-web/pull/21 contra `main`, fusionado el 24 de octubre de 2026 a las 08:55 (hora de Madrid), squash, commit `f64559c`. La CI estaba en verde.
+  - La web está en la beta 1.16.7. Las descargas están alojadas en `descargas/`: instalador y zip de la 1.16.7, con su SHA-256. Las de la 1.9.4 se han quitado.
+  - Oferta del código fuente (GPLv3) en `index.html#codigo-fuente`: se pide abriendo un issue en este repositorio. Se mantiene al menos tres años.
+  - Licencia: GPLv3 (GPL-3.0-only). Los archivos de la 1.16.7 se publicaron como GPL-3.0-or-later; desde la próxima versión serán GPL-3.0-only. La caja de descarga lo dice.
+  - Lo posterior a la 1.9.4 lleva «En pruebas». Menú móvil (≤700 px) en `js/menu.js`. `js/catalogo.js` y `js/compatibilidad.js` al día con la revisión 7 del catálogo (41 modelos).
+- https://github.com/ardu01/sopa-web/pull/19 y https://github.com/ardu01/sopa-web/pull/20, cerrados sin fusionar el 24 de octubre de 2026: los sustituye el #21.
+- `auditar.py` sigue con los 2 errores antiguos: `404.html` no está en el sitemap y a `SoftwareApplication` le falta `applicationCategory`.
 
 ## Hecho (fusionado y publicado)
 
-La descarga pública sigue siendo la beta 1.9.4. Lo posterior lleva «En la próxima versión pública». No hay precios, planes ni datos personales. No hay enlaces a repositorios privados.
+Hasta el #21, la descarga pública era la beta 1.9.4 y lo posterior llevaba «En la próxima versión pública». No hay precios, planes ni datos personales. No hay enlaces a repositorios privados.
 
 - https://github.com/ardu01/sopa-web/pull/1 contra `main`, fusionado. El Supervisor dio el OK el 17 de octubre de 2026. Quita Plus y Pro, la compra única y la clave de licencia. `LICENSE` es el texto íntegro de la GNU GPLv3. El copyright (Miguel Rodríguez Saiz, 2026) está en `NOTICE`, en el README y en el pie. El menú apunta a `#licencia`; el ancla `#planes` se conserva vacío. Entra el CI «HTML válido y enlaces internos» (`.github/workflows/html-y-enlaces.yml`): html-validate, enlaces relativos y axe-core (WCAG 2 A y AA) en escritorio y en móvil. No entra en `descargas/`.
 - https://github.com/ardu01/sopa-web/pull/2 contra `main`, fusionado. El Supervisor dio el OK el 18 de octubre de 2026. Accesibilidad y rendimiento: «Saltar al contenido», foco visible, menú en pantallas estrechas, `prefers-reduced-motion` y el primer pantallazo de la portada sin esperar a la animación.
@@ -61,7 +67,6 @@ Nada de esta pasada queda sin medir. Este turno lo deja en https://github.com/ar
 ## Bloqueado, a decisión del dueño
 
 - Enlaces a releases privadas de Sopa-IA (Sopa Desktop 1.12.1 y motor-ligero v0.1.0-exe.1). Los repos Sopa-IA/sopa-motor y Sopa-IA/motor-ligero no son públicos. Esta integración recibe 404 si los consulta.
-- Sustituir las descargas de la 1.9.4 por las de la 1.12.1 o posteriores. No tocar `descargas/`. Siguen publicadas tal cual, con sus SHA-256. No se añade oferta de código fuente.
 - Política de privacidad v1.4. Es un borrador, no está en vigor y no se ha publicado. Tampoco hay aviso legal.
 - El dato de contacto lo decide el titular. No se han copiado NIF, correo, domicilio ni teléfono.
 - Licencias antiguas. Un archivo de una versión anterior no abre ni cierra el uso. No se documenta aquí ninguna clave.
@@ -79,5 +84,5 @@ Nada de esta pasada queda sin medir. Este turno lo deja en https://github.com/ar
 - No se ha gastado dinero ni se han creado secretos.
 - «HTML válido y enlaces internos» corre en cada pull request y al hacer push a `main`. html-validate 10.5.0 y axe-core 4.10.3 están fijados. El workflow instala npm 11.21.1 y con él hace `npm ci`: el npm 10.9.9 de Node 22.23 falla al instalar el validador. Axe usa `prefers-reduced-motion` para no medir texto todavía invisible. Si el runner no trae Chrome, descarga Chrome headless 131. GitHub Pages publica `main` aparte, con `pages-build-deployment`.
 - «Enlaces externos» corre en cada pull request y, en `main`, cada lunes. No comprueba el envío del formulario de fallos. El formulario sigue con el destino que ya tenía.
-- El simulador no calcula velocidades. Las respuestas son de ejemplo y no copian el texto preparado de las pruebas de Windows. El pie de esa ventana dice «Versión 1.16.0 beta». Las automatizaciones están en Ajustes, no en la barra.
-- El centro de ayuda está en `ayuda/`. Hay página de Comparar, Preparar ejemplos está dentro de Entrenamiento y «¿Está usando mi gráfica?» explica el Administrador de tareas. La instalación que se puede hacer hoy es la beta 1.9.4, a mano: el actualizador no ofrece la 1.12.1 ni ninguna posterior.
+- El simulador no calcula velocidades. Las respuestas son de ejemplo y no copian el texto preparado de las pruebas de Windows. El pie de esa ventana dice «Versión 1.16.7 beta». Las automatizaciones están en Ajustes, no en la barra.
+- El centro de ayuda está en `ayuda/`. Hay página de Comparar, Preparar ejemplos está dentro de Entrenamiento y «¿Está usando mi gráfica?» explica el Administrador de tareas. La descarga de la web es la beta 1.16.7. Desde la 1.9.4 o anteriores se instala a mano, porque su actualizador no la ofrece.
