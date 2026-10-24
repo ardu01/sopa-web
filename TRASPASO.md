@@ -4,6 +4,10 @@ Fecha: 19 de octubre de 2026.
 
 El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil: https://github.com/ardu01/sopa-web/pull/18 contra `main`, rama `cursor/rendimiento-lighthouse-c470`. No está fusionado.
 
+## En revisión (24 de octubre de 2026)
+
+- Rama `cursor/sopa-1167-movil`, PR contra `main` sin fusionar. Pasa la web a la beta 1.16.7: descargas en `descargas/` (instalador y zip de la 1.16.7, con SHA-256), fuera la 1.9.4. Oferta del código fuente (GPLv3) por issue en este repositorio, en `#codigo-fuente`. Lo posterior a la 1.9.4 lleva «En pruebas»; las cifras de la torre son de la 1.16.6 de prueba. Problemas conocidos en la caja de descarga. Menú móvil (≤700 px) con botón accesible en `js/menu.js`, sin JS de terceros. `js/catalogo.js` y `js/compatibilidad.js` al día con la revisión 7 del catálogo (41 modelos). Capturas en `capturas-revision/1.16.7/`.
+
 ## Hecho (fusionado y publicado)
 
 La descarga pública sigue siendo la beta 1.9.4. Lo posterior lleva «En la próxima versión pública». No hay precios, planes ni datos personales. No hay enlaces a repositorios privados.

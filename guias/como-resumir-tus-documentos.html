@@ -36,8 +36,8 @@
 <header class="nav">
 <a class="saltar" href="#contenido">Saltar al contenido</a><div class="nav-in">
 <a href="../" class="marca"><img src="../img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
-<nav aria-label="Secciones"><a href="../#funciones">Funciones</a><a href="../#modelos">Modelos</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../ayuda/">Ayuda</a><a href="../simulador.html">Simulador</a></nav>
-<span class="pill-dev">Beta 1.9.4</span></div></header>
+<button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir el menú"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" focusable="false"><rect class="linea l1" x="3" y="4" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l2" x="3" y="10" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l3" x="3" y="16" width="16" height="2" rx="1" fill="currentColor"/></svg></button><nav id="menu-principal" aria-label="Secciones"><a href="../#funciones">Funciones</a><a href="../#modelos">Modelos</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../ayuda/">Ayuda</a><a href="../simulador.html">Simulador</a></nav>
+<span class="pill-dev">Beta 1.16.7</span></div></header>
 <main id="contenido" tabindex="-1" class="guia">
 <nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="../">Sopa</a></li><li><a href="../guias/">Guías</a></li><li aria-current="page">Cómo resumir tus documentos</li></ol></nav>
 <article class="cont-guia">
@@ -70,12 +70,12 @@
 <li>Los .docm, .xlsm y los archivos con contraseña se rechazan con un aviso.</li>
 <li>Un documento no puede darle órdenes. Si un archivo dice «borra todo», Sopa no lo hace: su texto es solo contenido.</li>
 </ul>
-<p><span class="pill-dev pill-proxima">En la próxima versión pública</span> En pruebas; se está puliendo para la próxima versión. El agente Documentos y el agente Investigación buscan en los documentos ya indexados del equipo. Investigación, además, puede salir a la web solo si «Buscar en la web» está encendido. En la beta 1.9.4 el resumen es el del asistente y el de la carpeta de documentos, descritos arriba.</p>
+<p><span class="pill-dev pill-proxima">En pruebas</span> Se sigue puliendo. El agente Documentos y el agente Investigación buscan en los documentos ya indexados del equipo. Investigación, además, puede salir a la web solo si «Buscar en la web» está encendido. El resumen del asistente y el de la carpeta de documentos, descritos arriba, siguen igual.</p>
 <section class="fuentes-guia" aria-labelledby="fuentes-t"><h2 id="fuentes-t">Fuentes</h2><ul>
 <li><a href="https://ardu01.github.io/sopa-web/#asistente">Portada, asistente</a>: formatos, interruptores, una cosa por mensaje, el nombre de archivo y la prueba con Qwen3 4B.</li>
 <li><a href="https://ardu01.github.io/sopa-web/#funciones">Portada, documentos</a>: carpeta, citas, OCR, las 209 pruebas y el modelo de 132&nbsp;MB.</li>
 <li><a href="https://ardu01.github.io/sopa-web/#pasos">Portada, varios pasos</a>: el plan, la copia de lo leído y el hueco «[resumen]».</li>
-<li><a href="https://ardu01.github.io/sopa-web/#buscar-web">Portada, Investigación</a>: los agentes de la 1.12, marcados como próxima versión.</li>
+<li><a href="https://ardu01.github.io/sopa-web/#buscar-web">Portada, Investigación</a>: los agentes de la 1.12, marcados como en pruebas.</li>
 </ul></section>
 <aside class="otras"><h2>Otras guías</h2><ul>
 <li><a href="ia-local-en-windows-sin-programar.html">Cómo usar IA local en Windows sin programar</a></li>
@@ -86,9 +86,10 @@
 </main>
 <footer class="cont pie">
   <nav class="pie-enlaces" aria-label="Enlaces del pie"><a href="../">Inicio</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../ayuda/">Ayuda</a><a href="../simulador.html">Simulador</a></nav>
-  <p>© 2026 Miguel Rodríguez Saiz. Sopa es software libre, con licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a> (<a href="../LICENSE">LICENSE</a>). El nombre y el logotipo de Sopa no se licencian. Qwen, Phi, Gemma, Granite, Llama, DeepSeek, Mistral y gpt-oss son marcas de sus titulares; sin afiliación.</p>
+  <p>Copyright © 2026 Miguel Rodríguez Saiz. Sopa es software libre, con licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a> (<a href="../LICENSE">LICENSE</a>). El nombre y el logotipo de Sopa no se licencian. Qwen, Phi, Gemma, Granite, Llama, DeepSeek, Mistral y gpt-oss son marcas de sus titulares; sin afiliación.</p>
   <p>Desarrollado por ArduSolutions.</p>
   <p>Esta web no usa cookies ni rastreadores.</p>
 </footer>
+<script src="../js/menu.js" defer></script>
 </body>
 </html>
