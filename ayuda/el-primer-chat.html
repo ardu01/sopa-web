@@ -36,8 +36,8 @@
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <div class="nav-in">
 <a href="../" class="marca"><img src="../img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
-<nav aria-label="Secciones"><a href="../#funciones">Funciones</a><a href="../#modelos">Modelos</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../ayuda/" aria-current="page">Ayuda</a><a href="../simulador.html">Simulador</a></nav>
-<span class="pill-dev">Beta 1.9.4</span>
+<button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir el menú"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" focusable="false"><rect class="linea l1" x="3" y="4" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l2" x="3" y="10" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l3" x="3" y="16" width="16" height="2" rx="1" fill="currentColor"/></svg></button><nav id="menu-principal" aria-label="Secciones"><a href="../#funciones">Funciones</a><a href="../#modelos">Modelos</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../ayuda/" aria-current="page">Ayuda</a><a href="../simulador.html">Simulador</a></nav>
+<span class="pill-dev">Beta 1.16.7</span>
 </div>
 </header>
 <main id="contenido" tabindex="-1" class="guia ayuda">
@@ -53,7 +53,7 @@
 <li><h3 id="pulsa-chat">Pulsa «Chat»</h3><p>Está en la barra de la izquierda, debajo de Inicio. Al abrir Sopa se ve Inicio: el título es «Tu IA, en tu ordenador».</p></li>
 <li><h3 id="para-que">Elige «Para qué»</h3><p>Arriba del chat. Si no cambias nada, queda «Para charlar». También puedes elegir «Para razonar», «Para programar» o «Respuestas rápidas». Sopa usa esa elección para decirte qué modelo cargará.</p></li>
 </ol>
-<p>«Imágenes (próximamente)» está en ese mismo desplegable. <span class="pill-dev pill-proxima">En la próxima versión pública</span> Ver imágenes todavía no está en la beta publicada.</p>
+<p>«Imágenes (próximamente)» está en ese mismo desplegable. <span class="pill-dev pill-proxima">Próximamente</span> Ver imágenes todavía no está en la beta publicada.</p>
 
 <h2 id="escribe">Escribe y envía</h2>
 <ol class="pasos">
@@ -71,8 +71,8 @@
 <p>«Nueva conversación» empieza otra. Las que ya tienes se quedan en este ordenador. Al borrar una, Sopa pregunta «¿Borrar esta conversación? No se puede deshacer.»</p>
 <p>Si escribes «Recuerda que…», Sopa pregunta antes de guardarlo. El detalle está en <a href="memoria.html">Memoria</a>.</p>
 
-<h2 id="mientras-escribe">Mientras se escribe <span class="pill-dev pill-proxima">En la próxima versión pública</span></h2>
-<p>En pruebas; se está puliendo para la próxima versión. Desde la 1.14.0 la respuesta puede no salir de golpe: aparece mientras se escribe, con un cursor verde al final, también si es larga. El razonamiento y los bloques de herramienta van aparte y no se mezclan con ese texto. Los menús y los botones del chat no cambian. Esto no está en la beta 1.9.4.</p>
+<h2 id="mientras-escribe">Mientras se escribe <span class="pill-dev pill-proxima">En pruebas</span></h2>
+<p>Se sigue puliendo. Desde la 1.14.0 la respuesta puede no salir de golpe: aparece mientras se escribe, con un cursor verde al final, también si es larga. El razonamiento y los bloques de herramienta van aparte y no se mezclan con ese texto. Los menús y los botones del chat no cambian.</p>
 
 <section class="si-sale" aria-labelledby="si-no-hay-modelo">
 <h2 id="si-no-hay-modelo">Si aún no tienes un modelo</h2>
@@ -84,19 +84,20 @@
 </ol>
 </section>
 
-<h2 id="web-y-agentes">Web y los otros agentes <span class="pill-dev pill-proxima">En la próxima versión pública</span></h2>
-<p>En pruebas; se está puliendo para la próxima versión. Esto no está en la beta 1.9.4 que se descarga hoy.</p>
+<h2 id="web-y-agentes">Web y los otros agentes <span class="pill-dev pill-proxima">En pruebas</span></h2>
+<p>Se sigue puliendo.</p>
 <p>El botón «Web», junto al mensaje, nace apagado. Es el mismo interruptor que la casilla «Buscar en la web» de Ajustes. Apagado, el chat no sale de este equipo para buscar. Encendido, el botón se lee «Web · encendida» y, si lo pides, Sopa puede buscar en la web y leer una página. El texto de esas páginas es un dato, no una orden.</p>
 <p>El desplegable «Agente» nace en «Chat». Después pueden aparecer Documentos, Archivos, Investigación y Automatizaciones. Esos agentes también están en pruebas. Si eliges otro, la línea dice «Agente activo» y el nombre. Investigación, con la web apagada, antepone: «Buscar en la web está apagado. Uso solo los documentos de este equipo.»</p>
-<section class="fuentes-guia" aria-labelledby="fuentes-t"><h2 id="fuentes-t">Fuentes</h2><ul><li>Textos de la ventana de Sopa: Inicio, Chat y el botón Enviar.</li><li>La búsqueda web y los agentes del chat (Documentos, Archivos, Investigación y Automatizaciones) están descritos a partir de la 1.10 y la 1.12. Están en pruebas; se están puliendo para la próxima versión. Por eso llevan la etiqueta.</li><li>La beta que se descarga en esta web sigue siendo la 1.9.4.</li><li>Desde la 1.14.0 la respuesta puede aparecer mientras se escribe, con un cursor verde al final. Está en pruebas; se está puliendo para la próxima versión.</li></ul></section><aside class="otras"><h2>Otras páginas de la ayuda</h2><ul><li><a href="el-primer-chat.html">El primer chat</a></li><li><a href="elegir-un-modelo.html">Elegir un modelo</a></li><li><a href="esta-usando-mi-grafica.html">¿Está usando mi gráfica?</a></li><li><a href="tus-documentos.html">Tus documentos</a></li><li><a href="memoria.html">Memoria</a></li><li><a href="entrenamiento.html">Entrenamiento</a></li><li><a href="comparar.html">Comparar</a></li><li><a href="automatizaciones.html">Automatizaciones</a></li><li><a href="sopa-mobile.html">Sopa Mobile</a></li><li><a href="problemas-frecuentes.html">Problemas frecuentes</a></li></ul></aside>
+<section class="fuentes-guia" aria-labelledby="fuentes-t"><h2 id="fuentes-t">Fuentes</h2><ul><li>Textos de la ventana de Sopa: Inicio, Chat y el botón Enviar.</li><li>La búsqueda web y los agentes del chat (Documentos, Archivos, Investigación y Automatizaciones) están descritos a partir de la 1.10 y la 1.12. Están en pruebas. Por eso llevan la etiqueta.</li><li>La beta que se descarga en esta web es la 1.16.7.</li><li>Desde la 1.14.0 la respuesta puede aparecer mientras se escribe, con un cursor verde al final. Está en pruebas.</li></ul></section><aside class="otras"><h2>Otras páginas de la ayuda</h2><ul><li><a href="el-primer-chat.html">El primer chat</a></li><li><a href="elegir-un-modelo.html">Elegir un modelo</a></li><li><a href="esta-usando-mi-grafica.html">¿Está usando mi gráfica?</a></li><li><a href="tus-documentos.html">Tus documentos</a></li><li><a href="memoria.html">Memoria</a></li><li><a href="entrenamiento.html">Entrenamiento</a></li><li><a href="comparar.html">Comparar</a></li><li><a href="automatizaciones.html">Automatizaciones</a></li><li><a href="sopa-mobile.html">Sopa Mobile</a></li><li><a href="problemas-frecuentes.html">Problemas frecuentes</a></li></ul></aside>
 <p><a class="enlace" href="./">Volver a la ayuda ›</a></p>
 </article>
 </main>
 <footer class="cont pie">
 <nav class="pie-enlaces" aria-label="Enlaces del pie"><a href="../">Inicio</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../ayuda/">Ayuda</a><a href="../simulador.html">Simulador</a></nav>
-<p>© 2026 Miguel Rodríguez Saiz. Sopa es software libre, con licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a> (<a href="../LICENSE">LICENSE</a>). El nombre y el logotipo de Sopa no se licencian. Qwen, Phi, Gemma, Granite, Llama, DeepSeek, Mistral y gpt-oss son marcas de sus titulares; sin afiliación.</p>
+<p>Copyright © 2026 Miguel Rodríguez Saiz. Sopa es software libre, con licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a> (<a href="../LICENSE">LICENSE</a>). El nombre y el logotipo de Sopa no se licencian. Qwen, Phi, Gemma, Granite, Llama, DeepSeek, Mistral y gpt-oss son marcas de sus titulares; sin afiliación.</p>
 <p>Desarrollado por ArduSolutions.</p>
 <p>Esta web no usa cookies ni rastreadores.</p>
 </footer>
+<script src="../js/menu.js" defer></script>
 </body>
 </html>
