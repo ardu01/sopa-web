@@ -36,7 +36,22 @@
   var SISTEMA_FUERA_GB = 2.0; // el tope de 4 GiB es del proceso; el sistema va aparte
   // Perfil de 4 GiB («perfil_4gib», Sopa 1.3.1): el modelo va en el procesador con el proceso dentro de ese tope.
   function perfil_4gib(m) { return m.perfil_4gib || null; }
-  var REFERENCIAS = { "GTX 1650 Max-Q 4 GB (driver 617.42)": 4.0 };
+  // La torre informa 11,94 GB. Con esa cifra el propio equipo cuenta como verificado.
+  var REFERENCIAS = { "GTX 1650 Max-Q 4 GB (driver 617.42)": 4.0, "RTX 5070 12 GB": 11.94 };
+  function cifra_gb(gb) {
+    var valor = Number(gb);
+    if (gb === null || gb === undefined || gb === "" || isNaN(valor)) return "0";
+    return valor.toFixed(2).replace(/0+$/, "").replace(/\.$/, "").replace(".", ",");
+  }
+  function _lejos(necesario_gb, hw) {
+    var necesario = Number(necesario_gb);
+    if (isNaN(necesario)) return false;
+    var techo = Number(hw.ram_total_gb || 0) + Number(vram_gb(hw) || 0);
+    return necesario > techo + Math.max(8.0, techo * 0.5);
+  }
+  function _texto_sin_ram(necesario_gb, ram_gb) {
+    return "No hay memoria suficiente: hacen falta unos " + pyFixed(necesario_gb, 0) + " GB de RAM y este equipo tiene " + pyFixed(ram_gb, 0) + ". Cierra otros programas o elige un modelo más pequeño.";
+  }
   function medidoDe(m) { return m.medido || {}; }
   function necesidad_chat_gb(m) {
     var perfil = perfil_4gib(m);
@@ -88,7 +103,7 @@
     if (perfil) {
       // Va en el procesador con -ngl 0: la gráfica no cuenta, solo la RAM total.
       if (hw.ram_total_gb >= chat + SISTEMA_FUERA_GB) { modo_chat = "cpu"; texto_chat = "Funciona en el procesador con el perfil de 4 GiB."; }
-      else { modo_chat = "no"; texto_chat = "No hay memoria suficiente."; }
+      else { modo_chat = "no"; texto_chat = _texto_sin_ram(chat + SISTEMA_FUERA_GB, hw.ram_total_gb); }
     }
     else if (vram >= chat) { modo_chat = "gpu"; texto_chat = "Funciona con fluidez en tu gráfica."; }
     else if (hw.gpus.length && vram >= 2 && hw.ram_total_gb >= (chat - vram) + 4) { modo_chat = "mixto"; texto_chat = "Funciona repartido entre tu gráfica y la memoria; algo más lento."; }
@@ -101,9 +116,14 @@
       if (modo_chat === "cpu" && potente)
         texto_chat = "Funciona en el procesador con el perfil de 4 GiB, pero lento" + (tps ? " (medido: " + String(tps).replace(".", ",") + " tokens/s)." : ".");
     }
-    else if (potente)
-      texto_chat = "Pensado para un equipo potente: necesita unos " + pyFixed(chat, 0) + " GB entre gráfica y memoria. " +
-        (modo_chat === "no" ? "Aquí no cabe." : "Aquí cabría repartido, pero iría muy lento.");
+    else if (potente) {
+      var cifra = cifra_gb(m.gguf_gb ? m.gguf_gb : chat);
+      if (modo_chat === "no")
+        texto_chat = "No hay memoria suficiente: necesita unos " + cifra + " GB entre gráfica y memoria y aquí no cabe. Está pensado para un equipo potente. " +
+          (_lejos(chat, hw) ? "Elige un modelo más pequeño." : "Cierra otros programas o elige un modelo más pequeño.");
+      else
+        texto_chat = "Pensado para un equipo potente: necesita unos " + cifra + " GB entre gráfica y memoria. Aquí cabría repartido, pero iría muy lento.";
+    }
     if (m.solo_catalogo) { modo_pers = "no"; texto_pers = "Solo en el catálogo: Sopa aún no lo descarga ni lo entrena."; }
     else if (m.solo_chat) { modo_pers = "no"; texto_pers = "Este modelo se ofrece solo para chatear."; }
     else if (vram >= pers) { modo_pers = "si"; texto_pers = "Puedes entrenarlo en tu gráfica."; }
@@ -115,7 +135,7 @@
       modo_pers = "no"; texto_pers = "No se puede entrenar: " + motivo + ".";
     }
     var v = estado_verificacion(m, hw, modo_chat, modo_pers);
-    return Object.assign({}, m, { necesita_chat_gb: chat, necesita_personalizar_gb: pers, chat: modo_chat, chat_texto: texto_chat, equipo_potente: potente,
+    return Object.assign({}, m, { necesita_chat_gb: chat, necesita_personalizar_gb: pers, tamano: cifra_gb(m.gguf_gb || 0) + " GB", chat: modo_chat, chat_texto: texto_chat, equipo_potente: potente,
       personalizar: modo_pers, personalizar_texto: texto_pers, disco_suficiente: hw.disco_libre_gb >= disco,
       verificacion: v[0], verificacion_texto: v[1] });
   }
