@@ -36,15 +36,15 @@
 <header class="nav">
 <a class="saltar" href="#contenido">Saltar al contenido</a><div class="nav-in">
 <a href="../" class="marca"><img src="../img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
-<nav aria-label="Secciones"><a href="../#funciones">Funciones</a><a href="../#modelos">Modelos</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../ayuda/">Ayuda</a><a href="../simulador.html">Simulador</a></nav>
-<span class="pill-dev">Beta 1.9.4</span></div></header>
+<button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir el menú"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" focusable="false"><rect class="linea l1" x="3" y="4" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l2" x="3" y="10" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l3" x="3" y="16" width="16" height="2" rx="1" fill="currentColor"/></svg></button><nav id="menu-principal" aria-label="Secciones"><a href="../#funciones">Funciones</a><a href="../#modelos">Modelos</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../ayuda/">Ayuda</a><a href="../simulador.html">Simulador</a></nav>
+<span class="pill-dev">Beta 1.16.7</span></div></header>
 <main id="contenido" tabindex="-1" class="guia">
 <nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="../">Sopa</a></li><li><a href="../guias/">Guías</a></li><li aria-current="page">¿Qué es una IA local y por qué usarla?</li></ol></nav>
 <article class="cont-guia"><p class="eyebrow">Guía</p><h1>¿Qué es una IA local y por qué usarla?</h1><p class="lead">Una IA local funciona en tu propio ordenador. Te contamos qué significa, qué ganas y qué necesitas.</p><p class="autor">Por <strong>Miguel Rodríguez Saiz</strong>, creador de Sopa</p><nav class="indice" aria-labelledby="indice-t"><h2 id="indice-t">En esta guía</h2><ol><li><a href="#que-ganas-con-una-ia-local">Qué ganas con una IA local</a></li><li><a href="#que-necesitas">Qué necesitas</a></li><li><a href="#modelos-abiertos">Modelos abiertos</a></li><li><a href="#lo-que-ya-hace-sopa-y-lo-que-viene">Lo que ya hace Sopa y lo que viene</a></li></ol></nav>
 <p>Cuando usas un asistente de inteligencia artificial en una web, tus mensajes viajan a los servidores de una empresa, se procesan allí y vuelve la respuesta. Una <strong>IA local</strong> hace lo mismo, pero dentro de tu ordenador: el modelo de lenguaje (LLM) se descarga a tu equipo y responde desde ahí.</p>
 <h2 id="que-ganas-con-una-ia-local">Qué ganas con una IA local</h2>
 <ul class="lista-check">
-<li><strong>Privacidad.</strong> Tus conversaciones, documentos, recuerdos y entrenamientos se quedan en tu ordenador: la IA funciona en tu equipo. También las acciones sobre archivos. Sopa no tiene telemetría ni identificadores del equipo. Se conecta para buscar actualizaciones en GitHub y para descargar modelos de Hugging Face. <span class="pill-dev pill-proxima">En la próxima versión pública</span> «Buscar en la web» está en pruebas; se está puliendo para la próxima versión. Viene apagada; si la enciendes, la consulta va desde tu ordenador a DuckDuckGo, que ve tu IP.</li>
+<li><strong>Privacidad.</strong> Tus conversaciones, documentos, recuerdos y entrenamientos se quedan en tu ordenador: la IA funciona en tu equipo. También las acciones sobre archivos. Sopa no tiene telemetría ni identificadores del equipo. Se conecta para buscar actualizaciones en GitHub y para descargar modelos de Hugging Face. <span class="pill-dev pill-proxima">En pruebas</span> «Buscar en la web» está en pruebas. Viene apagada; si la enciendes, la consulta va desde tu ordenador a DuckDuckGo, que ve tu IP.</li>
 <li><strong>Sin cuentas.</strong> No tienes que registrarte para empezar.</li>
 <li><strong>Sin internet para conversar.</strong> Una vez descargado el modelo, el chat funciona sin conexión.</li>
 <li><strong>Sin pagar por mensaje.</strong> No depende de servicios de pago por uso.</li>
@@ -60,15 +60,16 @@
 <h2 id="lo-que-ya-hace-sopa-y-lo-que-viene">Lo que ya hace Sopa y lo que viene</h2>
 <div class="estado-doble">
 <div><h3><span class="pill-ok">Ya funciona</span></h3><ul><li>Detecta tu ordenador y te dice qué modelos van bien.</li><li>Descarga modelos verificados.</li><li>Chat sin conexión.</li><li>Memoria: recuerda lo que tú le pidas.</li><li>Elige el modelo por ti según la tarea.</li><li>Entrena tu IA con tus ejemplos, sin jerga.</li><li>Exporta tu modelo (formato GGUF).</li><li>Sopa Mobile (beta): chatea con la IA de tu PC desde el móvil, en la Wi-Fi de casa y también fuera.</li><li>Acciones en Windows (beta): ordena archivos en las carpetas que autorices, siempre con tu confirmación.</li><li>Asistente (beta): lee, busca y resume archivos .txt, .md, Word, PDF con texto y Excel en las carpetas que autorices, también desde Sopa Mobile.</li><li>Organizar, varios pasos y automatizaciones (beta): ordena carpetas, junta varios pasos en un plan y repite tareas. Los cambios de archivos los confirmas tú.</li><li>Gestiona, exporta e importa tus modelos y tus conversaciones.</li><li>Pregunta a carpetas enteras de documentos, también PDF escaneados.</li></ul></div>
-<div class="dev"><h3><span class="pill-dev pill-proxima">En la próxima versión pública</span></h3><ul><li>Ver imágenes.</li></ul></div>
+<div class="dev"><h3><span class="pill-dev pill-proxima">Próximamente</span></h3><ul><li>Ver imágenes.</li></ul></div>
 </div>
 <section class="fuentes-guia" aria-labelledby="fuentes-t"><h2 id="fuentes-t">Fuentes</h2><ul><li>Medidas propias de Sopa en un portátil MSI con GTX 1650 Max-Q de 4 GB (driver 617.42): velocidad de conversación y memoria máxima de la gráfica medida con <code>nvidia-smi</code>.</li><li>Catálogo de modelos y lógica de compatibilidad de la app. El <a href="../simulador.html">simulador</a> ya no hace esa cuenta: es un recorrido por la interfaz, con respuestas de ejemplo.</li><li>Licencias: las indicadas por cada autor en la ficha de su modelo.</li></ul></section><aside class="otras"><h2>Otras guías</h2><ul><li><a href="../guias/ia-local-frente-a-la-nube.html">IA local frente a la nube: privacidad</a></li><li><a href="../guias/ia-local-en-windows-sin-programar.html">Cómo usar inteligencia artificial local en Windows sin saber programar</a></li><li><a href="../guias/cuanta-vram-necesito.html">¿Cuánta VRAM necesito para una IA local?</a></li></ul></aside></article>
 </main>
 <footer class="cont pie">
   <nav class="pie-enlaces" aria-label="Enlaces del pie"><a href="../">Inicio</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../ayuda/">Ayuda</a><a href="../simulador.html">Simulador</a></nav>
-  <p>© 2026 Miguel Rodríguez Saiz. Sopa es software libre, con licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a> (<a href="../LICENSE">LICENSE</a>). El nombre y el logotipo de Sopa no se licencian. Qwen, Phi, Gemma, Granite, Llama, DeepSeek, Mistral y gpt-oss son marcas de sus titulares; sin afiliación.</p>
+  <p>Copyright © 2026 Miguel Rodríguez Saiz. Sopa es software libre, con licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a> (<a href="../LICENSE">LICENSE</a>). El nombre y el logotipo de Sopa no se licencian. Qwen, Phi, Gemma, Granite, Llama, DeepSeek, Mistral y gpt-oss son marcas de sus titulares; sin afiliación.</p>
   <p>Desarrollado por ArduSolutions.</p>
   <p>Esta web no usa cookies ni rastreadores.</p>
 </footer>
+<script src="../js/menu.js" defer></script>
 </body>
 </html>

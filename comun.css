@@ -54,3 +54,21 @@ h3{font-size:21px;letter-spacing:-.01em;font-weight:650;margin-bottom:6px}
 .pill-dev{color:#665A40;border-color:#665A40}
 .pill-proxima{white-space:normal;line-height:1.35;margin:0 8px 4px 0;vertical-align:middle}
 .oscura .pill-proxima{color:#E4D3AE;border-color:#E4D3AE}
+
+/* Cabecera en móvil: una fila con logo, versión y botón de menú (js/menu.js). */
+.menu-btn{display:none}
+@media (max-width:700px){
+ .nav.con-menu .nav-in{position:relative;flex-wrap:nowrap;height:56px;min-height:56px;padding-top:0;padding-bottom:0;gap:12px}
+ .nav.con-menu .pill-dev{order:2;margin-left:auto}
+ .nav.con-menu .menu-btn{order:3;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin-right:-10px;padding:0;border:0;border-radius:10px;background:transparent;color:var(--text);cursor:pointer}
+ .nav.con-menu .menu-btn:hover{background:#0000000d}
+ .nav.con-menu .menu-btn .linea{transition:transform .2s var(--ease),opacity .2s var(--ease);transform-origin:center}
+ .nav.con-menu.abierto .menu-btn .l1{transform:translateY(6px) rotate(45deg)}
+ .nav.con-menu.abierto .menu-btn .l2{opacity:0}
+ .nav.con-menu.abierto .menu-btn .l3{transform:translateY(-6px) rotate(-45deg)}
+ .nav.con-menu nav{display:none}
+ .nav.con-menu.abierto nav{display:flex;flex-direction:column;flex-wrap:nowrap;position:absolute;top:56px;left:0;right:0;width:auto;margin:0;gap:0;padding:4px 24px 12px;background:#F5F6F4;border-bottom:1px solid var(--border);box-shadow:0 12px 24px #0000001a;max-height:calc(100vh - 56px);overflow-y:auto}
+ .nav.con-menu.abierto nav a{display:block;padding:12px 0;font-size:17px;color:var(--text);border-top:1px solid var(--border)}
+ .nav.con-menu.abierto nav a:first-child{border-top:0}
+}
+@media (max-width:700px) and (prefers-reduced-motion:reduce){.nav.con-menu .menu-btn .linea{transition:none}}

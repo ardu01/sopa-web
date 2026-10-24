@@ -43,8 +43,8 @@
 <a class="saltar" href="#contenido">Saltar al contenido</a>
   <div class="nav-in">
     <a href="./" class="marca"><img src="img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
-    <nav aria-label="Secciones"><a href="./#funciones">Funciones</a><a href="./#modelos">Modelos</a><a href="./#licencia">Licencia</a><a href="./#faq">Preguntas</a><a href="guias/">Guías</a><a href="ayuda/">Ayuda</a><a href="simulador.html" aria-current="page">Simulador</a></nav>
-    <span class="pill-dev">Beta 1.9.4</span>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir el menú"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" focusable="false"><rect class="linea l1" x="3" y="4" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l2" x="3" y="10" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l3" x="3" y="16" width="16" height="2" rx="1" fill="currentColor"/></svg></button><nav id="menu-principal" aria-label="Secciones"><a href="./#funciones">Funciones</a><a href="./#modelos">Modelos</a><a href="./#licencia">Licencia</a><a href="./#faq">Preguntas</a><a href="guias/">Guías</a><a href="ayuda/">Ayuda</a><a href="simulador.html" aria-current="page">Simulador</a></nav>
+    <span class="pill-dev">Beta 1.16.7</span>
   </div>
 </header>
 <main id="contenido" tabindex="-1" class="sim">
@@ -52,8 +52,8 @@
     <nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="./">Sopa</a></li><li aria-current="page">Simulador</li></ol></nav>
     <p class="eyebrow">Interfaz</p>
     <h1>Así se ve Sopa en el ordenador</h1>
-    <p class="intro-txt">La descarga publicada sigue siendo la beta 1.9.4. Esta ventana enseña la interfaz de la beta 1.16.0, con sus textos. Los botones no instalan, no descargan y no se conectan. Las respuestas son de ejemplo. Esta simulación no calcula velocidades.</p>
-    <p class="intro-txt">Lo que aún no está en la 1.9.4 lleva la etiqueta «En la próxima versión pública».</p>
+    <p class="intro-txt">La descarga publicada es la beta 1.16.7. Esta ventana enseña la interfaz de la beta 1.16.0, con sus textos. Los botones no instalan, no descargan y no se conectan. Las respuestas son de ejemplo. Esta simulación no calcula velocidades.</p>
+    <p class="intro-txt">Lo que llegó después de la 1.9.4 y aún se está probando lleva la etiqueta «En pruebas».</p>
   </section>
   <div class="marco-wrap">
     <div class="marco" id="marco" data-tema="claro">
@@ -134,7 +134,7 @@
               <tr><td>Memoria: lo que Sopa recuerda de ti, editable y borrable, con «Recuerda que…» confirmado (MSI con Qwen3 4B)</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
               <tr><td>Elección automática del modelo según la tarea y el equipo, con carga automática (MSI: Qwen3 4B para chat y documentos, Qwen2.5 1.5B para entrenar)</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
               <tr><td>Entrenamiento sin jerga, con el detalle técnico en «Ver detalles»</td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
-              <tr><td>Catálogo ampliado (17 modelos nuevos con especialidad; visión «próximamente») y aviso «Equipo potente» calibrado en la MSI <span class="pill-dev pill-proxima">En la próxima versión pública</span></td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
+              <tr><td>Catálogo ampliado (17 modelos nuevos con especialidad; visión «próximamente») y aviso «Equipo potente» calibrado en la MSI <span class="pill-dev pill-proxima">En pruebas</span></td><td><span class="ins ins-ok">Verificado en equipo real</span></td></tr>
               <tr><td>Acciones en carpetas autorizadas, con vista previa, confirmación y papelera (nunca borrar para siempre)</td><td><span class="ins ins-ci">Probado en pruebas automáticas</span></td></tr>
               <tr><td>Sopa Mobile fuera de casa, con un túnel propio (claves locales, sin instalar WireGuard)</td><td><span class="ins ins-ci">Probado en pruebas automáticas</span></td></tr>
               <tr><td>Base del asistente: leer, buscar y resumir en carpetas autorizadas, con permiso por herramienta</td><td><span class="ins ins-ci">Probado en pruebas automáticas</span></td></tr>
@@ -154,7 +154,7 @@
                 <option>Imágenes (próximamente)</option>
               </select>
             </label>
-            <p><span class="pill-dev pill-proxima">En la próxima versión pública</span> <span class="ayuda">Imágenes y ver imágenes.</span></p>
+            <p><span class="pill-dev pill-proxima">Próximamente</span> <span class="ayuda">Imágenes y ver imágenes.</span></p>
             <label class="campo">Modelo
               <select id="modelo" aria-label="Modelo">
                 <option>qwen3-4b · 2,33 GB</option>
@@ -162,7 +162,7 @@
               </select>
             </label>
             <button type="button" class="btn-p" id="cargar">Cargar</button>
-            <p class="nota-ej" id="aviso-carga"><span class="pill-dev pill-proxima">En la próxima versión pública</span> Si el motor se cierra por falta de memoria, la app dice: «No hay memoria suficiente para cargar este modelo. Cierra otros programas o elige uno más pequeño.» Esta simulación no calcula si cabe.</p>
+            <p class="nota-ej" id="aviso-carga"><span class="pill-dev pill-proxima">En pruebas</span> Si el motor se cierra por falta de memoria, la app dice: «No hay memoria suficiente para cargar este modelo. Cierra otros programas o elige uno más pequeño.» Esta simulación no calcula si cabe.</p>
             <button type="button" class="btn">Otro archivo .gguf…</button>
             <label class="campo" for="creatividad">Creatividad
               <input type="range" id="creatividad" min="0" max="1.5" step="0.1" value="0.7" aria-describedby="o-crea">
@@ -173,12 +173,12 @@
           </div>
           <p class="ayuda">Ejemplo de lista. Estos nombres salen del catálogo publicado; aquí no hay ninguno descargado y no se dice por qué se elegiría uno.</p>
             <p class="ayuda">Puedes escribir ya: se cargará al enviar. Para usar otro, elígelo arriba y pulsa «Cargar».</p>
-            <p class="ayuda"><span class="pill-dev pill-proxima">En la próxima versión pública</span> En pruebas; se está puliendo para la próxima versión. La respuesta puede aparecer mientras se escribe, con un cursor verde al final, también si es larga. El razonamiento y los bloques de herramienta van aparte y no se mezclan con ese texto. Los menús y los botones no cambian.</p>
+            <p class="ayuda"><span class="pill-dev pill-proxima">En pruebas</span> Se sigue puliendo. La respuesta puede aparecer mientras se escribe, con un cursor verde al final, también si es larga. El razonamiento y los bloques de herramienta van aparte y no se mezclan con ese texto. Los menús y los botones no cambian.</p>
           <div class="chat-cuerpo">
             <aside class="historial" aria-label="Historial">
               <p id="historial-vacio">Tus conversaciones se guardan aquí, en este equipo.</p>
               <ul id="historial-lista"></ul>
-              <p class="ayuda"><span class="pill-dev pill-proxima">En la próxima versión pública</span> Cada conversación se puede guardar como texto o borrar desde el teclado. Aquí es un ejemplo y no se escribe ningún archivo.</p>
+              <p class="ayuda"><span class="pill-dev pill-proxima">En pruebas</span> Cada conversación se puede guardar como texto o borrar desde el teclado. Aquí es un ejemplo y no se escribe ningún archivo.</p>
               <button type="button" class="btn">Importar…</button>
             </aside>
             <div class="zona">
@@ -205,10 +205,10 @@
                     <option value="automatizaciones">Automatizaciones</option>
                   </select>
                 </label>
-                <p><span class="pill-dev pill-proxima">En la próxima versión pública</span> <span class="ayuda">Los agentes del chat y la búsqueda web están en pruebas; se están puliendo para la próxima versión.</span></p>
+                <p><span class="pill-dev pill-proxima">En pruebas</span> <span class="ayuda">Los agentes del chat y la búsqueda web están en pruebas.</span></p>
                 <button type="button" class="btn" title="Que responda con tus documentos (PDF, Word, texto)" aria-label="Responder con tus documentos">Clip</button>
                 <button type="button" class="btn" id="web" aria-pressed="false" title="Buscar en la web está apagado">Web<span id="web-extra"></span></button>
-                <span class="pill-dev pill-proxima">En la próxima versión pública</span>
+                <span class="pill-dev pill-proxima">En pruebas</span>
                 <label class="sr" for="mensaje">Mensaje</label>
                 <textarea id="mensaje" placeholder="Escribe tu mensaje… (Intro envía, Mayús+Intro salta de línea)"></textarea>
                 <button type="button" class="btn-p" id="enviar">Enviar</button>
@@ -218,8 +218,8 @@
         </section>
 
         <section class="vista" id="v-agentes" hidden aria-labelledby="t-agentes">
-          <h2 id="t-agentes">Agentes <span class="pill-dev pill-proxima">En la próxima versión pública</span></h2>
-          <p class="sub">En pruebas; se está puliendo para la próxima versión. Un agente trabaja en tus carpetas, con un límite de pasos. Lo que lee es contenido, no órdenes. Nada se escribe sin confirmar.</p>
+          <h2 id="t-agentes">Agentes <span class="pill-dev pill-proxima">En pruebas</span></h2>
+          <p class="sub">Se sigue puliendo. Un agente trabaja en tus carpetas, con un límite de pasos. Lo que lee es contenido, no órdenes. Nada se escribe sin confirmar.</p>
           <article class="tarjeta"><h3>Motor ligero</h3><p>No está en este equipo. Los agentes usan el modelo del chat.</p></article>
           <article class="tarjeta">
             <h3>Tus agentes</h3>
@@ -271,7 +271,7 @@
             </label>
             <button type="button" class="btn" id="buscar-docs">Buscar</button>
             <p id="docs-res" class="ayuda" hidden></p>
-            <p class="nota-ej"><span class="pill-dev pill-proxima">En la próxima versión pública</span> En esta pantalla no cambia nada. Solo cambia el orden de los resultados: Sopa busca a la vez por las palabras y por el significado, junta las dos listas y pone delante lo que queda bien en las dos. Si un fragmento contiene más palabras de la pregunta, pasa delante.</p>
+            <p class="nota-ej"><span class="pill-dev pill-proxima">En pruebas</span> En esta pantalla no cambia nada. Solo cambia el orden de los resultados: Sopa busca a la vez por las palabras y por el significado, junta las dos listas y pone delante lo que queda bien en las dos. Si un fragmento contiene más palabras de la pregunta, pasa delante.</p>
           </article>
           <article class="tarjeta">
             <h3>Documentos</h3>
@@ -308,7 +308,7 @@
             <label class="casilla"><input type="checkbox" id="solo-aqui" checked> <span>Mostrar solo los que funcionan aquí</span></label>
             <p class="nota-ej">Ejemplo de filas, con el nombre y el tamaño publicados. Chat y Entrenar los calcula la app en tu equipo: aquí van en blanco, sin tok/s y sin un «porque». Hay una medida de un equipo, no una promesa: en un PC con RTX 5070, Qwen3 4B corre en la gráfica a unos 61 tok/s. No es la velocidad de tu ordenador.</p>
             <div class="nota-ej">
-              <p><span class="pill-dev pill-proxima">En la próxima versión pública</span> Si falla una descarga, la app lo dice en español y añade «Pulsa «Continuar» para reintentar.» Estos textos son de ejemplo. No se descarga nada.</p>
+              <p><span class="pill-dev pill-proxima">En pruebas</span> Si falla una descarga, la app lo dice en español y añade «Pulsa «Continuar» para reintentar.» Estos textos son de ejemplo. No se descarga nada.</p>
               <ul>
                 <li>No he podido descargar el modelo: no hay conexión. Comprueba la red y vuelve a intentarlo. Lo ya descargado se conserva.</li>
                 <li>No he podido descargar el modelo: la conexión ha tardado demasiado. Comprueba la red y vuelve a intentarlo. Lo ya descargado se conserva.</li>
@@ -337,7 +337,7 @@
                   <td><button type="button" class="btn" data-descarga data-nombre="Gemma 2 2B Instruct" data-nota="Términos de Gemma de Google: uso comercial permitido, pero con su política de usos prohibidos.">Descargar</button></td>
                 </tr>
                 <tr>
-                  <td>Qwen2.5 VL 7B</td><td>Imágenes <span class="pill-dev pill-proxima">En la próxima versión pública</span></td><td>4,36 GB</td><td>—</td><td>—</td><td>—</td><td>Apache-2.0</td>
+                  <td>Qwen2.5 VL 7B</td><td>Imágenes <span class="pill-dev pill-proxima">En pruebas</span></td><td>4,36 GB</td><td>—</td><td>—</td><td>—</td><td>Apache-2.0</td>
                   <td><span class="ins ins-pend">Solo catálogo</span></td>
                 </tr>
               </tbody>
@@ -350,7 +350,7 @@
           <h2 id="t-ent">Entrenamiento</h2>
           <p class="sub">Enséñale a un modelo con tus ejemplos para que responda a tu manera. Todo se queda en tu equipo.</p>
           <article class="tarjeta" aria-labelledby="t-preparar">
-            <h3 id="t-preparar">Preparar ejemplos <span class="pill-dev pill-proxima">En la próxima versión pública</span></h3>
+            <h3 id="t-preparar">Preparar ejemplos <span class="pill-dev pill-proxima">En pruebas</span></h3>
             <p class="sub">De un documento, de conversaciones exportadas o de un Excel. El archivo que sale ya vale para el paso 2.</p>
             <p class="fila">
               <label class="btn" for="origen">Elegir origen...</label>
@@ -376,7 +376,7 @@
         </section>
 
         <section class="vista" id="v-comparar" hidden aria-labelledby="t-cmp">
-          <h2 id="t-cmp">Comparar <span class="pill-dev pill-proxima">En la próxima versión pública</span></h2>
+          <h2 id="t-cmp">Comparar <span class="pill-dev pill-proxima">En pruebas</span></h2>
           <p class="sub">La misma pregunta, primero con el modelo base y después con el personalizado. Solo cabe uno en memoria, así que van uno detrás de otro.</p>
           <p id="cmp-aviso" class="aviso-app info" role="status"></p>
           <label class="campo" for="cmp-modelo">Modelo personalizado
@@ -408,7 +408,7 @@
           <article class="tarjeta">
             <h3>Carpetas autorizadas</h3>
             <p>Sopa solo trabaja dentro de estas carpetas. Puede leer, buscar y resumir texto, Markdown, Word, PDF y Excel, y puede proponer crear una carpeta, crear un archivo de texto o Markdown, cambiar el nombre, mover, copiar, tirar a la papelera u organizar los archivos por tipo, por fecha, por un fragmento del nombre o por duplicados. Se apartan a la carpeta Duplicados; no se borra nada. Si pides varios pasos, primero ves el plan entero, hasta 8, y cada cambio se confirma. Por defecto no hay ninguna. Cada carpeta tiene sus herramientas y puedes apagarlas. «Permitir desde el móvil» viene apagado y solo se enciende en esta pantalla. Los cambios se ven antes y nada se escribe sin tu confirmación.</p>
-            <p class="nota-ej"><span class="pill-dev pill-proxima">En la próxima versión pública</span> Con el interruptor apagado, el asistente, Archivos, Automatizaciones, Documentos e Investigación, desde el móvil, no usan esa carpeta. En el ordenador la carpeta sigue disponible. El interruptor en sí ya está en la beta publicada; lo nuevo es ese límite. Esos agentes están en pruebas; se están puliendo para la próxima versión.</p>
+            <p class="nota-ej"><span class="pill-dev pill-proxima">En pruebas</span> Con el interruptor apagado, el asistente, Archivos, Automatizaciones, Documentos e Investigación, desde el móvil, no usan esa carpeta. En el ordenador la carpeta sigue disponible. El interruptor en sí ya está en la beta publicada; lo nuevo es ese límite. Esos agentes están en pruebas.</p>
             <p id="carpeta-vacio">No hay carpetas autorizadas. Las acciones están apagadas.</p>
             <button type="button" class="btn-p" id="add-carpeta">Añadir carpeta…</button>
             <ul id="carpetas"></ul>
@@ -445,8 +445,8 @@
             <p class="ayuda">El registro se queda en este equipo. Sopa no lo envía a ningún sitio.</p>
           </article>
           <article class="tarjeta">
-            <h3>Buscar en la web <span class="pill-dev pill-proxima">En la próxima versión pública</span></h3>
-            <p>En pruebas; se está puliendo para la próxima versión. Apagado, el chat no sale de este equipo: no hay ninguna búsqueda en la red. Encendido, puedo buscar en la web y leer una página, sin cuenta ni clave. El texto de esas páginas es un dato, no una orden.</p>
+            <h3>Buscar en la web <span class="pill-dev pill-proxima">En pruebas</span></h3>
+            <p>Se sigue puliendo. Apagado, el chat no sale de este equipo: no hay ninguna búsqueda en la red. Encendido, puedo buscar en la web y leer una página, sin cuenta ni clave. El texto de esas páginas es un dato, no una orden.</p>
             <label class="casilla"><input type="checkbox" id="web-ajustes"> <span>Buscar en la web</span></label>
           </article>
           <article class="tarjeta">
@@ -476,7 +476,7 @@
           </article>
           <article class="tarjeta">
             <h3>Acerca de</h3>
-            <p>Sopa © 2026 Miguel Rodríguez Saiz. Software libre: GPL-3.0-or-later, sin ninguna garantía.</p>
+            <p>Sopa Copyright © 2026 Miguel Rodríguez Saiz. Software libre: GPL-3.0-or-later, sin ninguna garantía.</p>
             <p class="fila"><button type="button" class="btn" id="ver-licencia">Ver licencia</button><button type="button" class="btn" id="avisos-terceros">Avisos de terceros</button></p>
             <p id="panel-licencia" hidden>El texto de la licencia es la <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a> (<a href="LICENSE">LICENSE</a>).</p>
             <p id="panel-avisos" hidden>En la app, este botón muestra los avisos de terceros. Esta simulación no los copia aquí.</p>
@@ -522,10 +522,11 @@
 </main>
 <footer class="cont pie">
   <nav class="pie-enlaces" aria-label="Enlaces del pie"><a href="./">Inicio</a><a href="./#licencia">Licencia</a><a href="guias/">Guías</a><a href="ayuda/">Ayuda</a><a href="simulador.html">Simulador</a></nav>
-  <p>© 2026 Miguel Rodríguez Saiz. Sopa es software libre, con licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a> (<a href="LICENSE">LICENSE</a>). El nombre y el logotipo de Sopa no se licencian. Qwen, Phi, Gemma, Granite, Llama, DeepSeek, Mistral y gpt-oss son marcas de sus titulares; sin afiliación.</p>
+  <p>Copyright © 2026 Miguel Rodríguez Saiz. Sopa es software libre, con licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a> (<a href="LICENSE">LICENSE</a>). El nombre y el logotipo de Sopa no se licencian. Qwen, Phi, Gemma, Granite, Llama, DeepSeek, Mistral y gpt-oss son marcas de sus titulares; sin afiliación.</p>
   <p>Desarrollado por ArduSolutions.</p>
   <p>Esta web no usa cookies ni rastreadores.</p>
 </footer>
 <script src="js/simulador.min.js" defer></script>
+<script src="js/menu.js" defer></script>
 </body>
 </html>
