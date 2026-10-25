@@ -4,6 +4,11 @@ Fecha: 24 de octubre de 2026 (actualizado; el resto del texto es del 19 de octub
 
 El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil: https://github.com/ardu01/sopa-web/pull/18 contra `main`, rama `cursor/rendimiento-lighthouse-c470`. No está fusionado.
 
+## Pendiente (25 de octubre de 2026)
+
+- No hay capturas reales de la 1.16.8. Las capturas de la app de la web son las de antes; no se ha inventado ninguna. Hay que sustituirlas cuando haya capturas de verdad de la 1.16.8 (la etiqueta «Código comprobado», «Ir al final» y la barra nueva de Sopa Mobile en el iPhone).
+- La comprobación del código de la 1.16.8 va «En pruebas»: en la torre solo se hizo una prueba corta, por un problema de estabilidad del equipo.
+
 ## Último cambio (24 de octubre de 2026)
 
 - https://github.com/ardu01/sopa-web/pull/21 contra `main`, fusionado el 24 de octubre de 2026 a las 08:55 (hora de Madrid), squash, commit `f64559c`. La CI estaba en verde.
