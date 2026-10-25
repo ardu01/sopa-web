@@ -1,15 +1,24 @@
 # Traspaso
 
-Fecha: 24 de octubre de 2026 (actualizado; el resto del texto es del 19 de octubre).
+Fecha: 25 de octubre de 2026 (actualizado; el resto del texto es del 19 de octubre).
 
 El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil: https://github.com/ardu01/sopa-web/pull/18 contra `main`, rama `cursor/rendimiento-lighthouse-c470`. No está fusionado.
+
+## Último cambio (25 de octubre de 2026)
+
+- https://github.com/ardu01/sopa-web/pull/22 contra `main`, fusionado el 25 de octubre de 2026 a las 10:14 (hora de Madrid), squash, commit `e12b3f6`. La CI estaba en verde. Pages lo publicó a las 10:15.
+  - La web está en la beta 1.16.8. Descargas alojadas en `descargas/`: `Sopa-1.16.8-windows-setup.exe` (56 834 466 B, SHA-256 `5da0bd88…58dfe`) y `Sopa-1.16.8-windows.zip` (39 409 627 B, SHA-256 `660b75c8…527e5`). Las de la 1.16.7 se han quitado y dan 404.
+  - Licencia: GPL-3.0-only desde la 1.16.8; hasta la 1.16.7, GPL-3.0-or-later. Lo dice la caja de descarga. La oferta del código fuente es para Sopa 1.16.8 (etiqueta v1.16.8), por issue en este repositorio, al menos tres años. `LICENSE` es el texto de la GPLv3, idéntico al de la etiqueta v1.16.8.
+  - Novedades de la 1.16.8 sacadas de las notas, marcadas «En pruebas»: código comprobado (también desde Sopa Mobile), «Ir al final», «Copiar» y el chat sin desplazamiento lateral. Problema conocido nuevo: una página HTML larga pedida desde el móvil puede llegar cortada y sin comprobar.
+  - Se quitó la fuente `https://comparehw.com/gpus/amd` de `datos/ancho-de-banda.json` y `js/anchos.js`, porque da 404 y rompía «Enlaces externos». Cada gráfica afectada conserva su otra fuente.
+- `auditar.py` sigue con los 2 errores antiguos (`404.html` fuera del sitemap y la falta de `applicationCategory`).
 
 ## Pendiente (25 de octubre de 2026)
 
 - No hay capturas reales de la 1.16.8. Las capturas de la app de la web son las de antes; no se ha inventado ninguna. Hay que sustituirlas cuando haya capturas de verdad de la 1.16.8 (la etiqueta «Código comprobado», «Ir al final» y la barra nueva de Sopa Mobile en el iPhone).
 - La comprobación del código de la 1.16.8 va «En pruebas»: en la torre solo se hizo una prueba corta, por un problema de estabilidad del equipo.
 
-## Último cambio (24 de octubre de 2026)
+## Cambio anterior (24 de octubre de 2026)
 
 - https://github.com/ardu01/sopa-web/pull/21 contra `main`, fusionado el 24 de octubre de 2026 a las 08:55 (hora de Madrid), squash, commit `f64559c`. La CI estaba en verde.
   - La web está en la beta 1.16.7. Las descargas están alojadas en `descargas/`: instalador y zip de la 1.16.7, con su SHA-256. Las de la 1.9.4 se han quitado.
