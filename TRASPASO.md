@@ -1,10 +1,27 @@
 # Traspaso
 
-Fecha: 25 de octubre de 2026 (actualizado; el resto del texto es del 19 de octubre).
+Fecha: 26 de octubre de 2026 (actualizado; el resto del texto es del 19 de octubre).
 
 El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil: https://github.com/ardu01/sopa-web/pull/18 contra `main`, rama `cursor/rendimiento-lighthouse-c470`. No está fusionado.
 
-## Último cambio (25 de octubre de 2026)
+## Último cambio (26 de octubre de 2026)
+
+- Pull request de la beta 1.18.0 contra `main` (rama `beta-1.18.0`). Se hizo desde la caja: el agente en la nube no puede leer Sopa-IA/sopa-motor.
+  - La web está en la beta 1.18.0 (Latest de Sopa-IA/sopa-motor, publicada el 25 de octubre de 2026 a las 14:25, hora de Madrid). Descargas alojadas en `descargas/`: `Sopa-1.18.0-windows-setup.exe` (56 880 015 B, SHA-256 `c7e7ad75…c9990`) y `Sopa-1.18.0-windows.zip` (39 455 587 B, SHA-256 `c3681288…a7b93`). Los hashes coinciden con las notas de la Release. Las de la 1.16.8 se han quitado.
+  - Oferta del código fuente para Sopa 1.18.0 (etiqueta v1.18.0), por issue en este repositorio, al menos tres años. Licencia GPL-3.0-only. `LICENSE` es idéntico al de la etiqueta v1.18.0.
+  - Novedades sacadas de las notas de la 1.16.9, la 1.17.0 y la 1.18.0, todas con «En pruebas»: captura de la página HTML en la etiqueta del chat (ordenador y Sopa Mobile), pruebas locales que vuelven al modelo hasta «Código comprobado» o 3 intentos, JavaScript de tipo módulo sin Node «sin comprobar», plan y línea de estado en el chat y los agentes, respuesta limpia en español, Investigación con dos o tres fuentes y enlaces, «Confirmar» en Automatizaciones y al preparar un archivo, «Parar», aviso cerca del límite con resumen, bloques de código con desplazamiento propio y textos largos desde el móvil que ya no se pierden. Ayuda tocada: el primer chat, Sopa Mobile, Automatizaciones e instalar en Windows.
+  - Embeddings en la GPU y Diseño 3D no entran en la 1.18.0 y no se mencionan. «Ver imágenes» sigue en «Lo que viene».
+  - Se quita el problema conocido de la página HTML larga cortada desde el móvil: la 1.16.9 corrige la pérdida de textos largos en el móvil emparejado. Los otros tres problemas conocidos se mantienen porque ninguna nota dice que estén arreglados.
+  - La ruta de versiones ya no marca «ahora» en la 1.16; la versión actual la dice la línea de encima.
+- `auditar.py` sigue con los 2 errores antiguos (`404.html` fuera del sitemap y la falta de `applicationCategory`). html-validate, enlaces internos y axe pasan en local.
+
+## Pendiente (26 de octubre de 2026)
+
+- No hay capturas reales de la 1.18.0. Las capturas de la app de la web son las de antes; no se ha inventado ninguna. Hay que sustituirlas cuando haya capturas de verdad de la 1.18.0 (la etiqueta con la captura de la página HTML, el plan y la línea de estado, el botón «Confirmar» de Automatizaciones y la vista en Sopa Mobile).
+- La 1.17.0 y la 1.18.0 no constan probadas en la torre MSI_TORRE: solo CI (Linux 3.12 y 3.13, Windows exe, pruebas-windows y e2e, CodeQL). La 1.16.9 pasó en la torre los casos es-md, web y largo. Por eso todo lo nuevo va «En pruebas». Cuando haya prueba en la torre, se puede quitar la etiqueta de lo que pase.
+- El simulador sigue enseñando la interfaz de la 1.16.0; solo cambia el número de versión del pie.
+
+## Cambio anterior (25 de octubre de 2026)
 
 - https://github.com/ardu01/sopa-web/pull/22 contra `main`, fusionado el 25 de octubre de 2026 a las 10:14 (hora de Madrid), squash, commit `e12b3f6`. La CI estaba en verde. Pages lo publicó a las 10:15.
   - La web está en la beta 1.16.8. Descargas alojadas en `descargas/`: `Sopa-1.16.8-windows-setup.exe` (56 834 466 B, SHA-256 `5da0bd88…58dfe`) y `Sopa-1.16.8-windows.zip` (39 409 627 B, SHA-256 `660b75c8…527e5`). Las de la 1.16.7 se han quitado y dan 404.
@@ -13,7 +30,7 @@ El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte 
   - Se quitó la fuente `https://comparehw.com/gpus/amd` de `datos/ancho-de-banda.json` y `js/anchos.js`, porque da 404 y rompía «Enlaces externos». Cada gráfica afectada conserva su otra fuente.
 - `auditar.py` sigue con los 2 errores antiguos (`404.html` fuera del sitemap y la falta de `applicationCategory`).
 
-## Pendiente (25 de octubre de 2026)
+## Pendiente anterior (25 de octubre de 2026, sustituido por el de arriba)
 
 - No hay capturas reales de la 1.16.8. Las capturas de la app de la web son las de antes; no se ha inventado ninguna. Hay que sustituirlas cuando haya capturas de verdad de la 1.16.8 (la etiqueta «Código comprobado», «Ir al final» y la barra nueva de Sopa Mobile en el iPhone).
 - La comprobación del código de la 1.16.8 va «En pruebas»: en la torre solo se hizo una prueba corta, por un problema de estabilidad del equipo.
