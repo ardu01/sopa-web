@@ -1,10 +1,25 @@
 # Traspaso
 
-Fecha: 26 de octubre de 2026 (actualizado; el resto del texto es del 19 de octubre).
+Fecha: 27 de octubre de 2026 (actualizado; el resto del texto es del 19 de octubre).
 
 El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil: https://github.com/ardu01/sopa-web/pull/18 contra `main`, rama `cursor/rendimiento-lighthouse-c470`. No está fusionado.
 
-## Último cambio (26 de octubre de 2026)
+## Último cambio (27 de octubre de 2026)
+
+- Web a la beta 1.19.0 (Latest de Sopa-IA/sopa-motor, publicada el 27 de octubre de 2026 a la 01:11, hora de Madrid; etiqueta en el squash `0ff5241`). Hecho desde la caja, en un PR contra `main`.
+  - Descargas en `descargas/`: `Sopa-1.19.0-windows-setup.exe` (56 891 485 B, SHA-256 `99462db5…d44b2`) y `Sopa-1.19.0-windows.zip` (39 467 024 B, SHA-256 `7e6a2b74…67380`). Coinciden con `SHA256SUMS.txt` y con las notas de la Release. Las de la 1.18.0 se han quitado.
+  - Oferta del código fuente para Sopa 1.19.0 (etiqueta v1.19.0). `LICENSE` es idéntico al de la etiqueta v1.19.0. GPL-3.0-only.
+  - Novedad de la 1.19.0, sacada de las notas y con «En pruebas»: la búsqueda por significado de Tus documentos puede usar la gráfica cuando el chat no la usa; si el chat la usa o va a cargar un modelo, el buscador va al procesador o le deja sitio; sin gráfica o con driver viejo, procesador. Está en la caja de descarga y en `ayuda/tus-documentos.html`. No se cita el texto exacto de la pantalla porque no hay captura.
+  - Diseño 3D no entra en la 1.19.0 y no se menciona. No es la 2.0. Los problemas conocidos no cambian: ninguna nota dice que estén arreglados.
+  - `auditar.py`: 0 errores. html-validate pasa en local.
+
+## Pendiente (27 de octubre de 2026)
+
+- No hay capturas reales de la 1.18.0 ni de la 1.19.0. No se ha inventado ninguna. Falta, además de lo de la 1.18.0, la pantalla de documentos diciendo dónde va el buscador.
+- La 1.17.0, la 1.18.0 y la 1.19.0 no constan probadas en la torre MSI_TORRE: solo CI. Todo lo nuevo va «En pruebas».
+- El simulador sigue enseñando la interfaz de la 1.16.0; solo cambia el número de versión del pie.
+
+## Cambio anterior (26 de octubre de 2026)
 
 - https://github.com/ardu01/sopa-web/pull/23 contra `main`, fusionado el 26 de octubre de 2026 a las 10:10 (hora de Madrid), squash, commit `1ca7bbf`. La CI estaba en verde («HTML válido y enlaces internos» y «Enlaces externos»). Pages lo publicó a las 10:11. Se hizo desde la caja: el agente en la nube no puede leer Sopa-IA/sopa-motor.
   - Comprobado en vivo: la portada dice «Beta 1.18.0»; las dos descargas responden 200 con el tamaño y el SHA-256 correctos; `descargas/Sopa-1.16.8-windows-setup.exe` da 404.
@@ -16,7 +31,7 @@ El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte 
   - La ruta de versiones ya no marca «ahora» en la 1.16; la versión actual la dice la línea de encima.
 - `auditar.py` sigue con los 2 errores antiguos (`404.html` fuera del sitemap y la falta de `applicationCategory`). html-validate, enlaces internos y axe pasan en local.
 
-## Pendiente (26 de octubre de 2026)
+## Pendiente anterior (26 de octubre de 2026, sustituido por el de arriba)
 
 - No hay capturas reales de la 1.18.0. Las capturas de la app de la web son las de antes; no se ha inventado ninguna. Hay que sustituirlas cuando haya capturas de verdad de la 1.18.0 (la etiqueta con la captura de la página HTML, el plan y la línea de estado, el botón «Confirmar» de Automatizaciones y la vista en Sopa Mobile).
 - La 1.17.0 y la 1.18.0 no constan probadas en la torre MSI_TORRE: solo CI (Linux 3.12 y 3.13, Windows exe, pruebas-windows y e2e, CodeQL). La 1.16.9 pasó en la torre los casos es-md, web y largo. Por eso todo lo nuevo va «En pruebas». Cuando haya prueba en la torre, se puede quitar la etiqueta de lo que pase.
