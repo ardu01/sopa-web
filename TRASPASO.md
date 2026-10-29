@@ -6,7 +6,8 @@ El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte 
 
 ## Último cambio (29 de octubre de 2026)
 
-- Web a la beta 1.20.0 (Latest de Sopa-IA/sopa-motor, publicada el 29 de octubre de 2026 a las 09:33, hora de Madrid; etiqueta en el squash `bb78528`). Hecho desde la caja, en un PR contra `main`.
+- Web a la beta 1.20.0 (Latest de Sopa-IA/sopa-motor, publicada el 29 de octubre de 2026 a las 09:33, hora de Madrid; etiqueta en el squash `bb78528`). Hecho desde la caja: PR #25 (https://github.com/ardu01/sopa-web/pull/25), CI en verde (HTML válido y enlaces internos, y Enlaces externos), fusionado por squash `ea160ef` el 29 de octubre de 2026 a las 10:14 (hora de Madrid); GitHub Pages publicado a las 10:15.
+  - Comprobado en vivo a las 10:17 (hora de Madrid): las dos descargas de la 1.20.0 dan 200 con el tamaño y el SHA-256 de arriba; las de la 1.19.0 dan 404; la portada dice «Beta 1.20.0»; `ayuda/diseno-3d.html` da 200 y está en el sitemap.
   - Descargas en `descargas/`: `Sopa-1.20.0-windows-setup.exe` (56 956 528 B, SHA-256 `c8aa361b…a1363b`) y `Sopa-1.20.0-windows.zip` (39 533 072 B, SHA-256 `4b88228b…dcdde`). Coinciden con `SHA256SUMS.txt` y con las notas de la Release. Las de la 1.19.0 se han quitado.
   - Oferta del código fuente para Sopa 1.20.0 (etiqueta v1.20.0). `LICENSE` es idéntico al de la etiqueta v1.20.0. GPL-3.0-only.
   - Novedad de la 1.20.0 con «En pruebas»: Diseño 3D (OpenSCAD, si no CadQuery, si no cubos/cilindros/esferas; hasta 3 correcciones; inventario JSON local; sin ejecutar Python del modelo). En la caja de descarga, en la FAQ de versión y en la página nueva `ayuda/diseno-3d.html` (en el índice de la ayuda, en «Otras páginas», en el sitemap y en `scripts/accesibilidad.mjs`). Los textos de la pantalla salen de `sopa_app/ui/index.html`, `ui/diseno3d.js`, `diseno3d.py` y `backend.py` de la etiqueta; no hay captura.
