@@ -93,10 +93,6 @@
   }
   $("agente").addEventListener("change", pintarAgente);
 
-  $("creatividad").addEventListener("input", function () {
-    $("o-crea").textContent = String($("creatividad").value).replace(".", ",");
-  });
-
   document.querySelectorAll(".ideas button").forEach(function (b) {
     b.addEventListener("click", function () { $("mensaje").value = b.textContent; $("mensaje").focus(); });
   });
@@ -147,9 +143,6 @@
     quien.className = "quien";
     quien.textContent = "Ejemplo · Sopa";
     ia.appendChild(quien);
-    if ($("pensar").checked) {
-      ia.appendChild(bloque("Ejemplo de razonamiento, aparte de la respuesta. No se escribe dentro del texto."));
-    }
     if ($("agente").value !== "chat") {
       ia.appendChild(bloque("Ejemplo de bloque de herramienta, aparte de la respuesta."));
     }

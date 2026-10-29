@@ -38,6 +38,7 @@ const paginas = [
   "/ayuda/memoria.html",
   "/ayuda/entrenamiento.html",
   "/ayuda/comparar.html",
+  "/ayuda/diseno-3d.html",
   "/ayuda/automatizaciones.html",
   "/ayuda/sopa-mobile.html",
   "/ayuda/problemas-frecuentes.html",

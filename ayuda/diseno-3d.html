@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diseño 3D · Ayuda · Sopa™</title>
+<meta name="description" content="Cómo preparar una pieza en Diseño 3D con Sopa: OpenSCAD o la malla propia, vista previa, medidas, inventario local y STL. En pruebas.">
+<link rel="canonical" href="https://ardu01.github.io/sopa-web/ayuda/diseno-3d.html">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Miguel Rodríguez Saiz">
+<meta name="theme-color" content="#F5F6F4">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Sopa">
+<meta property="og:url" content="https://ardu01.github.io/sopa-web/ayuda/diseno-3d.html">
+<meta property="og:title" content="Diseño 3D · Ayuda · Sopa™">
+<meta property="og:description" content="Cómo preparar una pieza en Diseño 3D con Sopa: OpenSCAD o la malla propia, vista previa, medidas, inventario local y STL. En pruebas.">
+<meta property="og:image" content="https://ardu01.github.io/sopa-web/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logotipo de Sopa con el lema «Tu inteligencia artificial. Tu ordenador. Tus reglas.»">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Diseño 3D · Ayuda · Sopa™">
+<meta name="twitter:description" content="Cómo preparar una pieza en Diseño 3D con Sopa: OpenSCAD o la malla propia, vista previa, medidas, inventario local y STL. En pruebas.">
+<meta name="twitter:image" content="https://ardu01.github.io/sopa-web/img/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Diseño 3D","description":"Cómo preparar una pieza en la pantalla Diseño 3D de Sopa y guardar su STL.","inLanguage":"es","step":[{"@type":"HowToStep","name":"Carga un modelo en el chat","text":"Diseño 3D usa el modelo del chat y no descarga otro.","url":"https://ardu01.github.io/sopa-web/ayuda/diseno-3d.html#antes"},{"@type":"HowToStep","name":"Abre Diseño 3D","text":"Está en la barra, dentro de Tu IA, debajo de Comparar.","url":"https://ardu01.github.io/sopa-web/ayuda/diseno-3d.html#abre-diseno"},{"@type":"HowToStep","name":"Escribe la pieza y pulsa Preparar","text":"El modelo la escribe en OpenSCAD y Sopa enseña la vista previa y las medidas.","url":"https://ardu01.github.io/sopa-web/ayuda/diseno-3d.html#preparar"},{"@type":"HowToStep","name":"Guarda el STL","text":"Pulsa Guardar STL. Debajo sale la ruta del archivo.","url":"https://ardu01.github.io/sopa-web/ayuda/diseno-3d.html#guardar-stl"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Sopa","item":"https://ardu01.github.io/sopa-web/"},{"@type":"ListItem","position":2,"name":"Ayuda","item":"https://ardu01.github.io/sopa-web/ayuda/"},{"@type":"ListItem","position":3,"name":"Diseño 3D","item":"https://ardu01.github.io/sopa-web/ayuda/diseno-3d.html"}]}</script>
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="apple-touch-icon" href="../img/favicon-180.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="preload" href="../fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../bloque-ayuda.css">
+</head>
+<body>
+<header class="nav">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="nav-in">
+<a href="../" class="marca"><img src="../img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
+<button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir el menú"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" focusable="false"><rect class="linea l1" x="3" y="4" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l2" x="3" y="10" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l3" x="3" y="16" width="16" height="2" rx="1" fill="currentColor"/></svg></button><nav id="menu-principal" aria-label="Secciones"><a href="../#funciones">Funciones</a><a href="../#modelos">Modelos</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../ayuda/" aria-current="page">Ayuda</a><a href="../simulador.html">Simulador</a></nav>
+<span class="pill-dev">Beta 1.20.0</span>
+</div>
+</header>
+<main id="contenido" tabindex="-1" class="guia ayuda">
+<nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="../">Sopa</a></li><li><a href="./">Ayuda</a></li><li aria-current="page">Diseño 3D</li></ol></nav>
+<article class="cont-guia">
+<p class="eyebrow">Ayuda</p>
+<h1>Diseño 3D</h1>
+<p class="lead"><span class="pill-dev pill-proxima">En pruebas</span> Desde la 1.20.0. Escribes qué pieza quieres, el modelo del chat la escribe en OpenSCAD y Sopa enseña la vista previa y las medidas. Si algo no cuadra, se lo devuelve al modelo para que la corrija.</p>
+<p class="autor">Por <strong>Miguel Rodríguez Saiz</strong>, creador de Sopa</p>
+<nav class="indice" aria-labelledby="indice-t"><h2 id="indice-t">En esta página</h2><ol><li><a href="#antes">Antes de empezar</a></li><li><a href="#abre-diseno">Abre Diseño 3D</a></li><li><a href="#preparar">Prepara la pieza</a></li><li><a href="#guardar-stl">Guarda el STL</a></li><li><a href="#motor">Quién dibuja la pieza</a></li><li><a href="#inventario">El inventario</a></li></ol></nav>
+<p>Esta pantalla aún no se ha probado en un equipo real, solo en las pruebas automáticas. Todavía no hay capturas de ella.</p>
+
+<h2 id="antes">Antes de empezar</h2>
+<p>Carga un modelo en el <a href="el-primer-chat.html">chat</a>. Diseño 3D usa ese modelo y no descarga otro. Si no hay ninguno cargado, Sopa dice: «Carga un modelo en el chat. Diseño 3D usa ese modelo y no descarga otro.» Si el chat está respondiendo, dice: «El chat está ocupado.»</p>
+
+<h2 id="abre-diseno">Abre Diseño 3D</h2>
+<ol class="pasos">
+<li><h3 id="en-la-barra">Pulsa «Diseño 3D»</h3><p>Está en la barra de la izquierda, en el grupo «Tu IA», debajo de «Comparar».</p></li>
+<li><h3 id="lee-el-titulo">Lee el subtítulo</h3><p>Dice: «OpenSCAD o CadQuery en este ordenador. La vista previa, las medidas y el inventario vuelven al modelo. No se descarga nada y no se ejecuta Python del modelo.» Debajo, un aviso te dice quién dibujará la pieza en tu equipo y si hay inventario.</p></li>
+</ol>
+
+<h2 id="preparar">Prepara la pieza</h2>
+<ol class="pasos">
+<li><h3 id="que-pieza">Escribe en «Qué pieza quieres»</h3><p>Una sola pieza, con sus medidas en milímetros.</p></li>
+<li><h3 id="pulsa-preparar">Pulsa «Preparar»</h3><p>Sale «Preparando la pieza…». El modelo escribe la pieza en OpenSCAD y Sopa hace la vista previa, mide la pieza y, si tienes inventario, mira si cabe.</p></li>
+<li><h3 id="si-no-cuadra">Si algo no cuadra</h3><p>Si la vista falla, si las medidas que dice el modelo no son las de la pieza o si no cabe en el inventario, ese texto vuelve al modelo, que corrige la pieza. Lo intenta hasta 3 veces. El modelo recibe el texto, no la imagen: la vista previa se queda en tu pantalla.</p></li>
+<li><h3 id="el-resultado">Mira el resultado</h3><p>Arriba sale «Diseño comprobado» o «No se ha podido comprobar el diseño:» con el motivo. Debajo, la vista previa, el ancho (X), el fondo (Y) y el alto (Z) en milímetros, lo que dice el inventario y el código OpenSCAD.</p></li>
+</ol>
+
+<h2 id="guardar-stl">Guarda el STL</h2>
+<p>Pulsa «Guardar STL». Sopa escribe el archivo en la carpeta de Diseño 3D, dentro de sus datos (<code>%LOCALAPPDATA%\Sopa\diseno3d</code>), y enseña la ruta debajo del botón. No se sube a ningún sitio.</p>
+
+<h2 id="motor">Quién dibuja la pieza</h2>
+<ul>
+<li><strong>OpenSCAD</strong>, si está en tu ordenador: hace la vista previa PNG y el STL. Sopa lo busca en el PATH y en <code>C:\Program Files\OpenSCAD</code>. Sopa no lo instala.</li>
+<li><strong>CadQuery</strong>, si no está OpenSCAD y CadQuery está instalado en el Python con el que funciona Sopa: la malla sale de esa biblioteca, con la geometría ya leída.</li>
+<li><strong>Sopa</strong>, si no hay ninguno: dibuja la vista y el STL con cubos, cilindros y esferas. En ese caso un hueco hecho con <code>difference</code> no se recorta, y el aviso lo dice.</li>
+</ul>
+<p>Sopa no ejecuta Python escrito por el modelo. Si la pieza intenta leer otros archivos (<code>include</code>, <code>use</code>, <code>import</code> o <code>surface</code>), se rechaza y no se arranca ningún programa.</p>
+
+<h2 id="inventario">El inventario</h2>
+<p>Es opcional. Si lo pones, Sopa mira si la caja de la pieza cabe, girándola, en alguna pieza de tu taller que tenga cantidad. Es un archivo JSON en tu equipo: <code>%LOCALAPPDATA%\Sopa\diseno3d\inventario.json</code>. No se consulta nada por la red.</p>
+<pre><code>{"piezas": [
+  {"nombre": "Tablero de pino", "largo_mm": 600, "ancho_mm": 300, "alto_mm": 18, "cantidad": 2, "ubicacion": "Estante 1"}
+]}</code></pre>
+<p>También valen <code>largo</code>, <code>ancho</code> y <code>alto</code>. Las filas sin medidas se saltan, y Sopa dice cuántas. Si no hay archivo, dice: «No hay inventario en este equipo, así que no cruzo la pieza con el taller.»</p>
+
+<section class="fuentes-guia" aria-labelledby="fuentes-t"><h2 id="fuentes-t">Fuentes</h2><ul><li>Notas de la versión 1.20.0 de Sopa: OpenSCAD, CadQuery o cubos, cilindros y esferas; hasta 3 correcciones; inventario JSON local; sin ejecutar Python del modelo.</li><li>Textos de la pantalla Diseño 3D de la 1.20.0: el subtítulo, «Qué pieza quieres», «Preparar», «Guardar STL», las etiquetas y los avisos.</li><li>La pantalla es de la 1.20.0 y solo ha pasado las pruebas automáticas.</li></ul></section><aside class="otras"><h2>Otras páginas de la ayuda</h2><ul><li><a href="el-primer-chat.html">El primer chat</a></li><li><a href="elegir-un-modelo.html">Elegir un modelo</a></li><li><a href="esta-usando-mi-grafica.html">¿Está usando mi gráfica?</a></li><li><a href="tus-documentos.html">Tus documentos</a></li><li><a href="memoria.html">Memoria</a></li><li><a href="entrenamiento.html">Entrenamiento</a></li><li><a href="comparar.html">Comparar</a></li><li><a href="diseno-3d.html">Diseño 3D</a></li><li><a href="automatizaciones.html">Automatizaciones</a></li><li><a href="sopa-mobile.html">Sopa Mobile</a></li><li><a href="problemas-frecuentes.html">Problemas frecuentes</a></li></ul></aside>
+<p><a class="enlace" href="./">Volver a la ayuda ›</a></p>
+</article>
+</main>
+<footer class="cont pie">
+<nav class="pie-enlaces" aria-label="Enlaces del pie"><a href="../">Inicio</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../ayuda/">Ayuda</a><a href="../simulador.html">Simulador</a></nav>
+<p>Copyright © 2026 Miguel Rodríguez Saiz. Sopa es software libre, con licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a> (<a href="../LICENSE">LICENSE</a>). El nombre y el logotipo de Sopa no se licencian. Qwen, Phi, Gemma, Granite, Llama, DeepSeek, Mistral y gpt-oss son marcas de sus titulares; sin afiliación.</p>
+<p>Desarrollado por ArduSolutions.</p>
+<p>Esta web no usa cookies ni rastreadores.</p>
+</footer>
+<script src="../js/menu.js" defer></script>
+</body>
+</html>
