@@ -4,7 +4,16 @@ Fecha: 30 de octubre de 2026 (actualizado; el resto del texto es del 19 de octub
 
 El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil: https://github.com/ardu01/sopa-web/pull/18 contra `main`, rama `cursor/rendimiento-lighthouse-c470`. No está fusionado.
 
-## Último cambio (30 de octubre de 2026)
+## Último cambio (30 de octubre de 2026, tarde)
+
+- https://github.com/ardu01/sopa-web/pull/31 — portada pulida a petición de Miguel («Arréglalo déjalo profesional pulido como si Apple la hubiese publicado»). Fusionado por squash `b38c324` el 30 de octubre de 2026 a las 13:45 (hora de Madrid), con la CI «HTML válido y enlaces internos» y «Enlaces externos» en verde. En vivo a las 13:45. Hecho desde la caja, después del cierre de turno del otro grupo (`60e78f4`, #29 y #30).
+  - `#agentes-20` pasa al final, junto a `#proximamente`, y en el menú aparece como «Próximamente». Solo da la idea general: equipo de agentes con nombre, trabajo y cara, sin fecha. Se quitan las promesas de detalle (confirmación antes de escribir, lo que recuerda cada agente, la lista de plantillas y los estados) y los pasos «pantalla» y «rotulo», con las capturas del desarrollo `07-pagina-agentes` y `01-desktop-inicio`. Los archivos de esas capturas siguen en `img/`, pero no se usan. La demo de caras lleva el rótulo «Ilustración. No es una captura de la app.» y frases de papel genéricas. El botón ahora dice «Conoce al equipo».
+  - Los rótulos «Nuevo en la 0.10/1.x» y «Desde la 1.10/1.12» pasan a ir por tema. Las etiquetas Ya funciona, Beta y En pruebas no cambian.
+  - Las notas de pruebas van en `.letra-pequena`, con el texto intacto. Se quitan las 4 líneas «Esta función está disponible para todos.» (restos de planes) y la línea de versiones (`.ruta`). El hero tiene ahora el botón «Descargar la beta» (#descarga). El titular final es «Pruébala hoy.».
+  - La caja de descargas y `#licencia` no cambian.
+  - Capturas de antes y después en `capturas-revision/portada-30oct/`.
+
+## Cambio anterior (30 de octubre de 2026, mañana)
 
 1) https://github.com/ardu01/sopa-web/pull/26 — capturas de la portada 1.20.0. Fusionado por squash `8fb884f` el 29 de octubre de 2026 a las 19:56 (hora de Madrid). CI «HTML válido y enlaces internos» y «Enlaces externos» en verde. Sustituye oscuro-eleccion/claro-modelos/oscuro-memoria «010» por oscuro-chat-120, claro-modelos-120, oscuro-diseno-3d-120 (webp/avif y variantes 640/832). Deck y el resto sin tocar. Capturas hechas en el PC del dueño (client 1164×761 → 1149×751), no en MSI_TORRE.
 
