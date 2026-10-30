@@ -15,7 +15,7 @@ El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte 
 
 ## Cambio anterior (30 de octubre de 2026, mañana)
 
-1) https://github.com/ardu01/sopa-web/pull/26 — capturas de la portada 1.20.0. Fusionado por squash `8fb884f` el 29 de octubre de 2026 a las 19:56 (hora de Madrid). CI «HTML válido y enlaces internos» y «Enlaces externos» en verde. Sustituye oscuro-eleccion/claro-modelos/oscuro-memoria «010» por oscuro-chat-120, claro-modelos-120, oscuro-diseno-3d-120 (webp/avif y variantes 640/832). Deck y el resto sin tocar. Capturas hechas en el PC del dueño (client 1164×761 → 1149×751), no en MSI_TORRE.
+1) https://github.com/ardu01/sopa-web/pull/26 — capturas de la portada 1.20.0. Fusionado por squash `8fb884f` el 29 de octubre de 2026 a las 19:56 (hora de Madrid). CI «HTML válido y enlaces internos» y «Enlaces externos» en verde. Sustituye oscuro-eleccion/claro-modelos/oscuro-memoria «010» por oscuro-chat-120, claro-modelos-120, oscuro-diseno-3d-120 (webp/avif y variantes 640/832). Deck y el resto sin tocar. Capturas hechas en el PC del dueño (client 1164×761 → 1149×751), no en la torre de pruebas.
 
 2) https://github.com/ardu01/sopa-web/pull/27 — portada `#agentes-20`: relato al scroll del chat beta 1.20.0 al equipo de agentes. Fusionado por squash `9133321` el 30 de octubre de 2026 a las 12:18 (hora de Madrid) con el OK explícito de Miguel («Sí, publica cuando CI esté verde»). CI «HTML válido y enlaces internos» y «Enlaces externos» en verde en el head `10a2c12`. Rama `cursor/agentes-20-scrollytelling-9df7`. Cloud agent `bc-95775f49-cea1-5829-9270-346191ac9df7`.
    - La transición es solo el clip `media/sopa-pool-dive-v3.webm` / `.mp4` (scrub al bajar; sin controles; sin otra animación). Los textos son de producto (nombre, trabajo, cara) y no explican el scroll. Con `prefers-reduced-motion` no hay scrub: se ve el equipo.
@@ -29,7 +29,7 @@ El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte 
 - El simulador sigue en la interfaz 1.16.0 (sin Diseño 3D en pantalla).
 - https://github.com/ardu01/sopa-web/pull/11, borrador (ficha de descarga 1.13.x), sin fusionar.
 - https://github.com/ardu01/sopa-web/pull/19 (Novedades; corregir 0.5.0→0.5.1 si aplica) cuando el dueño lo diga. El #20 se cerró sin fusionar el 24 de octubre de 2026 (sustituido históricamente).
-- MSI_TORRE no se puede usar (BSOD/RAM). No exigir prueba ahí para este cierre.
+- La torre de pruebas no se puede usar (BSOD/RAM). No exigir prueba ahí para este cierre.
 - Quitar planes Plus/Pro del texto residual si queda alguno (norma: Sopa es GPLv3 / software libre), solo si el Supervisor reabre ese alcance.
 
 ## Cambio anterior (29 de octubre de 2026)
@@ -46,7 +46,7 @@ El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte 
 ## Pendiente anterior (29 de octubre de 2026, sustituido por el de arriba)
 
 - No hay capturas reales de la 1.18.0, la 1.19.0 ni la 1.20.0. No se ha inventado ninguna. Falta, además, la pantalla Diseño 3D y el chat sin Creatividad ni Pensar.
-- La 1.17.0, la 1.18.0, la 1.19.0 y la 1.20.0 no constan probadas en la torre MSI_TORRE: solo CI. Diseño 3D no se ha probado con OpenSCAD real (el binario no se lanzó en CI). Todo lo nuevo va «En pruebas».
+- La 1.17.0, la 1.18.0, la 1.19.0 y la 1.20.0 no constan probadas en la torre de pruebas: solo CI. Diseño 3D no se ha probado con OpenSCAD real (el binario no se lanzó en CI). Todo lo nuevo va «En pruebas».
 - El simulador sigue enseñando la interfaz de la 1.16.0 (sin Creatividad ni Pensar); no tiene la pantalla Diseño 3D.
 
 ## Cambio anterior (27 de octubre de 2026)
@@ -61,7 +61,7 @@ El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte 
 ## Pendiente anterior (27 de octubre de 2026, sustituido por el de arriba)
 
 - No hay capturas reales de la 1.18.0 ni de la 1.19.0. No se ha inventado ninguna. Falta, además de lo de la 1.18.0, la pantalla de documentos diciendo dónde va el buscador.
-- La 1.17.0, la 1.18.0 y la 1.19.0 no constan probadas en la torre MSI_TORRE: solo CI. Todo lo nuevo va «En pruebas».
+- La 1.17.0, la 1.18.0 y la 1.19.0 no constan probadas en la torre de pruebas: solo CI. Todo lo nuevo va «En pruebas».
 - El simulador sigue enseñando la interfaz de la 1.16.0; solo cambia el número de versión del pie.
 
 ## Cambio anterior (26 de octubre de 2026)
@@ -79,7 +79,7 @@ El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte 
 ## Pendiente anterior (26 de octubre de 2026, sustituido por el de arriba)
 
 - No hay capturas reales de la 1.18.0. Las capturas de la app de la web son las de antes; no se ha inventado ninguna. Hay que sustituirlas cuando haya capturas de verdad de la 1.18.0 (la etiqueta con la captura de la página HTML, el plan y la línea de estado, el botón «Confirmar» de Automatizaciones y la vista en Sopa Mobile).
-- La 1.17.0 y la 1.18.0 no constan probadas en la torre MSI_TORRE: solo CI (Linux 3.12 y 3.13, Windows exe, pruebas-windows y e2e, CodeQL). La 1.16.9 pasó en la torre los casos es-md, web y largo. Por eso todo lo nuevo va «En pruebas». Cuando haya prueba en la torre, se puede quitar la etiqueta de lo que pase.
+- La 1.17.0 y la 1.18.0 no constan probadas en la torre de pruebas: solo CI (Linux 3.12 y 3.13, Windows exe, pruebas-windows y e2e, CodeQL). La 1.16.9 pasó en la torre los casos es-md, web y largo. Por eso todo lo nuevo va «En pruebas». Cuando haya prueba en la torre, se puede quitar la etiqueta de lo que pase.
 - El simulador sigue enseñando la interfaz de la 1.16.0; solo cambia el número de versión del pie.
 
 ## Cambio anterior (25 de octubre de 2026)
