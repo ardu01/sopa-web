@@ -274,3 +274,15 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
  .rollo-vivo .rollo-paso[data-escena="zambullida"] .rollo-figura{position:-webkit-sticky;position:sticky;top:52px;z-index:1;height:calc(100vh - 52px);height:calc(100dvh - 52px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;margin:0 -24px;padding:0 24px;background:var(--bg)}
  .rollo-vivo .rollo-paso[data-escena="zambullida"] .rollo-marco-video{width:min(100%,420px,max(160px,calc(100dvh - 210px)))}
 }
+
+/* Portada pulida (30 oct): letra pequeña para las notas de pruebas y texto de apoyo bajo la entradilla. */
+.letra-pequena{color:var(--text-2);font-size:13px;line-height:1.55;max-width:760px;margin:40px auto 0;text-align:left}
+.letra-pequena+.letra-pequena{margin-top:12px}
+.letra-pequena a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.oscura .letra-pequena{color:var(--d-text-2)}
+.fuera .letra-pequena{margin:16px 0 0;max-width:none;font-size:13px}
+.cuerpo,.cuerpo-claro{font-size:17px;line-height:1.5;max-width:640px;margin:20px auto 0}
+.cuerpo{color:var(--d-text-2)}
+.cuerpo-claro{color:var(--text-2)}
+.mas{margin-top:24px}
+.chips+.letra-pequena{margin-top:48px}
