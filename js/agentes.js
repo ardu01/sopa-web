@@ -3,8 +3,9 @@
  * SPDX-License-Identifier: GPL-3.0-only
  *
  * Relato al hacer scroll: del chat 1.x al equipo de agentes.
- * Con movimiento reducido, o sin este archivo, el relato se lee seguido
- * y el vídeo no depende del scroll: se queda el cartel y los controles.
+ * Los avatares entran en el cuenco uno a uno. No hay reproductor.
+ * Con movimiento reducido, o sin este archivo, se ve el equipo 2.0
+ * (o el relato seguido, sin la zambullida) y solo los retratos quietos.
  */
 (function () {
   var seccion = document.getElementById("agentes-20");
@@ -14,12 +15,16 @@
   var visor = seccion.querySelector(".rollo-visor");
   var pasos = [].slice.call(seccion.querySelectorAll(".rollo-paso"));
   var figuras = [].slice.call(seccion.querySelectorAll(".rollo-figura"));
-  var video = seccion.querySelector("video");
+  var divers = [].slice.call(seccion.querySelectorAll(".zambullidores li"));
+  var cuenco = seccion.querySelector(".cuenco");
+  var onda = seccion.querySelector(".cuenco-onda");
+  var quien = document.getElementById("entra-quien");
+  var prefijo = document.getElementById("entra-prefijo");
   var ejemplo = document.getElementById("agentes-ejemplo");
+  var NOMBRES = ["Sopa", "Director", "Código", "Documentos", "Archivos", "Investigación", "Automatizaciones"];
+  var LADOS = [-1, 0.72, -0.45, 1, -0.78, 0.4, 0];
   var huecos = [];
   var marco = 0;
-  var mano = false;
-  var nuestros = 0;
 
   figuras.forEach(function (fig) {
     var paso = fig.closest(".rollo-paso");
@@ -58,22 +63,77 @@
   function progreso(paso) {
     var r = paso.getBoundingClientRect();
     var foco = window.innerHeight * 0.42;
-    var recorrido = r.height || 1;
-    var avance = (foco - r.top) / recorrido;
+    var avance = (foco - r.top) / (r.height || 1);
     if (avance < 0) return 0;
     if (avance > 1) return 1;
     return avance;
   }
 
-  function scrub(paso) {
-    if (!video || !isFinite(video.duration) || video.duration <= 0) return;
-    var t = progreso(paso) * Math.max(0, video.duration - 0.05);
-    if (Math.abs((video.currentTime || 0) - t) < 0.05) return;
-    nuestros += 1;
-    try {
-      if (!video.paused) video.pause();
-      video.currentTime = t;
-    } catch (e) { /* el navegador aún no deja buscar */ }
+  function colocar(el, local, lado) {
+    if (local <= 0) {
+      el.style.opacity = "0";
+      el.style.transform = "translate(calc(-50% + " + (lado * 90).toFixed(0) + "px), -160px) scale(.92)";
+      return 0;
+    }
+    if (local >= 1) {
+      el.style.opacity = "0";
+      el.style.transform = "translate(-50%, 92px) scale(.12)";
+      return 1;
+    }
+    var e = local < 0.5 ? 2 * local * local : 1 - Math.pow(-2 * local + 2, 2) / 2;
+    var x = lado * 92 * (1 - e);
+    var y = -160 + e * 252;
+    var s = 1.02 - e * 0.9;
+    var o = local < 0.14 ? local / 0.14 : local > 0.8 ? (1 - local) / 0.2 : 1;
+    el.style.opacity = String(Math.max(0, Math.min(1, o)));
+    el.style.transform = "translate(calc(-50% + " + x.toFixed(1) + "px), " + y.toFixed(1) + "px) scale(" + s.toFixed(3) + ")";
+    return local;
+  }
+
+  function zambullir(p) {
+    var n = divers.length || 1;
+    var recorrido = Math.min(1, p / 0.9);
+    var activo = -1;
+    var pico = 0;
+    for (var i = 0; i < divers.length; i++) {
+      var local = recorrido * n - i;
+      var ahora = colocar(divers[i], local, LADOS[i] || 0);
+      if (ahora > 0 && ahora < 1) {
+        activo = i;
+        if (ahora > 0.62 && ahora < 0.9) pico = (ahora - 0.62) / 0.28;
+      }
+    }
+    if (cuenco) cuenco.classList.toggle("llena", p > 0.9);
+    if (onda) {
+      onda.style.opacity = pico > 0 ? String(Math.sin(pico * Math.PI) * 0.85) : "0";
+      onda.style.transform = "translate(-50%, -50%) scale(" + (0.45 + pico * 1.15).toFixed(3) + ")";
+    }
+    if (quien && prefijo) {
+      if (p > 0.9) {
+        prefijo.textContent = "";
+        quien.textContent = "Ya están dentro";
+      } else {
+        var idx = activo >= 0 ? activo : Math.min(n - 1, Math.floor(recorrido * n));
+        prefijo.textContent = "Entra ";
+        quien.textContent = NOMBRES[idx] || NOMBRES[0];
+      }
+    }
+  }
+
+  function clips(encender) {
+    var lista = seccion.querySelectorAll(".avatar-clip");
+    for (var i = 0; i < lista.length; i++) {
+      var video = lista[i];
+      if (!encender || reducido.matches) {
+        video.pause();
+        continue;
+      }
+      video.muted = true;
+      var hecho = video.play();
+      if (hecho && hecho.catch) {
+        hecho.catch(function () { seccion.classList.add("sin-clips"); });
+      }
+    }
   }
 
   function actualizar() {
@@ -82,6 +142,7 @@
     var mejor = pasos[0];
     var mejorDist = Infinity;
     var foco = window.innerHeight * 0.42;
+    var zamb = null;
     for (var i = 0; i < pasos.length; i++) {
       var r = pasos[i].getBoundingClientRect();
       var dist = r.top <= foco && r.bottom >= foco ? 0 : Math.min(Math.abs(r.top - foco), Math.abs(r.bottom - foco));
@@ -89,6 +150,7 @@
         mejorDist = dist;
         mejor = pasos[i];
       }
+      if (pasos[i].getAttribute("data-escena") === "zambullida") zamb = pasos[i];
     }
     var escena = mejor.getAttribute("data-escena");
     for (var j = 0; j < pasos.length; j++) pasos[j].classList.toggle("activa", pasos[j] === mejor);
@@ -98,8 +160,8 @@
       figuras[k].classList.toggle("activa", activa);
       figuras[k].inert = columnas ? !activa : false;
     }
-    if (escena !== "salto") mano = false;
-    if (escena === "salto" && !mano) scrub(mejor);
+    if (zamb) zambullir(progreso(zamb));
+    clips(escena === "equipo");
   }
 
   function pedir() {
@@ -111,13 +173,32 @@
     if (reducido.matches) {
       seccion.classList.remove("rollo-vivo");
       if (huecos.length) aPasos();
+      clips(false);
       return;
     }
     seccion.classList.add("rollo-vivo");
-    if (video) video.preload = "auto";
     if (ancho.matches) aVisor();
     else aPasos();
     pedir();
+  }
+
+  function ponerAvatar(caraEl, avatar) {
+    if (!caraEl) return;
+    var quieto = caraEl.querySelector(".avatar-still");
+    var clip = caraEl.querySelector(".avatar-clip");
+    var foto = "img/avatares/" + avatar + ".webp";
+    var loop = "img/avatares/" + avatar + ".webm";
+    if (quieto) quieto.src = foto;
+    if (!clip) return;
+    clip.poster = foto;
+    var fuente = clip.querySelector("source");
+    if (fuente) fuente.src = loop;
+    clip.load();
+    if (seccion.classList.contains("rollo-vivo") && !reducido.matches) {
+      clip.muted = true;
+      var hecho = clip.play();
+      if (hecho && hecho.catch) hecho.catch(function () { seccion.classList.add("sin-clips"); });
+    }
   }
 
   seccion.addEventListener("click", function (e) {
@@ -128,12 +209,11 @@
     var nombre = boton.querySelector(".cara-nombre");
     var estado = boton.getAttribute("data-estado") || "Listo";
     var frase = boton.getAttribute("data-respuesta") || "";
-    var cara = boton.getAttribute("data-cara") || "cara-sopa";
-    var caraEl = ejemplo.querySelector(".ejemplo-cara");
+    var avatar = boton.getAttribute("data-avatar") || "sopa";
     var nombreEl = ejemplo.querySelector(".ejemplo-nombre");
     var estadoEl = ejemplo.querySelector(".ejemplo-estado");
     var fraseEl = ejemplo.querySelector(".ejemplo-frase");
-    if (caraEl) caraEl.className = "ejemplo-cara cara " + cara;
+    ponerAvatar(ejemplo.querySelector(".ejemplo-cara"), avatar);
     if (nombreEl && nombre) nombreEl.textContent = nombre.textContent;
     if (estadoEl) {
       estadoEl.textContent = estado;
@@ -141,21 +221,6 @@
     }
     if (fraseEl) fraseEl.textContent = frase;
   });
-
-  if (video) {
-    video.addEventListener("seeking", function () {
-      if (nuestros > 0) {
-        nuestros -= 1;
-        return;
-      }
-      // Al cargar, el navegador puede buscar el segundo 0. Eso no es la persona.
-      if ((video.currentTime || 0) < 0.08) return;
-      mano = true;
-    });
-    video.addEventListener("play", function () { mano = true; });
-    video.addEventListener("pointerdown", function () { mano = true; });
-    video.addEventListener("keydown", function () { mano = true; });
-  }
 
   window.addEventListener("scroll", pedir, { passive: true });
   window.addEventListener("resize", pedir);
