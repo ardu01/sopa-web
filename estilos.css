@@ -192,7 +192,7 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 @media (max-width:600px){.ruta{flex-wrap:wrap;row-gap:20px}.ruta li{flex:0 0 20%}.ruta li:nth-child(5n)::after{display:none}}
 
 /* Relato 1.x → 2.0 agentes. Sin JS, o con menos movimiento, se lee de arriba abajo. */
-#agentes-20{scroll-margin-top:72px}
+#agentes-20,#agentes-equipo{scroll-margin-top:72px}
 .rollo-cabecera{padding:88px 0 8px;text-align:center}
 .rollo-pasos{display:grid;gap:64px;padding:28px 0 88px}
 .rollo-paso{display:grid;gap:18px}
@@ -261,8 +261,16 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
  .avatar-still{display:block !important}
  .rollo-paso[data-escena="hoy"],.rollo-paso[data-escena="zambullida"]{display:none !important}
 }
+.rollo-marco-video + figcaption{display:flex;flex-direction:column;align-items:center;gap:12px}
+.salto-equipo{align-self:center;min-height:44px;padding:0 18px;font-size:15px;font-weight:650;line-height:1;touch-action:manipulation}
 @media (max-width:600px){
  .rollo-cabecera{padding-top:56px}
  .rollo-pasos{gap:48px;padding-bottom:64px}
  .equipo-lista button{width:96px}
+}
+/* Móvil: el cuenco se queda centrado y el scroll del clip es corto. 100vh se pasa de la pantalla en Safari. */
+@media (max-width:959px){
+ .rollo-vivo .rollo-paso[data-escena="zambullida"]{display:block;min-height:150vh;min-height:150dvh}
+ .rollo-vivo .rollo-paso[data-escena="zambullida"] .rollo-figura{position:-webkit-sticky;position:sticky;top:52px;z-index:1;height:calc(100vh - 52px);height:calc(100dvh - 52px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;margin:0 -24px;padding:0 24px;background:var(--bg)}
+ .rollo-vivo .rollo-paso[data-escena="zambullida"] .rollo-marco-video{width:min(100%,420px,max(160px,calc(100dvh - 210px)))}
 }
