@@ -1,10 +1,29 @@
 # Traspaso
 
-Fecha: 29 de octubre de 2026 (actualizado; el resto del texto es del 19 de octubre).
+Fecha: 30 de octubre de 2026 (actualizado; el resto del texto es del 19 de octubre).
 
 El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil: https://github.com/ardu01/sopa-web/pull/18 contra `main`, rama `cursor/rendimiento-lighthouse-c470`. No está fusionado.
 
-## Último cambio (29 de octubre de 2026)
+## Último cambio (30 de octubre de 2026)
+
+1) https://github.com/ardu01/sopa-web/pull/26 — capturas de la portada 1.20.0. Fusionado por squash `8fb884f` el 29 de octubre de 2026 a las 19:56 (hora de Madrid). CI «HTML válido y enlaces internos» y «Enlaces externos» en verde. Sustituye oscuro-eleccion/claro-modelos/oscuro-memoria «010» por oscuro-chat-120, claro-modelos-120, oscuro-diseno-3d-120 (webp/avif y variantes 640/832). Deck y el resto sin tocar. Capturas hechas en el PC del dueño (client 1164×761 → 1149×751), no en MSI_TORRE.
+
+2) https://github.com/ardu01/sopa-web/pull/27 — portada `#agentes-20`: relato al scroll del chat beta 1.20.0 al equipo de agentes. Fusionado por squash `9133321` el 30 de octubre de 2026 a las 12:18 (hora de Madrid) con el OK explícito de Miguel («Sí, publica cuando CI esté verde»). CI «HTML válido y enlaces internos» y «Enlaces externos» en verde en el head `10a2c12`. Rama `cursor/agentes-20-scrollytelling-9df7`. Cloud agent `bc-95775f49-cea1-5829-9270-346191ac9df7`.
+   - La transición es solo el clip `media/sopa-pool-dive-v3.webm` / `.mp4` (scrub al bajar; sin controles; sin otra animación). Los textos son de producto (nombre, trabajo, cara) y no explican el scroll. Con `prefers-reduced-motion` no hay scrub: se ve el equipo.
+   - Avatares oficiales en `img/avatares/` (PNG/WebP y WebM en bucle): Sopa, Director, Código, Documentos, Archivos, Investigación, Automatizaciones (plantillas web-plantillas y anim-alpha).
+   - `#planes` sigue vacío. Sin Plus/Pro.
+   - URL viva: https://ardu01.github.io/sopa-web/#agentes-20 (Pages tras el merge).
+- Pack de redes, fuera del repo, en la caja del agente Sopa Web: `/workspace/pack-redes-agentes-20/` (`COPY.md`, `MANIFIESTO.md`, `media/`). No se ha copiado al repo.
+
+## Pendiente (30 de octubre de 2026)
+
+- El simulador sigue en la interfaz 1.16.0 (sin Diseño 3D en pantalla).
+- https://github.com/ardu01/sopa-web/pull/11, borrador (ficha de descarga 1.13.x), sin fusionar.
+- https://github.com/ardu01/sopa-web/pull/19 (Novedades; corregir 0.5.0→0.5.1 si aplica) cuando el dueño lo diga. El #20 se cerró sin fusionar el 24 de octubre de 2026 (sustituido históricamente).
+- MSI_TORRE no se puede usar (BSOD/RAM). No exigir prueba ahí para este cierre.
+- Quitar planes Plus/Pro del texto residual si queda alguno (norma: Sopa es GPLv3 / software libre), solo si el Supervisor reabre ese alcance.
+
+## Cambio anterior (29 de octubre de 2026)
 
 - Web a la beta 1.20.0 (Latest de Sopa-IA/sopa-motor, publicada el 29 de octubre de 2026 a las 09:33, hora de Madrid; etiqueta en el squash `bb78528`). Hecho desde la caja: PR #25 (https://github.com/ardu01/sopa-web/pull/25), CI en verde (HTML válido y enlaces internos, y Enlaces externos), fusionado por squash `ea160ef` el 29 de octubre de 2026 a las 10:14 (hora de Madrid); GitHub Pages publicado a las 10:15.
   - Comprobado en vivo a las 10:17 (hora de Madrid): las dos descargas de la 1.20.0 dan 200 con el tamaño y el SHA-256 de arriba; las de la 1.19.0 dan 404; la portada dice «Beta 1.20.0»; `ayuda/diseno-3d.html` da 200 y está en el sitemap.
@@ -15,7 +34,7 @@ El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte 
   - El catálogo de modelos no cambia entre v1.19.0 y v1.20.0 (diff de la API). El tope de 45 s de las tareas de varios pasos (`pasos.py`) sigue y no se toca.
   - `auditar.py` (copiado de `/workspace/sopa-web/herramientas/`, apuntando a este clon): solo los 2 errores antiguos. html-validate, enlaces internos y axe (escritorio y móvil) pasan en local.
 
-## Pendiente (29 de octubre de 2026)
+## Pendiente anterior (29 de octubre de 2026, sustituido por el de arriba)
 
 - No hay capturas reales de la 1.18.0, la 1.19.0 ni la 1.20.0. No se ha inventado ninguna. Falta, además, la pantalla Diseño 3D y el chat sin Creatividad ni Pensar.
 - La 1.17.0, la 1.18.0, la 1.19.0 y la 1.20.0 no constan probadas en la torre MSI_TORRE: solo CI. Diseño 3D no se ha probado con OpenSCAD real (el binario no se lanzó en CI). Todo lo nuevo va «En pruebas».
