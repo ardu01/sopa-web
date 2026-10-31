@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Informar de un fallo · Sopa™</title>
-<meta name="description" content="¿Algo no va bien en la beta de Sopa? Cuéntanos qué pasó y cómo reproducirlo. Sin cuentas y sin rastreadores.">
+<meta name="description" content="¿Algo no va bien en Sopa? Cuéntanos qué pasó y cómo reproducirlo. Sin cuentas y sin rastreadores.">
 <link rel="canonical" href="https://ardu01.github.io/sopa-web/fallos/">
 <meta name="robots" content="index,follow">
 <meta name="author" content="Miguel Rodríguez Saiz">
@@ -14,14 +14,14 @@
 <meta property="og:site_name" content="Sopa">
 <meta property="og:url" content="https://ardu01.github.io/sopa-web/fallos/">
 <meta property="og:title" content="Informar de un fallo · Sopa™">
-<meta property="og:description" content="¿Algo no va bien en la beta de Sopa? Cuéntanos qué pasó y cómo reproducirlo. Sin cuentas y sin rastreadores.">
+<meta property="og:description" content="¿Algo no va bien en Sopa? Cuéntanos qué pasó y cómo reproducirlo. Sin cuentas y sin rastreadores.">
 <meta property="og:image" content="https://ardu01.github.io/sopa-web/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Logotipo de Sopa con el lema «Tu inteligencia artificial. Tu ordenador. Tus reglas.»">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Informar de un fallo · Sopa™">
-<meta name="twitter:description" content="¿Algo no va bien en la beta de Sopa? Cuéntanos qué pasó y cómo reproducirlo. Sin cuentas y sin rastreadores.">
+<meta name="twitter:description" content="¿Algo no va bien en Sopa? Cuéntanos qué pasó y cómo reproducirlo. Sin cuentas y sin rastreadores.">
 <meta name="twitter:image" content="https://ardu01.github.io/sopa-web/img/og.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sopa", "item": "https://ardu01.github.io/sopa-web/"}, {"@type": "ListItem", "position": 2, "name": "Informar de un fallo", "item": "https://ardu01.github.io/sopa-web/fallos/"}]}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
@@ -55,11 +55,11 @@
 <a class="saltar" href="#contenido">Saltar al contenido</a><div class="nav-in">
 <a href="../" class="marca"><img src="../img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir el menú"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" focusable="false"><rect class="linea l1" x="3" y="4" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l2" x="3" y="10" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l3" x="3" y="16" width="16" height="2" rx="1" fill="currentColor"/></svg></button><nav id="menu-principal" aria-label="Secciones"><a href="../#funciones">Funciones</a><a href="../#modelos">Modelos</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../ayuda/">Ayuda</a><a href="../simulador.html">Simulador</a></nav>
-<span class="pill-dev">Beta 2.0.0</span></div></header>
+<span class="pill-dev">Sopa 2.0.0</span></div></header>
 <main id="contenido" tabindex="-1" class="guia">
 <nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="../">Sopa</a></li><li aria-current="page">Informar de un fallo</li></ol></nav>
 <section class="cont-guia">
-<p class="eyebrow">Beta</p>
+<p class="eyebrow">Ayuda</p>
 <h1>Informar de un fallo</h1>
 <p class="lead">¿Algo no va bien? Cuéntanoslo. Con unos pocos detalles podemos encontrarlo y arreglarlo.</p>
 
@@ -114,7 +114,7 @@
 </footer>
 <script>
 (function () {
-  var DESTINO = "https://sopa-fallos.miguelrsaiz.workers.dev/informes";
+  var DESTINO = "https://sopa-fallos.sopa-ia.workers.dev/informes";
   var f = document.getElementById("form-fallo"), aviso = document.getElementById("aviso"), boton = document.getElementById("enviar");
   var p = new URLSearchParams(location.search);
   var cod = (p.get("codigo") || "").trim().toLowerCase(), ver = (p.get("version") || "").trim();
