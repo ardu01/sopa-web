@@ -1,10 +1,46 @@
 # Traspaso
 
-Fecha: 30 de octubre de 2026 (actualizado; el resto del texto es del 19 de octubre).
+Fecha: 31 de octubre de 2026 (actualizado; el resto del texto es del 19 de octubre).
 
 El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil: https://github.com/ardu01/sopa-web/pull/18 contra `main`, rama `cursor/rendimiento-lighthouse-c470`. No está fusionado.
 
-## Último cambio (30 de octubre de 2026, tarde)
+## Último cambio (31 de octubre de 2026)
+
+- La web pasa a Sopa 2.0.0, la Latest de Sopa-IA/sopa-motor (publicada el 31 de octubre de 2026 a las 03:54, hora de Madrid, con la etiqueta v2.0.0). Se hizo desde la caja en el PR #33 (https://github.com/ardu01/sopa-web/pull/33), con la CI en verde («HTML válido y enlaces internos» y «Enlaces externos»). Se fusionó por squash `f8ceeeb` el 31 de octubre de 2026 a las 10:13 (hora de Madrid) y GitHub Pages lo publicó a las 10:14. Todos los commits van con el noreply de ardu01. La config git local del clon llevaba el correo personal y se cambió antes del primer commit.
+  - Comprobación en vivo a las 10:14 (hora de Madrid): las dos descargas de la 2.0.0 dan 200 con el tamaño y el SHA-256 de abajo, las de la 1.20.0 dan 404, la portada dice «Beta 2.0.0» y `ayuda/equipo.html` da 200 y está en el sitemap.
+  - Las descargas están en `descargas/`: `Sopa-2.0.0-windows-setup.exe` (66 572 037 B, 63,5 MB, SHA-256 `3cc2f72b…9ac7`) y `Sopa-2.0.0-windows.zip` (49 145 104 B, 46,9 MB, SHA-256 `afd93f07…ed03`). Coinciden con `SHA256SUMS.txt` y con las notas de la Release. Se quitaron las de la 1.20.0.
+  - La oferta del código fuente es para Sopa 2.0.0 (etiqueta v2.0.0), con `LICENSE` idéntico al de la etiqueta. GPL-3.0-only.
+  - El rótulo sigue siendo «Beta 2.0.0», aunque la Release se titula «Sopa 2.0.0» y no está marcada como prerelease. No se ha anunciado ningún fin de beta, así que la decisión queda para el dueño.
+  - Las novedades salen solo de las notas y del código de v2.0.0, y todas van «En pruebas»:
+    - el equipo de agentes, cada uno con su hilo, su memoria, su nombre y su cara;
+    - Investigación, Documentos, Archivos y Automatizaciones con bucle de herramientas;
+    - los archivos nuevos solo se escriben al confirmar, después de ver la vista previa;
+    - planes de 2 a 8 pasos, con la vista previa de lo leído y los códigos copiados tal cual;
+    - Markdown y el idioma del usuario;
+    - el móvil con archivos, que confirma o cancela;
+    - la interfaz nueva: paleta, Sala y Taller.
+    Aparecen en la caja de descarga, en la FAQ, en `#pasos` y en `#agentes-20`.
+  - `#agentes-20` pasa a «Nuevo en la 2.0.0» (En pruebas) y en el menú se llama «Equipo». Se ha quitado «Próximamente» y no se promete nada más. En `#proximamente` solo queda Ver imágenes.
+  - No hay capturas de la 2.0.0. La galería y el chat de `#agentes-20` dicen que sus capturas son de la beta 1.20.0. La ilustración de las caras conserva su rótulo. El simulador sigue en la interfaz 1.16.0 y avisa de que la 2.0.0 trae Sala y Taller.
+  - Ayuda: hay una página nueva, `ayuda/equipo.html`, enlazada desde el índice, «Otras páginas», el sitemap y `scripts/accesibilidad.mjs`. La navegación se ajustó a la 2.0.0 en estas páginas:
+    - el primer chat: Sala › Conversación, «Nueva» y «Habla con…»;
+    - modelos: Taller › Modelos, con los filtros nuevos y la columna «Funciona aquí»;
+    - memoria y Tus documentos: el grupo «Lo tuyo»;
+    - entrenamiento, comparar y Diseño 3D: las pestañas del Taller;
+    - instalar: la 2.0.0, con el zip;
+    - Sopa Mobile: una línea sobre la 2.0.0.
+  - El catálogo de modelos no cambia entre v1.20.0 y v2.0.0. Solo cambia una nota, «Probado en la torre de pruebas», que `js/catalogo.js` ya decía así. No se encontró el nombre del equipo de pruebas en ninguna parte.
+  - `auditar.py` (fuera del repo) da solo los 2 errores antiguos. html-validate, los enlaces internos y axe (escritorio y móvil) pasan en local.
+
+## Pendiente (31 de octubre de 2026)
+
+- Faltan capturas reales de la 2.0.0 (Sala, Taller, equipo) para la galería, `#agentes-20` y la ayuda. No se ha inventado ninguna.
+- Decidir con el dueño si el rótulo pasa de «Beta 2.0.0» a «Sopa 2.0.0», es decir, si termina la beta.
+- La 2.0.0 aún no se ha usado en el día a día ni se ha probado en el portátil de referencia. Según sus notas, pasó en la torre de pruebas la batería entera (51 de 51), y por eso lo nuevo va «En pruebas».
+- El simulador sigue en la interfaz 1.16.0, sin Sala, Taller ni Diseño 3D.
+- Siguen pendientes los PR #11 (borrador) y #19, como abajo.
+
+## Cambio anterior (30 de octubre de 2026, tarde)
 
 - https://github.com/ardu01/sopa-web/pull/31 — portada pulida a petición de Miguel («Arréglalo déjalo profesional pulido como si Apple la hubiese publicado»). Fusionado por squash `b38c324` el 30 de octubre de 2026 a las 13:45 (hora de Madrid), con la CI «HTML válido y enlaces internos» y «Enlaces externos» en verde. En vivo a las 13:45. Hecho desde la caja, después del cierre de turno del otro grupo (`60e78f4`, #29 y #30).
   - `#agentes-20` pasa al final, junto a `#proximamente`, y en el menú aparece como «Próximamente». Solo da la idea general: equipo de agentes con nombre, trabajo y cara, sin fecha. Se quitan las promesas de detalle (confirmación antes de escribir, lo que recuerda cada agente, la lista de plantillas y los estados) y los pasos «pantalla» y «rotulo», con las capturas del desarrollo `07-pagina-agentes` y `01-desktop-inicio`. Los archivos de esas capturas siguen en `img/`, pero no se usan. La demo de caras lleva el rótulo «Ilustración. No es una captura de la app.» y frases de papel genéricas. El botón ahora dice «Conoce al equipo».
@@ -24,7 +60,7 @@ El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte 
    - URL viva: https://ardu01.github.io/sopa-web/#agentes-20 (Pages tras el merge).
 - Pack de redes, fuera del repo, en la caja del agente Sopa Web: `/workspace/pack-redes-agentes-20/` (`COPY.md`, `MANIFIESTO.md`, `media/`). No se ha copiado al repo.
 
-## Pendiente (30 de octubre de 2026)
+## Pendiente anterior (30 de octubre de 2026, sustituido por el de arriba)
 
 - El simulador sigue en la interfaz 1.16.0 (sin Diseño 3D en pantalla).
 - https://github.com/ardu01/sopa-web/pull/11, borrador (ficha de descarga 1.13.x), sin fusionar.
