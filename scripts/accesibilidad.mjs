@@ -32,6 +32,7 @@ const paginas = [
   "/ayuda/",
   "/ayuda/instalar-sopa-en-windows.html",
   "/ayuda/el-primer-chat.html",
+  "/ayuda/equipo.html",
   "/ayuda/elegir-un-modelo.html",
   "/ayuda/esta-usando-mi-grafica.html",
   "/ayuda/tus-documentos.html",
