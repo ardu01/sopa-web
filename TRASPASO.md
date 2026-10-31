@@ -4,7 +4,17 @@ Fecha: 31 de octubre de 2026 (actualizado; el resto del texto es del 19 de octub
 
 El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil: https://github.com/ardu01/sopa-web/pull/18 contra `main`, rama `cursor/rendimiento-lighthouse-c470`. No está fusionado.
 
-## Último cambio (31 de octubre de 2026, tarde): fin de la beta y nueva dirección de /fallos
+## Último cambio (31 de octubre de 2026, tarde): la web pasa a Sopa 2.1.0
+
+- La web pasa a Sopa 2.1.0, la Latest de Sopa-IA/sopa-motor (publicada el 31 de octubre de 2026 a las 12:25, hora de Madrid; etiqueta v2.1.0 en `2dffbed`; no es prerelease).
+  - Descargas en `descargas/`: `Sopa-2.1.0-windows-setup.exe` (66 608 920 B, 63,5 MB, SHA-256 `3ff5c243…5bbc`) y `Sopa-2.1.0-windows.zip` (49 181 067 B, 46,9 MB, SHA-256 `ad046581…7e87`). Coinciden con `SHA256SUMS.txt` y con las notas de la Release. Se quitaron las de la 2.0.0.
+  - Rótulo «Sopa 2.1.0» en todas las páginas, caja de descarga, FAQ (HTML y JSON-LD), instalación, primer chat, simulador y el valor por defecto de versión en /fallos. La oferta del código fuente es para Sopa 2.1.0 (etiqueta v2.1.0), con `LICENSE` idéntico al de la etiqueta.
+  - Novedad de la 2.1.0, marcada «En pruebas»: niveles de seguridad por herramienta (libre, anotada, preguntar, bloqueada) y la tarjeta «Sopa pregunta» en la Sala y en Sopa Mobile. Está en la caja de descarga, en la FAQ y en `ayuda/equipo.html#seguridad`. Las notas solo dicen batería 51/51 en la torre de pruebas y CI de Windows en verde; no dicen que se probara en un dispositivo real, así que va «En pruebas». Sin capturas nuevas.
+  - No se vuelve a poner «Beta» en la versión: la nota «La beta terminó con la 2.0.0» sigue. Las «Beta» por función siguen igual.
+  - `catalogo.json` no cambió entre v2.0.0 y v2.1.0, así que `js/catalogo.js` no se tocó.
+  - Comprobaciones: `auditar.py` solo da los 2 errores antiguos; html-validate, enlaces internos (29 páginas) y axe pasan; simulador 36/36 contra `sopa_app/catalogo.json` de v2.1.0.
+
+## Cambio anterior (31 de octubre de 2026, tarde): fin de la beta y nueva dirección de /fallos
 
 - Decisión del dueño (31 oct): «Ponla como Sopa 2.0.0, se acabó la beta». La 2.0.0 es la versión que cierra la beta.
   - El rótulo de versión de todas las páginas pasa de «Beta 2.0.0» a «Sopa 2.0.0» (también el pie del simulador: «Versión 2.0.0»). El botón del hero dice «Descargar Sopa». La caja de descarga se titula «Sopa 2.0.0» y su nota dice: «La beta terminó con la 2.0.0. Lo que va marcado «En pruebas» todavía se está probando.»
