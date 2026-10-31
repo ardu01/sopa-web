@@ -4,7 +4,24 @@ Fecha: 31 de octubre de 2026 (actualizado; el resto del texto es del 19 de octub
 
 El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil: https://github.com/ardu01/sopa-web/pull/18 contra `main`, rama `cursor/rendimiento-lighthouse-c470`. No está fusionado.
 
-## Último cambio (31 de octubre de 2026)
+## Último cambio (31 de octubre de 2026, tarde): fin de la beta y nueva dirección de /fallos
+
+- Decisión del dueño (31 oct): «Ponla como Sopa 2.0.0, se acabó la beta». La 2.0.0 es la versión que cierra la beta.
+  - El rótulo de versión de todas las páginas pasa de «Beta 2.0.0» a «Sopa 2.0.0» (también el pie del simulador: «Versión 2.0.0»). El botón del hero dice «Descargar Sopa». La caja de descarga se titula «Sopa 2.0.0» y su nota dice: «La beta terminó con la 2.0.0. Lo que va marcado «En pruebas» todavía se está probando.»
+  - La FAQ (HTML y JSON-LD) dice «Sopa va por la 2.0.0, la versión que cierra la beta.» y ya no promete «la versión estable» después.
+  - «beta publicada» pasa a «versión publicada» en la ayuda; la instalación habla de «Sopa 2.0.0».
+  - NO cambian las etiquetas por función: «Ya funciona», «En pruebas» y las «Beta» de Sopa Mobile, fuera de casa, Asistente, Acciones, Organizar, Varios pasos y Automatizaciones siguen igual. El fin de la beta no convierte en probado lo que no lo está.
+  - El simulador sigue diciendo que enseña la interfaz «de la beta 1.16.0» (es un hecho histórico).
+  - En la web no hay textos legales sobre el premio de probadores, así que no se cambió ninguno. El formulario /fallos sigue igual salvo el texto «beta».
+- Decisión del dueño (31 oct): «Sí, cambia la dirección del formulario de fallos».
+  - El subdominio workers.dev de la cuenta de Cloudflare pasa a `sopa-ia`. El Worker queda en `https://sopa-fallos.sopa-ia.workers.dev` y la dirección antigua ya no responde.
+  - En la cuenta solo hay otro Worker, `ardu`: está vacío (responde 404) y no tuvo peticiones en 29 días. Pages (`*.pages.dev`) no se ve afectado.
+  - `fallos/index.html` envía a la nueva dirección. El Worker no se ha vuelto a desplegar: su CORS va por el origen `https://ardu01.github.io` y no cambia. La limpieza diaria (cron `0 3 * * *`) sigue programada.
+  - Comprobado: `/` responde `{"ok":true,"servicio":"sopa-fallos"}`; el preflight responde 204; un envío de prueba marcado «PRUEBA» devolvió 201 con CORS correcto, y se borró después de la base D1.
+  - Al cambiar el subdominio, la dirección `ardu.<subdominio>.workers.dev` del Worker `ardu` también cambia.
+- Comprobaciones: `auditar.py` solo da los 2 errores antiguos. html-validate, los enlaces internos y axe (escritorio y móvil) pasan. El simulador da 36/36 contra `sopa_app/catalogo.json` de v2.0.0. Contra la copia vieja `sopa-web-kit/logica/catalogo.json` da 35/36, solo por la nota de la torre que cambió en el #32.
+
+## Cambio anterior (31 de octubre de 2026, mañana)
 
 - La web pasa a Sopa 2.0.0, la Latest de Sopa-IA/sopa-motor (publicada el 31 de octubre de 2026 a las 03:54, hora de Madrid, con la etiqueta v2.0.0). Se hizo desde la caja en el PR #33 (https://github.com/ardu01/sopa-web/pull/33), con la CI en verde («HTML válido y enlaces internos» y «Enlaces externos»). Se fusionó por squash `f8ceeeb` el 31 de octubre de 2026 a las 10:13 (hora de Madrid) y GitHub Pages lo publicó a las 10:14. Todos los commits van con el noreply de ardu01. La config git local del clon llevaba el correo personal y se cambió antes del primer commit.
   - Comprobación en vivo a las 10:14 (hora de Madrid): las dos descargas de la 2.0.0 dan 200 con el tamaño y el SHA-256 de abajo, las de la 1.20.0 dan 404, la portada dice «Beta 2.0.0» y `ayuda/equipo.html` da 200 y está en el sitemap.
@@ -35,7 +52,7 @@ El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte 
 ## Pendiente (31 de octubre de 2026)
 
 - Faltan capturas reales de la 2.0.0 (Sala, Taller, equipo) para la galería, `#agentes-20` y la ayuda. No se ha inventado ninguna.
-- Decidir con el dueño si el rótulo pasa de «Beta 2.0.0» a «Sopa 2.0.0», es decir, si termina la beta.
+- Hecho: el rótulo pasó a «Sopa 2.0.0» (fin de la beta, decisión del dueño del 31 oct).
 - La 2.0.0 aún no se ha usado en el día a día ni se ha probado en el portátil de referencia. Según sus notas, pasó en la torre de pruebas la batería entera (51 de 51), y por eso lo nuevo va «En pruebas».
 - El simulador sigue en la interfaz 1.16.0, sin Sala, Taller ni Diseño 3D.
 - Siguen pendientes los PR #11 (borrador) y #19, como abajo.
