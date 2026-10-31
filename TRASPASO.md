@@ -2,6 +2,13 @@
 
 Fecha: 31 de octubre de 2026 (actualizado; el resto del texto es del 19 de octubre).
 
+## Último cambio (31 de octubre de 2026, noche): cierre de turno Sopa Web
+
+El Supervisor cierra el turno (~21:00, hora de Madrid): terminar lo a medias, dejar este archivo al día y parar. Estado: pausa. Sopa Web no empieza trabajo nuevo hasta una orden del Supervisor. Este cierre solo toca este archivo. No sustituye las entradas de la 2.1.0, la 2.0.0 y el #31, que siguen debajo.
+
+- `#agentes-20` está en vivo: https://ardu01.github.io/sopa-web/#agentes-20. Lo publicaron el #27 (relato al scroll y avatares), el #29 (arreglo en el iPhone) y el #30 (pie y texto alternativo de la captura de Agentes: esos iconos no son las caras de la página). El #28 solo dejó al día este archivo. Tras el #31 el bloque se movió y se pulió; sigue publicado.
+- No hubo release 1.20.1. En Motor, el #125 no estaba fusionado entonces, y no hay capturas-1201. No se etiquetó la 1.20.1 ni se pasó Latest a esa versión. Las capturas-124 llevaban iconos viejos y no se presentaron como caras nuevas. Las caras de plantilla están en `img/avatares/`.
+
 El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil: https://github.com/ardu01/sopa-web/pull/18 contra `main`, rama `cursor/rendimiento-lighthouse-c470`. No está fusionado.
 
 ## Último cambio (31 de octubre de 2026, tarde): la web pasa a Sopa 2.1.0
@@ -66,6 +73,8 @@ El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte 
 - La 2.0.0 aún no se ha usado en el día a día ni se ha probado en el portátil de referencia. Según sus notas, pasó en la torre de pruebas la batería entera (51 de 51), y por eso lo nuevo va «En pruebas».
 - El simulador sigue en la interfaz 1.16.0, sin Sala, Taller ni Diseño 3D.
 - Siguen pendientes los PR #11 (borrador) y #19, como abajo.
+- Al retomar, además de las capturas de arriba: capturas reales de la app con las caras nuevas, cuando Motor y Avatares dejen un pack. Antes se nombraban capturas-1201, para después de una 1.20.1 que no se publicó. Ahora van con las capturas 2.x de Sala, Taller y equipo de esta lista. La 2.1.0 no añadió capturas. No se inventan capturas ni una etiqueta de versión que no exista.
+- Estado: pausa. Sopa Web no empieza trabajo nuevo hasta una orden del Supervisor.
 
 ## Cambio anterior (30 de octubre de 2026, tarde)
 
