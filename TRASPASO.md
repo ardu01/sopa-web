@@ -2,7 +2,11 @@
 
 Fecha: 2 de noviembre de 2026 (actualizado; el resto del texto es del 19 de octubre).
 
-## Último cambio (2 de noviembre de 2026, noche): lavado de cara de la portada
+## Último cambio (2 de noviembre de 2026, noche): portada más limpia, con el clip a la vista
+
+Miguel pidió menos ruido y más interacción, sin publicar. La cabecera queda en Producto y Desarrollo. La ficha enseña un botón y los metadatos (sistema, instalador, SHA-256, requisitos); las notas de versión siguen, plegadas. La galería es una sola pieza, con pestañas y tema claro u oscuro, sobre las capturas reales del #143. El clip del cuenco (`media/sopa-pool-dive-v3`) se ve en la portada y se recorre con una línea; el relato de `#agentes-20` y el deslizador de `#lavado-de-cara` siguen. La Latest no cambia: Sopa 2.1.0, mismos archivos y SHA-256. La velocidad de referencia sigue siendo unos 37–38 tok/s en MSI_TORRE.
+
+## Cambio anterior (2 de noviembre de 2026, noche): lavado de cara de la portada
 
 Lavado de cara de la web comercial, sin release nueva. La portada pasa a una ficha de producto (hero sobrio, un solo botón de descarga, sistema, tamaño y SHA) y la documentación de cómo está hecha la web queda en `/desarrollo/`, separada del texto de producto. La cabecera distingue Producto, Equipo, Guías, Ayuda, Desarrollo y Descargar. Siguen `#agentes-20` y `#lavado-de-cara`.
 

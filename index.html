@@ -43,7 +43,7 @@
 <a class="saltar" href="#contenido">Saltar al contenido</a>
   <div class="nav-in">
     <a href="./" class="marca"><img src="img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir el menú"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" focusable="false"><rect class="linea l1" x="3" y="4" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l2" x="3" y="10" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l3" x="3" y="16" width="16" height="2" rx="1" fill="currentColor"/></svg></button><nav id="menu-principal" aria-label="Secciones"><a href="#funciones" aria-current="page">Producto</a><a href="#agentes-20">Equipo</a><a href="guias/">Guías</a><a href="ayuda/">Ayuda</a><a href="desarrollo/">Desarrollo</a><a href="#descarga">Descargar</a></nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir el menú"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" focusable="false"><rect class="linea l1" x="3" y="4" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l2" x="3" y="10" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l3" x="3" y="16" width="16" height="2" rx="1" fill="currentColor"/></svg></button><nav id="menu-principal" aria-label="Secciones"><a href="./" aria-current="page">Producto</a><a href="desarrollo/">Desarrollo</a></nav>
     <span class="pill-dev">Sopa 2.1.0</span>
   </div>
 </header>
@@ -60,32 +60,45 @@
         </div>
       </div>
       <p class="hero-lema">Tu inteligencia artificial. Tu ordenador. Tus reglas.</p>
-      <p class="lead">Inteligencia artificial local para Windows, en español. Sin cuentas y sin programar. La IA funciona en tu ordenador.</p>
-      <p class="hero-mas"><a class="enlace" href="#funciones">Qué hace Sopa</a></p>
+      <p class="lead">Inteligencia artificial local para Windows, en español.</p>
+      <p class="hero-mas"><a class="enlace" href="#funciones">Qué hace</a></p>
     </div>
     <div class="descarga">
       <h2>Sopa 2.1.0</h2>
       <p>Para Windows. Descarga directa, sin dejar tu correo.</p>
-      <p>Sopa es gratuita para todos. <a href="#licencia" style="text-decoration:underline;text-underline-offset:3px">Es software libre (GNU GPLv3)</a>.</p>
       <a class="btn" href="descargas/Sopa-2.1.0-windows-setup.exe" download>Descargar para Windows</a>
-      <p class="descarga-dato">Instalador: Sopa-2.1.0-windows-setup.exe · 63,5 MB</p>
-      <p class="descarga-dato">SHA-256: <code class="sha">3ff5c243afffdebb7717323846f6eeee072bd3ffd7769c649f34bffab03c5bbc</code></p>
-      <p class="descarga-dato">¿Prefieres no instalar? <a href="descargas/Sopa-2.1.0-windows.zip" download style="text-decoration:underline;text-underline-offset:3px">Sopa-2.1.0-windows.zip</a> · 46,9 MB, la app en una carpeta</p>
+      <dl class="meta-descarga">
+        <div><dt>Sistema</dt><dd>Windows de 64 bits</dd></div>
+        <div><dt>Instalador</dt><dd>Sopa-2.1.0-windows-setup.exe · 63,5 MB</dd></div>
+        <div><dt>SHA-256</dt><dd><code class="sha">3ff5c243afffdebb7717323846f6eeee072bd3ffd7769c649f34bffab03c5bbc</code></dd></div>
+        <div><dt>Requisitos</dt><dd>WebView2. En Windows 11 suele venir con el sistema.</dd></div>
+      </dl>
+      <p class="descarga-dato">Sopa es gratuita para todos. <a href="#licencia">Es software libre (GNU GPLv3)</a>.</p>
+      <p class="descarga-dato">¿Prefieres no instalar? <a href="descargas/Sopa-2.1.0-windows.zip" download>Sopa-2.1.0-windows.zip</a> · 46,9 MB, la app en una carpeta</p>
       <p class="descarga-dato">SHA-256: <code class="sha">ad04658114614acfe943931a412219fd5ecaceac94f9a2f6f59f79f741327e87</code></p>
-      <p class="descarga-dato">Windows de 64 bits. La ventana usa Microsoft Edge WebView2; en Windows 11 suele venir con el sistema.</p>
-      <p class="descarga-dato">La beta terminó con la 2.0.0. Lo que va marcado «En pruebas» todavía se está probando.</p>
       <p class="descarga-dato"><a href="#notas-version">Notas de la versión</a></p>
     </div>
   </div>
   <figure class="hero-shot">
-    <picture>
-      <source type="image/avif" srcset="img/sala-143-oscuro-640.avif 640w, img/sala-143-oscuro-832.avif 832w, img/sala-143-oscuro.avif 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px">
-      <img src="img/sala-143-oscuro.webp" srcset="img/sala-143-oscuro-640.webp 640w, img/sala-143-oscuro.webp 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px" alt="Sala de Sopa en tema oscuro: a la izquierda el equipo (Sopa, Director, Código, Documentos, Archivos, Investigación, Automatizaciones y Recetas) y a la derecha una conversación con Director, con el modelo Qwen3 4B" width="1440" height="900" decoding="async">
-    </picture>
-    <figcaption>La Sala, en tema oscuro. Interfaz del lavado de cara ya unida al código de Motor (cambio #143), con datos de muestra. No es una versión publicada nueva: la descarga sigue siendo Sopa 2.1.0.</figcaption>
+    <div class="tema-switch" role="group" aria-label="Tema de la Sala">
+      <label class="tab">Oscuro<input type="radio" name="tema-hero" value="oscuro" checked></label>
+      <label class="tab">Claro<input type="radio" name="tema-hero" value="claro"></label>
+    </div>
+    <div class="shot-activo">
+      <picture class="shot-oscuro">
+        <source type="image/avif" srcset="img/sala-143-oscuro-640.avif 640w, img/sala-143-oscuro-832.avif 832w, img/sala-143-oscuro.avif 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px">
+        <img src="img/sala-143-oscuro.webp" srcset="img/sala-143-oscuro-640.webp 640w, img/sala-143-oscuro.webp 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px" alt="Sala de Sopa en tema oscuro: a la izquierda el equipo (Sopa, Director, Código, Documentos, Archivos, Investigación, Automatizaciones y Recetas) y a la derecha una conversación con Director, con el modelo Qwen3 4B" width="1440" height="900" decoding="async">
+      </picture>
+      <picture class="shot-claro">
+        <source type="image/avif" srcset="img/sala-143-claro-640.avif 640w, img/sala-143-claro-832.avif 832w, img/sala-143-claro.avif 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px">
+        <img src="img/sala-143-claro.webp" srcset="img/sala-143-claro-640.webp 640w, img/sala-143-claro.webp 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px" alt="Sala de Sopa en tema claro: a la izquierda el equipo y a la derecha una conversación con Director, con el modelo Qwen3 4B" width="1440" height="900" decoding="async">
+      </picture>
+    </div>
+    <figcaption>La Sala. Interfaz del lavado de cara ya unida al código de Motor (cambio #143), con datos de muestra. No es una versión publicada nueva: la descarga sigue siendo Sopa 2.1.0.</figcaption>
   </figure>
-  <div class="descarga-notas" id="notas-version">
-    <h2>Notas de la versión</h2>
+  <details class="descarga-notas" id="notas-version">
+    <summary>Notas de la versión</summary>
+    <p class="descarga-dato">La beta terminó con la 2.0.0. Lo que va marcado «En pruebas» todavía se está probando.</p>
     <p class="descarga-dato">Novedad de la 2.1.0 <span class="pill-dev pill-proxima">En pruebas</span>: niveles de seguridad por herramienta. Tú decides qué hace Sopa sola, qué apunta y qué te pregunta antes. Cada herramienta tiene uno de cuatro niveles: libre (se hace), anotada (se hace y queda apuntada en el registro de tu equipo), preguntar (Sopa espera tu sí o tu no; si no respondes a tiempo, 60 s por defecto, es un no) y bloqueada (no se hace nunca). De fábrica, leer es libre, la web va anotada y escribir, mover, borrar y automatizar preguntan. La tarjeta «Sopa pregunta», con Sí, No y cuenta atrás, sale en la Sala y en Sopa Mobile, y cada aprobación vale para una sola llamada. El registro se queda en tu equipo, y las claves y los tokens se tapan. Se ajusta en Ajustes · Seguridad.</p>
     <p class="descarga-dato">Reúne además la 2.0.0 <span class="pill-dev pill-proxima">En pruebas</span>: el equipo de agentes. Investigación, Documentos, Archivos y Automatizaciones trabajan con el mismo bucle de herramientas, y cada compañero tiene su hilo, su memoria, su nombre y su cara. Un archivo nuevo siempre se propone con vista previa y se escribe solo cuando confirmas. Las tareas de varios pasos hacen planes de 2 a 8 pasos y enseñan antes lo que dicen los archivos que leen. El chat responde con Markdown y en el idioma en que le escribes. Desde el móvil también se trabaja con archivos, y los cambios se confirman o se cancelan como en el ordenador. Y la interfaz es nueva: una sola paleta, la Sala (Conversación y Equipo) y el Taller (Modelos, Entrenamiento, Comparar y Diseño 3D). <a href="ayuda/equipo.html" style="text-decoration:underline;text-underline-offset:3px">Cómo se usa el equipo</a>.</p>
     <p class="descarga-dato">También la 1.20.0 <span class="pill-dev pill-proxima">En pruebas</span>: Diseño 3D. Escribes qué pieza quieres y el modelo del chat la escribe en OpenSCAD. La vista previa y el STL salen de OpenSCAD si está en tu ordenador, si no de CadQuery, y si no hay ninguno, de cubos, cilindros y esferas. Si algo no cuadra, el modelo la corrige hasta 3 veces. El inventario es un archivo JSON en tu equipo y Sopa no ejecuta Python escrito por el modelo. <a href="ayuda/diseno-3d.html" style="text-decoration:underline;text-underline-offset:3px">Cómo se usa</a>. Desde la 1.20.0, el chat ya no tiene «Creatividad» ni «Pensar antes de responder», y no corta una respuesta porque el modelo tarde: sigue hasta que termina o pulsas «Parar».</p>
@@ -93,9 +106,25 @@
     <p class="descarga-dato">Problemas conocidos: en el móvil, con gpt-oss, a veces se cuela antes de la respuesta un trozo del razonamiento en inglés. «Sigue» todavía no continúa bien el texto anterior: puede volver a empezar en lugar de seguir desde el final. En textos muy largos, la numeración de los capítulos puede repetirse o saltarse alguno.</p>
     <p class="descarga-dato">Copyright © 2026 Miguel Rodríguez Saiz. Licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html" style="text-decoration:underline;text-underline-offset:3px">GNU GPLv3</a> (texto íntegro en <a href="LICENSE" style="text-decoration:underline;text-underline-offset:3px">LICENSE</a>). <a href="#codigo-fuente" style="text-decoration:underline;text-underline-offset:3px">Cómo pedir el código fuente</a>.</p>
     <p class="descarga-dato">Desde la 1.16.8, Sopa es GPL-3.0-only (solo la versión 3 de la GPL). Hasta la 1.16.7, se publicó como GPL-3.0-or-later.</p>
-    <p class="descarga-dato">¿Algo falla? <a href="fallos/" style="text-decoration:underline;text-underline-offset:3px">Informar de un fallo</a></p>
-  </div>
-  <p class="letra-pequena nota-version">Velocidad de referencia, alrededor del 31 de octubre de 2026, en MSI_TORRE (RTX 5070, 32 GB de RAM), con el modelo Qwen3.8 27B IQ3 (<code>Qwen3.8-27B-UD-IQ3_XXS.gguf</code>): unos 37–38 tokens por segundo, estables. La torre lleva unas dos semanas fuera de servicio y no hay una medición posterior a la 2.1.0. Es una medida en ese equipo, no una promesa para otros. En una prueba anterior de esa misma torre (1.16.6), gpt-oss 20B carga sus 25 capas con 8 192 de contexto, el modo largo escribió 8164 palabras en 12 bloques y una búsqueda en la web tardó 8,5 s. La 1.16.9 pasó en esa torre tres casos de prueba (español, web y texto largo). La 1.17.0, la 1.18.0, la 1.19.0 y la 1.20.0 han pasado las pruebas automáticas de Linux y de Windows, pero no se probaron en esa torre. La 2.0.0 pasó en esa torre la batería de tareas reales entera (51/51 en verde) con Qwen3.8 27B IQ3, y sus pruebas automáticas de Windows, con una prueba de principio a fin con Qwen3 4B, están en verde. La 2.1.0 también pasó en esa torre la batería entera (51/51 en verde) con Qwen3.8 27B IQ3, y sus pruebas automáticas de Windows, con la prueba de principio a fin con Qwen3 4B, están en verde. Aún no hemos usado la 2.0.0 ni la 2.1.0 en el día a día ni probado en el portátil de referencia: por eso lo nuevo va «En pruebas».</p>
+    <p class="descarga-dato">¿Algo falla? <a href="fallos/">Informar de un fallo</a></p>
+    <p class="letra-pequena nota-version">Velocidad de referencia, alrededor del 31 de octubre de 2026, en MSI_TORRE (RTX 5070, 32 GB de RAM), con el modelo Qwen3.8 27B IQ3 (<code>Qwen3.8-27B-UD-IQ3_XXS.gguf</code>): unos 37–38 tokens por segundo, estables. La torre lleva unas dos semanas fuera de servicio y no hay una medición posterior a la 2.1.0. Es una medida en ese equipo, no una promesa para otros. En una prueba anterior de esa misma torre (1.16.6), gpt-oss 20B carga sus 25 capas con 8 192 de contexto, el modo largo escribió 8164 palabras en 12 bloques y una búsqueda en la web tardó 8,5 s. La 1.16.9 pasó en esa torre tres casos de prueba (español, web y texto largo). La 1.17.0, la 1.18.0, la 1.19.0 y la 1.20.0 han pasado las pruebas automáticas de Linux y de Windows, pero no se probaron en esa torre. La 2.0.0 pasó en esa torre la batería de tareas reales entera (51/51 en verde) con Qwen3.8 27B IQ3, y sus pruebas automáticas de Windows, con una prueba de principio a fin con Qwen3 4B, están en verde. La 2.1.0 también pasó en esa torre la batería entera (51/51 en verde) con Qwen3.8 27B IQ3, y sus pruebas automáticas de Windows, con la prueba de principio a fin con Qwen3 4B, están en verde. Aún no hemos usado la 2.0.0 ni la 2.1.0 en el día a día ni probado en el portátil de referencia: por eso lo nuevo va «En pruebas».</p>
+  </details>
+</section>
+
+<section id="video-agentes" class="cont seccion video-agentes" aria-labelledby="video-agentes-titulo">
+  <p class="eyebrow">El cuenco</p>
+  <h2 id="video-agentes-titulo">El salto al equipo.</h2>
+  <p class="lead">El mismo clip del relato. Mueve la línea para recorrerlo. No es una captura de la app.</p>
+  <figure class="video-marco">
+    <video id="clip-visible" muted playsinline preload="metadata" controls poster="img/sopa-pool-dive-v3-preview.webp" width="1080" height="1080">
+      <source src="media/sopa-pool-dive-v3.webm" type="video/webm">
+      <source src="media/sopa-pool-dive-v3.mp4" type="video/mp4">
+      <track kind="captions" src="media/sopa-pool-dive-v3.vtt" srclang="es" label="Español">
+    </video>
+    <label class="clip-etiqueta" for="clip-rango">Recorrer el clip</label>
+    <input class="clip-rango" id="clip-rango" type="range" min="0" max="1000" value="0" step="1" aria-valuetext="Inicio del clip">
+    <figcaption><a class="enlace" href="#agentes-20">El relato completo, al bajar</a></figcaption>
+  </figure>
 </section>
 
 <section id="por-que" class="cont seccion argumentos">
@@ -124,14 +153,43 @@
   <p class="letra-pequena r">Tus documentos. Probado en el portátil de referencia con 209 documentos reales (832 páginas). Leerlos todos la primera vez tardó 8 min; volver a revisarlos sin cambios, 0,1 s. En 26 de 26 preguntas, el documento correcto salió entre los 4 primeros. Con Qwen3 4B, 24 de 26 respuestas fueron correctas, ninguna con citas inventadas, en unos 12 s cada una. Para buscar por significado, Sopa descarga la primera vez un modelo pequeño (132 MB) que funciona en tu equipo.</p>
 </section>
 
-<section class="cont seccion galeria">
-  <h2 class="r">Tranquila por fuera.<br>Potente por dentro.</h2>
-  <p class="lead r">La interfaz del lavado de cara, en tema oscuro.</p>
-  <p class="letra-pequena r">Capturas reales del lavado de cara ya unido al código de Motor (cambio #143), con datos de muestra. No son una versión publicada nueva ni sustituyen a la descarga: sigue siendo Sopa 2.1.0. En «Equipo», más abajo, el chat de «hasta la 1.20» sigue siendo una captura de la 1.20.0.</p>
-  <figure class="r"><picture><source type="image/avif" srcset="img/equipo-143-oscuro-640.avif 640w, img/equipo-143-oscuro-832.avif 832w, img/equipo-143-oscuro.avif 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px"><img loading="lazy" decoding="async" src="img/equipo-143-oscuro.webp" srcset="img/equipo-143-oscuro-640.webp 640w, img/equipo-143-oscuro.webp 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px" alt="Taller, pestaña Equipo, en tema oscuro: tarjetas de Sopa, Director, Código, Documentos, Archivos, Investigación, Automatizaciones y Recetas, y un botón Nuevo agente" width="1440" height="900"></picture><figcaption>El equipo, en el Taller. Cada agente con su cara y su trabajo.</figcaption></figure>
-  <figure class="r"><picture><source type="image/avif" srcset="img/modelos-143-oscuro-640.avif 640w, img/modelos-143-oscuro-832.avif 832w, img/modelos-143-oscuro.avif 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px"><img loading="lazy" decoding="async" src="img/modelos-143-oscuro.webp" srcset="img/modelos-143-oscuro-640.webp 640w, img/modelos-143-oscuro.webp 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px" alt="Taller, pestaña Modelos, en tema oscuro: Qwen3 4B y Gemma 4B en este equipo, y el catálogo con el filtro de la gráfica NVIDIA" width="1440" height="900"></picture><figcaption>Los modelos del equipo y el catálogo.</figcaption></figure>
-  <figure class="r"><picture><source type="image/avif" srcset="img/trabajos-143-oscuro-640.avif 640w, img/trabajos-143-oscuro-832.avif 832w, img/trabajos-143-oscuro.avif 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px"><img loading="lazy" decoding="async" src="img/trabajos-143-oscuro.webp" srcset="img/trabajos-143-oscuro-640.webp 640w, img/trabajos-143-oscuro.webp 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px" alt="Taller, pestaña Trabajos, en tema oscuro: un trabajo de Documentos en marcha, una pregunta de Archivos, Investigación en cola y una automatización terminada" width="1440" height="921"></picture><figcaption>Trabajos: lo que los agentes hacen mientras Sopa está abierta.</figcaption></figure>
-  <figure class="r"><picture><source type="image/avif" srcset="img/menu-taller-143-oscuro-640.avif 640w, img/menu-taller-143-oscuro-832.avif 832w, img/menu-taller-143-oscuro.avif 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px"><img loading="lazy" decoding="async" src="img/menu-taller-143-oscuro.webp" srcset="img/menu-taller-143-oscuro-640.webp 640w, img/menu-taller-143-oscuro.webp 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px" alt="Menú Más del Taller, en tema oscuro, abierto sobre Trabajos: Entrenamiento, Comparar y Diseño 3D" width="1440" height="921"></picture><figcaption>En el menú Más: Entrenamiento, Comparar y Diseño 3D.</figcaption></figure>
+<section class="cont seccion galeria" id="galeria" aria-labelledby="galeria-titulo">
+  <h2 id="galeria-titulo" class="r">La interfaz.</h2>
+  <p class="lead r">Una pantalla cada vez. Capturas reales del lavado de cara (Motor, #143), con datos de muestra. La descarga sigue siendo Sopa 2.1.0.</p>
+  <div class="visor">
+    <div class="visor-bar">
+      <div class="tabs" role="group" aria-label="Pantalla">
+        <label class="tab">Equipo<input type="radio" name="pantalla" id="p-equipo" checked></label>
+        <label class="tab">Modelos<input type="radio" name="pantalla" id="p-modelos"></label>
+        <label class="tab">Trabajos<input type="radio" name="pantalla" id="p-trabajos"></label>
+      </div>
+      <div class="tabs" role="group" aria-label="Tema de la captura">
+        <label class="tab">Oscuro<input type="radio" name="tema-galeria" id="tg-oscuro" checked></label>
+        <label class="tab">Claro<input type="radio" name="tema-galeria" id="tg-claro"></label>
+      </div>
+    </div>
+    <figure class="panel panel-equipo">
+      <div class="galeria-marco">
+        <img class="tema-oscuro" loading="lazy" decoding="async" src="img/equipo-143-oscuro.webp" srcset="img/equipo-143-oscuro-640.webp 640w, img/equipo-143-oscuro.webp 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px" alt="Taller, pestaña Equipo, en tema oscuro: tarjetas de los agentes y un botón Nuevo agente" width="1440" height="900">
+        <img class="tema-claro" loading="lazy" decoding="async" src="img/equipo-143-claro.webp" srcset="img/equipo-143-claro-640.webp 640w, img/equipo-143-claro.webp 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px" alt="Taller, pestaña Equipo, en tema claro: tarjetas de los agentes y un botón Nuevo agente" width="1440" height="900">
+      </div>
+      <figcaption>El equipo, en el Taller.</figcaption>
+    </figure>
+    <figure class="panel panel-modelos">
+      <div class="galeria-marco">
+        <img class="tema-oscuro" loading="lazy" decoding="async" src="img/modelos-143-oscuro.webp" srcset="img/modelos-143-oscuro-640.webp 640w, img/modelos-143-oscuro.webp 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px" alt="Taller, pestaña Modelos, en tema oscuro: Qwen3 4B y Gemma 4B, y el catálogo con el filtro de la gráfica NVIDIA" width="1440" height="900">
+        <img class="tema-claro" loading="lazy" decoding="async" src="img/modelos-143-claro.webp" srcset="img/modelos-143-claro-640.webp 640w, img/modelos-143-claro.webp 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px" alt="Taller, pestaña Modelos, en tema claro: Qwen3 4B y Gemma 4B, y el catálogo con el filtro de la gráfica NVIDIA" width="1440" height="900">
+      </div>
+      <figcaption>Los modelos del equipo y el catálogo.</figcaption>
+    </figure>
+    <figure class="panel panel-trabajos">
+      <div class="galeria-marco">
+        <img class="tema-oscuro" loading="lazy" decoding="async" src="img/trabajos-143-oscuro.webp" srcset="img/trabajos-143-oscuro-640.webp 640w, img/trabajos-143-oscuro.webp 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px" alt="Taller, pestaña Trabajos, en tema oscuro: un trabajo en marcha, una pregunta pendiente y una automatización terminada" width="1440" height="921">
+        <img class="tema-claro" loading="lazy" decoding="async" src="img/trabajos-143-claro.webp" srcset="img/trabajos-143-claro-640.webp 640w, img/trabajos-143-claro.webp 1440w" sizes="(max-width: 1100px) calc(100vw - 48px), 1080px" alt="Taller, pestaña Trabajos, en tema claro: un trabajo en marcha, una pregunta pendiente y una automatización terminada" width="1440" height="921">
+      </div>
+      <figcaption>Trabajos, mientras Sopa está abierta.</figcaption>
+    </figure>
+  </div>
 </section>
 
 <section id="novedades" class="cont seccion">
@@ -515,7 +573,12 @@
   <p>Desarrollado por ArduSolutions.</p>
   <p>Esta web no usa cookies ni rastreadores.</p>
 </footer>
+<div class="cta-fija" hidden>
+  <p>Sopa 2.1.0</p>
+  <a class="btn" href="descargas/Sopa-2.1.0-windows-setup.exe" download>Descargar</a>
+</div>
 <script src="app.min.js" defer></script>
+<script src="js/ficha.js" defer></script>
 <script src="js/menu.js" defer></script>
 <script src="js/agentes.js" defer></script>
 <script src="js/antes-despues.js" defer></script>
