@@ -41,7 +41,7 @@
 .tarjetas-guia h2{margin:0 0 8px;font-size:22px}
 .tarjetas-guia p{font-size:16px;color:var(--text-2)}
 .tarjetas-guia .enlace{display:inline-block;margin-top:12px}
-.pie-enlaces{display:flex;gap:20px;width:100%}
+.pie-enlaces{display:flex;flex-wrap:wrap;gap:12px 20px;width:100%}
 .pie-enlaces a{color:var(--accent)}
 @media (max-width:700px){.estado-doble{grid-template-columns:1fr}.guia p,.guia li{font-size:17px}.pasos>li{padding-left:48px}}
 .autor{font-size:15px!important;color:var(--text-2)!important;margin:-20px 0 32px}

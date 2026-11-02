@@ -17,6 +17,7 @@ const axeSource = readFileSync(require.resolve("axe-core"), "utf8");
 const puerto = 8770;
 const paginas = [
   "/",
+  "/desarrollo/",
   "/simulador.html",
   "/guias/",
   "/guias/que-es-una-ia-local.html",
@@ -71,11 +72,27 @@ const servidor = spawn("python3", ["-m", "http.server", String(puerto), "--bind"
 let codigo = 0;
 try {
   await esperarPuerto();
-  const browser = await puppeteer.launch({
+  // pipe evita esperar la URL ws:// en stdout: en el runner a veces no llega
+  // en 30 s y el job muere antes de axe. Un reintento cubre un arranque lento.
+  const opciones = {
     executablePath: process.env.CHROME_PATH || "google-chrome",
     headless: true,
-    args: ["--no-sandbox", "--disable-gpu"],
-  });
+    pipe: true,
+    timeout: 120000,
+    args: ["--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage"],
+  };
+  let browser;
+  let ultimo;
+  for (let intento = 1; intento <= 2; intento++) {
+    try {
+      browser = await puppeteer.launch(opciones);
+      break;
+    } catch (error) {
+      ultimo = error;
+      console.error(`Chrome no arrancó (intento ${intento}).`);
+    }
+  }
+  if (!browser) throw ultimo;
   try {
     const page = await browser.newPage();
     // El texto que aún no ha entrado en pantalla sigue a opacidad 0. Con movimiento

@@ -57,8 +57,10 @@ jobs:
           if command -v google-chrome >/dev/null 2>&1; then
             export CHROME_PATH="$(command -v google-chrome)"
           else
-            # El runner no trae Chrome. Se descarga una versión fija, sin secretos.
-            linea="$(./node_modules/.bin/browsers install --path "$RUNNER_TEMP/chrome" chrome-headless-shell@131.0.6778.204)"
+            # El runner no trae Chrome. Se descarga la revisión que fija
+            # puppeteer-core 24.23 (lib/esm/puppeteer/revisions.js), sin secretos.
+            # La 131 se quedaba callada y Puppeteer cortaba a los 30 s.
+            linea="$(./node_modules/.bin/browsers install --path "$RUNNER_TEMP/chrome" chrome-headless-shell@141.0.7390.54)"
             export CHROME_PATH="${linea##* }"
           fi
           test -x "$CHROME_PATH"
