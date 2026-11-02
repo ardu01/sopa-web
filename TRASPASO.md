@@ -1,8 +1,19 @@
 # Traspaso
 
-Fecha: 31 de octubre de 2026 (actualizado; el resto del texto es del 19 de octubre).
+Fecha: 2 de noviembre de 2026 (actualizado; el resto del texto es del 19 de octubre).
 
-## Último cambio (31 de octubre de 2026, noche): cierre de turno Sopa Web
+## Último cambio (2 de noviembre de 2026, noche): antes y después del lavado de cara (Próximamente)
+
+- Termina la pausa del 31 de octubre por orden del Supervisor (2 de noviembre, 20:22, hora de Madrid). Miguel dio el sí a las 20:25, por Imelda: «Sí, que Sopa Web publique el antes y después como Próximamente».
+- Nueva sección `#lavado-de-cara` en `index.html`, justo antes de `#proximamente`: https://ardu01.github.io/sopa-web/#lavado-de-cara
+  - Marcada «Próximamente». Dice que el diseño aún no está publicado ni se puede descargar, y que lo de la derecha son maquetas del diseño aprobado, no capturas de una versión publicada. No tiene enlaces ni descargas. Lo de Motor sigue en un PR en borrador.
+  - Solo estos datos: no se quita ninguna función; de 158 a 114 controles visibles en las pantallas maquetadas (−28 %); Ajustes pasa de 53 controles en una sola página a 5 secciones.
+  - Cinco comparaciones de escritorio (Sala, menú «…» del chat, Modelos, Ajustes con el registro, Borrar el registro) con un control deslizante: un `input type="range"` accesible con teclado, `aria-valuetext` y arrastre sobre la imagen. Más un par de móvil (Conversaciones) lado a lado. Código propio en `js/antes-despues.js`, sin dependencias. Sin JS se ve la mitad de cada imagen.
+  - Imágenes en `img/lavado/` (44 WebP, unos 1,3 MB, ninguno pasa de ~51 KB). Escritorio a 1280 y 800 px; móvil a 390 px. Claro y oscuro con `prefers-color-scheme`. Texto alternativo en español.
+  - Origen: pares de `sopa-ui/lavado` (capturas de ahora en `actual/`, maquetas en `maquetas/capturas/`). La captura de Ajustes de ahora, en claro y en oscuro, mostraba rutas personales de los datos de prueba (carpetas de Recetas y Taller). Se taparon con el color del fondo antes de convertirla. Se revisaron todas a mano: no hay «MSI_TORRE», correos, rutas ni datos privados. Los nombres de los chats de prueba son inventados.
+- Comprobaciones: `auditar.py` solo da los 2 errores antiguos; html-validate, enlaces internos (29 páginas) y axe pasan; simulador 36/36 contra `sopa_app/catalogo.json` de v2.1.0. Sin errores de JS.
+
+## Cambio anterior (31 de octubre de 2026, noche): cierre de turno Sopa Web
 
 El Supervisor cierra el turno (~21:00, hora de Madrid): terminar lo a medias, dejar este archivo al día y parar. Estado: pausa. Sopa Web no empieza trabajo nuevo hasta una orden del Supervisor. Este cierre solo toca este archivo. No sustituye las entradas de la 2.1.0, la 2.0.0 y el #31, que siguen debajo.
 
@@ -11,7 +22,7 @@ El Supervisor cierra el turno (~21:00, hora de Madrid): terminar lo a medias, de
 
 El turno de este grupo fue del 17 al 21 de octubre de 2026. Otro grupo comparte el repositorio. `main` publicado, antes de este cambio, es `34c8855` (PR #17, fusionado). Este archivo acompaña la pasada de rendimiento con Lighthouse en móvil: https://github.com/ardu01/sopa-web/pull/18 contra `main`, rama `cursor/rendimiento-lighthouse-c470`. No está fusionado.
 
-## Último cambio (31 de octubre de 2026, tarde): la web pasa a Sopa 2.1.0
+## Cambio anterior (31 de octubre de 2026, tarde): la web pasa a Sopa 2.1.0
 
 - La web pasa a Sopa 2.1.0, la Latest de Sopa-IA/sopa-motor (publicada el 31 de octubre de 2026 a las 12:25, hora de Madrid; etiqueta v2.1.0 en `2dffbed`; no es prerelease).
   - Descargas en `descargas/`: `Sopa-2.1.0-windows-setup.exe` (66 608 920 B, 63,5 MB, SHA-256 `3ff5c243…5bbc`) y `Sopa-2.1.0-windows.zip` (49 181 067 B, 46,9 MB, SHA-256 `ad046581…7e87`). Coinciden con `SHA256SUMS.txt` y con las notas de la Release. Se quitaron las de la 2.0.0.

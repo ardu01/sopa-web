@@ -286,3 +286,23 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 .cuerpo-claro{color:var(--text-2)}
 .mas{margin-top:24px}
 .chips+.letra-pequena{margin-top:48px}
+.lavado-datos{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:40px auto 0;max-width:900px}
+.lavado-datos li{background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:10px 20px;font-size:16px;color:var(--text-2)}
+.lavado-datos b{color:var(--text);font-weight:650}
+.ad{margin:64px auto 0;max-width:1032px}
+.ad-marco{--pos:50%;position:relative;touch-action:pan-y;cursor:ew-resize;user-select:none;-webkit-user-select:none;border-radius:18px;overflow:hidden;border:1px solid var(--border);background:var(--surface);box-shadow:0 24px 60px -30px #14181640}
+.ad-antes img,.ad-despues img{width:100%;height:auto;-webkit-user-drag:none;pointer-events:none}
+.ad-despues{position:absolute;inset:0;clip-path:inset(0 0 0 var(--pos))}
+.ad-linea{position:absolute;top:0;bottom:0;left:var(--pos);width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 0 1px #1A774899,0 0 12px #14181640;pointer-events:none}
+.ad-linea::after{content:"";position:absolute;top:50%;left:50%;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:#fff;border:3px solid #1A7748;box-shadow:0 4px 14px #14181640}
+.ad-etq{position:absolute;top:12px;font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px;background:#141816b3;color:#fff;pointer-events:none}
+.ad-etq-antes{left:12px}.ad-etq-despues{right:12px;background:#1A7748e6}
+.ad-control{display:flex;max-width:420px;margin:18px auto 0}
+.ad-rango{flex:1;accent-color:var(--accent);height:28px;cursor:ew-resize}
+.ad-rango:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+.ad-movil{margin:72px auto 0;max-width:640px}
+.ad-par{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.ad-par figure{margin:0}
+.ad-tel{border-radius:28px;overflow:hidden;border:1px solid var(--border);background:var(--surface);box-shadow:0 24px 60px -30px #14181640}
+.ad-tel img{width:100%;height:auto}
+@media (max-width:600px){.ad-etq{font-size:11px;top:8px;padding:3px 8px}.ad-etq-antes{left:8px}.ad-etq-despues{right:8px}.ad-par{gap:12px}.ad-tel{border-radius:18px}.lavado-datos li{font-size:15px}}
