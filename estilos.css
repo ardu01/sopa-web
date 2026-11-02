@@ -386,18 +386,18 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 #video-agentes{scroll-margin-top:72px}
 .video-marco{max-width:560px;margin:28px auto 0}
 .video-marco video{width:100%;height:auto;border-radius:16px;background:#0c0f0e}
-.clip-rango{display:block;width:100%;margin-top:14px;accent-color:var(--accent);height:28px;cursor:ew-resize}
+.clip-rango{display:block;width:100%;margin-top:8px;accent-color:var(--accent);height:44px;cursor:ew-resize}
 .clip-rango:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-.cta-fija{position:fixed;z-index:20;left:50%;bottom:16px;transform:translateX(-50%);display:flex;align-items:center;gap:16px;padding:8px 8px 8px 18px;background:#fff;border:1px solid var(--border);border-radius:999px;box-shadow:0 12px 32px #14181624}
-.cta-fija[hidden]{display:none}
+.cta-fija{position:fixed;z-index:20;left:50%;bottom:calc(12px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:flex;align-items:center;gap:16px;padding:8px 8px 8px 18px;background:#fff;border:1px solid var(--border);border-radius:999px;box-shadow:0 12px 32px #14181624}
+.cta-fija[hidden],.cta-fija.cta-aparte{display:none}
 .cta-fija p{margin:0;font-size:14px;font-weight:600;white-space:nowrap}
 .cta-fija .btn{min-height:40px;padding:0 16px}
 body:has(.nav.abierto) .cta-fija{display:none}
-body:has(.cta-fija) .pie{padding-bottom:96px}
+body:has(.cta-fija) .pie{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 .guia.docs h2{margin-top:72px}
 @media (max-width:600px){
  .meta-descarga div{grid-template-columns:1fr;gap:2px}
- .cta-fija{left:12px;right:12px;transform:none;justify-content:space-between}
+ .cta-fija{left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom,0px));transform:none;justify-content:space-between}
  .video-agentes{padding-top:48px;padding-bottom:48px}
 }
 @media (prefers-reduced-motion:reduce){
