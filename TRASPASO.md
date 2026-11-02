@@ -2,7 +2,13 @@
 
 Fecha: 2 de noviembre de 2026 (actualizado; el resto del texto es del 19 de octubre).
 
-## Último cambio (2 de noviembre de 2026, noche): antes y después del lavado de cara (Próximamente)
+## Último cambio (2 de noviembre de 2026, noche): lavado de cara de la portada
+
+Lavado de cara de la web comercial, sin release nueva. La portada pasa a una ficha de producto (hero sobrio, un solo botón de descarga, sistema, tamaño y SHA) y la documentación de cómo está hecha la web queda en `/desarrollo/`, separada del texto de producto. La cabecera distingue Producto, Equipo, Guías, Ayuda, Desarrollo y Descargar. Siguen `#agentes-20` y `#lavado-de-cara`.
+
+Restricciones de este lavado: la descarga Latest no se toca y sigue siendo Sopa 2.1.0 (mismo exe, mismo zip, mismos SHA-256 y los mismos textos de versión). No hay release 2.2 ni otra etiqueta. La ficha y la galería usan capturas reales del lavado de cara ya unido a Motor (cambio #143, squash `7a71232`), en tema oscuro y con datos de muestra; el pie lo dice y no las presenta como versión publicada. En `#agentes-20`, el chat de «hasta la 1.20» sigue siendo la captura de la 1.20.0. El bloque `#lavado-de-cara` se queda, marcado como maqueta y «Próximamente». La velocidad que la portada presenta como referencia pasa a la medida de MSI_TORRE (RTX 5070, 32 GB de RAM, Qwen3.8 27B IQ3, archivo `Qwen3.8-27B-UD-IQ3_XXS.gguf`): unos 37–38 tok/s estables, alrededor del 31 de octubre de 2026. La torre lleva unas dos semanas fuera y no hay medición posterior a la 2.1.0. Donde ya se citaba la batería, queda 51/51 en verde. Las medidas del portátil con GTX 1650 siguen en las guías, atribuidas a ese equipo.
+
+## Cambio anterior (2 de noviembre de 2026, noche): antes y después del lavado de cara (Próximamente)
 
 - Termina la pausa del 31 de octubre por orden del Supervisor (2 de noviembre, 20:22, hora de Madrid). Miguel dio el sí a las 20:25, por Imelda: «Sí, que Sopa Web publique el antes y después como Próximamente».
 - Nueva sección `#lavado-de-cara` en `index.html`, justo antes de `#proximamente`: https://ardu01.github.io/sopa-web/#lavado-de-cara
