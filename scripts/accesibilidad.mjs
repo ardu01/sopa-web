@@ -17,6 +17,7 @@ const axeSource = readFileSync(require.resolve("axe-core"), "utf8");
 const puerto = 8770;
 const paginas = [
   "/",
+  "/desarrollo/",
   "/simulador.html",
   "/guias/",
   "/guias/que-es-una-ia-local.html",

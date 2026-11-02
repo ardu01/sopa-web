@@ -14,6 +14,8 @@ ul,ol{list-style:none}
 .marca{display:flex;align-items:center;gap:8px;font-weight:650;font-size:16px}
 .nav nav{display:flex;gap:22px;margin-left:auto;color:var(--text-2)}
 .nav nav a:hover{color:var(--text)}
+.nav nav a[aria-current="page"]{color:var(--text);font-weight:650}
+.nav nav a[href$="#descarga"]{color:var(--accent);font-weight:650}
 .saltar{position:absolute;left:12px;top:8px;z-index:30;transform:translateY(-160%);background:var(--accent);color:#fff;padding:10px 16px;border-radius:999px;font-weight:600;font-size:15px}
 .saltar:focus{transform:none}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
@@ -25,7 +27,7 @@ h2{font-size:clamp(34px,5.5vw,64px);line-height:1.06;letter-spacing:-.03em;font-
 h3{font-size:21px;letter-spacing:-.01em;font-weight:650;margin-bottom:6px}
 .lead{font-size:clamp(19px,2.2vw,24px);color:var(--text-2);max-width:640px;margin:20px auto 0;line-height:1.4}
 .verde{color:var(--accent)}
-.hero{text-align:center;padding:72px 24px 0;overflow:hidden}
+.hero{text-align:left;max-width:1120px;margin:0 auto;padding:48px 24px 32px;overflow:visible}
 .hero-icono{width:168px;margin:0 auto 24px}
 /* Logo de la portada: el vapor del propio dibujo, en capas detrás del cuenco; solo transform y opacity, sin JS */
 .logo-humo{position:relative;aspect-ratio:1}
@@ -44,8 +46,8 @@ h3{font-size:21px;letter-spacing:-.01em;font-weight:650;margin-bottom:6px}
 .btn:hover{background:var(--accent-h)}
 .enlace{color:var(--accent);font-weight:550}
 .hero-shot{max-width:1080px;margin:64px auto 0;border-radius:16px 16px 0 0;overflow:hidden;box-shadow:0 30px 80px #14181626,0 0 0 1px #14181610}
-.seccion{text-align:center;padding:140px 24px}
-.banda{padding:140px 0;text-align:center}
+.seccion{text-align:center;padding:112px 24px}
+.banda{padding:112px 0;text-align:center}
 .oscura{background:var(--d-bg);color:var(--d-text)}
 .oscura .lead{color:var(--d-text-2)}
 .oscura .eyebrow,.oscura .verde{color:var(--d-accent)}
@@ -105,7 +107,7 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
  body{font-size:16px}.seccion,.banda{padding:96px 24px}.banda .cont{padding:0}
  .rejilla4,.libertades{grid-template-columns:1fr}
  .cifras{grid-template-columns:1fr;gap:48px}
- .hero{padding-top:48px}.hero-icono{width:120px}.hero-shot{margin-top:48px;border-radius:10px 10px 0 0}
+ .hero{padding-top:28px}.hero-shot{margin-top:28px;border-radius:12px}
  .pie{flex-direction:column}
 }
 .faq{max-width:760px;margin:56px auto 0;text-align:left}
@@ -129,7 +131,7 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 @media (max-width:900px){.args{grid-template-columns:1fr}}
 :root{--accent:#1A7748;--accent-h:#15663D}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.pie-enlaces{display:flex;gap:20px;width:100%}
+.pie-enlaces{display:flex;flex-wrap:wrap;gap:12px 20px;width:100%}
 .pie-enlaces a{color:var(--accent)}
 .guias-lista{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;text-align:left}
 .guias-lista a{display:flex;flex-direction:column;justify-content:space-between;gap:20px;height:100%;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px;transition:border-color .12s var(--ease)}
@@ -142,11 +144,13 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 .nota-clara{color:var(--text-2);font-size:15px;margin:40px auto 0;max-width:760px}
 .nota-clara a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 .num .pill-ok{margin-left:8px;vertical-align:middle}
-.descarga{margin:56px auto 0;max-width:640px;border:1px solid var(--d-border);border-radius:18px;padding:32px}
-.descarga h3{font-size:22px}.descarga p{color:var(--d-text-2);font-size:15px;margin-top:8px}
-.descarga .btn{display:inline-block;margin-top:20px}
-.descarga .descarga-dato{font-size:13px;margin-top:12px}
-.descarga .sha{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;word-break:break-all;color:var(--d-text)}
+.descarga{margin:0;max-width:none;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:12px;padding:28px 28px 22px;box-shadow:0 16px 40px #1418160f}
+.descarga h2{font-size:22px;line-height:1.2;letter-spacing:-.02em;font-weight:650;margin:0}
+.descarga p{color:var(--text-2);font-size:15px;margin-top:8px}
+.descarga .btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:48px;margin-top:20px;border-radius:8px;font-size:16px;font-weight:650;color:#fff;text-decoration:none}
+.descarga a:not(.btn){color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.descarga-dato{font-size:13px;line-height:1.55;margin-top:12px;color:var(--text-2)}
+.descarga .sha,.descarga-notas .sha{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;word-break:break-all;color:var(--text)}
 
 /* Sopa Mobile: capturas reales en un marco de móvil hecho con CSS */
 .movil-escena{display:flex;justify-content:center;align-items:center;gap:56px;margin-top:64px}
@@ -280,12 +284,46 @@ figcaption{color:var(--text-2);font-size:15px;margin-top:16px}
 .letra-pequena+.letra-pequena{margin-top:12px}
 .letra-pequena a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 .oscura .letra-pequena{color:var(--d-text-2)}
+.oscura .letra-pequena a{color:var(--d-accent)}
 .fuera .letra-pequena{margin:16px 0 0;max-width:none;font-size:13px}
 .cuerpo,.cuerpo-claro{font-size:17px;line-height:1.5;max-width:640px;margin:20px auto 0}
 .cuerpo{color:var(--d-text-2)}
 .cuerpo-claro{color:var(--text-2)}
 .mas{margin-top:24px}
 .chips+.letra-pequena{margin-top:48px}
+
+/* Ficha de producto: un solo camino de descarga, con aire y jerarquía sobria. */
+#descarga,#notas-version{scroll-margin-top:72px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(280px,400px);gap:40px 56px;align-items:start}
+.hero-marca{display:flex;align-items:center;gap:16px}
+.hero-logo{width:56px;height:56px;flex:none}
+.hero .eyebrow{margin:0 0 2px;font-size:13px;font-weight:650;letter-spacing:.06em;text-transform:uppercase}
+.hero h1{font-size:clamp(44px,5.4vw,68px);line-height:1;font-weight:650;letter-spacing:-.035em}
+.hero-lema{margin-top:14px;max-width:34rem;color:var(--text);font-size:clamp(18px,2vw,22px);line-height:1.35;letter-spacing:-.02em}
+.hero .lead{margin:14px 0 0;text-align:left;max-width:36rem;font-size:17px;line-height:1.5}
+.hero-mas{margin-top:22px;font-size:15px}
+.hero-shot{max-width:none;margin:40px 0 0;border-radius:12px;overflow:hidden;box-shadow:0 24px 60px #1418161f,0 0 0 1px #14181612}
+.hero-shot figcaption{text-align:left}
+.descarga-notas{margin-top:36px;padding-top:8px;max-width:760px}
+.descarga-notas h2{font-size:clamp(26px,3vw,34px);letter-spacing:-.02em;margin:0 0 8px}
+.descarga-notas p{color:var(--text-2);font-size:15px;line-height:1.55;margin-top:12px}
+.descarga-notas a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.nota-version{margin-top:28px;max-width:760px}
+.nota-version code{font-size:.92em}
+.ficha-maquina{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:40px auto 0;max-width:920px;text-align:left}
+.ficha-maquina div{background:var(--d-surface);border:1px solid var(--d-border);border-radius:12px;padding:16px}
+.ficha-maquina dt{font-size:13px;font-weight:650;letter-spacing:.04em;text-transform:uppercase;color:#C9D2CC}
+.ficha-maquina dd{margin-top:8px;font-size:16px;font-weight:600;color:var(--d-text);line-height:1.35}
+.ficha-maquina code{display:block;margin-top:6px;font-weight:500;font-size:12px;line-height:1.4;color:#C9D2CC;overflow-wrap:break-word}
+@media (max-width:860px){
+ .hero-grid{grid-template-columns:1fr}
+ .ficha-maquina{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+ .hero{padding-right:20px;padding-left:20px}
+ .descarga{padding:22px 18px 18px}
+ .ficha-maquina{grid-template-columns:1fr}
+}
 .lavado-datos{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:40px auto 0;max-width:900px}
 .lavado-datos li{background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:10px 20px;font-size:16px;color:var(--text-2)}
 .lavado-datos b{color:var(--text);font-weight:650}

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Desarrollo · Documentación del sitio · Sopa™</title>
+<meta name="description" content="Cómo está hecha la web de Sopa: estructura, construcción, contribución, notas técnicas y qué versión publica.">
+<link rel="canonical" href="https://ardu01.github.io/sopa-web/desarrollo/">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Miguel Rodríguez Saiz">
+<meta name="theme-color" content="#F5F6F4">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Sopa">
+<meta property="og:url" content="https://ardu01.github.io/sopa-web/desarrollo/">
+<meta property="og:title" content="Desarrollo · Documentación del sitio · Sopa™">
+<meta property="og:description" content="Cómo está hecha la web de Sopa: estructura, construcción, contribución y notas técnicas.">
+<meta property="og:image" content="https://ardu01.github.io/sopa-web/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logotipo de Sopa con el lema «Tu inteligencia artificial. Tu ordenador. Tus reglas.»">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Desarrollo · Documentación del sitio · Sopa™">
+<meta name="twitter:description" content="Cómo está hecha la web de Sopa: estructura, construcción, contribución y notas técnicas.">
+<meta name="twitter:image" content="https://ardu01.github.io/sopa-web/img/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","name":"Documentación del sitio de Sopa","description":"Cómo está hecha la web estática de Sopa, cómo se contribuye y qué versión publica.","inLanguage":"es","url":"https://ardu01.github.io/sopa-web/desarrollo/","author":{"@type":"Person","name":"Miguel Rodríguez Saiz"},"isPartOf":{"@type":"WebSite","name":"Sopa","url":"https://ardu01.github.io/sopa-web/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Sopa","item":"https://ardu01.github.io/sopa-web/"},{"@type":"ListItem","position":2,"name":"Desarrollo","item":"https://ardu01.github.io/sopa-web/desarrollo/"}]}</script>
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="apple-touch-icon" href="../img/favicon-180.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="preload" href="../fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../estilos.css">
+<link rel="stylesheet" href="../guias.css">
+</head>
+<body>
+<header class="nav">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="nav-in">
+<a href="../" class="marca"><img src="../img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
+<button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir el menú"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" focusable="false"><rect class="linea l1" x="3" y="4" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l2" x="3" y="10" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l3" x="3" y="16" width="16" height="2" rx="1" fill="currentColor"/></svg></button><nav id="menu-principal" aria-label="Secciones"><a href="../#funciones">Producto</a><a href="../#agentes-20">Equipo</a><a href="../guias/">Guías</a><a href="../ayuda/">Ayuda</a><a href="../desarrollo/" aria-current="page">Desarrollo</a><a href="../#descarga">Descargar</a></nav>
+<span class="pill-dev">Sopa 2.1.0</span>
+</div>
+</header>
+<main id="contenido" tabindex="-1" class="guia">
+<nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="../">Sopa</a></li><li aria-current="page">Desarrollo</li></ol></nav>
+<article class="cont-guia">
+<p class="eyebrow">Desarrollo</p>
+<h1>Documentación del sitio</h1>
+<p class="lead">Cómo está hecha esta web. La descarga del programa está en la <a href="../#descarga">ficha del producto</a>.</p>
+<p class="autor">Por <strong>Miguel Rodríguez Saiz</strong>, creador de Sopa</p>
+<nav class="indice" aria-labelledby="indice-t"><h2 id="indice-t">En esta página</h2>
+<ol>
+<li><a href="#como-se-construye">Cómo se construye</a></li>
+<li><a href="#estructura">Estructura del sitio</a></li>
+<li><a href="#contribuir">Contribuir</a></li>
+<li><a href="#notas-tecnicas">Notas técnicas</a></li>
+<li><a href="#versiones">Versiones que publica esta web</a></li>
+</ol>
+</nav>
+
+<h2 id="como-se-construye">Cómo se construye</h2>
+<p>La web es estática: HTML, CSS y JavaScript, sin framework y sin base de datos. GitHub Pages la publica desde la rama <code>main</code>. El archivo <code>.nojekyll</code> está en la raíz para que Pages sirva los directorios tal cual.</p>
+<p>No hace falta un paso de compilación para ver el sitio. Dos scripts opcionales, en <code>package.json</code>, dejan archivos que ya se suben al repositorio:</p>
+<ul>
+<li><code>npm run empaquetar</code> junta <code>comun.css</code>, <code>guias.css</code> y <code>ayuda.css</code> en <code>bloque-ayuda.css</code>. Lo usa el centro de ayuda. Pages no ejecuta este paso.</li>
+<li><code>npm run minificar</code> genera con terser <code>app.min.js</code>, <code>js/simulador.min.js</code> y <code>ayuda/buscar.min.js</code>.</li>
+</ul>
+<p>La portada carga <code>estilos.css</code>, <code>app.min.js</code>, <code>js/menu.js</code>, <code>js/agentes.js</code> y <code>js/antes-despues.js</code>. El menú de pantallas estrechas vive en <code>js/menu.js</code> y funciona igual en el resto de páginas.</p>
+
+<h2 id="estructura">Estructura del sitio</h2>
+<p>Producto y documentación van por caminos distintos. La portada es la ficha del programa. Esta página es solo desarrollo.</p>
+<ul>
+<li><a href="../">Portada</a>: ficha de descarga (<a href="../#descarga">#descarga</a>), funciones, <a href="../#agentes-20">equipo (#agentes-20)</a>, <a href="../#lavado-de-cara">maquetas (#lavado-de-cara)</a> y <a href="../#licencia">licencia</a>.</li>
+<li><a href="../ayuda/">Ayuda</a>: instalar y usar Sopa, paso a paso.</li>
+<li><a href="../guias/">Guías</a>: IA local, en español, con las medidas citadas por máquina.</li>
+<li><a href="../simulador.html">Simulador</a>: recorrido por la interfaz de la beta 1.16.0. Lo dice en la propia página.</li>
+<li><a href="../enlazar-movil/">Cómo enlazar el móvil</a>.</li>
+<li><a href="../fallos/">Informar de un fallo</a>.</li>
+<li><code>descargas/</code>: el instalador y el zip de la versión publicada. No son páginas HTML.</li>
+<li><code>img/</code>, <code>media/</code>, <code>fonts/</code>, <code>js/</code>: imágenes, el vídeo del equipo, la fuente y los scripts.</li>
+</ul>
+
+<h2 id="contribuir">Contribuir</h2>
+<p>Sopa y esta web son software libre, con licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a>. El texto íntegro está en <a href="../LICENSE">LICENSE</a>. Copyright © 2026 Miguel Rodríguez Saiz. El aviso y los componentes de terceros están en <a href="../NOTICE">NOTICE</a>. El nombre «Sopa» y su logotipo no se licencian con este repositorio.</p>
+<p>La oferta del código fuente de la versión que se descarga en la web se pide abriendo un issue en <a href="https://github.com/ardu01/sopa-web/issues">github.com/ardu01/sopa-web/issues</a>. El detalle está en la portada, en <a href="../#codigo-fuente">#codigo-fuente</a>.</p>
+<ul>
+<li>La interfaz pública va en español.</li>
+<li>No se añaden secretos, precios ni datos personales.</li>
+<li>La descarga publicada no se cambia de número, de archivo ni de SHA-256 si no hay una release real que los sustituya.</li>
+<li>No se inventan capturas de la interfaz 2.x. Si una imagen es una maqueta, tiene que decirlo, como en <a href="../#lavado-de-cara">#lavado-de-cara</a>.</li>
+</ul>
+<p>El cuaderno de trabajo del repositorio es <a href="../TRASPASO.md">TRASPASO.md</a>.</p>
+
+<h2 id="notas-tecnicas">Notas técnicas</h2>
+<p>Cada pull request pasa dos comprobaciones, sin secretos y sin servicios de pago:</p>
+<ul>
+<li><strong>HTML válido y enlaces internos.</strong> <code>html-validate</code> (preajuste standard), <code>scripts/enlaces-internos.py</code> y axe-core (WCAG 2.0 y 2.1, niveles A y AA) en escritorio y en móvil, con <code>scripts/accesibilidad.mjs</code>. El flujo está en <code>.github/workflows/html-y-enlaces.yml</code>.</li>
+<li><strong>Enlaces externos.</strong> lychee, con las exclusiones de <code>lychee.toml</code>. El flujo está en <code>.github/workflows/enlaces-externos.yml</code>.</li>
+</ul>
+<p>La fuente de la web es Inter (SIL Open Font License 1.1), en <code>fonts/Inter-latin.woff2</code>. La web no usa cookies ni rastreadores. En la cabecera hay un enlace «Saltar al contenido», el foco del teclado es visible y, con <code>prefers-reduced-motion</code>, se quietan las animaciones.</p>
+
+<h2 id="versiones">Versiones que publica esta web</h2>
+<p>Esto es lo que la propia web afirma. No es un historial inventado.</p>
+<ul>
+<li><strong>Descarga.</strong> Sopa 2.1.0. El instalador, el zip, los tamaños y los SHA-256 están en la <a href="../#descarga">ficha</a> y en las <a href="../#notas-version">notas de la versión</a>.</li>
+<li><strong>Beta.</strong> Terminó con la 2.0.0. Lo que lleva «En pruebas» sigue en pruebas.</li>
+<li><strong>Capturas de la ficha y de la galería.</strong> Son del lavado de cara ya unido al código de Motor (cambio #143), en tema oscuro y con datos de muestra. No son una versión publicada nueva: la descarga sigue siendo Sopa 2.1.0. En <a href="../#agentes-20">#agentes-20</a>, el chat de «hasta la 1.20» sigue siendo una captura de la 1.20.0 y lo dice.</li>
+<li><strong>Maquetas.</strong> <a href="../#lavado-de-cara">#lavado-de-cara</a> está marcado «Próximamente». Lo de la derecha son maquetas, no una versión que se pueda descargar.</li>
+<li><strong>Simulador.</strong> Enseña la interfaz de la beta 1.16.0 y lo dice.</li>
+<li><strong>Equipo.</strong> <a href="../#agentes-20">#agentes-20</a> sigue en la portada, con el relato y las caras. La ilustración de las caras dice que no es una captura de la app.</li>
+</ul>
+<p>La velocidad que la portada usa como referencia está medida alrededor del 31 de octubre de 2026 en MSI_TORRE (RTX 5070, 32&nbsp;GB de RAM), con el modelo Qwen3.8 27B IQ3 (<code>Qwen3.8-27B-UD-IQ3_XXS.gguf</code>): unos 37–38&nbsp;tokens por segundo, estables. La torre lleva unas dos semanas fuera de servicio y no hay una medición posterior a la 2.1.0. La batería de tareas reales de la 2.0.0 y de la 2.1.0 salió 51/51 en verde en esa máquina y con ese modelo. El detalle está en <a href="../#rendimiento">#rendimiento</a>.</p>
+</article>
+</main>
+<footer class="cont pie">
+<nav class="pie-enlaces" aria-label="Enlaces del pie"><a href="../">Inicio</a><a href="../#licencia">Licencia</a><a href="../#agentes-20">Equipo</a><a href="../#lavado-de-cara">Próximamente</a><a href="../guias/">Guías</a><a href="../ayuda/">Ayuda</a><a href="../simulador.html">Simulador</a><a href="../desarrollo/" aria-current="page">Desarrollo</a></nav>
+<p>Copyright © 2026 Miguel Rodríguez Saiz. Sopa es software libre, con licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a> (<a href="../LICENSE">LICENSE</a>). El nombre y el logotipo de Sopa no se licencian. Qwen, Phi, Gemma, Granite, Llama, DeepSeek, Mistral y gpt-oss son marcas de sus titulares; sin afiliación.</p>
+<p>Desarrollado por ArduSolutions.</p>
+<p>Esta web no usa cookies ni rastreadores.</p>
+</footer>
+<script src="../js/menu.js" defer></script>
+</body>
+</html>
