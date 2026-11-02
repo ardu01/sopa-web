@@ -25,6 +25,15 @@
       fija.hidden = entradas[0].isIntersecting;
     }, { threshold: 0.2 });
     io.observe(ancla);
+    /* En el iPhone el cuenco va clavado a la pantalla (#29). La barra no debe tapar «Conoce al equipo». */
+    var zamb = document.querySelector('.rollo-paso[data-escena="zambullida"]');
+    if (zamb) {
+      var ioZ = new IntersectionObserver(function (entradas) {
+        var e = entradas[0];
+        fija.classList.toggle("cta-aparte", e.isIntersecting && e.intersectionRatio > 0.45);
+      }, { threshold: [0, 0.45, 0.7] });
+      ioZ.observe(zamb);
+    }
   }
 
   var video = document.getElementById("clip-visible");
