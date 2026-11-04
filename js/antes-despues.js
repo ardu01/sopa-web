@@ -6,7 +6,7 @@
     function poner() {
       var v = Number(rango.value);
       marco.style.setProperty('--pos', v + '%');
-      rango.setAttribute('aria-valuetext', v <= 2 ? 'Solo la maqueta' : v >= 98 ? 'Solo la versión de ahora' : v === 50 ? 'Mitad y mitad' : 'Ahora, ' + v + ' %; maqueta, ' + (100 - v) + ' %');
+      rango.setAttribute('aria-valuetext', v <= 2 ? 'Solo la maqueta' : v >= 98 ? 'Solo la versión hasta la 2.1.0' : v === 50 ? 'Mitad y mitad' : 'Hasta la 2.1.0, ' + v + ' %; maqueta, ' + (100 - v) + ' %');
     }
     rango.addEventListener('input', poner);
     var arrastrando = false;

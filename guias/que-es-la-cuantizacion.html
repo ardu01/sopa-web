@@ -37,7 +37,7 @@
 <a class="saltar" href="#contenido">Saltar al contenido</a><div class="nav-in">
 <a href="../" class="marca"><img src="../img/icono-64.webp" alt="" width="28" height="28">Sopa™</a>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir el menú"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" focusable="false"><rect class="linea l1" x="3" y="4" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l2" x="3" y="10" width="16" height="2" rx="1" fill="currentColor"/><rect class="linea l3" x="3" y="16" width="16" height="2" rx="1" fill="currentColor"/></svg></button><nav id="menu-principal" aria-label="Secciones"><a href="../">Producto</a><a href="../desarrollo/">Desarrollo</a></nav>
-<span class="pill-dev">Sopa 2.1.0</span></div></header>
+<span class="pill-dev">Sopa 2.2.0</span></div></header>
 <main id="contenido" tabindex="-1" class="guia">
 <nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="../">Sopa</a></li><li><a href="../guias/">Guías</a></li><li aria-current="page">Qué es la cuantización</li></ol></nav>
 <article class="cont-guia">
@@ -59,7 +59,7 @@
 <h2 id="dos-nombres">Dos nombres que verás: Q4_K e IQ3_XS</h2>
 <p>El nombre del archivo suele decir cuántos bits usa. En la tabla de tipos de Hugging Face, Q4_K es una cuantización de 4&nbsp;bits que queda en 4,5&nbsp;bits por peso. En el código de <a href="https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/quantize.cpp">llama-quantize</a>, IQ3_XS figura como una cuantización de 3,3&nbsp;bits por peso. Menos bits, archivo más pequeño. La página de llama.cpp avisa de que ese ahorro puede costar exactitud.</p>
 <h2 id="en-sopa">Qué hace Sopa con eso</h2>
-<p>Cuando entrenas un modelo en Sopa, al terminar lo exporta en formato GGUF. El catálogo no publica, en esta web, el tipo de cuantización de cada uno de los 32 modelos. El caso que sí nombra es Qwen2.5 7B (IQ3_XS): va solo en el procesador, con el proceso dentro de 4&nbsp;GiB, y no usa la gráfica. Medido en un portátil de 16&nbsp;GB con el proceso limitado a 4&nbsp;GiB: 2,5&nbsp;tokens por segundo y un máximo de 3,41&nbsp;GiB. No vale para un equipo con 4&nbsp;GB de RAM en total.</p>
+<p>Cuando entrenas un modelo en Sopa, al terminar lo exporta en formato GGUF. El catálogo no publica, en esta web, el tipo de cuantización de cada uno de los 46 modelos. El caso que sí nombra es Qwen2.5 7B (IQ3_XS): va solo en el procesador, con el proceso dentro de 4&nbsp;GiB, y no usa la gráfica. Medido en un portátil de 16&nbsp;GB con el proceso limitado a 4&nbsp;GiB: 2,5&nbsp;tokens por segundo y un máximo de 3,41&nbsp;GiB. No vale para un equipo con 4&nbsp;GB de RAM en total.</p>
 <p>Si quieres ver qué cabe en tu gráfica, la cuenta está en <a href="cuanta-vram-necesito.html">cuánta VRAM necesito</a>. El <a href="../simulador.html">simulador</a> es un recorrido por la interfaz, con respuestas de ejemplo, y no hace esa cuenta.</p>
 <section class="fuentes-guia" aria-labelledby="fuentes-t"><h2 id="fuentes-t">Fuentes</h2><ul>
 <li><a href="https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/README.md">llama.cpp, herramienta quantize</a>: de F32 o BF16 a un formato cuantizado, menos tamaño y posible pérdida de exactitud.</li>
@@ -76,7 +76,7 @@
 </article>
 </main>
 <footer class="cont pie">
-  <nav class="pie-enlaces" aria-label="Enlaces del pie"><a href="../">Inicio</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../ayuda/">Ayuda</a><a href="../simulador.html">Simulador</a><a href="../#agentes-20">Equipo</a><a href="../#lavado-de-cara">Próximamente</a><a href="../desarrollo/">Desarrollo</a></nav>
+  <nav class="pie-enlaces" aria-label="Enlaces del pie"><a href="../">Inicio</a><a href="../#licencia">Licencia</a><a href="../guias/">Guías</a><a href="../ayuda/">Ayuda</a><a href="../simulador.html">Simulador</a><a href="../#agentes-20">Equipo</a><a href="../#lavado-de-cara">Lavado de cara</a><a href="../desarrollo/">Desarrollo</a></nav>
   <p>Copyright © 2026 Miguel Rodríguez Saiz. Sopa es software libre, con licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a> (<a href="../LICENSE">LICENSE</a>). El nombre y el logotipo de Sopa no se licencian. Qwen, Phi, Gemma, Granite, Llama, DeepSeek, Mistral y gpt-oss son marcas de sus titulares; sin afiliación.</p>
   <p>Desarrollado por ArduSolutions.</p>
   <p>Esta web no usa cookies ni rastreadores.</p>
