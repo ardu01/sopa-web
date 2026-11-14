@@ -1,8 +1,20 @@
 # Traspaso
 
-Fecha: 4 de noviembre de 2026 (actualizado; el resto del texto es del 19 de octubre).
+Fecha: 14 de noviembre de 2026 (actualizado; el resto del texto es del 19 de octubre).
 
-## Último cambio (4 de noviembre de 2026): la web pasa a Sopa 2.2.0
+## Último cambio (14 de noviembre de 2026): la web pasa a Sopa 2.3.0
+
+- La web pasa a Sopa 2.3.0, la Latest de Sopa-IA-new/sopa (publicada el 13 de noviembre de 2026 a las 20:14, hora de Madrid; etiqueta v2.3.0 en `7375ff2`; no es borrador ni prerelease). El repositorio de Sopa es privado.
+  - Descargas en `descargas/`: `Sopa-2.3.0-windows-setup.exe` (73 117 926 B, 69,7 MB, SHA-256 `e9e310445e86fdfe35f187ca9925c4fdd3fbc229e0d1738dddba90e81a63fdb9`) y `Sopa-2.3.0-windows.zip` (56 704 791 B, 54,1 MB, SHA-256 `fcfe2ba4ec733d07168487b4d38950b6a6f0a21564c02a4c96fb475a3c5382e0`). Coinciden con las sumas de la Release (cuerpo de la Release y `digest` de cada archivo; esta Release no trae `SHA256SUMS.txt` como archivo aparte). Se quitaron las de la 2.2.0. El instalador sigue sin firmar. Los MB de la web son de 1 048 576 bytes, como en las versiones anteriores y como los enseña GitHub (en MB decimales serían 73,1 y 56,7).
+  - Rótulo «Sopa 2.3.0» en todas las páginas, caja de descarga, FAQ (HTML y JSON-LD), instalación (meta y HowTo), primer chat, simulador, `/desarrollo/`, README y el valor por defecto de versión en /fallos. Oferta del código fuente para la etiqueta v2.3.0; `LICENSE` idéntico al de la etiqueta.
+  - Novedades de la 2.3.0, todas «En pruebas» (Sopa Motor: nada multimedia probado en hardware real; sin cifras de velocidad ni de calidad): visión y OCR con Qwen3.5 0.8B/2B/4B/9B («Añadir visión», clip en la Sala), crear documentos (Word, Excel, PowerPoint, PDF), voz (whisper.cpp y Piper, voces de castellano de España), imágenes (Z-Image-Turbo, FLUX.2 klein 4B; «Más calidad, lento en 12 GB» con Qwen-Image y Qwen-Image-Edit-2511) y vídeo (Wan2.2 TI2V 5B, como Trabajo). También #149, #154–#158.
+  - Probado según Sopa Motor, en la torre de pruebas: compila, se instala encima de la 2.2.0, abre y conserva los datos; batería automática 1462 pruebas en verde. No se cargó ningún modelo. La web lo dice así.
+  - «Ver imágenes» ya no es «Próximamente»: se quitó la sección `#proximamente` de la portada (queda el ancla) y se cambiaron la guía de Windows, «¿Qué es una IA local?» y el primer chat. El simulador sigue enseñando la 1.16.0 y lo dice.
+  - Catálogo «sin censura» (#161/#169): la 2.3.0 trae tres modelos marcados `sin_censura`. Publicarlos es decisión de contenido de Miguel, pendiente. `js/catalogo.js` se generó desde `sopa_app/catalogo.json` de v2.3.0 (revisión 9) quitando las entradas con `sin_censura: true`: siguen los mismos 46 modelos de la 2.2.0 y solo cambia el estado de visión de Qwen3.5 0.8B/2B/4B/9B (`proximamente` → `sin_medir`). La web no los nombra en ningún sitio. Si Miguel dice que sí, regenerar sin el filtro y añadir el texto.
+  - Capturas: no hay capturas reales de la 2.3.0. Galería, ficha y `#lavado-de-cara` siguen con las del #143 y las maquetas, y ahora dicen «no está hecha con un instalador publicado».
+- Comprobaciones: `auditar.py` solo da los 2 errores antiguos; html-validate, enlaces internos (30 páginas) y axe (escritorio y móvil) pasan; simulador 36/36 contra `compatibilidad.py`, `hardware.py` y `sopa_motor/estimacion.py` de v2.3.0 y su `catalogo.json` sin las tres entradas `sin_censura` (contra el catálogo de la etiqueta sin filtrar da 3/36, porque la web no lleva esas tres entradas a propósito).
+
+## Cambio anterior (4 de noviembre de 2026): la web pasa a Sopa 2.2.0
 
 - La web pasa a Sopa 2.2.0, la Latest de Sopa-IA-new/sopa (la organización Sopa-IA ya no existe; publicada el 3 de noviembre de 2026 a las 12:30, hora de Madrid; etiqueta v2.2.0 en `66c03ab`). El repositorio de Sopa es privado.
   - Descargas en `descargas/`: `Sopa-2.2.0-windows-setup.exe` (65 030 824 B, 62,0 MB, SHA-256 `2e70ab22b027acd269f30b4ce23d75859b752766ed220935bf1d7eb9daec75ae`) y `Sopa-2.2.0-windows.zip` (48 611 560 B, 46,4 MB, SHA-256 `49e0dadea77a485086c69badf78349b4bf15cea27fb9fc9e5b9d71426fd81d53`). Coinciden con `SHA256SUMS.txt` de la Release. Se quitaron las de la 2.1.0. El instalador sigue sin firmar.

@@ -24,7 +24,7 @@ La web forma parte del ecosistema tecnológico de **Ardu Solutions**.
 **Desarrollador:** Miguel Rodríguez Saiz  
 **Organización:** Ardu Solutions  
 **Categoría:** Desarrollo Web / Inteligencia Artificial / Presentación de Producto  
-**Versión del producto presentada:** 2.2.0  
+**Versión del producto presentada:** 2.3.0  
 **Publicación:** GitHub Pages
 
 ## Acceder a la web
@@ -137,7 +137,7 @@ Entre las capacidades documentadas de SOPA se encuentran:
 - Integración con SOPA Mobile.
 - Herramientas experimentales de diseño 3D.
 
-Algunas funcionalidades de la versión 2.2.0 se encuentran identificadas como **experimentales o en pruebas**.
+Algunas funcionalidades de la versión 2.3.0 se encuentran identificadas como **experimentales o en pruebas**.
 
 La disponibilidad y el comportamiento de cada función dependen de la versión instalada, el hardware y los componentes configurados.
 
@@ -159,7 +159,7 @@ Las funcionalidades que acceden a servicios de terceros se documentan por separa
 
 ## Descargas
 
-La página oficial incorpora la distribución de **SOPA 2.2.0 para Windows de 64 bits**, mediante instalador y paquete comprimido.
+La página oficial incorpora la distribución de **SOPA 2.3.0 para Windows de 64 bits**, mediante instalador y paquete comprimido.
 
 **[Acceder a las descargas oficiales](https://ardu01.github.io/sopa-web/)**
 
